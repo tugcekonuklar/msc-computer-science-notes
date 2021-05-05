@@ -70,7 +70,7 @@ After completing this Week you should be able to:
   data from disparate databases and that facilitated more complex analytical data operations. This business challenge
   led to the development of **data warehouses**.
 
-* After NoSQl data bases came up.
+* After NoSQL databases came up.
     * A NoSQL database stores data as objects with attributes, using an object notation language such as the JavaScript
       Object Notation (JSON).
     * The advantage of using an object representation of data (in contrast to a relational table-based model) is that
