@@ -168,3 +168,55 @@ After completing this Week you should be able to:
 * Not only athletes ,data can use for fans too.
     * By understanding how fans engage with the sport or a team’s brand, decisions can be made about tailored sports
       advertising or broadcast content
+
+## Explainer: what is big data?
+
+* [Explainer: what is big data?](https://theconversation.com/explainer-what-is-big-data-13780)
+* Big Data, as the name implies, relates to very large sets of data collected through free or commercial services on the
+  internet.
+* It is impossible to remove/withdraw information from big data - information once added will persist indefinitely in
+  the cloud
+* virtually any information that is stored electronically, including information within personal devices, offline data
+  storage, even information thought to be deleted, has the potential to be included in big data.
+* Data mining is the process of analysing inter-data relationships – connecting the dots and finding hidden meanings and
+  relationships that can provide startling new insights.
+* It may be argued that the capability to fully analyse internet-scale data will be key to nations in maintaining their
+  prosperity and perhaps even security. The future may indeed rest with those with the best big data technologies.
+
+## Big data: The next frontier for innovation, competition, and productivity
+
+* [Big data: The next frontier for innovation, competition, and productivity](https://www.mckinsey.com/business-functions/mckinsey-digital/our-insights/big-data-the-next-frontier-for-innovation)
+* The amount of data in our world has been exploding, and analyzing large data sets—so-called big data—will become a key
+  basis of competition, underpinning new waves of productivity growth, innovation, and consumer surplus.
+* MGI studied big data in five domains—healthcare in the United States, the public sector in Europe, retail in the
+  United States, and manufacturing and personal-location data globally.
+
+* There are 5 ways for big data can create a value:
+    * Big data can unlock significant value by making information transparent and usable at much higher frequency.
+    * As organizations create and store more transactional data in digital form, they can collect more accurate and
+      detailed performance information on everything from product inventories to sick days, and therefore expose
+      variability and boost performance.
+    * Big data allows ever-narrower segmentation of customers and therefore much more precisely tailored products and
+      services.
+    * Sophisticated analytics can improve decision making.
+    * Bid data can used to improve the development of the next generation products and services.
+
+* The use of big data will become a key basis of competition growth for individual firms.
+* The use of big data will underpin new waves of productivity growth and consumer surplus.
+* Some sectors are set for greater gains.
+* There will be a shortage of talent necessary for organizations to take advantage of big data
+* Several issues will have to be addressed to capture the full potential of big data. Policies related to privacy,
+  security, intellectual property, and even liability will need to be addressed in a big data world.
+  
+# Describing a reasonable data science process
+
+## The CRISP-DM Process
+* Cross Industry Standard Process for Data Mining (CRISP- DM)
+* Most of companies are using this pyramid to follow. 
+* 
+
+<img src="./img/1/2.png" alt="alt text" width="500" height="300">  
+
+* The primary advantage of CRISP-DM, the main reason why it is so widely used, is that it is designed to be independent of any software, vendor, or data-analysis technique.
+
+
