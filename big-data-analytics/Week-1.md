@@ -42,51 +42,114 @@ After completing this Week you should be able to:
 
 ## Data Science
 
+### What is data science?
+
 * Data science encompasses a set of principles, problem definitions, algorithms, and processes for extracting non-
   obvious and useful patterns from large data sets.
     * Machine learning (ML) focuses on the design and evaluation of algorithms for extracting patterns from data.
         * “Machine learning” tends to be used when talking about specific algorithms used
-    * Data mining generally deals with the analysis of structured data and often implies an emphasis on commercial
-      applications.
+            * The field of ML is at the core of modern data science because it provides algorithms that are able to
+              automatically analyze large data sets to extract potentially interesting and useful patterns.
+            * ML can be seen as automated techniques for finding patterns in data
+            * Machine learning involves using a variety of advanced statistical and computing techniques to process data
+              to find patterns.
+            * GPUs have been adapted and optimized for ML use, which has contributed to large speedups in data
+              processing and model training.
+            * Data mining generally deals with the analysis of structured data and often implies an emphasis on
+              commercial applications.
     * “Data science” is an umbrella term — it includes both of the others
 * They can be used interchangeably in many practical contexts
+
 * Data science can extract different type of patterns. Some examples below:
     * Identify groups of customers exhibiting similar behavior and tastes. In business jargon, this task is known as
       **customer segmentation**, and in data science terminology it is called **clustering**
     * Identifies products that are frequently bought together, a process called **association rule mining**.
     * Identify strange or abnormal events, such as fraudulent insurance claims, a process known as **anomaly** or
       **outlier detection**.
-    * Identify classification rules as known prediction.
-        * Prediction means deriving unknown properties of an entity from its known properties
+    * Identify classification rules as known **prediction**.
+        * **Prediction** means deriving unknown properties of an entity from its known properties
+        * So it is best to think of prediction patterns as predicting the missing value of an attribute rather than as
+          predicting the future.
+* Data science becomes useful when we have a large number of data examples and when the patterns are too complex for
+  humans to discover and extract manually
+* Features or variables means attributes of the data.
+* The phrase **actionable insight** is sometimes used in this context to describe what we want the extracted patterns to
+  give us.
+    * **insight** highlights that the pattern should give us relevant information about the problem that isn’t obvious.
+    * **actionable** highlights that the insight we get should also be something that we have the capacity to use in
+      some way
 
-* If a human expert can easily create a pattern in his or her own mind, it is generally not worth the time and effort of
-  using data science to “discover” it. In general, data science becomes useful when we have a large number of data
-  examples and when the patterns are too complex for humans to discover and extract manually
-* **Big data** are often defined in terms of the three Vs: the extreme **volume** of data, the **variety** of the data
-  types, and the **velocity** at which the data must be processed.
+### Data Gathering
 
+* Transactional or operational data : Transactional data include event information such as the sale of an item, the
+  issuing of an invoice, the delivery of goods, credit card payment, insurance claims, and so on.
+* Non-transactional data: Such as demographic data, also have a long history.
 * in 1970 Edgar F. Codd published a paper about **relational data** and relational database came up.
-    * The relational data model enabled users to extract data from a database using simple queries that defined what
-      data the user wanted without requiring the user to worry about the underlying structure of the data or where they
-      were physically stored.
-    * the development of structured query language (SQL) is using.
-* In order to analyze their data, these companies needed technology that was able to bring together and reconcile the
-  data from disparate databases and that facilitated more complex analytical data operations. This business challenge
-  led to the development of **data warehouses**.
-
-* After NoSQL databases came up.
+* Relational data model: the relational data model, which was revolutionary in terms of setting out how data were (at
+  the time) stored, indexed, and retrieved from databases. The relational data model enabled users to extract data from
+  a database using simple queries that defined what data the user wanted without requiring the user to worry about the
+  underlying structure of the data or where they were physically stored.
+    * Relational databases store data in tables with a structure of one row per instance and one column per attribute.
+      This structure is ideal for storing data because it can be decomposed into natural attributes.
+    * The development of structured query language (SQL) is using.
+* Data warehouses: Data warehouses has the technology that was able to bring the data together and reconcile the data
+  from disparate databases and that facilitated more complex analytical data operations. This business challenge led to
+  the development of data warehouses.
+* Meta data: Describe the structure and properties of the raw data.
+* NoSQL databases :
     * A NoSQL database stores data as objects with attributes, using an object notation language such as the JavaScript
       Object Notation (JSON).
     * The advantage of using an object representation of data (in contrast to a relational table-based model) is that
       the set of attributes for each object is encapsulated within the object, which results in a flexible
       representation.
 
-* MapReduce framework, the data and queries are mapped onto (or distributed across) multiple servers, and the partial
-  results calculated on each server are then reduced (merged) together.
-    * Hadoop has this framework
-* Skill set for a data scientist.
+* **MapReduce** is a framework on Hadoop. In the MapReduce framework, the data and queries are mapped onto (or
+  distributed across) multiple servers, and the partial results calculated on each server are then reduced (merged)
+  together.
+
+* Big Data is often defined in terms of the three Vs:
+    * Three Vs:
+        * Volume:  the extreme volume of data
+        * Variety: the variety of the data types,
+        * Velocity: and the velocity at which the data must be processed.
+
+### History of Data analysis
+
+* The simplest form of statistical analysis of data is the summarization of a data set in terms of summary (descriptive)
+  statistics (including mea- sures of a central tendency, such as the arithmetic mean, or measures of variation, such as
+  the range).
+    * New developments in mathematics enabled statisticians to move beyond descriptive statistics and to start doing
+      statistical learning.
+
+* An engineer named William Playfair was inventing statistical graphics and laying the foundations for modern data
+  visualization and exploratory data analysis.
+    * He invented line, bar charts
+* The advantage of visualizing quantitative data is that it allows us to 12 Chapter 1 use our powerful visual abilities
+  to summarize, compare, and interpret data.
+* t-distributed stochastic neighbor embedding (t-SNE) algorithm is a useful technique for reducing high-dimensional data
+  down to two or three dimensions.
+* Maximum likelihood estimate ia a method to draw conclusions based on the relative probability of events
+* After the 1940s things started to move faster from the discovery of pattern recognition, neural networks, first steps
+  of Machine Learning and then moved onto deep-learning neural networks and ensemble models in our times. Deep-Learning
+  refers to a family of Neural Nets with multiple layers.
+* The Knowledge Discovery in Databases (KDD), explains the required multidisciplinary approach to analyse large
+  databases.
+* The terms knowledge discovery in databases and data mining describe the same concept, the distinction being that data
+  mining is more prevalent in the business communities and KDD more prevalent in academic communities.
+* Breiman’s distinction between a statistical focus on models that explain the data versus an algorithmic focus on
+  models that can accurately predict the data highlights a core difference between statisticians and ML researchers
+* Today most data science projects are more aligned with the ML approach of build- ing accurate prediction models and
+  less concerned with the statistical focus on explaining the data.
+
+* **Skill set for a data scientist**.
+    * Data scientists should have some domain expertise
     * Desirable skills: Machine learning, Communication ,Computer science ,Expertise in the application domain of the
       project , Working within the applicable ethical and legal codes
+* Data Scientist needs to use HPC technologies.
+    * High-performance computing (HPC) involves aggregating computing power to deliver higher performance than one can
+      get from a standalone computer.
+* computer science skills are also required to be able to understand and develop the ML models and integrate them into
+  the production or analytic or back-end applications in an organization.
 
 <img src="./img/1/1.png" alt="alt text" width="500" height="300">
 
@@ -100,6 +163,61 @@ After completing this Week you should be able to:
 
 * Why have increases in networked app use stimulated
     * The volume of amount and variety of available data has increased
+
+### Where Is Data Science Used?
+
+* Data science drives decision making in nearly all parts of modern societies.
+* Cases to show impact of ata science:
+    * consumer companies using data science for sales and marketing;
+        * The equivalent of up-selling and cross-selling in the online world is the “recommender system.”
+    * governments using data science to improve health, criminal justice, and urban planning;
+    * professional sporting franchises using data science in player recruitment.
+
+#### Sales and marketing
+
+* By tracking the past customers activities, behavior, analyzing social media trends, analyzing credit card activity
+  they are using to recommend some product to customers.
+* The equivalent of up-selling and cross-selling in the online world is the “recommender system.”
+* Chris Anderson’s book The Long Tail (2008) argues that as pro- duction and distribution get less expensive, markets
+  shift from selling large amounts of a small number of hit items to selling smaller amounts of a larger number of niche
+  items.
+
+#### Governments using data science
+
+* Governments have recognized the advantages of adopting data science and uses it in different areas from
+  health/targetted drop development to track, analyze & control environmental, energy, and transport systems and to
+  inform long-term urban planning.
+* Data science is also being used to predict crime hot spots and recidivism.
+
+#### Data science in professional sports
+
+* The MoneyBall movie tells the true story of how the Oakland A’s baseball team used data science to improve its player
+  recruitment.
+* The Moneyball story is a very clear example of how data science can give an organization an advantage in a competitive
+  market space. However, from a pure data science perspective perhaps the most important aspect of the moneyball story
+  is that it highlights that sometimes the primary value of data science is the **identification of informative
+  attributes**.
+
+### Myths about Data Science
+
+* One of the big- gest myths is the belief that data science is an autonomous process that we can let loose on our data
+  to find the answers to our problems.
+    * In reality, data science requires skilled human oversight throughout the different stages of the process. Humans
+      analysts are needed to frame the problem, to design and prepare the data, to select which ML algorithms are most
+      appropriate, to critically interpret the results of the analysis, and to plan the appropriate action to take based
+      on the insight(s) the analysis has revealed.
+* The second big myth of data science is that every data science project needs big data and needs to use deep learning.
+    * In general, having more data helps, but having the right data is the more important requirement.
+* A third data science myth is that modern data science software is easy to use, and so data science is easy to do.
+    * The danger with data science is that people can be intimidated by the technology and believe whatever results the
+      soft- ware presents to them. They may, however, have unwittingly framed the problem in the wrong way, entered the
+      wrong data, or used analysis techniques with inappropriate assumptions.
+    * Data science properly requires both appropriate domain knowledge and the expertise regarding the properties of the
+      data and the assumptions underpin- ning the different ML algorithms.
+* The last myth about data science we want to mention here is the belief that data science pays for itself quickly.
+    * Depends on the context of the organization.
+    * data science will not give positive results on every project. Sometimes there is no hidden gem of insight in the
+      data,and sometimes the organization is not in a position to act on the insight the analysis has revealed.
 
 # Possible uses of data science
 
@@ -221,4 +339,75 @@ After completing this Week you should be able to:
 * The primary advantage of CRISP-DM, the main reason why it is so widely used, is that it is designed to be independent
   of any software, vendor, or data-analysis technique.
 
+=============
+
+# Group Lesson
+
+* Standard attribute types:
+    * **Numeric** : Numeric attributes describe measurable quantities that are repre- sented using integer or real
+      values. Numeric attributes can be measured on either an interval scale or a ratio scale.
+
+    * **Nominal**: Nominal (also known as categorical) attributes take values from a finite set. These values are
+      names (
+      hence “nominal”) for categories, classes, or states of things. Ex- amples of nominal attributes include marital
+      status (sin- gle, married, divorced) and beer type (ale, pale ale, pils, porter, stout, etc.). A binary attribute
+      is a special case of a nominal attribute where the set of possible values is re- stricted to just two values
+    * **Ordinal** : Ordinal attributes are similar to nominal attributes, with the difference that it is possible to
+      apply a rank order over the categories of ordinal attributes. For example, an at- tribute describing the response
+      to a survey question might take values from the domain “strongly dislike, dislike, neu- tral, like, and strongly
+      like.” There is a natural ordering over these values from “strongly dislike” to “strongly like” (or vice versa
+      depending on the convention being used). How- ever, an important feature of ordinal data is that there is no
+      notion of equal distance between these values. For ex- ample, the cognitive distance between “dislike” and “neu-
+      tral” may be different from the distance between “like” and “strongly like.” As a result, it is not appropriate to
+      apply arithmetic operations (such as averaging) on ordinal at- tributes. I
+* **Structured data** : Structured data are data that can be stored in a table, and every instance in the table has the
+  same structure (i.e., set of attributes). As an example, consider the demographic data for a population, where each
+  row in the table describes one person and consists of the same set of demographic attributes (name, age, date of
+  birth, address, gender, education level, job status, etc.). Structured data can be easily stored, organized, searched,
+  reordered, and merged with other structured data. It is relatively easy to apply data science to structured data be-
+  cause, by definition, it is already in a format that is suit- able for integration into an analytics record.
+* **Unstructured data** : Unstructured data are data where each instance in the data set may have its own internal
+  structure, and this structure is not necessarily the same in every instance. For example, imagine a data set of
+  webpages, with each webpage having a struc- ture but this structure differing from one webpage to an- other.
+  Unstructured data are much more common than structured data. For example, collections of human text (emails, tweets,
+  text messages, posts, novels, etc.) can be considered unstructured data, as can collections of sound, image, music,
+  video, and multimedia files. The variation in the structure between the different elements means that it is difficult
+  to analyze unstructured data in its raw form. We can often extract structured data from unstructured data using
+  techniques from artificial intelligence (such as natural-language processing and ML), digital signal pro- cessing, and
+  computer vision. However, implementing and testing these data-transformation processes is expen- sive and
+  time-consuming and can add significant financial overhead and time delays to a data science project.
+* There are generally two terms for gathered raw data: captured data and exhaust data (Kitchin 2014a)
+    * Captured data : Captured data are collected through a direct measurement or obser- vation that is designed to
+      gather the data. For example, the primary purpose of surveys and experiments is to gather specific data on a
+      particular topic of interest.
+
+    * Exhaust data : Exhaust data are a by-product of a process whose primary purpose is something other than data
+      capture. For example, the primary purpose of many social media technologies is to enable users to connect with
+      other peo- ple. However, for every image shared, blog posted, tweet retweeted, or post liked, a range of exhaust
+      data is gener- ated: who shared, who viewed, what device was used, what time of day, which device was used, how
+      many people viewed/liked/retweeted, and so on. Similarly, the primary purpose of the Amazon website is to enable
+      users to make purchases from the site. However, each purchase gener- ates volumes of exhaust data: what items the
+      user put into her basket, how long she stayed on the site, what other items she viewed, and so on.
+* Metadata : One of the most common types of exhaust data is metadata—that is, data that describe other data.
+
+
+* Input
+    * Concept
+    * Concept description
+    * Instance
+    * Attribute
+
+* classification learning - supervised
+* association learning
+* numeric prediction
+
+## Questioning Data
+
+## Structure of Data
+
+## Data Science
+
+## Using Statistics
+
+## Data Validity and Privacy
 
