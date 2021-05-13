@@ -51,11 +51,11 @@ After completing this Week you should be able to:
     * “Data science” is an umbrella term — it includes both of the others
 * They can be used interchangeably in many practical contexts
 * Data science can extract different type of patterns. Some examples below:
-    * Identify groups of customers exhibiting similar behavior and tastes. In business jargon, this task is known as **
-      customer segmentation**, and in data science terminology it is called **clustering**
+    * Identify groups of customers exhibiting similar behavior and tastes. In business jargon, this task is known as
+      **customer segmentation**, and in data science terminology it is called **clustering**
     * Identifies products that are frequently bought together, a process called **association rule mining**.
-    * Identify strange or abnormal events, such as fraudulent insurance claims, a process known as **anomaly** or **
-      outlier detection**.
+    * Identify strange or abnormal events, such as fraudulent insurance claims, a process known as **anomaly** or
+      **outlier detection**.
     * Identify classification rules as known prediction.
         * Prediction means deriving unknown properties of an entity from its known properties
 
@@ -207,16 +207,18 @@ After completing this Week you should be able to:
 * There will be a shortage of talent necessary for organizations to take advantage of big data
 * Several issues will have to be addressed to capture the full potential of big data. Policies related to privacy,
   security, intellectual property, and even liability will need to be addressed in a big data world.
-  
+
 # Describing a reasonable data science process
 
 ## The CRISP-DM Process
+
 * Cross Industry Standard Process for Data Mining (CRISP- DM)
-* Most of companies are using this pyramid to follow. 
-* 
+* Most of companies are using this pyramid to follow.
+*
 
 <img src="./img/1/2.png" alt="alt text" width="500" height="300">  
 
-* The primary advantage of CRISP-DM, the main reason why it is so widely used, is that it is designed to be independent of any software, vendor, or data-analysis technique.
+* The primary advantage of CRISP-DM, the main reason why it is so widely used, is that it is designed to be independent
+  of any software, vendor, or data-analysis technique.
 
 
