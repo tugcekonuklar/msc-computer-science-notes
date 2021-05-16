@@ -828,3 +828,4 @@ After completing this Week you should be able to:
     * 1.8.1 Activity -> Diez 1.1-1.8 do it.
     * 1.8.3 Activity -> Diez 2.1-2.1.8 fo it
     * 1.8.4 Activity 
+    * 1.9.1 Discussion
