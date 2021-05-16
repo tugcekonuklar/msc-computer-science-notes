@@ -486,7 +486,7 @@ After completing this Week you should be able to:
   cleaning up & reshaping etc, building training sets, mining data for patterns and refining algorithms 16% and 5% for
   other tasks.
 
-<img src="./img/1/4.png" alt="alt text" width="500" height="300">
+<img src="./img/1/4.png" alt="alt text" width="500" height="500">
 
 # Describe the way data is structured in analytics
 
@@ -717,10 +717,10 @@ After completing this Week you should be able to:
     * in a short desc, The variance is the average squared distance from the mean.
     * We divide by n − 1, rather than dividing by n, when computing a sample’s variance; there’s some mathematical
       nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful
-      <img src="./img/1/15.png" alt="alt text" width="500" height="300"><br>
+      <img src="./img/1/15.png" alt="alt text" width="200" height="200"><br>
 
-* **Standard deviation** is defined as the square root of the
-  variance: <img src="./img/1/17.png" alt="alt text" width="200" height="200"><br>
+* **Standard deviation** is defined as the square root of the variance:
+  <img src="./img/1/17.png" alt="alt text" width="100" height="100"><br>
     * The standard deviation is the square root of the variance.
     * The standard deviation is useful when considering how far the data are distributed from the mean.
     * Deviations does two things:
