@@ -686,7 +686,7 @@ After completing this Week you should be able to:
     * The **mean**, often called the **average**, is a common way to measure the center of a **distribution** of data.
         * The mean is useful because it allows us to rescale or standardize a metric into something more easily
           interpretable and comparable
-        * <img src="./img/1/12.png" alt="alt text" width="500" height="300">
+          <img src="./img/1/12.png" alt="alt text" width="500" height="300">
 
 <img src="./img/1/10.png" alt="alt text" width="500" height="300">
 <img src="./img/1/11.png" alt="alt text" width="500" height="300">
@@ -717,7 +717,7 @@ After completing this Week you should be able to:
     * in a short desc, The variance is the average squared distance from the mean.
     * We divide by n − 1, rather than dividing by n, when computing a sample’s variance; there’s some mathematical
       nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful
-      
+
 <img src="./img/1/15.png" alt="alt text" width="250" height="200"><br>
 
 * **Standard deviation** is defined as the square root of the variance:
