@@ -829,3 +829,4 @@ After completing this Week you should be able to:
     * 1.8.3 Activity -> Diez 2.1-2.1.8 fo it
     * 1.8.4 Activity 
     * 1.9.1 Discussion
+    * Week 1: Activity Forum: https://onlinestudy.york.ac.uk/courses/577/discussion_topics/19736?module_item_id=48187
