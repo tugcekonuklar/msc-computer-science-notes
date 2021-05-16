@@ -717,10 +717,11 @@ After completing this Week you should be able to:
     * in a short desc, The variance is the average squared distance from the mean.
     * We divide by n − 1, rather than dividing by n, when computing a sample’s variance; there’s some mathematical
       nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful
-      <img src="./img/1/15.png" alt="alt text" width="200" height="200"><br>
+      
+<img src="./img/1/15.png" alt="alt text" width="250" height="200"><br>
 
 * **Standard deviation** is defined as the square root of the variance:
-  <img src="./img/1/17.png" alt="alt text" width="100" height="100"><br>
+  <img src="./img/1/17.png" alt="alt text" width="50" height="50"><br>
     * The standard deviation is the square root of the variance.
     * The standard deviation is useful when considering how far the data are distributed from the mean.
     * Deviations does two things:
