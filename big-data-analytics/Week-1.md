@@ -721,7 +721,7 @@ After completing this Week you should be able to:
 <img src="./img/1/15.png" alt="alt text" width="250" height="200"><br>
 
 * **Standard deviation** is defined as the square root of the variance:
-  <img src="./img/1/17.png" alt="alt text" width="50" height="50"><br>
+  <img src="./img/1/17.png" alt="alt text" width="100" height="70"><br>
     * The standard deviation is the square root of the variance.
     * The standard deviation is useful when considering how far the data are distributed from the mean.
     * Deviations does two things:
