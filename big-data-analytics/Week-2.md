@@ -63,9 +63,9 @@
       “intention” or “purpose,” are fraught with difficulty.
 
 * DATA MINING
-    * Data mining is a practical topic and involves learning in a practical, not a theoretical, sense. We are
-      interested in techniques for finding patterns in data, patterns that provide insight or enable fast and accurate
-      decision making.
+    * Data mining is a practical topic and involves learning in a practical, not a theoretical, sense. We are interested
+      in techniques for finding patterns in data, patterns that provide insight or enable fast and accurate decision
+      making.
     * Many learning techniques look for structural descriptions of what is learned, descriptions that can become fairly
       complex and are typically expressed as sets of rules such as the ones described previously or the decision trees
     * Experience shows that in many applications of machine learning to data mining, the explicit knowledge structures
@@ -120,8 +120,8 @@
       diseases.
     * These rules nicely illustrate the potential role of prior knowledge—often called domain knowledge—in machine
       learning, for in fact the only difference between the two descriptions is leaf condition is normal versus leaf
-      malformation is absent. Now, in this domain, if the leaf condition is normal then leaf malformation is
-      necessarily absent, so one of these conditions happens to be a special case of the other
+      malformation is absent. Now, in this domain, if the leaf condition is normal then leaf malformation is necessarily
+      absent, so one of these conditions happens to be a special case of the other
 
 ## FIELDED APPLICATIONS
 
@@ -265,3 +265,286 @@
     * Each of these groups of similar rows defines a cluster of similar instances.
 * The simple idea of looking for clusters of similar rows is very powerful and has applications across many areas of
   life. Another application of clustering rows is making product recommendations to customers.
+
+# Standard Data Science Tasks
+
+* Most data science projects can be classified as belonging to one of four general classes of task:
+    * Clustering (or segmentation)
+    * Anomaly (or outlier) detection
+    * Association-rule mining
+    * Prediction (including the subproblems of classification and regression)
+* Understanding which task a project is targeting can help with many project decisions
+    * For example, training a prediction model requires that each of the instances in the data set include the value of
+      the target attribute.
+
+* Understanding the task also informs which ML algorithm(s) to use.
+* There are a large number of ML algorithms, each algorithm is designed for a particular datamining task
+    * For example, ML algorithms that generate decision-tree models are designed primarily for prediction tasks
+
+* There is a many-to-one relationship between ML algorithms and a task, so knowing the task doesn’t tell you exactly
+  which algorithm to use, but it does define a set of algorithms that are designed for the task.
+    * Because the data science task affects both the data set design and the selection of ML algorithms, the decision
+      regarding which task the project will target has to be made early on in the project life cycle, ideally during the
+      business-understanding phase of the CRISP-DM life cycle
+
+## Clustering (Who Are Our Customers?)
+
+* Designing a targeted marketing campaign requires an understanding of the target customer.
+* A good approach is to try to identify a number of customer personas or customer profiles, each of which relates to a
+  significant segment of the customer base, and then to design targeted marketing campaigns for each persona
+
+* Human intuition about customers can often miss important nonobvious segments or not provide the level of granularity
+  that is required for nuanced marketing.
+
+* The standard data science approach to the persona type of analysis is to frame the problem as a **clustering task**.
+* Clustering involves sorting the instances in a data set into subgroups containing similar instances.
+    * Usually clustering requires an analyst to **first decide on the number of subgroups** she would like identified in
+      the data. This decision may be based on domain knowledge or informed by project goals.
+    * A clustering algorithm is then **run on the data with the desired number of subgroups input** as one of the
+      algorithms parameters.
+    * The algorithm then **creates that number of subgroups by grouping instances based on the similarity of their
+      attribute values.**
+    * Once the algorithm has created the clusters, a human domain expert reviews the clusters to interpret whether they
+      are meaningful.
+
+* one of the biggest challenges with clustering is to decide which attributes to include and which to exclude so as to
+  get the best results.
+    * Making this decision on attribute selection will involve iterations of experiments and human analysis of the
+      results of each iteration
+
+* The **best-known ML algorithm for clustering** is the **k-means algorithm.**
+    * The k in the name signals that the algorithm looks for k clusters in the data.
+    * The k-means algorithm assumes that all the attributes describing the customers in the data set are numeric. If the
+      data set contains nonnumeric attributes, then these attributes need to be mapped to numeric values in order to use
+      k-means, or the algorithm will need to be amended to handle these nonnumeric values.
+* The goal of the k-mean algorithm is to find the position of each cluster’s center in the point cloud.
+* The k-means algorithm begins by selecting k instances to act as initial cluster centers.
+    * Current best practice is to use an algorithm called “**k-means++**” to select the initial cluster centers.
+    * The rationale behind k-means++ is that it is a good idea to spread out the initial cluster centers as much as
+      possible. So in k-means++ the first cluster center is set by randomly selecting one of the instances in the data
+      set.
+        * The second and subsequent cluster centers are set by selecting an instance from the data set with the
+          probability that an instance selected is proportional to the squared distance from the closest existing
+          cluster center.
+
+    * Once all k cluster centers have been initialized, the algorithm works by iterating through a two-step process:
+        * first, assigning each instance to the nearest cluster center,
+        * updating the cluster center to be in the middle of the instances assigned to it
+        * The instances are then reassigned, again to the closest updated cluster center.
+        * This process of instance assignment and center updating continues until no instances are assigned to a new
+          cluster center during an iteration.
+* The k-means algorithm is nondeterministic, meaning that different starting positions for the cluster centers will
+  likely produce different clusters.
+* the algorithm is typically run several times, and the results of these different runs are then compared to see which
+  clusters appear most sensible given the data scientist’s domain knowledge and understanding.
+* Each cluster center defines a different customer persona, with the persona description generated from the attribute
+  values of the associated cluster center
+* The k-means algorithm is not required to return equal-size clusters, and, in fact, it is likely to return
+  different-size clusters.
+* One of the advantages of clustering as an analytics approach is that it can be applied to most types of data
+    * Because of its versatility, clustering is often used as a dataexploration tool during the data-understanding stage
+      of many data science projects.
+    * Also, clustering is also useful across a wide range of domains.
+
+## Anomaly Detection or outlier analysis (Is This Fraud?)
+
+* Anomaly detection or outlier analysis involves searching for and identifying instances that do not conform to the
+  typical data in a data set.
+
+* These nonconforming cases are often referred to as **anomalies or outliers**.
+* Anomaly detection is often used in analyzing financial transactions in order to identify potential fraudulent
+  activities and to trigger investigations
+
+* The first approach that most companies typically use for anomaly detection is to manually define a number of rules
+  based on domain expertise that help with identifying anomalous events.
+    * This rule set is often defined in SQL or in another language and is run against the data in the business databases
+      or data warehouse
+    * SQL now includes a MATCH_RECOGNIZE function to facilitate pattern matching in data.
+    * The MATCH_RECOGNIZE function in SQL enables database programmers to write scripts that identify sequences of
+      transactions on a credit card that fit this pattern and either block the card automatically or trigger a warning
+      to the credit-card company.
+
+* The **main drawback** with a rule-based approach to anomaly detection is that defining rules in this way means that
+  anomalous events can be identified only after they have occurred and have come to the company’s attention
+
+* In some ways, anomaly detection is the opposite of clustering:
+    * **the goal of clustering** is to identify **groups of similar instances,** whereas the **goal of anomaly** **that
+      are dissimilar to the rest of the data in the data set.**
+
+* **Clustering can also be used** to automatically identify anomalies. There are two approaches to using clustering for
+  anomaly detection.
+    * The first is that the normal data will be clustered together, and the anomalous records will be in separate
+      clusters.
+    * The second approach is to measure the distance between each instance and the center of the cluster. The farther
+      away the instance is from the center of the cluster, the more likely it is to be anomalous and thus to need
+      investigation.
+
+* Another approach to anomaly detection is to **train a prediction model**, such as a decision tree, to classify in-
+  stances as anomalous or not.
+    * However, training such a model normally requires a training data set that contains both anomalous records and
+      normal records
+    * Ideally, the data set should be balanced; in a binary-outcome case, balance would imply a 50:50 split in the data.
+      In general, acquiring this type of training data for anomaly detection is not feasible: by definition, anomalies
+      are rare events, occurring maybe in 1 to 2 percent or less of the data.
+    * This data constraint precludes the use of normal, off-the-shelf prediction models.
+
+* There are ML algorithms known as **one-class classifiers** that are designed to deal with the type of imbalanced data
+  that are typical of anomaly-detection data sets.
+    * The **one-class support-vector machine (SVM)** algorithm is a well-known **one-class classifier**.
+        * In general terms, the one-class SVM algorithm examines the data as one unit (i.e., a single class) and
+          identifies the core characteristics and expected behavior of the instances.
+        * The algorithm will then indicate how similar or dissimilar each instance is from the core characteristics and
+          expected behavior.
+        * The more dissimilar an instance is, the more likely that it should be investigated.
+
+* The fact that anomalies are rare means that they can be easy to miss and difficult to identify.
+    * As a result, data scientists often combine a number of different models to detect anomalies.
+    * The idea is that different models will capture different types of anomalies.
+    * The different models are integrated together into a decision-management solution that enables the predictions from
+      each of the models to feed into a decision of the final predicted outcome
+    * For example if three or four out of the four models have identified the transaction as possible fraud, then the
+      transaction would be flagged for a data scientist to investigate.
+
+## Association-Rule Mining (Do You Want Fries with That?)
+
+* Association-rule mining is an unsupervised-data-analysis technique that looks to find groups of items that fre-
+  quently co-occur together.
+    * The classic case of association mining is market-basket analysis, wherein retail companies try to identify sets of
+      items that are purchased together, such as hot dogs, ketchup, and beer
+
+* Unlike clustering and anomaly detection, which focus on identifying similarities or differences between instances (or
+  rows) in a data set, association-rule mining focuses on looking at relationships between attributes (or columns) in a
+  data set.
+
+* Using association-rule mining, a business can start to answer questions about its customers’ behaviors by looking for
+  patterns that may exist in the data.
+    * Questions that market-basket analysis can be used to answer include: Did a marketing campaign work? Have this
+      customer’s buying patterns changed?
+
+* **The Apriori algorithm is the main algorithm** used to produce the association rules. It has a two-step process:
+    * Find all combinations of items in a set of transactions that occur with a specified minimum frequency. These
+      combinations are called **frequent itemsets.**
+    * Generate rules that express the probable co-occurrence of items within frequent itemsets. The Apriori algorithm
+      calculates the probability of an item being present in a frequent itemset given that another item or items are
+      present.
+
+* The Apriori algorithm generates association rules that express **probabilistic relationships between items in fre-
+  quent itemsets**. An association rule is of the form **“IF antecedent, THEN consequent.”**
+    * IF {hot-dogs, ketchup}, THEN {beer}.
+
+* **Two main statistical measures** are linked with association rules: **support and confidence**.
+    * The **support** percentage of an association rule—or the ratio of transactions that include both the antecedent
+      and consequent to the total number of transactions—indicates how frequently the items in the rule occur together.
+    * The **confidence** percentage of an association rule—or the ratio of the number of transactions that include both
+      the antecedent and consequent to the number of transactions that includes the antecedent—is the conditional
+      probability that the consequent will occur given the occurrence of the antecedent.
+        * for example, a confidence of 75 percent for the association rule relating hot dogs and ketchup with beer would
+          indicate that in 75 percent of cases where customers purchased both hot dogs and ketchup, they also purchased
+          beer. The support score of a rule simply records the percentage of baskets in the data set where the rule
+          holds. For example, a support of 5 percent indicates that 5 percent of all the baskets in the data set contain
+          all three items in the rule “hot dogs, ketchup, and beer.”
+
+* In order to control the complexity of the analysis of these rules, it is usual to prune the generated rule set to
+  include only rules that have both a high support and a high confidence
+    * Once the rule set has been pruned, the data scientist can then analyze the remaining rules to understand what
+      products are associated with each other and apply this new information in the organization.
+
+* Including this demographic information in the association analysis enables the analysis to be focused on particular
+  demographics, which can further help marketing and targeted advertising.
+    * An example of an association rule augmented with demographic information might be
+        * IF gender(male) and age(< 35) and {hot-dogs, ketchup}, THEN {beer}. {Support = 2%, Confidence = 90%.}
+
+## Classification (Churn or No Churn, That Is the Question)
+
+* The term propensity modeling is used to describe this task because the goal is to model an individual’s propensity to
+  do something
+* In fact, it is estimated that it generally costs five to six times more to attract a new customer than it does to
+  retain an established one (Verbeke et al. 2011). As a result, many cell phone service companies are very keen to
+  retain their current customers.
+* The term **customer churn** is used to describe the process of customers leaving one service and joining another.
+    * So the problem of predicting which customers are likely to leave in the near future is known as **churn
+      prediction.** **This is a prediction task**
+
+* When a prediction model returns a label or category for an input, it is known as a **classification model**.
+* Training a classification model requires historic data, where each instance is labeled to indicate whether the target
+  event has happened for that instance.
+    * For example, customerchurn classification requires a data set in which each customer (one row per customer) is
+      assigned a label indicating whether he or she has churned.
+* The data set will include an attribute, known as the **target attribute**, that lists this label for each customer.
+
+* Once the churn event has been defined from a business perspective, it is then necessary to implement this definition
+  in code in order to assign a target label to each customer in the data set.
+
+* Another complicating factor in constructing the training data set for a churn-prediction model is that time lags need
+  to be taken into account.
+    * The goal of churn prediction is to model the propensity (or likelihood) that a customer will churn at some point
+      in the future.
+        * As a consequence, this type of model has a temporal dimension that needs to be considered during the creation
+          of the data set.
+
+    * The set of attributes in a propensity-model data set are drawn from two separate time periods: the **observation
+      period** and the **outcome period.**
+        * The **observation period** is when the values of the input attributes are calculated.
+        * The **outcome period** is when the target attribute is calculated.
+
+    * The length of this period is the length of the outcome period, and the prediction that the churn model returns is
+      actually that a customer will churn within this outcome period.
+    * Defining the outcome period affects what data should be used as input to the model.
+        * If the model is designed to predict that a customer will churn within two months from the day the model is run
+          on that customer’s record, then when the model is being trained, the input attributes that describe the
+          historic customers who have already churned should be calculated using only the data that were available about
+          those customers two months prior to their leaving the service.
+
+* Nearly all customer-propensity models will use attributes describing the customer’s demographic information as input:
+  age, gender, occupation, and so on.
+    * In scenarios relating to an ongoing service, they are also likely to include attributes describing the customer’s
+      position in the customer life cycle: coming on board, standing still midcycle, approaching end of a contract.
+      There are also likely to be attributes that are specific to the industry.
+
+* Once a labeled data set has been created, the major stage in creating a classification model is to use an ML algo-
+  rithm to build the classification model.
+    * During modeling, it is good practice to experiment with a number of different ML algorithms to find out which
+      algorithm works best on the data set.
+    * Once the final model has been selected, the likely accuracy of the predictions of this model on new instances is
+      estimated by testing it on a subset of the data set that was not used during the model-training phase.
+    * If a model is deemed accurate enough and suitable for the business need, the model is then deployed and applied to
+      new data either in a batch process or in real time.
+* A really important part of deploying the model is ensuring that the appropriate business processes and resources are
+  put in place so that the model is used effectively.
+  *There is no point in creating a customer-churn model unless there is a process whereby the model’s predictions result
+  in triggering customer interventions so that the business retains customers.
+
+* In addition to predicting the classification label, prediction models can also give a measure of how confident the
+  model is in the prediction. This measure is called the **prediction probability** and will have a value between 0 and
+    1.
+
+    * The higher the value, the more likely the prediction is correct
+    * The prediction-probability value can be used to prioritize which customers to focus on.
+
+## Regression (How Much Will It Cost?)
+
+* Price prediction is the task of estimating the price that a product will cost at a particular point in time.
+* The accuracy of a price-prediction model is domain dependent.
+* The fact that price prediction involves estimating the value of a continuous attribute means that it is treated as
+  a **regression problem**
+* A regression problem is structurally very similar to a classification problem; in both cases, the data science
+  solution involves building a model that can predict the missing value of an attribute given a set of input attributes.
+    * The only difference is that classification involves estimating the value of a categorical attribute and regression
+      involves estimating the value of a continuous attribute.
+
+* Regression analysis requires a data set where the value of the target attribute for each of the historic instances is
+  listed.
+* The basic structure of a regression model for price prediction is the same no matter what product it is applied to;
+  all that varies are the name and number of the attributes.
+    * For example, to predict the price of a house, the input would include attributes such as the size of the house,
+      the number of rooms, the number of floors, the average house price in the area, the average house size in the
+      area, and so on.
+    * In each case, given the appropriate data, the regression algorithm works out how each of the attributes
+      contributes to the final price.
+
+* The application example of using a regression model for price prediction is illustrative only of the type of problem
+  that it is appropriate to frame as a regression-modeling task.
+
+* Regression prediction can be used in a wide variety of other real-world problems.
+    * Typical regression-prediction problems include calculating profit, value and volume of sales, sizes, demand,
+      distances, and dosage.
