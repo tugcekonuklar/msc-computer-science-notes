@@ -450,22 +450,38 @@ After completing this Week you should be able to:
 <img src="./img/1/2.png" alt="alt text" width="500" height="300">
 
 * CRISP-DM lifecycle consists of 6 stages:
-    * Business understanding,
+    * Business understanding
+        * investigating the business objectives and requirements, deciding whether data mining can be applied to meet
+          them, and determining what kind of data can be collected to build a deployable model.
     * Data understanding
         * In the fist 2 steps, the data scientist is trying to define the goals of the project by understanding the
           business needs and the data that the business has available to it.
         * The process typically involves identifying a business problem and then exploring if the appropriate data are
           available to develop a data-driven solution to the problem
+        * an initial dataset is established and studied to see whether it is suitable for further processing. If the
+          data quality is poor, it may be necessary to collect new data based on more stringent criteria.
     * Data preparation
         * The focus of the data-preparation stage is the creation of a data set that can be used for the data analysis
         * This involves creating the data set by integrating data from different sources, also identifying outliers and
           missing values and cleaning data.
+        * Preparation involves preprocessing the raw data so that machine learning algorithms can produce a
+          model—ideally, a structural description of the information that is implicit in the data.
     * Modeling
         * This is the stage where automatic algorithms are used to extract useful patterns from the data and to create
           models that encode these patterns. ML is using for it.
         * the initial model test results will uncover problems in the data. This can help to investigate the data errors
           in first hand for data science and they can revisit data again and fix.
+        * Preprocessing may include model building activities as well, because many preprocessing tools build an
+          internal model of the data to transform it. In fact, data preparation and modeling usually go hand in hand. It
+          is almost always necessary to iterate: results obtained during modeling provide new insights that affect the
+          choice of preprocessing techniques.
     * Evaluation
+        * Do the structural descriptions inferred from the data have any predictive value, or do they simply reflect
+          spurious regularities?
+        * If the evaluation step shows that the model is poor, you may need to reconsider the entire project and return
+          to the business understanding step to identify more fruitful business objectives or avenues for data
+          collection. If, on the other hand, the model’s accuracy is sufficiently high, the next step is to deploy it in
+          practice.
     * Deployment
         * These 2 process are focused on how the models fit the business and its processes.
         * The evaluation phase involves assessing the models in the broader context defined by the business needs. This
