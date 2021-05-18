@@ -63,7 +63,7 @@
       “intention” or “purpose,” are fraught with difficulty.
 
 * DATA MINING
-    * Data mining is a practical topic and involves learning in a practical, not a theoret- ical, sense. We are
+    * Data mining is a practical topic and involves learning in a practical, not a theoretical, sense. We are
       interested in techniques for finding patterns in data, patterns that provide insight or enable fast and accurate
       decision making.
     * Many learning techniques look for structural descriptions of what is learned, descriptions that can become fairly
@@ -77,8 +77,8 @@
     * In general, examples in a dataset are characterized by the values of features, or attributes, that measure
       different aspects of the example
     * A set of rules that are intended to be interpreted in sequence is called a decision list. Interpreted as a
-      decision list, the rules correctly classify all of the examples in the table, whereas taken indi- vidually,
-    * n the slightly more complex form shown in Table 1.3, two of the attri- butes—temperature and humidity—have numeric
+      decision list, the rules correctly classify all of the examples in the table, whereas taken individually,
+    * n the slightly more complex form shown in Table 1.3, two of the attributes—temperature and humidity—have numeric
       values. This means that any learning scheme must create inequalities involving these attributes, rather than
       simple equality tests as in the former case. This is called a numeric-attribute problem—in this case, a
       mixed-attribute problem because not all attributes are numeric.
@@ -89,9 +89,9 @@
 * Contact lences: an idealized problem
     * People frequently use machine learning techniques to gain insight into the structure of their data rather than to
       make predictions for new cases. In fact, a prominent and successful line of research in machine learning began as
-      an attempt to compress a huge database of possi- ble chess endgames and their outcomes into a data structure of
+      an attempt to compress a huge database of possible chess endgames and their outcomes into a data structure of
       reasonable size.
-    * The data structure chosen for this enterprise was not a set of rules but a deci- sion tree.
+    * The data structure chosen for this enterprise was not a set of rules but a decision tree.
     * a structural description for the contact lens data in the form of a decision tree, which for many purposes is a
       more concise and perspicuous representation of the rules and has the advantage that it can be visualized more
       easily.
@@ -120,7 +120,7 @@
       diseases.
     * These rules nicely illustrate the potential role of prior knowledge—often called domain knowledge—in machine
       learning, for in fact the only difference between the two descriptions is leaf condition is normal versus leaf
-      malformation is absent. Now, in this domain, if the leaf condition is normal then leaf malforma- tion is
+      malformation is absent. Now, in this domain, if the leaf condition is normal then leaf malformation is
       necessarily absent, so one of these conditions happens to be a special case of the other
 
 ## FIELDED APPLICATIONS
@@ -199,7 +199,69 @@
       classification performance and to make the procedure more efficient computationally.
 * Right from the beginning, when constructing and refining the initial example set, standard statistical methods apply:
   visualization of data, selection of attributes, discarding outliers, and so on.
-* Many learning algorithms use statistical tests when construct- ing rules or trees and for correcting models that are
+* Many learning algorithms use statistical tests when constructing rules or trees and for correcting models that are
   “overfitted” in that they depend too strongly on the details of the particular examples used to produce them
 * Statistical tests are used to validate machine learning models and to evaluate machine learning algorithms.
 
+# Machine Learning 101
+
+* Machine learning is the field of study that develops the algorithms that the computers follow in order to identify and
+  extract patterns from data.
+* ML algorithms and techniques are applied primarily during the modeling stage of CRISP-DM. ML involves a two-step
+  process.
+    * First, an ML algorithm is applied to a data set to identify useful patterns in the data. These patterns can be
+      represented in a number of different ways.
+        * Simply put, ML algorithms create models from data, and each algorithm is designed to create models using a
+          particular representation (neural network or decision tree or other).
+    * Second, once a model has been created, it is used for analysis.
+        * In some cases, the structure of the model is what is important.
+        * A model structure can reveal what the important attributes are in a domain.
+
+## Supervised versus Unsupervised Learning
+
+* The goal of supervised learning is to learn a function that maps from the values of the attributes describing an
+  instance to the value of another attribute, known as the target attribute, of that instance.
+    * For example, when supervised learning is used to train a spam filter, the algorithm attempts to learn a function
+      that maps from the attributes describing an email to a value (spam/not spam) for the target attribute; the
+      function the algorithm learns is the spam-filter model returned by the algorithm.
+* Supervised learning works by searching through lots of different functions to find the function that best maps between
+  the inputs and output.
+    * However depends on the complexity, there are so many combinations of inputs and possible mappings to outputs that
+      an algorithm cannot try all possible functions.
+    * As a consequence, each ML algorithm is designed to look at or prefer certain types of functions during its search.
+      These preferences are known as the algorithm’s **learning bias**.
+* **The real challenge in using ML** is to find the algorithm **whose learning bias is the best match for a**
+  **particular data set.**
+    * this task involves experiments with a number of different algorithms to find out which one works best on that data
+      set.
+* Supervised learning is “supervised” because each of the instances in the data set lists both the input values and the
+  output (target) value for each instance.
+    * So the learning algorithm can guide its search for the best function by checking how each function it tries
+      matches with the data set, and at the same time the data set acts as a supervisor for the learning process by
+      providing feedback
+* for supervised learning to take place, each instance in the data set must be labeled with the value of the target
+  attribute.
+* In unsupervised learning, there is no target attribute.
+    * As a consequence, unsupervised-learning algorithms can be used without investing the time and effort in labeling
+      the instances of the data set with a target attribute.
+
+* The most common type of unsupervised learning is cluster analysis, where the algorithm looks for clusters of instances
+  that are more similar to each other than they are to other instances in the data.
+    * These clustering algorithms often begin by guessing a set of clusters and then iteratively updating the clusters
+
+* A challenge for clustering is figuring out how to measure similarity.
+    * If all the attributes in a data set are numeric and have similar ranges, then it probably makes sense just to
+      calculate the Euclidean distance (better known as the straight-line distance) between the instances (or rows).
+    * In some data sets, different numeric attributes have different ranges, with the result that a variation in row
+      values in one attribute may not be as significant as a variation of a similar magnitude in another attribute.
+        * In these cases, the attributes should be normalized so that they all have the same range
+    * Another complicating factor in calculating similarity is that things can be deemed similar in many different ways.
+        * Some attributes are sometimes more important than other attributes, so it might make sense to weight some
+          attributes in the distance calculations, or it may be that the data set includes nonnumeric data.
+* The choice of which attributes to include and exclude from a data set is a key task in data science, but for the
+  purposes of this discussion we will work with the data set as is.
+* In unsupervised clustering algorithm will look for groups of rows that are more similar to each other than they are to
+  the other rows in the data
+    * Each of these groups of similar rows defines a cluster of similar instances.
+* The simple idea of looking for clusters of similar rows is very powerful and has applications across many areas of
+  life. Another application of clustering rows is making product recommendations to customers.
