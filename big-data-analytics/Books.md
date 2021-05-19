@@ -57,6 +57,8 @@
     Article: [Can You Really Predict the Success of a Marriage in 15 Minutes?](https://slate.com/human-interest/2010/03/a-dissection-of-john-gottman-s-love-lab.html)
     * Witten, section 5.9
     * Witten, section 5.
+  
+* [WEKA Egitimleri](https://www.youtube.com/watch?v=5s8IgMfH698&list=PLh9ECzBB8tJP8vpIM91W1k_qoGI10ikh1)
 
 ## WEEK 3
 

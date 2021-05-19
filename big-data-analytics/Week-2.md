@@ -523,6 +523,8 @@
 
 ## Regression (How Much Will It Cost?)
 
+* Prediction is the task of estimating the value of a target attribute for a given instance based on the values of other
+  attributes (or input attributes) for that instance
 * Price prediction is the task of estimating the price that a product will cost at a particular point in time.
 * The accuracy of a price-prediction model is domain dependent.
 * The fact that price prediction involves estimating the value of a continuous attribute means that it is treated as
@@ -548,3 +550,129 @@
 * Regression prediction can be used in a wide variety of other real-world problems.
     * Typical regression-prediction problems include calculating profit, value and volume of sales, sizes, demand,
       distances, and dosage.
+
+# Linear regression
+
+* [Doğrusal Regrezsyon (Linear Regression) (Weka Eğitim Serisi 8)](https://www.youtube.com/watch?v=b8jlp1i_h5w)
+* [Dogrusal Regresyon](https://www.youtube.com/watch?v=c6NgFlNiuTY)
+
+* Linear regression captures the relationship between two (or more) variables and allows prediction.
+* linear regression produces a function into which you can put one or more properties of an entity or phenomena (the
+  “input” or “explanatory” variables) and get out the correct value of another (the “output” or “response” variable).
+    * For example, given a set of observations about the height and weight of many people, we could learn a linear
+      regression model that could estimate someone’s weight based on their height.
+* The first step in a regression analysis is to hypothesize the structure of the relationship between the input
+  attributes and the target.
+    * Then a parameterized mathematical model of the hypothesized relationship is defined. This parameterized model is
+      called a **regression function**.
+* linear-regression functions are relatively easy to interpret
+* When a linear relationship is assumed, the regression analysis is called **linear regression**
+* The simplest application of linear regression is modeling the relationship between two attributes: an input attribute
+  X and a target attribute Y.
+    * Formule: **Y =ω0 +ω1X**
+
+* Setting the parameters of a regression function is equivalent to searching for the line that best fits the data.
+    * The strategy for setting these parameters begins by guessing parameters values and then iteratively updating the
+      parameters so as to reduce the overall error of the function on the data set.
+
+* The overall error is calculated in three steps:
+    * The function is applied to the data set, and for each instance in the data set it estimates the value of the
+      target attribute.
+    * The error of the function for each instance is calculated by subtracting the estimated value of the target
+      attribute from the actual value of the target attribute.
+    * The error of the function for each instance is squared, and then these squared values are summed. (so that the
+      error in the instances where the function overestimates the target doesn’t cancel out with the error when it
+      underestimates.)
+
+* This measure of error is known as the sum of **squared errors (SSE)**, and the strategy of fitting a linear function
+  by searching for the parameters that minimize the SSE is known as **least squares**.
+    * Formula : <img src="./img/2/1.png" alt="alt text">
+    * The SSE where the data set contains n instances, targeti is the value of the target attribute for instance i in
+      the data set, and predictioni is the estimate of the target by function for the same instance.
+* Formulas: <img src="./img/2/2.png" alt="alt text">
+
+* To create a linear-regression prediction model that estimates the likelihood of an individual’s developing diabetes
+  with respect to his BMI, we replace X with the BMI attribute, Y with the diabetes attribute, and apply the
+  least-squares algorithm to find the best-fit line for the diabetes data set.
+    * the dashed lines show the error (or residual) for each instance for this line. Using the least-squares approach,
+      the best-fit line is the line that minimizes the sum of the squared residuals. The equation for this line is
+        * Diabetes = −7.38431 + 0.55593 ∗ BMI .
+        * The slope parameter value ω1 = 0.55593 indicates that for each increase of one unit in BMI, the model
+          increases the estimated likelihood of a person developing diabetes by a little more than half a percent
+        * For example, when BMI equals 20, the model returns a prediction of a 3.73 percent
+    * a linear-regression model fitted using the least-squares method is actually calculating a weighted average over
+      the instances. In fact, the intercept parameter value ω0 = −7.38431 ensures that the best-fit line goes through
+      the point defined by the average BMI value and average diabetes value for the data set.
+
+<img src="./img/2/3.png" alt="alt text" width="500" height="300">
+
+* The weighting of the instances is based on the distance of the instance from the line: the farther an instance is away
+  from the line, the larger the residual for that instance, and the algorithm will weight that instance by the residual
+  squared.
+
+* Linear-regression models can be extended to take multiple inputs.
+    * For example BMI data regression function becomes  : **Diabetes = ω0 + ω1 BMI + ω2 Exercise + ω3 Weight.**
+* In statistics, a regression function that maps from multiple inputs to a single output in this way is known as a
+  **multiple linear regression function**.
+    * The structure of a multi-input regression function is the basis for a range of ML algorithms, including neural
+      networks.
+
+# Correlations
+
+* A correlation describes the strength of association between two attributes.
+    * In a general sense, a correlation can describe any type of association between two attributes.
+* The term correlation also has a specific statistical meaning, in which it is often used as shorthand for **“Pearson
+  Correlation"**
+
+* A Pearson correlation **measures the strength of a linear relationship between two numeric attributes**.
+    * It ranges in value from −1 to +1.
+    * The letter r is used to denote the Pearson value or coefficient between two attributes.
+        * r = 0 indicates that the two attributes are not correlated.
+        * r = +1 indicates that the two attributes have a perfect positive correlation
+            * meaning that every change in one attribute is accompanied by an equivalent change in the other attribute
+              in the same direction
+        * r = −1 indicates that the two attributes have a perfect negative correlation
+            * meaning that every change in one attribute is accompanied by the opposite change in the other attribute.
+        * r ≈ ±0.7 indicates a strong linear relationship between the attributes,
+        * r ≈ ±0.5 indicates a moderate linear relationship,
+        * r ≈ ±0.3 indicates a weak relationship,
+        * r ≈ 0 indicates no relationship between the attributes.
+
+* The fact that the definition of a statistical Pearson correlation is between two attributes might appear to limit the
+  application of statistical correlation to data analysis to just pairs of attributes. However derived attributes can
+  help to create a new correlation
+    * For example, we know weight and height has possitive corrolation, with some mappings we can have BKM numeric
+      attibute , BMI is a derived attribute and then we can use it to measure the correlation between other attributes.
+
+* The BMI example illustrates that it is possible to create a new derived attribute by defining a function that takes
+  multiple attributes as input.
+    * It also shows that it is possible to calculate a Pearson correlation between this derived attribute and another
+      attribute in the data set.
+    * Furthermore, a derived attribute can actually have a higher correlation with a target attribute than any of the
+      attributes used to generate the derived attribute have with the target.
+
+* Attribute selection is a key task in data science
+    * Designing a derived attribute that has a strong correlation with an attribute we are interested in is often where
+      the real value of data science is found
+* ML algorithms can learn interactions between attributes and create useful derived attributes by searching through
+  different combinations of attributes and checking the correlation between these combinations and the target attribute.
+    * This is why ML is useful in contexts where many weak interacting attributes contribute to the process we are
+      trying to understand.
+
+* if an input attribute is highly correlated with a target attribute, it is likely to be a useful input into the
+  prediction model.
+    * Similar to correlation analysis, prediction involves analyzing the relationships between attributes
+    * If this correlation does not exist (or cannot be found by the algorithm), then the input attributes are irrelevant
+      for the prediction problem, and the best a model can do is to ignore those inputs and always predict the central
+      tendency of that target in the data set
+
+## Correlations & Regression
+
+* Correlation and regression are similar concepts insofar as both are techniques that focus on the relationship across
+  columns in the data set.
+* Correlation is focused on **exploring whether a relationship exists between two attributes**
+* Regression is focused on **modeling an assumed relationship between attributes** with the purpose of being able to
+  **estimate the value of one target attribute** given the values of one or more input attributes.
+* n the specific cases of Pearson correlation and linear regression, a Pearson correlation measures the degree to which
+  two attributes have a linear relationship, and linear regression trained using least squares is a process to find the
+  best-fit line that predicts the value of one attribute given the value of another.  
