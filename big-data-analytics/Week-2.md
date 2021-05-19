@@ -675,4 +675,18 @@
   **estimate the value of one target attribute** given the values of one or more input attributes.
 * n the specific cases of Pearson correlation and linear regression, a Pearson correlation measures the degree to which
   two attributes have a linear relationship, and linear regression trained using least squares is a process to find the
-  best-fit line that predicts the value of one attribute given the value of another.  
+  best-fit line that predicts the value of one attribute given the value of another.
+
+# Knowledge presentation
+
+* The simplest, most rudimentary way of representing the output from machine learning is to make it just the same as the
+  input—a **table**.
+* Another simple style of representation is a “**linear model**,” whose output is just the sum of the attribute values,
+  except that weights are applied to each attribute before adding them together.
+* Linear models can also be applied to **binary classification problems**. In this case, the line produced by the model
+  separates the two classes: it defines where the decision changes from one class value to the other. Such a line is
+  often referred to as the **decision boundary**.
+    * 1 attribute -> point
+    * 2 attributes -> straight line
+    * 3 attribute -> plane
+    * more than 3 attrubutes -> hyperplane
