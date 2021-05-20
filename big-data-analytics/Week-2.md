@@ -219,6 +219,8 @@
 
 ## Supervised versus Unsupervised Learning
 
+<img src="./img/2/7.png" alt="alt text" width="500" height="300">
+
 * The goal of supervised learning is to learn a function that maps from the values of the attributes describing an
   instance to the value of another attribute, known as the target attribute, of that instance.
     * For example, when supervised learning is used to train a spam filter, the algorithm attempts to learn a function
@@ -553,12 +555,16 @@
 
 # Linear regression
 
+* [The besssttt](https://www.youtube.com/watch?v=GhrxgbQnEEU)
 * [Doğrusal Regrezsyon (Linear Regression) (Weka Eğitim Serisi 8)](https://www.youtube.com/watch?v=b8jlp1i_h5w)
 * [Dogrusal Regresyon](https://www.youtube.com/watch?v=c6NgFlNiuTY)
 
+<img src="./img/2/6.png" alt="alt text" width="500" height="300">
+
 * Linear regression captures the relationship between two (or more) variables and allows prediction.
 * linear regression produces a function into which you can put one or more properties of an entity or phenomena (the
-  “input” or “explanatory” variables) and get out the correct value of another (the “output” or “response” variable).
+  “input” or “explanatory” variables or "predictor" ) and get out the correct value of another (the “output” or
+  “response” variable).
     * For example, given a set of observations about the height and weight of many people, we could learn a linear
       regression model that could estimate someone’s weight based on their height.
 * The first step in a regression analysis is to hypothesize the structure of the relationship between the input
@@ -617,8 +623,21 @@
     * The structure of a multi-input regression function is the basis for a range of ML algorithms, including neural
       networks.
 
+* **Residuals** are the leftover variation in the data after accounting for the model fit: **Data = Fit + Residual**
+    * One goal in picking the right linear model is for these residuals to be as small as possible.
+    * Under the line is the value of residuals are negative, above the line is positive .
+    * A residual is usually discussed in terms of its absolute value
+* RESIDUAL: Difference between observed an expected
+* The residual of the ith observation (xi,yi) is the difference of the observed response (yi) and the response we would
+  predict based on the model fit (yˆi ):
+    * ei = yi − yˆi , we typically identify yˆ by plugging x into the model.
+
+* [Diez -> page 320 check]
+
 # Correlations
 
+* [Pearson Correlation the besttt!! ](https://www.youtube.com/watch?v=2SCg8Kuh0tE&t=0s)
+* CORRELATION: STRENGTH OF A LINEAR RELATIONSHIP
 * A correlation describes the strength of association between two attributes.
     * In a general sense, a correlation can describe any type of association between two attributes.
 * The term correlation also has a specific statistical meaning, in which it is often used as shorthand for **“Pearson
@@ -689,4 +708,27 @@
     * 1 attribute -> point
     * 2 attributes -> straight line
     * 3 attribute -> plane
-    * more than 3 attrubutes -> hyperplane
+    * more than 3 attributes -> hyperplane
+
+# Decision trees
+
+* Classification technique known as “decision tree learning”.
+* Decision tree learning produces a “machine” into which you can input one or more attributes of an example and get out
+  a classification.
+* Differences from linear regression:
+    * the output variable is categorical rather than numeric
+    * input variables may be categorical as well as numeric
+* Decision trees are very useful for doing simple classification that works from categorical variables to produce
+  categorical predictions.
+* They can also be quite effective with numerical input variables, provided that the variable range falls meaningfully
+  into continuous regions.
+* The models they produced are easy to understand, particularly when the number of input variables is small.
+* Film 4 is an exception — the tree predicts that it should receive an 18 certificate, but the film classification board
+  has in fact given it only a 15. Depending on the context, this error might or might not be a significant problem.
+
+<img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
+<img src="./img/2/5.png" alt="alt text" width="500" height="300">
+
+# TODO:
+
+* Activity : 2.4.1 Activity [Diez Book - page 310, for calculations]
