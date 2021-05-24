@@ -8,6 +8,28 @@
 #### Sub titles:
 
 * [Key concepts in machine learning](#key-concepts-in-machine-learning)
+    * [FIELDED APPLICATIONS](#fielded-applications)
+    * [MACHINE LEARNING AND STATISTICS](#machine-learning-and-statistics)
+* [Machine Learning 101](#machine-learning-101)
+    * [Supervised versus Unsupervised Learning](#supervised-versus-unsupervised-learning)
+* [Standard Data Science Tasks](#standard-data-science-tasks)
+    * [Clustering (Who Are Our Customers?)](#clustering-who-are-our-customers)
+    * [Anomaly Detection or outlier analysis (Is This Fraud?)](#anomaly-detection-or-outlier-analysis-is-this-fraud)
+    * [Association-Rule Mining (Do You Want Fries with That?)](#association-rule-mining-do-you-want-fries-with-that)
+    * [Classification (Churn or No Churn, That Is the Question)](#classification-churn-or-no-churn-that-is-the-question)
+    * [Regression (How Much Will It Cost?)](#regression-how-much-will-it-cost)
+* [Linear regression](#linear-regression)
+* [Correlations](#correlations)
+    * [Correlations & Regression](#correlations--regression)
+* [Knowledge presentation](#knowledge-presentation)
+* [Decision trees](#decision-trees)
+* [Evaluating learned models](#evaluating-learned-models)
+    * [Predict Performance](#predict-performance)
+    * [Cross Validation](#cross-validation)
+    * [Evaluating Numeric Prediction](#evaluating-numeric-prediction)
+    * [Confusion matrices and accuracy scores](#confusion-matrices-and-accuracy-scores)
+    * [Receiver Operation Characteristic Curve (ROC)](#receiver-operation-characteristic-curve-roc)
+* [TODO](#todo)
 
 # Key concepts in machine learning
 
@@ -727,7 +749,286 @@
   has in fact given it only a 15. Depending on the context, this error might or might not be a significant problem.
 
 <img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
-<img src="./img/2/5.png" alt="alt text" width="500" height="300">
+<img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
+<img src="./img/2/15.png.png" alt="alt text" width="500" height="300">
+
+* A “divide-and-conquer” approach to the problem of learning from a set of independent instances leads naturally to a
+  style of representation called a **decision tree**.
+
+* Nodes in a decision tree involve testing a particular attribute. Usually, the test compares an attribute value with a
+  constant. Leaf nodes give a classification that applies to all instances that reach the leaf, or a set of
+  classifications, or a probability distribution over all possible classifications.
+
+* If the attribute that is tested at a node is a nominal one, the number of children is usually the number of possible
+  values of the attribute.
+* If the attribute is numeric, the test at a node usually determines whether its value is greater or less than a
+  predetermined constant, giving a two-way split.
+* a numeric quantity is what is predicted, decision trees with averaged numeric values at the leaves are called **
+  regression trees**.
+* It is possible to combine regression equations with regression trees. Fig. 3.4C is a tree whose leaves contain linear
+  expressions—i.e., regression equations— rather than single predicted values. This is called a model tree.
+
+<img src="./img/2/8.png" alt="alt text" width="500" height="300">
+
+* Linear regression and neural networks work best with numeric inputs. If the input attributes in a data set are
+  primarily nominal or ordinal, however, then other ML algorithms and models, such as decision trees, may be more
+  appropriate.
+* A decision tree encodes a set of if then, else rules in a tree structure.
+* Each path in a decision tree, from root to leaf, defines a classification rule composed of a sequence of tests.
+    * The goal of a decision-tree-learning algorithm is to find a set of classification rules that divide the training
+      data set into sets of instances that have the same value for the target attribute
+
+* The progenitor of most modern ML algorithms for decision-tree learning is the **ID3 algorithm** (Quinlan 1986).
+    * ID3 builds a decision tree in a recursive, depth-first manner, adding one node at a time, starting with the root
+      node.
+    * It begins by selecting an attribute to test at the root node. A branch is grown from the root for each value in
+      the domain of this test attribute and is labeled with that value.
+    * ID3 use Claude Shannon entropy
+      <img src="./img/2/8.png" alt="alt text">
+* One of the strengths of decision trees is that they are simple to understand. Also it is possible to create very
+  accurate models based on decision trees.
+
+
+* The problem of constructing a decision tree can be expressed recursively.
+    * First, select an attribute to place at the root node, and make one branch for each possible value. This splits up
+      the example set into subsets, one for every value of the attribute.
+    * Now the process can be repeated recursively for each branch, using only those instances that actually reach the
+      branch.
+    * If at any time all instances at a node have the same classification, stop developing that part of the tree.
+
+* Although decision trees work well with both nominal and ordinal data, they struggle with numeric data.
+    * In a decision tree, a separate branch descends from each node for each value in the domain of the attribute tested
+      at the node.
+    * Numeric attributes, however, have an infinite number of values in their domains, with the implication that a tree
+      would need an infinite number of branches.
+    * **One solution to this problem is to transform numeric attributes into ordinal attributes, although doing so
+      requires the definition of appropriate thresholds, which can also be difficult.**
+
+* Finaly, because a decision-tree-learning algorithm repeatedly divides a data set as a tree becomes large, it becomes
+  more sensitive to noise (such as mislabeled instances).
+    * The subset of examples on each branch becomes smaller, the smaller the data sample used to define a classification
+      rule, the more sensitive to noise the rule becomes.
+    * Thats why it is a good idea to keep decision trees shallow.
+    * 2 approaches are there :
+        * is to stop the growth of a branch when the number of instances on the branch is still less than a predefined
+          threshold (e.g., 20 instances).
+        * Other approaches allow the tree to grow and then prune the tree back.
+
+# Evaluating learned models
+
+* The error rate is just the proportion of errors made over a whole set of instances, and it measures the overall
+  performance of the classifier.
+* This is a surprising fact, and a very important one. Error rate on the training set is not likely to be a good
+  indicator of future performance.
+    * Why? Because the classifier has been learned from the very same training data, any estimate of performance based
+      on that data will be optimistic, and may be hopelessly optimistic
+
+* The error rate on the training data is called the resubstitution error, because it is calculated by resubstituting the
+  training instances into a classifier that was constructed from them
+    * Although it is not a reliable predictor of the true error rate on new data, it is nevertheless often useful to
+      know.
+
+* To predict the performance of a classifier on new data, we need to assess its error rate on a dataset that played no
+  part in the formation of the classifier. This independent dataset is called **the test set**. We assume that both the
+  training data and the test data are representative samples of the underlying problem.
+    * It is important that the **test data is not used in any way to create the classifier**.
+
+* some learning schemes involve two stages, one to come up with a basic structure and the second to optimize parameters
+  involved in that structure, and separate sets of data may be needed in the two stages. Or you might try out several
+  learning schemes on the training data and then evaluate them—on a fresh dataset, of course—to see which one works best
+
+* In such situations people often talk about three datasets: **the training data, the validation data, and the test
+  data**.
+    * **The training data is used by one or more learning schemes to come up with classifiers**.
+    * **The validation data is used to optimize parameters of those classifiers, or to select a particular one**.
+    * **The test data is used to calculate the error rate of the final, optimized, method**.
+    * Each of the three sets must be chosen independently: the validation set must be different from the training set to
+      obtain good performance in the optimization or selection stage, and the test set must be different from both to
+      obtain a reliable estimate of the true error rate.
+
+* It may be that once the error rate has been determined, the test data is bundled back into the training data to
+  produce a new classifier for actual use. There is nothing wrong with this: it is just a way of maximizing the amount
+  of data used to generate the classifier that will actually be employed in practice
+
+* Generally, the larger the training sample the better the classifier, although the returns begin to diminish once a
+  certain volume of training data is exceeded. And the larger the test sample, the more accurate the error estimate.
+
+* This limits the amount of data that can be used for training, validation, and testing, and the problem becomes how to
+  make the most of a limited dataset. From this dataset, a certain amount is held over for testing—this is called the
+  **holdout** procedure—and the remainder used for training (and, if necessary, part of that is set aside for
+  validation).
+    * There’s a dilemma here: to find a good classifier, we want to use as much of the data as possible for training; to
+      obtain a good error estimate, we want to use as much of it as possible for testing.
+
+## Predict Performance
+
+* In statistics, a succession of independent events that either succeed or fail is called a Bernoulli process. The
+  classic example is coin tossing. Each toss is an independent event. Let’s say we always predict heads; but rather than
+  “heads” or “tails,” each toss is considered a “success” or a “failure.”
+
+* Bernoulli process—a biased coin—whose true (but unknown) success rate is p. Suppose that out of N trials, S are
+  successes: thus the observed success rate is f = S/N.
+
+* The success rate is measured as Success/TotalExperimentCount, f=S/N. So, both 750/1000 and 75/100 produce 75% success
+  rate. However, as the experiment count goes up, so does the confidence interval.
+    * For samples >= 100, the normal distribution can be assumed. For the normal distribution, the chance that X lies
+      more than 1.65 standard deviations from the mean is 10%
+      <img src="./img/2/10.png" alt="alt text">
+
+* The z value can be found from the lookup table below. For 90% confidence, P(X≥z)P({X}\ge{z})P(X≥z)  and P(X≤−z)P(
+  {X}\le{-z})P(X≤−z) are 5% each.
+  <img src="./img/2/11.png" alt="alt text">
+
+* For f=75%, N=1000, confidence limits can be calculated from the formula below, ie [0.732, 0.767] for N=1000. For N=100
+  is [0.691, 0.801]
+    * The 6 in this expression gives two values for p that represent the upper and lower confidence boundaries.
+    * <img src="./img/2/12.png" alt="alt text">
+
+## Cross Validation
+
+* The holdout method reserves a certain amount for testing, and uses the remainder for training (and sets part of that
+  aside for validation, if required). In practical terms, it is common to hold one-third of the data out for testing and
+  use the remaining two-thirds for training.
+
+* A more general way to mitigate any bias caused by the particular sample chosen for holdout is to repeat the whole
+  process, training and testing, several times with different random samples.
+* In each iteration, a certain proportion of the data is randomly selected for training, possibly with stratification,
+  and the remainder used for testing. The error rates on the different iterations are averaged to yield an overall error
+  rate. This is the repeated holdout method of error rate estimation.
+* Another alternative technique is called cross-validation where you decide on a fixed number of folds/partitions of the
+  data.
+    * For k-folds, we have k iterations where 1 fold/share is kept for testing and k-1 folds are used for training.
+    * This is repeated k times, until each fold is used for testing. If stratification is used as well, it's called
+      stratified k-fold cross-validation.
+    * On each run, the error rate is calculated on the test set and finally, the average error rate is calculated.
+    * Stratified 10-fold cross-validation is the most commonly used variation. The number 10 is chosen based on
+      extensive testing and also some theoretical evidence showing this to give the best estimate of error.
+    * A single 10-fold cross-validation might not be enough to get a reliable error estimate if the data is limited.
+      Different 10-fold cross-validation experiments with the same learning scheme and dataset often produce different
+      results, because of the effect of random variation in choosing the folds themselves.
+    * Due to stratification, results across different complete k-fold runs might change even for the same k value.
+      Therefore, it's also common practice to repeat the k-fold runs multiple times.
+
+## Evaluating Numeric Prediction
+
+<img src="./img/2/13.png" alt="alt text">
+
+* The basic principles—using an independent test set rather than the training set for performance evaluation, the
+  holdout method, cross-validation—apply equally well to numeric prediction. But the basic quality measure offered by
+  the error rate is no longer appropriate: errors are not simply present or absent, they come in different sizes.
+
+* **Mean-squared error (MSE)** is the principal and most commonly used measure; some- times the square root is taken to
+  give it the same dimensions as the predicted value itself.
+    * **Mean absolute error (MAE)** is an alternative: just average the magnitude of the indi- vidual errors without
+      taking account of their sign.
+    * Mean-squared error tends to exaggerate the effect of outliers—instances whose prediction error is larger than the
+      others—
+    * But absolute error does not have this effect: all sizes of error are trea- ted evenly according to their
+      magnitude.
+
+* Sometimes it is the relative rather than absolute error values that are of impor- tance.
+    * For example, if a 10% error is equally important whether it is an error of 50 in a prediction of 500 or an error
+      of 0.2 in a prediction of 2, then averages of absolute error will be meaningless: relative errors are appropriate.
+      This effect would be taken into account by using the relative errors in the mean-squared error calculation or the
+      mean absolute error calculation.
+
+* Relative squared error (RSE) is made relative to what it would have been if a simple predictor had been used.
+    * Thus relative squared error takes the total squared error and normalizes it by dividing by the total squared error
+      of the default predictor.
+    * Relative absolute error (RAE) and is just the total absolute error, with the same kind of normalization.
+* **Correlation coefficient**, which measures the statistical correlation between the a’s and the p’s. (a is actual
+  value, p is predicted value)
+    * The correlation coefficient ranges 1,0,-1, negative values should not occur for reasonable prediction methods
+* The squared error measures and root squared error measures weigh large discrepancies much more heavily than small
+  ones, whereas the absolute error measures do not.
+    * Taking the square root (root mean-squared error) just reduces the figure to have the same dimensionality as the
+      quantity being predicted.
+* The relative error figures try to compensate for the basic predictability or unpredict- ability of the output
+  variable: if it tends to lie fairly close to its average value, then you expect prediction to be good and the relative
+  figure compensates for this.
+
+* If you have outlier in the data and you want to ignore them, MAE is a better option but if you want to account for
+  them in your loss function, go for MSE/RMSE.
+
+* [Evaluation Metrics for Regression models- MAE Vs MSE Vs RMSE vs RMSLE](https://akhilendra.com/evaluation-metrics-regression-mae-mse-rmse-rmsle/)
+  <img src="./img/2/14.png.png" alt="alt text" width="500" height="300">
+
+## Confusion matrices and accuracy scores
+
+* The overall success rate is the number of correct classifica- tions divided by the total number of classifications:
+    *   <img src="./img/2/18.png.png" alt="alt text">
+    * Error Rate = 1 - Success Rate
+* In a multiclass prediction, the result on a test set is often displayed as a two- dimensional **confusion matrix**
+  with a row and column for each class. Each matrix element shows the number of test examples for which the actual class
+  is the row and the predicted class is the column.
+* To make this calculation fairer, we'd need to subtract the correct predictions that could have done by a random
+  predictor. This is called the Kappa statistic.
+    * Kappa is calculated as (CorrectPredictionsByTheModel - CorrectPredictionsByRandomSelection) / (TotalSamples -
+      CPBRS).
+    * The max value for Kappa is 100%.
+    * Kappa statistic is used to measure the agreement between predicted and observed categorizations of a dataset,
+      while correcting for agreement that occurs by chance.
+    * Like the plain success rate, Kappa does not take costs into account.
+
+
+* **Cost-sensitive learning,** In the two-class situation, there is a simple and general way to make any learn- ing
+  scheme cost sensitive.
+    * The idea is to generate training data with a different pro- portion of yes and no instances. Suppose you
+      artificially increase the number of no instances by a factor of 10 and use the resulting dataset for training. If
+      the learning scheme is striving to minimize the number of errors, it will come up with a decision structure that
+      is biased toward avoiding errors on the no instances, because such errors are effectively penalized 10-fold. If
+      data with the original proportion of no instances is used for testing, fewer errors will be made on these than on
+      yes instances—i.e., there will be fewer FPs than FNs— because FPs have been weighted 10 times more heavily than
+      FNs. Varying the proportion of instances in the training set is a general technique for building cost-sensitive
+      classifiers.
+* **Lift factor:** Imagine you are direct mailing business, and you will send 1000000 mails to households and response
+  rate is %0,1 (1000), Suppose there is a data mining tool based on known information about the households, identifies a
+  subset of 100,000 for which the response rate is 0.4% (400 respondents), You can calculate cst effect and choose one
+  of those options to send 1 milion mails with 1000 response or 100,000 mails with 0,4 response. . In marketing
+  terminol- ogy, the increase in response rate, a factor of four in this case, is known as the **lift factor** yielded
+  by the learning tool. If you knew the costs, you could determine the payoff implied by a particular lift factor.
+
+## Receiver Operation Characteristic Curve (ROC)
+
+* [ROC and AUC, Clearly Explained!](https://www.youtube.com/watch?v=4jRBRDbJemM)
+* Instead of being overwhelmed with confusion matrices, ROC graphs provide a simple way to summarize all of the
+  information.
+  <img src="./img/2/28.png" alt="alt text" width="500" height="300">
+* True and False Positive rates are calculated like this.
+  <img src="./img/2/21.png" alt="alt text" width="500" height="300"></br>
+  <img src="./img/2/22.png" alt="alt text" width="500" height="300">
+
+* When one is trying to tweak the classification threshold of logistic regression, ROC comes in handy too as it
+  summarises all of the confusion matrices that each threshold produces.
+    * if 2 points have the same TP rates, the one with the smaller FP can be selected or depending on how many False
+      positives can be accepted, the TP rate can be increased too.
+* TPR is basically the recall of the positive class and is also called sensitivity in statistics.
+
+
+* AUC (Area under the Curve ) can help you which categorization is better.
+    * Red is better than blue in this example.
+    * Red is Logistic Regression alg, blue is Random Forest and you can decide , logistic is better.
+
+<img src="./img/2/23.png" alt="alt text" width="500" height="300">
+
+* **Precision p** is the number of correctly classified positive examples divided by the total number of examples that
+  are classified as positive.
+    * How likely is a member of Positive Data Set to be TP
+    * Prediction does not include the number od True Negative and is not effected by imbalance.  
+      <img src="./img/2/25.png" alt="alt text" width="500" height="300"></br>
+      <img src="./img/2/26.png" alt="alt text" width="500" height="300"></br>
+
+* **Recall r** is the number of correctly classified positive examples divided by the total number of actual positive
+  examples in the test set.
+    * How representative TP is of all Actual Positives.
+      <img src="./img/2/19.png.png" alt="alt text">
+
+* Although in theory precision and recall are not related, in practice high precision is achieved almost always at the
+  expense of recall and vice versa.
+    * Therefore, **F-score**, harmonic mean of precision and recall, is used
+    * Both p and r has to be high for the F-score to be high
+    * The precision and recall break even point is where p and r equal or the closest
+      <img src="./img/2/20.png.png" alt="alt text">
 
 # TODO:
 
