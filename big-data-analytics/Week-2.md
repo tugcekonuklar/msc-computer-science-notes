@@ -750,7 +750,7 @@
 
 <img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
 <img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
-<img src="./img/2/15.png.png" alt="alt text" width="500" height="300">
+<img src="./img/2/15.png" alt="alt text" width="500" height="300">
 
 * A “divide-and-conquer” approach to the problem of learning from a set of independent instances leads naturally to a
   style of representation called a **decision tree**.
@@ -951,12 +951,12 @@
   them in your loss function, go for MSE/RMSE.
 
 * [Evaluation Metrics for Regression models- MAE Vs MSE Vs RMSE vs RMSLE](https://akhilendra.com/evaluation-metrics-regression-mae-mse-rmse-rmsle/)
-  <img src="./img/2/14.png.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/14.png" alt="alt text" width="500" height="300">
 
 ## Confusion matrices and accuracy scores
 
 * The overall success rate is the number of correct classifica- tions divided by the total number of classifications:
-    *   <img src="./img/2/18.png.png" alt="alt text">
+    *<img src="./img/2/18.png" alt="alt text">
     * Error Rate = 1 - Success Rate
 * In a multiclass prediction, the result on a test set is often displayed as a two- dimensional **confusion matrix**
   with a row and column for each class. Each matrix element shows the number of test examples for which the actual class
@@ -994,7 +994,7 @@
 * Instead of being overwhelmed with confusion matrices, ROC graphs provide a simple way to summarize all of the
   information.
   <img src="./img/2/28.png" alt="alt text" width="500" height="300">
-* True and False Positive rates are calculated like this.
+* True and False Positive rates are calculated like this.</br>
   <img src="./img/2/21.png" alt="alt text" width="500" height="300"></br>
   <img src="./img/2/22.png" alt="alt text" width="500" height="300">
 
@@ -1021,14 +1021,14 @@
 * **Recall r** is the number of correctly classified positive examples divided by the total number of actual positive
   examples in the test set.
     * How representative TP is of all Actual Positives.
-      <img src="./img/2/19.png.png" alt="alt text">
+      <img src="./img/2/19.png" alt="alt text">
 
 * Although in theory precision and recall are not related, in practice high precision is achieved almost always at the
   expense of recall and vice versa.
     * Therefore, **F-score**, harmonic mean of precision and recall, is used
     * Both p and r has to be high for the F-score to be high
     * The precision and recall break even point is where p and r equal or the closest
-      <img src="./img/2/20.png.png" alt="alt text">
+      <img src="./img/2/20.png" alt="alt text">
 
 # TODO:
 
