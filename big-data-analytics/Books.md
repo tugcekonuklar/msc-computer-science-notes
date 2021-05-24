@@ -54,13 +54,27 @@
 * Lesson 4
     * Witten, sections 5.0 - 5.3
     *
-    Article: [Can You Really Predict the Success of a Marriage in 15 Minutes?](https://slate.com/human-interest/2010/03/a-dissection-of-john-gottman-s-love-lab.html)
+  Article: [Can You Really Predict the Success of a Marriage in 15 Minutes?](https://slate.com/human-interest/2010/03/a-dissection-of-john-gottman-s-love-lab.html)
     * Witten, section 5.9
     * Witten, section 5.
-  
+
 * [WEKA Egitimleri](https://www.youtube.com/watch?v=5s8IgMfH698&list=PLh9ECzBB8tJP8vpIM91W1k_qoGI10ikh1)
 
 ## WEEK 3
+
+* Lesson 1
+    * Kelleher, chapter 2
+
+* Lesson 2
+    * [Cielen, sections 2.4.0–2.4.2] (https://contentstore.cla.co.uk//secure-shib/ItemRequestHandler.ashx?id=42536bdc-04f4-e911-80cd-005056af4099)
+    * Witten, section 8.5
+
+* Lesson 3
+    * Witten, section 8.1
+
+* Lesson 4
+    * Kelleher, chapter 3
+    * [Data integration in the Albemarle-Charlottesville Regional Jail: A systems engineering approach to support Evidence-based decision making] (https://ieeexplore.ieee.org/document/6549498/)
 
 ## WEEK 4
 
