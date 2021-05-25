@@ -917,16 +917,16 @@
   holdout method, cross-validation—apply equally well to numeric prediction. But the basic quality measure offered by
   the error rate is no longer appropriate: errors are not simply present or absent, they come in different sizes.
 
-* **Mean-squared error (MSE)** is the principal and most commonly used measure; some- times the square root is taken to
+* **Mean-squared error (MSE)** is the principal and most commonly used measure; some-times the square root is taken to
   give it the same dimensions as the predicted value itself.
-    * **Mean absolute error (MAE)** is an alternative: just average the magnitude of the indi- vidual errors without
+    * **Mean absolute error (MAE)** is an alternative: just average the magnitude of the individual errors without
       taking account of their sign.
     * Mean-squared error tends to exaggerate the effect of outliers—instances whose prediction error is larger than the
       others—
-    * But absolute error does not have this effect: all sizes of error are trea- ted evenly according to their
+    * But absolute error does not have this effect: all sizes of error are treated evenly according to their
       magnitude.
 
-* Sometimes it is the relative rather than absolute error values that are of impor- tance.
+* Sometimes it is the relative rather than absolute error values that are of importance.
     * For example, if a 10% error is equally important whether it is an error of 50 in a prediction of 500 or an error
       of 0.2 in a prediction of 2, then averages of absolute error will be meaningless: relative errors are appropriate.
       This effect would be taken into account by using the relative errors in the mean-squared error calculation or the
@@ -943,7 +943,7 @@
   ones, whereas the absolute error measures do not.
     * Taking the square root (root mean-squared error) just reduces the figure to have the same dimensionality as the
       quantity being predicted.
-* The relative error figures try to compensate for the basic predictability or unpredict- ability of the output
+* The relative error figures try to compensate for the basic predictability or unpredictability of the output
   variable: if it tends to lie fairly close to its average value, then you expect prediction to be good and the relative
   figure compensates for this.
 
@@ -955,15 +955,15 @@
 
 ## Confusion matrices and accuracy scores
 
-* The overall success rate is the number of correct classifica- tions divided by the total number of classifications:
+* The overall success rate is the number of correct classifications divided by the total number of classifications:
     *<img src="./img/2/18.png" alt="alt text">
     * Error Rate = 1 - Success Rate
-* In a multiclass prediction, the result on a test set is often displayed as a two- dimensional **confusion matrix**
+* In a multiclass prediction, the result on a test set is often displayed as a twodimensional **confusion matrix**
   with a row and column for each class. Each matrix element shows the number of test examples for which the actual class
   is the row and the predicted class is the column.
 * To make this calculation fairer, we'd need to subtract the correct predictions that could have done by a random
   predictor. This is called the Kappa statistic.
-    * Kappa is calculated as (CorrectPredictionsByTheModel - CorrectPredictionsByRandomSelection) / (TotalSamples -
+    * Kappa is calculated as (CorrectPredictionsByTheModel CorrectPredictionsByRandomSelection) / (TotalSamples -
       CPBRS).
     * The max value for Kappa is 100%.
     * Kappa statistic is used to measure the agreement between predicted and observed categorizations of a dataset,
@@ -971,9 +971,9 @@
     * Like the plain success rate, Kappa does not take costs into account.
 
 
-* **Cost-sensitive learning,** In the two-class situation, there is a simple and general way to make any learn- ing
+* **Cost-sensitive learning,** In the two-class situation, there is a simple and general way to make any learning
   scheme cost sensitive.
-    * The idea is to generate training data with a different pro- portion of yes and no instances. Suppose you
+    * The idea is to generate training data with a different proportion of yes and no instances. Suppose you
       artificially increase the number of no instances by a factor of 10 and use the resulting dataset for training. If
       the learning scheme is striving to minimize the number of errors, it will come up with a decision structure that
       is biased toward avoiding errors on the no instances, because such errors are effectively penalized 10-fold. If
@@ -985,8 +985,10 @@
   rate is %0,1 (1000), Suppose there is a data mining tool based on known information about the households, identifies a
   subset of 100,000 for which the response rate is 0.4% (400 respondents), You can calculate cst effect and choose one
   of those options to send 1 milion mails with 1000 response or 100,000 mails with 0,4 response. . In marketing
-  terminol- ogy, the increase in response rate, a factor of four in this case, is known as the **lift factor** yielded
+  terminology, the increase in response rate, a factor of four in this case, is known as the **lift factor** yielded
   by the learning tool. If you knew the costs, you could determine the payoff implied by a particular lift factor.
+
+<img src="./img/2/16.png" alt="alt text" width="500" height="300">
 
 ## Receiver Operation Characteristic Curve (ROC)
 
