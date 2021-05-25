@@ -143,3 +143,20 @@ After completing this week you should be able to:
   categories rather than numeric quantities, and so on. Pairwise plots of one attribute against another, or each
   attribute against the class value, can be extremely revealing.
 * In a large database, you should sample a few instances and examine them carefully.
+
+# Cleaning Data
+
+* 5 Principles
+    * You can't fix problems until you can see them
+        * Some within range values can still be problematic if they are repeated erroneously or put in by someone to
+          fix 'missing' value, ie using the mean or median for this purpose.
+        * So, looking for suspicious repeating values, especially with decimal places.
+    * Don't' fix problems by making things worse
+        * Refrain from making 'fixes' that might distort the statistics.
+    * Justify your fixes
+    * Sometimes you shouldn't fix
+        * Even if they won't like to hear it, be honest to the audience and don't attempt to fix things that you
+          actually can't.
+    * Acknowledge residual uncertainty
+
+
