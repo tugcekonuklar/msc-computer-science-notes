@@ -158,5 +158,17 @@ After completing this week you should be able to:
         * Even if they won't like to hear it, be honest to the audience and don't attempt to fix things that you
           actually can't.
     * Acknowledge residual uncertainty
+* Data should be cleansed when acquired for many reasons:
+    * Not everyone spots the data anomalies. Decision-makers may make costly mis- takes on information based on
+      incorrect data from applications that fail to cor- rect for the faulty data.
+    * If errors are not corrected early on in the process, the cleansing will have to be done for every project that
+      uses that data.
+    * Data errors may point to a business process that isn’t working as designed. we discovered clients who abused the
+      couponing system and earned money while purchasing groceries.
+    * Data errors may point to defective equipment, such as broken transmission lines and defective sensors.
+    * Data errors can point to bugs in software or in the integration of software that may be critical to the company.
 
+<img src="./img/3/6.png" alt="alt text"></br>
+<img src="./img/3/7.png" alt="alt text"></br>
+<img src="./img/3/8.png" alt="alt text"></br>
 
