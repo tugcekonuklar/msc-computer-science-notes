@@ -172,3 +172,107 @@ After completing this week you should be able to:
 <img src="./img/3/7.png" alt="alt text"></br>
 <img src="./img/3/8.png" alt="alt text"></br>
 
+## Improving Decision Tree
+
+* Decision trees induced from training data can often be simplified, without loss of accuracy, by discarding
+  misclassified instances from the training set, relearning, and then repeating until there are no misclassified
+  instances.
+    * Experiments show that this hardly affects the classification accuracy but significantly simplifies the DT.
+    * This method also helps to verify the subtree pruning and also gives a chance to review the misclassified records
+      as they might erroneous in the first place anyway.
+
+* Tackling the noise
+    * If there is attribute noise present in the training data, instead of trying to remove it, a similar noise should
+      be added to the training data as well. So, training on noisy data but testing on noise-free should be avoided.
+      This is more realistic as real-life attributes are likely to contain noise too.
+    * If there is class noise, however, then this should either be removed or data with noise-free classes should be
+      collected. But with class noise (rather than attribute noise), it is best to train on noise- free instances if
+      possible.
+
+## Robust regression
+
+* The problems caused by noisy data have been known in linear regression for years. Statisticians often check data for
+  outliers and remove them manually.
+    * Outliers dramatically affect the usual least-squares regression because the squared distance measure accentuates
+      the influence of points far away from the regression line.
+
+* Statistical methods that address the problem of outliers are called robust.
+    * One way of making regression more robust is to use an absolute-value distance measure instead of the usual squared
+      one.
+        * This weakens the effect of outliers.
+    * Another possibility is to try to identify outliers automatically and remove them from consideration.
+        * For example, one could form a regression line and then remove from consideration those 10% of points that lie
+          furthest from the line
+    * A third possibility is to minimize the median (rather than the mean) of the squares of the divergences from the
+      regression line.
+        * It turns out that this estimator is very robust and actually copes with outliers in the X-direction as well as
+          outliers in the Y-direction—which is the normal direction one thinks of outliers.
+
+* Here the anomalous group is because they store calls total number of minutes not counts.
+  <img src="./img/3/8.png" alt="alt text"></br>
+
+* The least median of squares line lies at the exact center of this band. Note that this notion is often easier to
+  explain and visualize than the normal least-squares definition of regression.
+    * Unfortunately, there is a serious dis- advantage to median-based regression techniques: they incur high
+      computational cost, which often makes them infeasible for practical problems.
+
+## Detecting Anomalies
+
+* Auto-detection of outliers/anomalies is prone to errors, especially if a human expert isn't consulted
+    * In statistical regression, visualizations help.
+    * most classification problems cannot be so easily visualized: the notion of “model type” is more subtle than a
+      regression line.
+    * One solution that has been tried is to use several different learning schemes— such as a decision tree, and a
+      nearest-neighbor learner, and a linear discriminant function—to filter the data.
+    * Training all three schemes on the filtered data and letting them vote can yield even better results.
+        * However, there is a danger to voting techniques: some learn- ing algorithms are better suited to certain types
+          of data than others, and the most appropriate scheme may simply get out-voted!
+
+    * Method of combining the output from different classifiers, called stacking in Ensemble learning.
+
+* One possible danger with filtering approaches is that they might conceivably just be sacrificing instances of a
+  particular class (or group of classes) to improve accuracy on the remaining classes
+* Automatic filtering is a poor substitute for getting the data right in the first place. And if this is too
+  time-consuming and expensive to be practical, human inspection could be limited to those instances that are identified
+  by the filter as suspect.
+
+## One Class Learning
+
+* If during training, there is only one class is available but prediction data presents records for unknown classes,
+  then the one-class learner groups them as target/known and unknown classes.
+
+## Outlier Detection
+
+* One-class classification is often called outlier (or novelty) detection because the learning algorithm is being used
+  to differentiate between data that appears normal and abnormal with respect to the distribution of the training data.
+* A generic statistical approach to one-class classification is to identify outliers as instances that lie beyond a
+  distance d from a given percentage p of the training data.
+    * Alternatively, a probability density can be estimated for the target class by fitting a statistical distribution,
+      such as a Gaussian, to the training data; any test instances with a low probability value can be marked as
+      outliers.
+    * If an appropriate distribution for the data at hand cannot be identified, one can adopt a non-parametric approach
+      such as kernel density estimation.
+        * An advantage of the density estimation approach is that the threshold can be adjusted at prediction time to
+          obtain a suitable rate of outliers.
+* Multi-class classifiers can be tailored to the one-class situation by fitting a boundary around the target data. * If
+  the boundary is chosen too conservatively, data in the target class will erroneously be rejected. If it is chosen too
+  liberally, the model will over-fit and reject too much legitimate data.
+
+## Generating Arificial Data
+
+* The most straightforward approach is to generate uniformly distributed data and learn a classifier that can
+  discriminate this from the target.
+    * However, different decision boundaries will be obtained for different amounts of artificial data.
+    * To overcome this, rather than classifiers, class probability estimators such as bagged decision trees can be used.
+      Then, the threshold level of the probability estimator can be adjusted as needed.
+* There is one significant problem. As the number of attributes increases, it quickly becomes infeasible to generate
+  enough artificial data to obtain adequate coverage of the instance space, and the probability that a particular
+  artificial instance occurs inside or close to the target class diminishes to a point that makes any kind of
+  discrimination impossible.
+    * The solution is to generate artificial data that is as close as possible to the target class. In this case,
+      because it is no longer uniformly distributed, the distri- bution of this artificial data—call this the
+      “reference” distribution—must be taken into account when computing the membership scores for the resulting
+      one-class model.
+        * In other words, the class probability estimates of the two-class classifier must be combined with the
+          reference distribution to obtain membership scores for the target class.
+    
