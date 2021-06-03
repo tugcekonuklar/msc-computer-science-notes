@@ -77,6 +77,23 @@
     * [Data integration in the Albemarle-Charlottesville Regional Jail: A systems engineering approach to support Evidence-based decision making] (https://ieeexplore.ieee.org/document/6549498/)
 
 ## WEEK 4
+* Lesson 1
+  * Witten, section 4.6
+  * Witten, section 7.2 as far as the heading “Kernel Ridge Regression”
+
+* Lesson 2
+  * Witten, section 4.2
+  * Witten, section 7.2 "Discussion of classification"
+* Lesson 3
+  * Model Selection Management Systems: The Next Frontier of Advanced Analytics
+  * [SimpleLinearRegression](https://weka.sourceforge.io/doc.stable/weka/classifiers/functions/SimpleLinearRegression.html) (but sadly it has no meaningful parameters)
+  * [LinearRegression](https://weka.sourceforge.io/doc.stable/weka/classifiers/functions/LinearRegression.html) 
+  * [SMOreg](https://weka.sourceforge.io/doc.stable/weka/classifiers/functions/SMOreg.html)
+  * [J48](https://weka.sourceforge.io/doc.stable/weka/classifiers/trees/J48.html)
+  * [NaiveBayes](https://weka.sourceforge.io/doc.stable/weka/classifiers/bayes/NaiveBayes.html) (not many parameters, however)
+  * [SMO](https://weka.sourceforge.io/doc.stable/weka/classifiers/functions/SMO.html)
+  * Witten, section 5.2
+  * Witten, section 5.6
 
 ## WEEK 5
 
