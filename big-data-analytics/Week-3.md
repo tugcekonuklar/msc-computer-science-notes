@@ -15,6 +15,25 @@ After completing this week you should be able to:
 
 * [Evaluating the suitability of given data for use in analysis](#evaluating-the-suitability-of-given-data-for-use-in-analysis)
 * [ARFF files](#arff-format-attribute-relation-file-format)
+    * [Sparce Data](#sparce-data)
+    * [Attribute Types](#attribute-types)
+    * [Missing Values](#missing-values)
+    * [Inaccurate values](#inaccurate-values)
+    * [Unbalance Data](#unbalance-data)
+    * [Getting to know your data](#getting-to-know-your-data)
+* [Cleaning Data](#cleaning-data)
+    * [Improving Decision Tree](#improving-decision-tree)
+    * [Robust regression](#robust-regression)
+    * [Detecting Anomalies](#detecting-anomalies)
+    * [One Class Learning](#one-class-learning)
+    * [Outlier Detection](#outlier-detection)
+    * [Generating Arificial Data](#generating-arificial-data)
+* [Attribute Selection](#attribute-selection)
+    * [Scheme Independent Selection](#scheme-independent-selection)
+    * [Searching Attributes in space](#searching-attributes-in-space)
+    * [Scheme Spesific Selection](#scheme-spesific-selection)
+* [Data Preparation and integration](#data-preparation-and-integration)
+    * [Creating Analytics Base Table (ABT)](#creating-analytics-base-table-abt)
 
 # Evaluating the suitability of given data for use in analysis
 
@@ -426,7 +445,7 @@ After completing this week you should be able to:
           important distinctions in the data. Finding appropriate thresholds, however, may require domain specific
           knowledge or a process of trial-and-error experimentation.
 
-# Creating Analytics Base Table (ABT)
+## Creating Analytics Base Table (ABT)
 
 * The final step in data integration involves creating the data that are used as input to the ML algorithms. This data
   is known as the **analytics base table**.
