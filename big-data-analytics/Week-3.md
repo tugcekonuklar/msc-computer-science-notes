@@ -101,8 +101,8 @@ After completing this week you should be able to:
 
 * Imputation is t put most reasonable value in missing data, for example salary info 5000 euro for missing value.
 
-<img src="./img/3/3.png" alt="alt text"><br>
-<img src="./img/3/4.png" alt="alt text">
+<img src="./img/3/3.png" alt="alt text" width="500" height="300"><br>
+<img src="./img/3/4.png" alt="alt text" width="500" height="300">
 
 ## Inaccurate values
 
@@ -118,7 +118,7 @@ After completing this week you should be able to:
 * Duplicate data is another potential source of the problem, ie duplication of records leads to most ML algos giving
   them more weight.
 
-<img src="./img/3/4.png" alt="alt text">
+<img src="./img/3/4.png" alt="alt text" width="500" height="300">
 
 ## Unbalance Data
 
@@ -168,9 +168,9 @@ After completing this week you should be able to:
     * Data errors may point to defective equipment, such as broken transmission lines and defective sensors.
     * Data errors can point to bugs in software or in the integration of software that may be critical to the company.
 
-<img src="./img/3/6.png" alt="alt text"></br>
-<img src="./img/3/7.png" alt="alt text"></br>
-<img src="./img/3/8.png" alt="alt text"></br>
+<img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
+<img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
+<img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
 
 ## Improving Decision Tree
 
@@ -209,7 +209,7 @@ After completing this week you should be able to:
           outliers in the Y-direction—which is the normal direction one thinks of outliers.
 
 * Here the anomalous group is because they store calls total number of minutes not counts.
-  <img src="./img/3/8.png" alt="alt text"></br>
+  <img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
 
 * The least median of squares line lies at the exact center of this band. Note that this notion is often easier to
   explain and visualize than the normal least-squares definition of regression.
