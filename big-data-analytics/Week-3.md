@@ -159,8 +159,8 @@ After completing this week you should be able to:
           actually can't.
     * Acknowledge residual uncertainty
 * Data should be cleansed when acquired for many reasons:
-    * Not everyone spots the data anomalies. Decision-makers may make costly mistakes on information based on
-      incorrect data from applications that fail to correct for the faulty data.
+    * Not everyone spots the data anomalies. Decision-makers may make costly mistakes on information based on incorrect
+      data from applications that fail to correct for the faulty data.
     * If errors are not corrected early on in the process, the cleansing will have to be done for every project that
       uses that data.
     * Data errors may point to a business process that isn’t working as designed. we discovered clients who abused the
@@ -270,9 +270,8 @@ After completing this week you should be able to:
   artificial instance occurs inside or close to the target class diminishes to a point that makes any kind of
   discrimination impossible.
     * The solution is to generate artificial data that is as close as possible to the target class. In this case,
-      because it is no longer uniformly distributed, the distribution of this artificial data—call this the
-      “reference” distribution—must be taken into account when computing the membership scores for the resulting
-      one-class model.
+      because it is no longer uniformly distributed, the distribution of this artificial data—call this the “reference”
+      distribution—must be taken into account when computing the membership scores for the resulting one-class model.
         * In other words, the class probability estimates of the two-class classifier must be combined with the
           reference distribution to obtain membership scores for the target class.
 
@@ -368,9 +367,9 @@ After completing this week you should be able to:
 
 * One way to accelerate the search process is to stop evaluating a subset of attributes as soon as it becomes apparent
   that it is unlikely to lead to higher accuracy than another candidate subset. This is a job for a paired statistical
-  significance test, performed between the classifier based on this subset and all the other candidate classifiers
-  based on other subsets. The performance difference between two classifiers on a particular test instance can be taken
-  to be 21, 0, or 1 depending on whether the first classifier is worse, the same as, or better than the second on that
+  significance test, performed between the classifier based on this subset and all the other candidate classifiers based
+  on other subsets. The performance difference between two classifiers on a particular test instance can be taken to be
+  21, 0, or 1 depending on whether the first classifier is worse, the same as, or better than the second on that
   instance. A paired t-test can be applied to these figures over the entire test set, effectively treating the results
   for each instance as an independent estimate of the difference in performance.
 
@@ -382,3 +381,74 @@ After completing this week you should be able to:
   machine learning algorithm in the attribution selection loop, it is quite hard to predict the conditions under which
   it will turn out to be worthwhile. As in many machine learning situations, trial and error using your own particular
   source of data is the final arbiter.
+
+# Data Preparation and integration
+
+* Data integration involves taking the data from different data sources and merging them to give a unified view of the
+  data from across the organization.
+    * For example patient information can store differant hospital seperately, the important part of it to integrate
+      correctly those data of one patient.
+
+* The first three CRISP-DM stages take up to 70 to 80 percent of the total data science project time, with the majority
+  of this time being allocated to data integration.
+
+* Integrating data from multiple data sources is difficult even when the data are structured.
+    * However, when some of the newer big-data sources are involved, where semi- or unstructured data are the norm, then
+      the cost of integrating the data and managing the architecture can become significant
+
+* The typical data-integration process will involve a number of different stages, consisting of extracting, cleaning,
+  standardizing, transforming, and finally integrating to create a single unified version of the data.
+    * Extracting data from multiple data sources can be challenging because many data sources can be accessed only by
+      using an interface particular to that data source. As a consequence, data scientists need to have a broad skill
+      set to be able to interact with each of the data sources in order to obtain the data
+    * Once data have been extracted from a data source, the quality of the data needs to be checked. Data cleaning is a
+      process that detects, cleans, or **removes corrupt or inaccurate data from the extracted data**.
+        * For example, customer address information may have to be cleaned in order to convert it into a standardized
+          format. In addition, there may be duplicate data in the data sources, in which case it is necessary to
+          identify the correct customer record that should be used and to remove all the other records from the data
+          sets.
+    * It is important to ensure that the values used in a data set are consistent.
+        * For example, one source application might use numeric values to represent a customer credit rating, but
+          another might have a mixture of numeric and character values.
+
+    * The other representations should be mapped into the standardized representation.
+        * For example, imagine one of the attributes in the data set is a customer’s shoe size. Customers can buy shoes
+          from various regions around the world, but the numbering system used for shoe sizes in Europe, the United
+          States, the United Kingdom, and other countries are slightly different
+        * Prior to doing data analysis and modeling, these data values need to be standardized.
+
+* A wide variety of techniques can be used during this step and include data **smoothing**, **binning**, and **
+  normalization** as well as writing custom code to perform a particular transformation.
+    * A customer’s age is often transformed from a raw age into a general age range. This process of converting ages
+      into age ranges is an example of a data- transformation technique called **binning**.
+        * Although binning is relatively straightforward from a technical perspective, the challenge here is to identify
+          the most appropriate range thresholds to apply during binning. Applying the wrong thresholds may obscure
+          important distinctions in the data. Finding appropriate thresholds, however, may require domain specific
+          knowledge or a process of trial-and-error experimentation.
+
+# Creating Analytics Base Table (ABT)
+
+* The final step in data integration involves creating the data that are used as input to the ML algorithms. This data
+  is known as the **analytics base table**.
+
+* The most important step in creating the analytics base table is the selection of the attributes that will be included
+  in the analysis.
+    * The selection is based on domain knowledge and on an analysis of the relationships between attributes.
+
+* Attributes that are found to have a high correlation with other attributes are likely to be redundant, and so one of
+  the correlated attributes should be excluded.
+    * Removing redundant features can result in simpler models which are easier to understand, and also reduces the
+      likelihood of an ML algorithm returning a model that is fitted to spurious patterns in the data.
+
+* The set of attributes selected for inclusion define what is known as the analytics record.
+    * An analytics record typically includes both raw and derived attributes
+
+* After the analytics record has been designed, a set of records needs to extracted and aggregated to create a data set
+  for analysis. When these records have been created and stored—for example, in a database—this data set is commonly
+  referred to as the analytics base table. The analytics base table is the data set that is used as input to the ML
+  algorithms.
+
+* selection of attributes that will be included in the analysis - based on domain knowledge
+* removing redundant features --> simple models, easy to understand
+* design analytics records - set of records to be extracted and aggregated to create a dataset
+* ABT is used as input to the ml algorithm
