@@ -57,7 +57,7 @@ outcomes:
       to classification problems because the observations only ever take on the values 0 and 1.
 
 * A related statistical technique called **logistic regression** does not suffer from these problems. Instead of
-  approximating the 0 and 1 values directly, thereby risk- ing illegitimate probability values when the target is
+  approximating the 0 and 1 values directly, thereby risking illegitimate probability values when the target is
   overshot, logistic regression builds a linear model based on a transformed target variable.
 
 * Transformation function called the logit transformation.
@@ -70,7 +70,7 @@ outcomes:
 
 * Logistic regression attempts to produce accurate probability estimates by maximizing the probability of the training
   data.
-* the data can be separated perfectly into two groups using a hyperplane, it is said to be lin- early separable. t turns
+* the data can be separated perfectly into two groups using a hyperplane, it is said to be linearly separable. t turns
   out that if the data is linearly separable, there is a very simple algorithm for finding a separating hyperplane and s
   called the **perceptron learning rule**.
   <img src="./img/4/6.png" alt="alt text" width="500" height="300"></br>
@@ -84,7 +84,7 @@ outcomes:
   separable problem.
     * For datases with binary attributes there is an alternative known as Winnow, The structure of the two algorithms is
       very similar. Like the perceptron, Winnow only updates the weight vector when a misclassified instance is
-      encountered—it is mis- take driven.
+      encountered—it is mistake driven.
 
 * Winnow is very effective in homing in on the relevant features in a dataset— therefore it is called an
   attribute-efficient learner. That means that it may be a good candidate algorithm if a dataset has many (binary)
@@ -109,7 +109,7 @@ outcomes:
 * Support vector machines address both problems. They are based on an algorithm that finds a special kind of linear
   model: **the maximum margin hyperplane**.
     * A hyperplane is—it is just another term for a linear model
-* To visualize a maximum margin hyperplane, imagine a two-class data set whose clas- ses are linearly separable; i.e.,
+* To visualize a maximum margin hyperplane, imagine a two-class data set whose classes are linearly separable; i.e.,
   there is a hyperplane in instance space that classifies all training instances correctly. The maximum margin
   hyperplane is the one that gives the greatest separation between the classes—it comes no closer to either than it has
   to.
@@ -143,7 +143,7 @@ outcomes:
       attributes in the new space can be huge. This problem occurs not only during classification but also during
       training, because the optimization algorithms have to calculate the same dot products very frequently.
 * Fortunately, it turns out that it is possible to calculate the dot product before the nonlinear mapping is performed,
-  on the original attribute set. A high- dimensional version of the preceding equation is simply
+  on the original attribute set. A highdimensional version of the preceding equation is simply
     * <img src="./img/4/10.png" alt="alt text" width="500" height="300"></br>
 
 * The function ðxUyÞn, which computes the dot product of two vectors x and y and raises the result to the power n, is
@@ -175,7 +175,7 @@ outcomes:
 
 * The concept of a maximum margin hyperplane only applies to classification. However, support vector machine algorithms
   have been developed for numeric prediction that share many of the properties encountered in the classification case:
-  they produce a model that can usually be expressed in terms of a few support vec- tors and can be applied to nonlinear
+  they produce a model that can usually be expressed in terms of a few support vectors and can be applied to nonlinear
   problems using kernel functions.
 
 * As with linear regression, the basic idea of SVR is to find a function that approximates the training points with
@@ -196,7 +196,7 @@ outcomes:
       nonzero error, and there will be a tradeoff between the prediction error and the tube’s flatness
       <img src="./img/4/12.png" alt="alt text" width="500" height="300"></br>
 
-* In the degenerate case ε50 the algorithm simply performs least- absolute-error regression under the coefficient size
+* In the degenerate case ε50 the algorithm simply performs least-absolute-error regression under the coefficient size
   constraint, and all training instances become support vectors.
     * Conversely, if ε is large enough that the tube can enclose all the data, the error becomes zero, there is no
       tradeoff to make, and the algorithm outputs the flattest tube that encloses the data irrespective of the value of
@@ -263,15 +263,15 @@ outcomes:
     * FE includes a variety of options (a sequence of computational operations), e.g., counting words or selecting a
       feature subset. Some options, such as subset selection and feature ranking, are well studied
     * FE is considered a domain-specific “black art” , mostly because it is influenced by many technical and logistical
-      fac- tors, e.g., data and application properties, accuracy, time, interpretability, and company policies.
-* **Algorithm Selection (AS)** is the process of pick- ing an ML model, i.e., an inductive bias, that fixes the
-  hypothesis space of prediction functions explored for a given application.
+      factors, e.g., data and application properties, accuracy, time, interpretability, and company policies.
+* **Algorithm Selection (AS)** is the process of picking an ML model, i.e., an inductive bias, that fixes the hypothesis
+  space of prediction functions explored for a given application.
     * For example, logistic regression and decision trees are popular ML techniques for classification applications.
 * **Parameter Tuning (PT)** is the process of choosing the values of (hyper-)parameters that many ML models and
   algorithms have.
     * For example, logistic regression is typically used with a parameter known as the regularizer. Such parameters are
-      important because they control accuracy-performance trade- offs, but tuning them is challenging partly because the
-      optimization problems involved are usually non- convex .
+      important because they control accuracy-performance tradeoffs, but tuning them is challenging partly because the
+      optimization problems involved are usually non-convex .
 
 ### Model Selection Triple
 
@@ -297,7 +297,7 @@ outcomes:
     * Consumption: the analyst assesses the results to decide upon the MST for the next iteration, or stops the process
 
 * Iteration in an MSMS:
-    * Steering: an MSMS should offer a framework of declarative operations that enable an- alysts to easily group
+    * Steering: an MSMS should offer a framework of declarative operations that enable analysts to easily group
       logically related MSTs.
         * For example, the analyst can just “declare” the set of tree heights and feature subsets (projections).
     * Execution: an MSMS should include optimization techniques to reduce the runtime per iteration by exploiting the
@@ -310,7 +310,35 @@ outcomes:
 
 <img src="./img/4/14.png" alt="alt text" width="500" height="300"></br>
 
+# Technique comparisons
+
+## Comparing Data mining schemes
+
+* We often need to compare two different learning schemes on the same problem to see which is the better one to use. It
+  seems simple: estimate the error using cross-validation (or any other suitable estimation procedure), perhaps repeated
+  several times, and choose the scheme whose estimate is smaller.
+
+* If there were unlimited data, we could use a large amount for training and evaluate performance on a large independent
+  test set, obtaining confidence bounds just as before. However, if the difference turns out to be significant we must
+  ensure that this is not just because of the particular dataset we happened to base the experiment on. What we want to
+  determine is whether one scheme is beter or worse than another on average, across all possible training and test
+  datasets that can be drawn from the domain. Because the amount of training data naturally affects performance, all
+  datasets should be the same size: indeed, the experiment might be repeated with different sizes to obtain a learning
+  curve.
+
+* For each learning scheme we can draw several datasets of the same size, obtain an accuracy estimate for each dataset
+  using cross-validation, and compute the mean of the estimates. Each cross-validation experiment yields a different,
+  independent error estimate. What we are interested in is the mean accuracy across all possible datasets of the same
+  size, and whether this mean is greater for one scheme or the other.
+
+* From this point of view, we are trying to determine whether the mean of a set of samples—cross-validation estimates
+  for the various datasets that we sampled from the domain—is significantly greater than, or significantly less than,
+  the mean of another. This is a job for a statistical device known as the t-test, or Student’s t-test. Because the same
+  cross-validation experiment can be used for both learning schemes to obtain a matched pair of results for each
+  dataset, a more sensitive version of the t-test known as a paired t-test can be used.
+
 # TODO:
 
 * 4.4.1 Activity : Practical — applying alternative forms of regression
-* 4.6.1 Activity : Practical — applying alternative forms of classification 
+* 4.6.1 Activity : Practical — applying alternative forms of classification
+* 4.7.2 Activity : [Important](https://onlinestudy.york.ac.uk/courses/577/files/183357?wrap=1)
