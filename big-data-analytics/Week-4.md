@@ -21,7 +21,9 @@ outcomes:
 
 * When the outcome, or class, is numeric, and all the attributes are numeric, linear regression is a natural technique
   to consider.
-  <img src="./img/4/1.png" alt="alt text" width="500" height="300"></br>
+  
+<img src="./img/4/1.png" alt="alt text" width="200" height="50"></br>
+  
 * where x is the class; a1, a2,..., ak are the attribute values; and w0, w1,..., wk are weights.
 * The predicted value for the first instance’s class can be written as :
 
@@ -40,7 +42,7 @@ outcomes:
         * However, linear models serve well as building blocks or starting points for more complex learning methods.
 * Multiple regression
 
-<img src="./img/4/7.png" alt="alt text"width="200" height="50"></br>
+<img src="./img/4/7.png" alt="alt text" width="200" height="50"></br>
 
 ## Linear Classification: Logistic Regression
 
@@ -66,11 +68,11 @@ outcomes:
 
 * Transformation function called the logit transformation.
 
-<img src="./img/4/4.png" alt="alt text" width="200" height="50"></br>
+<img src="./img/4/4.png" alt="alt text" width="300" height="50"></br>
 
 * In logistic regression the log-likelihood of the model is used instead. This is given by
 
-<img src="./img/4/5.png" alt="alt text" width="200" height="50"></br>
+<img src="./img/4/5.png" alt="alt text" width="350" height="50"></br>
 
 ## Linear Classification using the perception
 
