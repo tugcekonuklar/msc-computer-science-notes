@@ -289,7 +289,8 @@ outcomes:
 ## Phases of designing Database
 
 * Designing a database is a multi-step process
-  <img src="./img/5/4.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/5/4.png" alt="alt text" width="500" height="300"></br>
 
 ## The Entity Relationship Model
 
@@ -417,7 +418,8 @@ outcomes:
 <img src="./img/5/8.png" alt="alt text" width="500" height="300"></br>
 
 * Many to many example
-  <img src="./img/5/11.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/5/11.png" alt="alt text" width="500" height="300"></br>
 
 * Strong/Weak Entity Type
     * A **strong entity type** is an entity type that has a key attribute type.
@@ -482,5 +484,3 @@ outcomes:
         * Student(stuId, lastName, firstName, gender, dob, auth)
     * A database schema can have any number of relation schemas. We underline primary key in each relation schema, and
       indicate foreign keys
-
-<img src="./img/5/10.png" alt="alt text" width="500" height="300"></br>
