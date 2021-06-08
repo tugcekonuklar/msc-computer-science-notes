@@ -152,9 +152,9 @@ outcomes:
       training, because the optimization algorithms have to calculate the same dot products very frequently.
 * Fortunately, it turns out that it is possible to calculate the dot product before the nonlinear mapping is performed,
   on the original attribute set. A highdimensional version of the preceding equation is simply
-    * <img src="./img/4/10.png" alt="alt text" width="500" height="300"></br>
+    *  <img src="./img/4/11.png" alt="alt text" width="200" height="50"></br>
 
-* The function ðxUyÞn, which computes the dot product of two vectors x and y and raises the result to the power n, is
+* The function (x.y)^n, which computes the dot product of two vectors x and y and raises the result to the power n, is
   called a polynomial kernel.
     * A good way of choosing the value of n is to start with 1 (a linear model) and increment it until the estimated
       error ceases to improve. Usually, quite small values suffice .
