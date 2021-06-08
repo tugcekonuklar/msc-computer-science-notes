@@ -283,3 +283,204 @@ outcomes:
       customer behavior.
     * A data scientist has a multidisciplinary profile combining ICT skills (e.g., programming) with quantitative
       modeling (e.g., statistics), business understanding, communication, and creativity
+
+# Modelling data and the Relational Database model
+
+## Phases of designing Database
+
+* Designing a database is a multi-step process
+  <img src="./img/5/4.png" alt="alt text" width="500" height="300"></br>
+
+## The Entity Relationship Model
+
+* The Entity-Relationship model is one of the most popular models for conceptual database modelling.
+* The ER model facilitates database design by providing a mechanism to express the logical properties of the part of the
+  enterprise we are interested in -- the Universe of Discourse. The use of ER modelling is not limited to any particular
+  database management system.
+* ER modelling uses a simple graphical language to describe the system we are modelling.
+* The ER diagrams are used as design tools – they capture the information about the conceptual system in a way that
+  makes it easy for us to decide on the design of the actual database that implements the conceptual model.
+* The ER model is a semantic model – that is, it captures the meaning of the relationships between our data, without
+  dictating the syntactic structure that we will then need to implement the database.
+
+* The ER model has an attractive and user-friendly graphical notation.
+    * Hence, it has the ideal properties to build a conceptual data model. It has three building blocks: entity types,
+      attribute types, and relationship types.
+
+## Entity Type
+
+* An **entity type** represents a business concept with an unambiguous meaning to a particular set of users. Examples of
+  entity types are: supplier, student, product, or employee
+    * An entity is one particular occurrence or instance of an entity type.
+    * An entity type defines a collection of entities that have similar characteristics.
+
+## Attribute Type
+
+* An **attribute type** represents a property of an entity type. As an example, name and address are attribute types of
+  the entity type supplier.
+
+  <img src="./img/5/5.png" alt="alt text" width="500" height="300"></br>
+
+* A **domain** specifies the set of values that may be assigned to an attribute for each individual entity. A domain for
+  gender can be specified as having only two values: male and female or a date domain can define date with day, month
+  and year
+    * domains are not displayed in an ER model.
+
+* A **key attribute type** is an attribute type whose values are distinct for each individual entity.
+    * In other words, a key attribute type can be used to uniquely identify each entity
+    * Examples are: supplier number, which is unique for each supplier A key attribute is one which allows us to
+      identify a particular instance of an entity. An example of a key attribute might be a student number – a Primary
+      Key as every student has a unique number, so we can use that attribute to identify each individual.
+    * We can also have a key which is a combination of attributes – **a composite key.** One example of this might be a
+      combination of name and address to identify an individual – some names are duplicated, and more that one person
+      may live at a particular address, but the combination is (usually!) sufficient to uniquely identify a person.
+
+* A **simple or atomic attribute** type cannot be further divided into parts. Examples are supplier number or supplier
+  status.
+
+* A **composite attribute type** is an attribute type that can be decomposed into other meaningful attribute types.
+    * Think about an address attribute type, which can be further decomposed into attribute types for street, number,
+      ZIP code, city, and country. Another example is name, which can be split into first name and last name
+
+  <img src="./img/5/6.png" alt="alt text" width="500" height="300"></br>
+
+* A **single-valued attribute** type has only one value for a particular entity. An example is product number or product
+  name.
+
+* A **multi-valued attribute** type is an attribute type that can have multiple values. As an example, email address can
+  be a multi-valued attribute type as a supplier can have multiple email addresses
+    * Multi-valued attribute types are represented using a double ellipse in the ER model
+
+* A **derived attribute type**  is an attribute type that can be derived from. another attribute type. As an example,
+  age is a derived attribute type since it can be derived from birth date.
+    * Derived attribute types are depicted using a dashed ellipse, a
+
+## Basic concepts
+
+* Each row in a table (also called a tuple, an ordered set of parts or number of fields) corresponds to an individual
+  record.
+* Each record is distinct – duplicate records (rows in the table) are not allowed.
+    * There must be some key attribute that allows us to distinguish one record from another. The order in which the
+      records appear in the table is immaterial, as the relation represents a set.
+* Each column in the table corresponds to one of the attributes of the entities represented by the table.
+    * The column representing an attribute contains values from the domain of that attribute.
+
+## Relationship Types
+
+* A relationship represents an association between two or more entities.
+* A relationship type then defines a set of relationships among instances of one, two, or more entity types.
+
+* In the ER model, relationship types are indicated using a rhombus symbol (see below).
+    * The rhombus can be thought of as two adjacent arrows pointing to each of the entity types specifying both
+      directions in which the relationship type can be interpreted
+
+<img src="./img/5/7.png" alt="alt text" width="500" height="300"></br>
+
+* Degree and Roles
+    * The **degree** of a relationship type corresponds to the number of entity types participating in the relationship
+      type
+        * A unary or recursive relationship type has degree one.
+        * Binary: links two entity sets
+        * Ternary: links three entity sets
+        * N-ary: links N entity sets; ordered N-tuple (a tuple is a row in a table as opposed to an attribute which is a
+          column).
+            * A tuple is a set of attribute values in which no two distinct elements have the same name.
+* The **roles** of a relationship type indicate the various directions that can be used to interpret it
+
+* Cardinalities
+    * Every relationship type can be characterized in terms of its cardinalities, which specify the minimum or maximum
+      number of relationship instances that an individual entity can participate in.
+        * If minimum cardinality is 0, it implies that an entity can occur without being connected through that
+          relationship type to another entity. This can be referred to as **partial participation** since some entities
+          may not participate in the relationship
+            * Partial participation: Not every entity instance must participate in the relationship. We represent this
+              by a single line.
+        * If the minimum cardinality is 1, an entity must always be connected to at least one other entity through an
+          instance of the relationship type. This is referred to as **total participation or existence dependency**,
+          since all entities need to participate in the relationship, or in other words, the existence of the entity
+          depends upon the existence of another
+            * Total participation: Every member of the entity set must participate in the relationship. We represent
+              this by a double line.
+
+    * The maximum cardinality can either be 1 or N.
+        * Relationship types are often characterized according to the maximum cardinality for each of their roles.
+            * For binary relationship types, this gives four options: 1:1, 1:N (one-to-many relationship type), N:1, and
+              M:N (many-to-many relationship type).
+
+    * One-to-one: each entity in set X is associated with at most one entity in Y, and each entity in set Y is
+      associated with at most one entity in X
+    * One-to-many: each entity in set X is associated with more than one entity in Y, but each entity in set Y is
+      associated with at most one entity in X
+    * Many-to-many: each entity in set X is associated with more than one entity in Y, and each entity in set Y is
+      associated with more than one entity in X
+
+<img src="./img/5/8.png" alt="alt text" width="500" height="300"></br>
+
+* Many to many example
+  <img src="./img/5/11.png" alt="alt text" width="500" height="300"></br>
+
+* Strong/Weak Entity Type
+    * A **strong entity type** is an entity type that has a key attribute type.
+        * in image below, PURCHASE ORDER entity depends on SUPPLIER, but PURCHASE ORDER has its own key attribute thats
+          why it is not weak.
+    * In contrast, a **weak entity type** is an entity type that does not have a key attribute type of its own.
+        * Weak entity types are represented in the ER model using a double-lined rectangle
+        * In image below, The rhombus representing the relationship type through which the weak entity type borrows a
+          key attribute type is also double-lined. The borrowed attribute type(s) is/are underlined using a dashed lin
+        * Since a weak entity type needs to borrow an attribute type from another entity type, its existence will always
+          be dependent on the latter
+        * Image below, Room is depends on Hotel attribute m but Rooms does not have key attibute itseld , tahts why it
+          is weak.
+
+    * Entity Y is **existence dependent** on entity X if each instance of Y must have a corresponding instance of X. If
+      this is the case, Y must have **total participation** in its relationship with X.
+        * If Y does not have its own candidate key, Y is called a **weak entity**, and X is a **strong entity**.
+
+* Weak entities may have a partial key, a discriminator that distinguishes instances of the weak entity that are related
+  to an instance of the strong entity.
+
+<img src="./img/5/9.png" alt="alt text" width="500" height="300"></br>
+
+* Ternary Relationship Types
+    * Higher-order relationship types with more than two entity types, known as ternary relationship types, can
+      occasionally occur, and special attention is needed to properly understand their meaning.
+
+* Limitations for ER
+    * the ER model presents a temporary snapshot of the data requirements of a business process. This implies that
+      temporal constraints, which are constraints spanning a particular time interval, cannot be modeled.
+    * the ER model cannot guarantee consistency across multiple relationship types. Some examples of business rules that
+      cannot be enforced in the ER model are: an employee should work in the department that he/she manages, employees
+      should work on projects
+
+* Example for ER
+
+<img src="./img/5/10.png" alt="alt text" width="500" height="300"></br>
+
+# Relational Database Keys
+
+* Relations never have duplicate tuples, so you can always tell tuples apart.
+    * This implies that there is always a key (which may be a composite of all attributes, in the extreme case).
+
+* The key may be of different types:
+    * Superkey: A set of attributes that uniquely identifies tuples
+    * Candidate key: A superkey such that no proper subset of itself is also a superkey (i.e. it has no unnecessary
+      attributes)
+    * Primary key: A candidate key chosen for unique identification of tuples
+    * Candidate keys other than the primary key are called the **alternative keys**.
+
+* The connection between the relations are established by using the concept of a **foreign key**.
+    * A foreign key is an attribute, or combination of attributes, of a relation that is not the primary key of that
+      relation, but is the primary key of some other relation.
+        * For Example
+            * In the STUDENT table, StudentId is the primary key, uniquely identifying a particular student.
+            * In the ENROLL table, studentId is a foreign key, it links a student to the class they are taking,
+            * But studendId is not itself a primary key for the ENROLL table.
+
+* Representing Relations Database schemas
+    * The **schema** for a relation gives the name of the relation, followed by the names of the attributes in
+      parentheses:
+        * Student(stuId, lastName, firstName, gender, dob, auth)
+    * A database schema can have any number of relation schemas. We underline primary key in each relation schema, and
+      indicate foreign keys
+
+<img src="./img/5/10.png" alt="alt text" width="500" height="300"></br>
