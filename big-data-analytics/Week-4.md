@@ -42,7 +42,7 @@ outcomes:
         * However, linear models serve well as building blocks or starting points for more complex learning methods.
 * Multiple regression
 
-<img src="./img/4/7.png" alt="alt text" width="500" height="300"></br>
+<img src="./img/4/8.png" alt="alt text" width="500" height="300"></br>
 
 ## Linear Classification: Logistic Regression
 
