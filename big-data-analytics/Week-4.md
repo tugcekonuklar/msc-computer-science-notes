@@ -24,10 +24,13 @@ outcomes:
   <img src="./img/4/1.png" alt="alt text" width="500" height="300"></br>
 * where x is the class; a1, a2,..., ak are the attribute values; and w0, w1,..., wk are weights.
 * The predicted value for the first instance’s class can be written as :
-  <img src="./img/4/2.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/4/2.png" alt="alt text" width="200" height="50"></br>
+
 * Then the sum of the squares of the differences is and This sum of squares is what we have to minimize by choosing the
   coefficients appropriately.
-  <img src="./img/4/3.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/4/3.png" alt="alt text" width="200" height="50"></br>
 
 * Linear regression is an excellent, simple method for numeric prediction, and it has been widely used in statistical
   applications for decades.
@@ -36,7 +39,8 @@ outcomes:
       difference. This line may not fit very well.
         * However, linear models serve well as building blocks or starting points for more complex learning methods.
 * Multiple regression
-  <img src="./img/4/7.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/4/7.png" alt="alt text"width="200" height="50"></br>
 
 ## Linear Classification: Logistic Regression
 
@@ -61,10 +65,12 @@ outcomes:
   overshot, logistic regression builds a linear model based on a transformed target variable.
 
 * Transformation function called the logit transformation.
-  <img src="./img/4/4.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/4/4.png" alt="alt text" width="200" height="50"></br>
 
 * In logistic regression the log-likelihood of the model is used instead. This is given by
-  <img src="./img/4/5.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/4/5.png" alt="alt text" width="200" height="50"></br>
 
 ## Linear Classification using the perception
 
@@ -73,7 +79,7 @@ outcomes:
 * the data can be separated perfectly into two groups using a hyperplane, it is said to be linearly separable. t turns
   out that if the data is linearly separable, there is a very simple algorithm for finding a separating hyperplane and s
   called the **perceptron learning rule**.
-  <img src="./img/4/6.png" alt="alt text" width="500" height="300"></br>
+  <img src="./img/4/6.png" alt="alt text" width="200" height="50"></br>
 
 * The resulting hyperplane is called a perceptron, and it’s the grandfather of neural networks
   <img src="./img/4/7.png" alt="alt text" width="500" height="300"></br>
@@ -97,7 +103,7 @@ outcomes:
   the instance space into a new space. With a nonlinear mapping, a straight line in the new space does not look straight
   in the original instance space. A linear model constructed in the new space can represent a nonlinear decision
   boundary in the original space.
-  <img src="./img/4/9.png" alt="alt text" width="500" height="300"></br>
+  <img src="./img/4/9.png" alt="alt text" width="200" height="50"></br>
     * Here, x is the outcome, a1 and a2 are the two attribute values, and there are four weights wi to be learned.
 * Each data set can be modelled with a complicated enough polynomial but there are 2 major problems with this approach
     * As the number of parameters increase, the number of coefficients and the required computational power increase
