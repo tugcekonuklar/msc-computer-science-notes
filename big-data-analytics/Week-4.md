@@ -235,7 +235,7 @@ outcomes:
   Bayes’ rule—is below , where N 5 n1 + n2 +...+ nk is the number of words in the document.
     * Pi is estimated by computing the relative frequency of word i in the text of all training documents pertaining to
       category H.
-      <img src="./img/4/13.png" alt="alt text" width="200" height="200"></br>
+      <img src="./img/4/13.png" alt="alt text" width="200" height="100"></br>
 
 * In the multinomial Na ̈ıve Bayes formulation a document’s class is determined not just by the words that occur in it
   but also by the number of times they occur.
