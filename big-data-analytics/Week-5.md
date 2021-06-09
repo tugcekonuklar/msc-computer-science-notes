@@ -14,6 +14,34 @@ outcomes:
 #### Sub titles:
 
 * [Why databases?](#why-databases)
+    * [Intro](#intro)
+    * [Elements of Database System](#elements-of-database-system)
+    * [Database User](#database-user)
+    * [Database language](#database-language)
+    * [Advantage of Database System and Database Management](#advantage-of-database-system-and-database-management)
+        * [Data independence](#data-independence)
+        * [Database Modeling](#database-modeling)
+        * [Managing Structured, Semi-Structured, and Unstructured Data](#managing-structured-semi-structured-and-unstructured-data)
+        * [Managing Data Redundancy](#managing-data-redundancy)
+        * [Specifying Integrity Rules](#specifying-integrity-rules)
+        * [Concurrency Control (ACID)](#concurrency-control-acid)
+        * [Backup and Recovery Facilities](#backup-and-recovery-facilities)
+        * [Data Security](#data-security)
+        * [Performance Utilities](#performance-utilities)
+* [Data and quality management](#data-management)
+    * [Data Quality](#data-quality)
+* [Data Governance](#data-governance)
+* [Roles in Data Management](#roles-in-data-management)
+* [Modelling data and the Relational Database model](#modelling-data-and-the-relational-database-model)
+    * [Phases of designing Database](#phases-of-designing-database)
+    * [The Entity Relationship Model](#the-entity-relationship-model)
+    * [Entity Type](#entity-type)
+    * [Attribute Type](#attribute-type)
+    * [Basic concepts](#basic-concepts)
+    * [Relationship Types](#relationship-types)
+* [Relational Database Keys](#relational-database-keys)
+* [Database Normalization](#database-normalization)
+* [Questions](#questions)
 
 # Why databases?
 
@@ -484,3 +512,40 @@ outcomes:
         * Student(stuId, lastName, firstName, gender, dob, auth)
     * A database schema can have any number of relation schemas. We underline primary key in each relation schema, and
       indicate foreign keys
+
+# Database Normalization
+
+* The process of analysing a database structure to ensure there is no redundant data is called **normalisation**.
+* If our relational model is not normalised, we may see different types of anomaly. In the data you saw earlier in the
+  module, there were multiple records for each student, one for each class they had taken.
+    * Insertion anomaly: if we want to insert a new record for a student, we need to make sure that the data about the
+      student is consistent with the other records for that student.
+    * Deletion anomaly: If we wanted to delete records about a class, and there was a student who had taken only that
+      class, then the information about that student is also deleted.
+    * Update anomaly: if we want to update a student, we have to find every record about the student and make sure they
+      are updated consistently.
+
+* There are three common forms of database normalisation: 1st, 2nd, and 3rd normal form, usually abbreviated to 1NF,
+  2NF, and 3NF.
+    * Each normal form builds on the previous form, and the relational model becomes less prone to anomalies.
+    * First Normal Form – The information is stored in a relational table with each column containing atomic values.
+    * Second Normal Form – The table is in first normal form and all the columns depend on the table’s primary key.
+    * Third Normal Form – the table is in second normal form and all of its columns are not transitively dependent on
+      the primary key
+
+# Questions
+
+* Explain the difference between data redundancy and data integrity
+    * Data redundancy is unnecessary repetition of data. Data integrity is data as it should be / accurate, reflect
+      reality
+
+* Illustrate the concept of referential integrity with an example
+    * Referential integrity will not allow the deletion of stock_number if it is being referred to by other entries or
+      tables.
+
+* In terms of a database, explain the term transaction
+    * Any change in the database
+
+* Explain where record locking might be needed while in a transaction process
+    * Two transactions attempting an update at the same time on the same data. The first attempt locks the record so
+      that the second attempt cannot interfere with the first transaction.
