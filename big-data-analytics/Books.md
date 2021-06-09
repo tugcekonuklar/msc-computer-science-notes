@@ -115,4 +115,27 @@
 
 ## WEEK 6
 
+* Lesson 3: Big Data and the problems for analysis
+    * [What is Big Data?](https://www.oracle.com/uk/big-data/what-is-big-data/), Oracle, supplier of big data solutions
+    * [Defining architecture components of the Big Data Ecosystem](https://ieeexplore.ieee.org/document/6867550), by Y
+      Demchenko et al, 2014 International Conference on Collaboration Technologies and Systems (CTS), 2014, pp104 – 112
+* Optional reading
+    * [Five projects that are harnessing big data for good](https://theconversation.com/five-projects-that-are-harnessing-big-data-for-good-104844)
+      , by Arezou Soltani Panah and Anthony McCosker. The Conversation.
+
+* Lesson 4: Hadoop and Distributed Computation
+
+    * [Ricardo & Urban, Chapter 12 Ricardo and Urban Chapter 12](https://eu.alma.exlibrisgroup.com/leganto/readinglist/citation/38788719120001381?institute=44YORK_INST&auth=SAML)
+    * [Harrison, Chapter 2 Harrison Chapter 2](https://eu.alma.exlibrisgroup.com/leganto/readinglist/citation/38788719120001381?institute=44YORK_INST&auth=SAML)
+
+Lesson 5: Different types of Databases
+
+* Optional reading
+    * [Big Data Architectures – NoSQL Use Cases for Key Value Databases](https://infocus.delltechnologies.com/april_reeve/big-data-architectures-nosql-use-cases-for-key-value-databases/), by April Reeve
+    * [How Can Graph Analytics Uncover Valuable Insights About Data?](https://infocus.delltechnologies.com/william_schmarzo/how-can-graph-analytics-uncover-valuable-insights-about-data/), by Bill Schmarzo
+    * [Harrison Chapter 4](https://eu.alma.exlibrisgroup.com/leganto/readinglist/citation/38788719120001381?institute=44YORK_INST&auth=SAML) more about document database
+    * [Harrison Chapter 5](https://eu.alma.exlibrisgroup.com/leganto/readinglist/citation/38788719120001381?institute=44YORK_INST&auth=SAML) Graph Database
+    * [Graph Databases for Beginners: ACID vs. BASE Explained](https://neo4j.com/blog/acid-vs-base-consistency-models-explained/) (Links to an external site.),
+      by Bryce Merkl Sasaki
+
 ## WEEK 7
