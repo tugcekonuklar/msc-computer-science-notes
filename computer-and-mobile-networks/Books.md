@@ -17,6 +17,11 @@
       Chung,
     * G. and Blum, E.K. Computer Science: The Hardware, Software and Heart of It, pp 112-115
 
+    * Computer Science: The Hardware, Software and Heart of It, pp 112-115
+    * Jia, Weija; Zhou, Wanlei (2005) Distributed Network Systems, chapter 4 sections 4.1, 4.2.1 & 4.2.2 pp 65 -71
+    * [Understanding the OSI Seven Layer Model.pdf](https://onlinestudy.york.ac.uk/courses/844/files/219579/download?wrap=1) a six-page document that provides a clear overview of the OSI model.    
+
+
 * Lesson 3:
 * Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed.)
     * Chapter 1, Sections (1.3.1) "Packet Switching"

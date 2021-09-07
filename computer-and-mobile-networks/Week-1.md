@@ -177,7 +177,7 @@
           a cable head end).  
           </br><img src="./img/1/9.png" alt="alt text" width="500" height="300">
 
-* A satellite link can be used to connect a residence to the Internet.
+* **A satellite link** can be used to connect a residence to the Internet.
     * StarBand and HughesNet are two such satellite access providers
 
 #### Ethernet and WIFI
@@ -260,5 +260,61 @@
           by placing the satellite in orbit at 36,000 kilometers above Earth’s surface.
         * LEO satellites are placed much closer to Earth and do not remain permanently above one spot on Earth. They
           rotate around Earth (just as the Moon does) and may communicate with each other, as well as with ground
-          stations. 
+          stations.
 
+# Protocol
+
+* Communication between devices on a network is organised and made consistent by protocols. A protocol is an agreed set
+  of actions in response to given situations.
+* In computing, protocols are there to ensure that data transfer can happen regardless of the transmission media or the
+  connected devices.
+    * It can be thought of as ensuring that all networked devices (at the core or on the edge) speak the same language
+      and consistent responses are given to specific requests.
+* Protocols the rules that govern a communication between devices and rules can vary depending on protocol.
+    * They’re necessary, because if you didn't have protocols in place, different equipment would try and transmit
+      different types of data, different shapes of data.
+    * So something needs to coexist so that everything can communicate in the same format.
+
+* A group of protocols together is a **“protocol suite”** and they vary at the different layers of the OSI and the
+  TCP/IP model,
+* Communications are governed by protocols.
+* Message Encoding
+    * Encoding is the process of converting information into another acceptable form for transmission.
+    * Decoding reverses this process to interpret the information
+    * A piece of data goes to be transmitted across the network and it gets changed for a human format into the
+      electrical signals.
+      </br><img src="./img/1/12.png" alt="alt text" width="500" height="300">
+
+* The Rules:
+    * Message encoding
+    * Messaging format and encapsulation
+    * Message size
+    * Message Timing
+    * Message Delivery Options
+
+* Message Delivery Options:
+    * Unicast - one to one
+    * Multicast - one to multi
+    * Broadcast - one to all
+
+</br><img src="./img/1/13.png" alt="alt text" width="500" height="300">
+
+* The Internet protocol (IP) suite, which is used for transmitting data over the Internet, contains dozens of protocols.
+    * Link layer - PPP, DSL, Wi-Fi;
+        * Link layer protocols establish communication between devices at a hardware level. In order to transmit data
+          from one device to another, each device's hardware must support the same link layer protocol
+    * Internet layer - IPv4, IPv6;
+        * Internet layer protocols are used to initiate data transfers and route them over the Internet
+    * Transport layer - TCP, UDP;
+        * Transport layer protocols define how packets are sent, received, and confirmed.
+    * Application layer - HTTP, IMAP, FTP.
+        * Application layer protocols contain commands for specific applications.
+    </br><img src="./img/1/15.png" alt="alt text" width="500" height="300">
+
+# Network models
+
+* Open Systems Interconnection model (OSI model) was published as a conceptual model for network protocols and
+  communications by ISO (International Standards Organisation).
+
+* TCP/IP conceptial layers
+  </br><img src="./img/1/14.png" alt="alt text" width="500" height="300">
