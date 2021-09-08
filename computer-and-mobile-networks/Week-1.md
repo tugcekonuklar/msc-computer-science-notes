@@ -385,6 +385,12 @@
 * OSI has 7 layers and differences with TCP/IP layers
   </br><img src="./img/1/14.png" alt="alt text" width="500" height="300">
 
+* The Network layer and Presentation layer are both concerned with transporting data from end to end but the network
+  layer will deliver data individually meaning it will have no relation to anything accompanying it.
+* The transport layer takes the whole message as one big data packet
+    * Transfer layer manages the reliable transfer of data from host to host
+    * responsible for sending Acknowledgements of Successful data transfer.
+
 ## Encapsulation
 
 </br><img src="./img/1/17.png" alt="alt text" width="500" height="300">
