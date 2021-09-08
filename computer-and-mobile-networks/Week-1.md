@@ -299,22 +299,165 @@
 
 </br><img src="./img/1/13.png" alt="alt text" width="500" height="300">
 
+## Protocol layering
+
+* Protocol layering has conceptual and structural advantages [RFC 3439]. As we have seen, layering provides a structured
+  way to discuss system components. Modularity makes it easier to update system components.
+  </br><img src="./img/1/16.png" alt="alt text" width="500" height="300">
+
 * The Internet protocol (IP) suite, which is used for transmitting data over the Internet, contains dozens of protocols.
-    * Link layer - PPP, DSL, Wi-Fi;
+    * Link layer - PPP, DSL, Wi-Fi, Ethernet;
         * Link layer protocols establish communication between devices at a hardware level. In order to transmit data
           from one device to another, each device's hardware must support the same link layer protocol
+        * data transfer between neighboring network elements
     * Internet layer - IPv4, IPv6;
         * Internet layer protocols are used to initiate data transfers and route them over the Internet
+        * routing of datagrams from source to destination
     * Transport layer - TCP, UDP;
         * Transport layer protocols define how packets are sent, received, and confirmed.
+        * process-process data transfer
     * Application layer - HTTP, IMAP, FTP.
         * Application layer protocols contain commands for specific applications.
-    </br><img src="./img/1/15.png" alt="alt text" width="500" height="300">
+        * supporting network applications
+    * Physical layer :
+        * bits “on the wire”
 
-# Network models
+</br><img src="./img/1/15.png" alt="alt text" width="500" height="300">
+
+* Application Layer
+    * The application layer is where network applications and their application-layer protocols reside
+    * The Internet’s application layer includes many protocols, such as the HTTP protocol (which provides for Web
+      document request and transfer), SMTP (which provides for the transfer of e-mail messages), and FTP (which provides
+      for the transfer of files between two end systems).
+* Transport Layer
+    * The Internet’s transport layer transports application-layer messages between application endpoints.
+    * In the Internet there are two transport protocols, TCP and UDP, either of which can transport application-layer
+      messages.
+        * TCP provides a connection-oriented service to its applications. This service includes guaranteed delivery of
+          application-layer messages to the destination and flow control (that is, sender/receiver speed matching). *
+          TCP also breaks long messages into shorter segments and provides a congestion-control mechanism, so that a
+          source throttles its transmission rate when the network is congested.
+        * The UDP protocol provides a connectionless service to its applications. This is a no-frills service that
+          provides no reliability, no flow control, and no congestion control.
+        * transport-layer packet as a segment.
+* Network Layer
+    * The Internet’s network layer is responsible for moving network-layer packets known as datagrams from one host to
+      another.
+    * The network layer then provides the service of delivering the segment to the transport layer in the destination
+      host.
+    * The Internet’s network layer includes the celebrated IP protocol, which defines the fields in the datagram as well
+      as how the end systems and routers act on these fields.
+* Link Layer
+    * To move a packet from one node (host or router) to the next node in the route, the network layer relies on the
+      services of the link layer
+    * In particular, at each node, the network layer passes the datagram down to the link layer, which delivers the
+      datagram to the next node along the route.
+    * the link- layer packets named as frames.
+* Physical Layer
+    * Physical layer is to move the individual bits within the frame from one node to the next.
+    * The protocols in this layer are again link dependent and further depend on the actual transmission medium of the
+      link (for example, twisted-pair copper wire, single-mode fiber optics).
+
+
+* What if an application needs one of these services?
+    * The Internet’s answer to both of these questions is the same—it’s up to the application developer. It’s up to the
+      application developer to decide if a service is important, and if the ser- vice is important, it’s up to the
+      application developer to build that functionality into the application.
+
+## ISO/OSI model
 
 * Open Systems Interconnection model (OSI model) was published as a conceptual model for network protocols and
   communications by ISO (International Standards Organisation).
 
-* TCP/IP conceptial layers
+* OSI has 7 layers and differences with TCP/IP layers
   </br><img src="./img/1/14.png" alt="alt text" width="500" height="300">
+
+## Encapsulation
+
+</br><img src="./img/1/14.png" alt="alt text" width="500" height="300">
+
+* Data generated by the user, such as a file or an email message, is referred to as user data.
+    * This is usually generated within applications, not all of which have network access
+    * User data is generated outside the networking model. However, when user data is to be sent across a network, it is
+      often split up into smaller chunks and then wrapped by headers that provide network devices with information about
+      where the data has come from, where it is going, what type of information it is and what protocols have been
+      applied to it.
+    * At each layer of the network stack, in this case TCP/IP, a header is added as the data is passed from layer to
+      layer.
+    * These encapsulated chunks of data are known as 'packets', which are transmitted across the network
+    * At the receiving end, each header is stripped off as it passes back up the stack, and the information they contain
+      is acted on at each layer of the stack
+* The packets that are sent across a network have a very particular structure in regard to how the headers are arranged
+  and what information they hold, as well as the size of the payload (user data) they can hold.
+
+# Packet and Circuit switching
+
+* A packet traverses a network it does not necessarily travel across a single direct line/cable.
+    * Depending on its destination, it may need to travel across other networks and devices.
+    * Some of these devices are responsible for routing the packets so they get to their destination, and are referred
+      to as packet switches.
+
+* Data transmitted across a packet-switched network uses a technique called store-and-forward transmission to ensure
+  that whole packets are received completely before they are sent/forwarded to their next destination.
+    * To achieve this, the device the packet is sent to has an output buffer, also known as an output queue.
+    * Packets are stored in this buffer as they arrive.
+    * When there is a lot of network traffic at a device, this buffer may be holding more than one packet.
+    * Inbound packets may be arriving faster than outbound ones are leaving, thereby generating a queue in the buffer
+      and causing queuing delays.
+    * If the buffer does not have enough space to store an incoming packet it may be dropped, resulting in packet loss.
+    * Some devices will drop packets already in the buffer to make room for inbound packets.
+
+* All packets have a sender and receiver and, the aim is for the message to get to the receiver
+    * In the Internet, every end system has an address called an IP address. When a source end system wants to send a
+      packet to a destination end system, the source includes the destination’s IP address in the packet’s header.
+    * To continue packet switches need some way to determine where next to send incoming packets.
+    * There are two mechanisms for this: **forwarding tables** and **routing protocols**.
+        * When a packet arrives at a packet switch it will read part of the packet contents to determine its IP address.
+          It will then use this to map against internal information, a forwarding table, to determine where best to send
+          it next. The forwarding table holds information that maps the packet switch’s outbound links (of which there
+          may be many) to the address, or parts of the address.
+        * Network system can change second by second. Given this rate of change, forwarding tables can soon become
+          out-of-date, or may not provide the most effective next destination. So this information needs to be changed.
+          they are kept up-to-date by the system itself through the use of routing protocols.
+    * In a summary , each router has a forwarding table that maps destination addresses (or portions of the destination
+      addresses) to that router’s outbound links.
+        * When a packet arrives at a router, the router examines the address and searches its forwarding table, using
+          this destination address, to find the appropriate outbound link.
+        * The router then directs the packet to this outbound link.
+
+* four types of delays in packet switching
+    * When everybody transmits packets at the same time, the data’s just going to collide and drop and it has to be
+      re-transmitted. So a **transmission delay**, it's the time taken to actually put the bits onto the medium.
+    * **Propagation delay** is the time taken to get to the destination from the sender.
+    * **Queuing delay** is depending on how congested your network is and largely that is solved with switches, or
+      caused by switches in some cases.
+    * **Processing delay**, which is the time taken for the router to process the packet header and determine which
+      route to send it on according to where it exists on the network.
+
+* Circuit Switching
+    * In circuit-switched networks, the resources needed along a path (buffers, link transmission rate) to provide for
+      communication between the end systems are reserved for the duration of the communication session between the end
+      systems
+    * A circuit established and maintained in circuit switching, it establishes a connection, transfers the data and
+      then disconnects.
+        * So the communication line is kept open for the duration of that transfer.
+        * it's not overly efficient.
+
+
+* Packet Vs Circuit swwitching
+    * Adventage of package Switching over Circuit
+        * packet switching is more efficient in terms of bandwidth
+            * it has minimal transmission latency; it's more reliable as the destination can detect the missing packet
+            * it's more fault-tolerant because the packets may follow different paths in case a link is down
+            * it's cost effective.
+    * Disadvantages of packet switching over Circuit
+        * Package switching does not give an order to packages, but circuit does.
+        * Since the packets are unordered, you need to provide sequence numbers to each of the packets, which obviously
+          increases the size of the packet.
+        * Complexity is more at each node because there is more information that the node has to examine in order to
+          move it along.
+        * Transmission delay is more likely because of rerouting of packets, and packet switching is beneficial only for
+          small messages.
+        * for large data, circuit switching is better.  
+    
+# Measuring a Network
