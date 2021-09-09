@@ -2,6 +2,8 @@
 
 This module is for MSC Algorithm and Data Structure lesson notes.
 
+TBC
+
 ## Overview
 
 - [Week-1](/algorithm-and-data-structure/Week-1.md)
