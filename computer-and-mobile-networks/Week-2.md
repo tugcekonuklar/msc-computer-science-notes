@@ -157,7 +157,7 @@
     * Request also includes data field telling computer B which socket number to use when sending back to A.
         * This is the PCA source socket address.
 * When B received the request directs a response to the socket listed as PCA socket address .
-  </br><img src="./img/2/1.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/2/5.png" alt="alt text" width="500" height="300">
 
 * In the Internet, the host is identified by its IP address.
     * an IP address is a 32-bit quantity that we can think of as uniquely identifying the host.
@@ -184,7 +184,7 @@
     * sender explicitly attaches IP destination address and port # to each packet
     * receiver extracts sender IP address and port# from received packet
     * transmitted data may be lost or received out-of-order
-      </br><img src="./img/2/1.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/2/6.png" alt="alt text" width="500" height="300">
 
 ### TCP Services
 
