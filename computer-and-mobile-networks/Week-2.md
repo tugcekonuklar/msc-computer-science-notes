@@ -409,3 +409,203 @@ class UDPClient {
 * MIME stands for Multipurpose Internet Mail Extensions and is used to identify the content type of mail messages so
   that the correct encoding and decoding can be applied.
   </br><img src="./img/2/9.png" alt="alt text" width="500" height="300">
+
+# HTTP Protocol
+
+* Browsers use HTTP (HyperText Transfer Protocol) to make requests for these specific types of pages. This
+  request-response protocol runs over TCP (transport layer) and is specifically designed for fetching web pages.
+* Web browsers (such as Internet Explorer and Firefox) implement the client side of HTTP, in the context of the Web, we
+  will use the words browser and client interchangeably.
+* HTTP is implemented in two programs: a client program and a server program
+* Web servers, which implement the server side of HTTP, house Web objects, each addressable by a URL.
+* The HTTP server receives request messages from its socket interface and sends response messages into its socket
+  interface.
+    * Once the client sends a message into its socket interface, the message is out of the client’s hands and is **“in
+      the hands”** of TCP.
+    * This implies that each HTTP request message sent by a client process eventually arrives intact at the server;
+      similarly, each HTTP response message sent by the server process eventually arrives intact at the client.
+    * Here we see one of the great advantages of a layered architecture
+        * HTTP need not worry about lost data or the details of how TCP recovers from loss or reordering of data within
+          the network. That is the job of TCP and the protocols in the lower layers of the protocol stack.
+
+* It is important to note that the server sends requested files to clients without storing any state information about
+  the client.
+    * If a particular client asks for the same object twice in a period of a few seconds, the server does not respond by
+      saying that it just served the object to the client; instead, the server resends the object, as it has completely
+      forgotten what it did earlier.
+    * Because an HTTP server maintains no information about the clients, HTTP is said to be a **stateless protocol**.
+
+* Universal Resource Locators (URLs)
+    * Each page resides on a server, and that server identifies itself with a domain name.
+    * Each of the pages that it enables access to has a file name and may reside within a directory structure on the
+      server.
+    * The combination of domain name, directory structure, and file name provides each page with a unique identifier.
+    * This identifier and the protocol used to access the location are referred to collectively as the URL (
+      Universal Resource Locator)
+      </br><img src="./img/2/10.png" alt="alt text" width="500" height="300">
+
+## HTTP Communications
+
+* The most common form of HTTP 1.0 is a simple request-response.
+* HTTP is referred to as a ‘stateless protocol’, as each communication, even with the same server, is independent of any
+  previous request/response and no ‘state’ information is stored regarding that communication.
+* When this client-server interaction is taking place over TCP, the application developer needs to make an important
+  decision—should each request/response pair be sent over a **separate** TCP connection, or should all of the requests
+  and their corresponding responses be sent over the **same** TCP connection? In the former approach, the application is
+  said to use **non-persistent connections**; and in the latter approach, **persistent connections**.
+
+## Non-Persistent Connections
+
+* At most one object sent over TCP connection
+    * connection then closed
+* Downloading multiple objects required multiple connections
+
+* Here is what happens when we make a call to the server by using non-persist connection
+
+1. The HTTP client process initiates a TCP connection to the server www .someSchool.edu on port number 80, which is the
+   default port number for HTTP. Associated with the TCP connection, there will be a socket at the client and a socket
+   at the server.
+2. The HTTP client sends an HTTP request message to the server via its socket. The request message includes the path
+   name /someDepartment/home .index. (We will discuss HTTP messages in some detail below.)
+3. The HTTP server process receives the request message via its socket, retrieves the object /someDepartment/home.index
+   from its storage (RAM or disk), encapsulates the object in an HTTP response message, and sends the response message
+   to the client via its socket.
+4. The HTTP server process tells TCP to close the TCP connection. (But TCP doesn’t actually terminate the connection
+   until it knows for sure that the client has received the response message intact.)
+5. The HTTP client receives the response message. The TCP connection termi- nates. The message indicates that the
+   encapsulated object is an HTML file. The client extracts the file from the response message, examines the HTML file,
+   and finds references to the 10 JPEG objects.
+6. **The first four steps are then repeated for each of the referenced JPEG objects.**
+
+* Back-of-the-envelope calculation to estimate the amount of time that elapses from when a client requests the base HTML
+  file until the entire file is received by the client.
+    * Round-trip time (RTT), which is the time it takes for a small packet to travel from client to server and then back
+      to the client.
+    * The RTT includes packet-propagation delays, packet- queuing delays in intermediate routers and switches, and
+      packet-processing delays
+
+* What happens when a user clicks on a hyperlink:
+    * The browser to initiate a TCP connection between the browser and the Web server; this involves a **“three-way
+      handshake”**—the client sends a small TCP segment to the server, the server acknowledges and responds with a small
+      TCP segment, and, finally, the cli- ent acknowledges back to the server.
+    * The first two parts of the three-way handshake take one RTT. After completing the first two parts of the
+      handshake, the client sends the HTTP request message combined with the third part of the three-way handshake (the
+      acknowledgment) into the TCP connection.
+    * Once the request message arrives at the server, the server sends the HTML file into the TCP connection. This HTTP
+      request/response eats up another RTT.
+    * Thus, roughly, the total response time is two RTTs plus the transmission time at the server of the HTML file.  
+      </br><img src="./img/2/12.png" alt="alt text" width="500" height="300">
+* Non-persistent connections have some shortcomings
+    * First, a brand-new connection must be established and maintained for each requested object.
+        * For each of these connections, TCP buffers must be allocated and TCP variables must be kept in both the client
+          and server. This can place a significant burden on the Web server, which may be serving requests from hundreds
+          of different clients simultaneously.
+        * browsers often open parallel TCP connections to fetch referenced objects
+    * Second, each object suffers a delivery delay of two RTTs—one RTT to establish the TCP connection and one RTT to
+      request and receive an object.
+
+## Persistent Connections
+
+* Multiple objects can be sent over single TCP connection between client, server
+* With HTTP 1.1 persistent connections, the server leaves the TCP connection open after sending a response.
+* Subsequent requests and responses between the same client and server can be sent over the same connection.
+* In particular, an entire Web page (in the example above, the base HTML file and the 10 images) can be sent over a
+  single persistent TCP connection.
+* Moreover, multiple Web pages residing on the same server can be sent from the server to the same client over a single
+  persistent TCP connection.
+* These requests for objects can be made back-to-back, without waiting for replies to pending requests (**
+  pipelining**).
+* The default mode of HTTP uses persistent connections with pipelining. Most recently, HTTP/2 [RFC 7540] builds on HTTP
+  1.1 by allowing multiple requests and replies to be interleaved in the same connection, and a mechanism for
+  prioritizing HTTP message requests and replies within this connection.
+
+* Summary:
+    * server leaves connection open after sending response
+    * subsequent HTTP messages between same client/server sent over open connection
+    * client sends requests as soon as it encounters a referenced object
+    * as little as one RTT for all the referenced objects
+
+* Here (a) is HTTP 1.0 non-persistence connection, (b) HTTP 1.1 persistence connection. (c) HTTP/2 pipelining
+  </br><img src="./img/2/11.png" alt="alt text" width="500" height="300">
+
+# HTTP Inspection Tools in Google Chrome
+
+* To view the hosts : "chrome://dns"
+* To logging on local: "chrome://net-export/"
+    * You can now carry on browsing the internet as normal or carry out other activities such as reading emails. When
+      you're ready to complete the log, click on the “Stop Logging” button to end the recording.
+    * To see the logs a suitable viewer required
+
+# HTTP response and request messages
+
+* There are two types of HTTP messages: request, response
+
+## HTTP Request
+
+* Here is a sample of request
+* The first line of an HTTP request message is called the request line; the subsequent lines are called the header
+  lines.
+    * The request line has three fields: the method field, the URL field, and the HTTP version field.
+    * Here is general and ascii format of request  
+      </br><img src="./img/2/14.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/2/15.png" alt="alt text" width="500" height="300">
+* the Connection: close header line, the browser is telling the server that it doesn’t want to bother with persistent
+  connections; it wants the server to close the connection after sending the requested object.
+* Here is some Http request methods.
+  </br><img src="./img/2/13.png" alt="alt text" width="500" height="300">
+
+* Uploading a form input, there are some couple ways
+    * Using POST message
+        * web page often includes form input
+        * input is uploaded to server in entity body
+    * Searching GET with Request Param
+        * uses GET method
+        * input is uploaded in URL field of request line:www.somesite.com/animalsearch?monkeys&banana
+
+### Method Types
+
+* HTTP/1.0:
+    * GET
+    * POST
+    * HEAD
+        * asks server to leave requested object out of response
+
+* HTTP/1.1:
+    * GET, POST, HEAD
+    * PUT
+        * uploads file in entity body to path specified in URL field
+    * DELETE
+        * deletes file specified in the URL field
+
+## HTTP Response
+
+* The response from the server may or may not contain the page requested.
+* Response has three sections: an initial status line, six header lines, and then the entity body.
+* If the page does not exist or the server is unable to fulfil the request, the browser may receive a status code
+  indicating the problem. 404, 500 etc
+    * 2xx means successful
+    * 3xx redirect
+    * 4xx Client error
+    * 5xx Server error
+* General and ascii format  
+  </br><img src="./img/2/16.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/2/17.png" alt="alt text" width="500" height="300">
+
+# The Domain Name Service (DNS)
+
+* The Domain Name Service (DNS) is the Internet’s directory service.
+* When we write to browser of a domain, domain names do not have IP addresses and DNS provides a system of servers that
+  stores address information for hosts and uses the domain name.
+* Before an HTTP request is made, the domain name in the request needs to be resolved.
+    * This results in separate communications to other servers providing DNS.
+
+* **Dynamic DNS**
+    * DNS so far has used a permanent IP addressing system; however, IP addresses can be assigned dynamically through a
+      router or server's **Dynamic Host Configuration Protocol (DHCP)** each time the device is started.
+    * This in turn means that that device must be registered with DNS and accessible via its hostname and the DNS
+      server (or router) must have a way of learning the IP address of that device for that session.
+    * DNS records on the router or server are updated once the IP address is allocated.
+
+# TODO:
+
+* [What is DNS? - Introduction to Domain Name System](https://www.youtube.com/watch?v=e2xLV7pCOLI)
