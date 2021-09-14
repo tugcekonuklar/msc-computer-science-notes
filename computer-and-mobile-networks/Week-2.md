@@ -44,6 +44,7 @@
     * [DNS Messages](#dns-messages)
     * [Inserting Records into the DNS Database](#inserting-records-into-the-dns-database)
     * [How DNS works?](#how-dns-works)
+* [Quiz Questions](#quiz-questions)
 * [TODO](#todo)
 
 # Introduction to the reference model
@@ -783,6 +784,59 @@ class UDPClient {
       passes back to Alice’s host.
     * Alice’s browser can now initiate a TCP connection to the host 212.212.71.4 and send an HTTP request over the
       connection.
+
+# Quiz Questions
+
+* What is meant by a handshaking protocol?
+    * A protocol uses handshaking if the two communicating entities first exchange control packets before sending data
+      to each other. SMTP uses handshaking at the application layer whereas HTTP does not.
+
+* Why do HTTP, SMTP, and POP3 run on top of TCP rather than on UDP?
+    * The applications associated with those protocols require that all application data be received in the correct
+      order and without gaps. TCP provides this service whereas UDP does not.
+
+* Consider an e-commerce site that wants to keep a purchase record for each of its customers. Describe how this can be
+  done with cookies.
+    * When the user first visits the site, the server creates a unique identification number, creates an entry in its
+      back-end database, and returns this identification number as a cookie number. This cookie number is stored on the
+      user’s host and is managed by the browser. During each subsequent visit (and purchase), the browser sends the
+      cookie number back to the site. Thus the site knows when this user (more precisely, this browser) is visiting the
+      site.
+
+* Describe how Web caching can reduce the delay in receiving a requested object. Will Web caching reduce the delay for
+  all objects requested by a user or for only some of the objects?
+    * Web caching can bring the desired content “closer” to the user, possibly to the same LAN to which the user’s host
+      is connected. Web caching can reduce the delay for all objects, even objects that are not cached, since caching
+      reduces the traffic on links.
+
+* List several popular messaging apps. Do they use the same protocols as SMS?
+    * A list of several popular messaging apps: WhatsApp, Facebook Messenger, WeChat, and Snapchat. These apps use
+      different protocols than SMS.
+
+* Suppose Alice, with a Web-based e-mail account (such as Hotmail or Gmail), sends a message to Bob, who accesses his
+  mail from his mail server using POP3. Discuss how the message gets from Alice’s host to Bob’s host. Be sure to list
+  the series of application-layer protocols that are used to move the message between the two hosts.
+    * The message is first sent from Alice’s host to her mail server over HTTP. Alice’s mail server then sends the
+      message to Bob’s mail server over SMTP. Bob then transfers the message from his mail server to his host over POP3.
+
+* From a user’s perspective, what is the difference between the download-and-delete mode and the download-and-keep mode
+  in POP3?
+    * With download and delete, after a user retrieves its messages from a POP server, the messages are deleted. This
+      poses a problem for the nomadic user, who may want to access the messages from many different machines (office PC,
+      home PC, etc.). In the download and keep configuration, messages are not deleted after the user retrieves the
+      messages. This can also be inconvenient, as each time the user retrieves the stored messages from a new machine,
+      all of the non-deleted messages will be transferred to the new machine (including very old messages).
+
+* Is it possible for an organization’s Web server and mail server to have exactly the same alias for a hostname (for
+  example, foo.com)? What would be the type for the RR that contains the hostname of the mail server?
+    * Yes, an organization’s mail server and Web server can have the same alias for a hostname. The MX record is used to
+      map the mail server’s hostname to its IP address.
+
+* Look over your received e-mails, and examine the header of a message sent from a user with a .ac.uk e-mail address. Is
+  it possible to determine from the header the IP address of the host from which the message was sent? Do the same for a
+  message sent from a Gmail account.
+    * You should be able to see the sender's IP address for a user with a .edu email address. But you will not be able
+      to see the sender's IP address if the user uses a gmail account.
 
 # TODO:
 
