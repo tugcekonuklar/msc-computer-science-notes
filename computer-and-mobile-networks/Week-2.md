@@ -606,6 +606,151 @@ class UDPClient {
       server (or router) must have a way of learning the IP address of that device for that session.
     * DNS records on the router or server are updated once the IP address is allocated.
 
+* The DNS is
+    * a distributed database implemented in a hierarchy of DNS servers,
+    * an application-layer protocol that allows hosts to query the distributed database.
+* The DNS servers are often UNIX machines running the Berkeley Internet Name Domain (BIND) software [BIND 2016].
+* **The DNS protocol runs over UDP and uses port 53**.
+    * All DNS query and reply messages are sent within UDP datagrams to port 53.
+
+* DNS adds an additional delay—sometimes substantial—to the Internet applications that use it. Fortunately, as we
+  discuss below, the desired IP address is often cached in a “nearby” DNS server, which helps to reduce DNS network
+  traffic as well as the average DNS delay.
+
+## Other DNS services:
+
+* **Host aliasing.** A host with a complicated hostname can have one or more alias names.
+    * For example, a hostname such as relay1.west-coast .enterprise.com could have, say, two aliases such as
+      enterprise.com and www.enterprise.com.
+    * In this case, the hostname relay1 .west-coast.enterprise.com is said to be a **canonical hostname**.
+
+* **Mail server aliasing**. For obvious reasons, it is highly desirable that e-mail addresses be mnemonic.
+    * The hostname of the Yahoo mail server is more complicated and much less mnemonic than simply yahoo.com (for
+      example, the canonical hostname might be some- thing like relay1.west-coast.yahoo.com).
+    * DNS can be invoked by a mail application to obtain the canonical hostname for a supplied alias hostname as well as
+      the IP address of the host.
+
+* **Load distribution.** DNS is also used to perform load distribution among replicated servers, such as replicated Web
+  servers.
+
+## DNS: CRITICAL NETWORK FUNCTIONS VIA THE CLIENT-SERVER PARADIGM
+
+* Like HTTP, FTP, and SMTP, the DNS protocol is an application-layer protocol since it
+    * runs between communicating end systems using the client-server paradigm and
+    * relies on an underlying end-to-end transport protocol to transfer DNS messages between com- municating end
+      systems.
+* the DNS is not an application with which a user directly interacts. Instead, the DNS provides a core Internet
+  function—namely, translating hostnames to their underlying IP addresses, for user applications and other software in
+  the Internet
+
+## A Distributed, Hierarchical Database
+
+* The DNS uses a large number of servers, organized in a hierarchical fashion and distributed around the world.
+* There are three classes of DNS servers—root DNS servers, top-level domain (TLD) DNS servers, and authoritative DNS
+  servers—organized in a hierarchy
+  </br><img src="./img/2/18.png" alt="alt text" width="500" height="300">
+
+* **Root DNS servers.** There are over 400 root name servers scattered all over the world.
+* **Top-level domain (TLD) servers**. For each of the top-level domains — top-level domains such as com, org, net, edu,
+  and gov, and all of the country top-level domains such as uk, fr, ca, and jp — there is TLD server (or server cluster)
+* **Authoritative DNS servers.** Every organization with publicly accessible hosts (such as Web servers and mail
+  servers) on the Internet must provide publicly accessible DNS records that map the names of those hosts to IP
+  addresses.
+* **Local DNS server.** A local DNS server does not strictly belong to the hier- archy of servers but is nevertheless
+  central to the DNS architecture. Each ISP—such as a residential ISP or an institutional ISP—has a local DNS server (
+  also called a default name server)
+
+* Interaction of the various DNS servers
+    * In the example below, makes use of both recursive queries and iterative queries.
+        * The query sent from cse.nyu.edu to dns.nyu.edu is a recursive query, since the query asks dns.nyu.edu to
+          obtain the mapping on its behalf.
+        * the subsequent three queries are iterative since all of the replies are directly returned to dns.nyu.edu. I
+
+</br><img src="./img/2/19.png" alt="alt text" width="500" height="300">
+
+## DNS Caching
+
+* DNS caching, a critically important feature of the DNS system.
+* DNS extensively exploits DNS caching in order to improve the delay performance and to reduce the number of DNS
+  messages ricocheting around the Internet
+* The idea behind DNS caching is very simple. In a query chain, when a DNS server receives a DNS reply (containing, for
+  example, a mapping from a hostname to an IP address), it can cache the mapping in its local memory
+
+## DNS Record
+
+* The DNS servers that together implement the DNS distributed database store resource records (RRs), including RRs that
+  provide hostname-to-IP address map- pings. Each DNS reply message carries one or more resource records.
+* A resource record is a four-tuple that contains the following fields:
+    * (Name, Value, Type, TTL)
+* TTL is the time to live of the resource record; it determines when a resource should be removed from a cache.
+* If **Type=A,** then Name is a hostname and Value is the IP address for the host- name. Thus, a Type A record provides
+  the standard hostname-to-IP address map- ping. As an example, (relay1.bar.foo.com, 145.37.93.126, A) is a Type A
+  record.
+* If **Type=NS**, then Name is a domain (such as foo.com) and Value is the hostname of an authoritative DNS server that
+  knows how to obtain the IP addresses for hosts in the domain.
+    * This record is used to route DNS queries further along in the query chain.
+    * As an example, (foo.com, dns.foo.com, NS) is a Type NS record.
+* If **Type=CNAME**, then Value is a canonical hostname for the alias hostname Name. This record can provide querying
+  hosts the canonical name for a hostname. As an example, (foo.com, relay1.bar.foo.com, CNAME) is a CNAME record.
+
+* If **Type=MX,** then Value is the canonical name of a mail server that has an alias hostname Name. As an example, (
+  foo.com, mail.bar.foo.com, MX) is an MX record. MX records allow the hostnames of mail servers to have simple aliases.
+
+## DNS Messages
+
+* The first 12 bytes is the header section, which has a number of fields.
+    * The first field is a 16-bit number that identifies the query.
+* The question section contains information about the query that is being made.
+* In a reply from a DNS server, the answer section contains the resource records for the name that was originally
+  queried.
+* The authority section contains records of other authoritative servers.
+* The additional section contains other helpful records.
+
+</br><img src="./img/2/20.png" alt="alt text" width="500" height="300">
+
+## Inserting Records into the DNS Database
+
+* A **registrar** is a commercial entity that verifies the uniqueness of the domain name, enters the domain name into
+  the DNS database (as discussed below), and collects a small fee from you for its services.
+* When you register the domain name networkutopia.com with some registrar, you also need to provide the registrar with
+  the names and IP addresses of your primary and secondary authoritative DNS servers.
+    * Suppose the names and IP addresses are dns1.networkutopia.com, dns2.networkutopia.com, 212.2.212.1, and
+      212.212.212.2.
+* For each of these two authoritative DNS servers, the registrar would then make sure that a Type NS and a Type A record
+  are entered into the TLD com servers.
+* the registrar would insert the following two resource records into the DNS system:
+    * (networkutopia.com, dns1.networkutopia.com, NS)
+    * (dns1.networkutopia.com, 212.212.212.1, A)
+
+* Once all of these steps are completed, people will be able to visit the page
+
+## How DNS works?
+
+1. The same user machine runs the client side of the DNS application.
+2. The browser extracts the hostname, www.someschool.edu, from the URL and passes the hostname to the client side of the
+   DNS application.
+3. The DNS client sends a query containing the hostname to a DNS server.
+4. The DNS client eventually receives a reply, which includes the IP address for the hostname.
+5. Once the browser receives the IP address from DNS, it can initiate a TCP connection to the HTTP server process
+   located at port 80 at that IP address.
+
+* **With more detail explanation**
+* Suppose Alice in Australia wants to view the Web page www.networkutopia.com.
+    * her host will first send a DNS query to her local DNS server.
+    * The local DNS server will then contact a TLD com server. (The local DNS server will also have to contact a root
+      DNS server if the address of a TLD com server is not cached.)
+    * This TLD server contains the Type NS and Type A resource records listed above, because the registrar had these
+      resource records inserted into all of the TLD com servers.
+    * The TLD com server sends a reply to Alice’s local DNS server, with the reply containing the two resource records.
+    * The local DNS server then sends a DNS query to 212.212.212.1, ask- ing for the Type A record corresponding
+      to www.networkutopia.com.
+    * This record provides the IP address of the desired Web server, say, 212.212.71.4, which the local DNS server
+      passes back to Alice’s host.
+    * Alice’s browser can now initiate a TCP connection to the host 212.212.71.4 and send an HTTP request over the
+      connection.
+
 # TODO:
 
 * [What is DNS? - Introduction to Domain Name System](https://www.youtube.com/watch?v=e2xLV7pCOLI)
+  </br><img src="./img/2/21.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/2/22.png" alt="alt text" width="500" height="300">
