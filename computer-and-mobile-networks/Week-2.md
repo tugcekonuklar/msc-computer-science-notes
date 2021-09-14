@@ -10,6 +10,41 @@
 #### Sub titles:
 
 * [Introduction to the reference model](#introduction-to-the-reference-model)
+    * [Application Layer](#application-layer)
+* [Application Architectures](#application-architectures)
+    * [Client / Server](#client--server)
+    * [Peer To Peer (P2P)](#peer-to-peer-p2p)
+* [Application Services](#application-services)
+* [Building Applications](#building-applications)
+    * [TCP Services](#tcp-services)
+        * [SECURING TCP](#securing-tcp)
+    * [Socket Programming with UDP](#socket-programming-with-udp)
+* [Mail Protocols](#mail-protocols)
+    * [Simple Mail Transfer Protocol (SMTP)](#simple-mail-transfer-protocol-smtp)
+    * [Mail Access Protocols](#mail-access-protocols)
+        * [Post Office Protocol V3 (POP3)](#post-office-protocol-v3-pop3)
+        * [Internet Mail Access Protocol (IMAP)](#internet-mail-access-protocol-imap)
+        * [Web-Based Email (HTTP)](#web-based-email-http)
+        * [MIME Type](#mime-type)
+* [HTTP Protocol](#http-protocol)
+    * [HTTP Communications](#http-communications)
+    * [Non-Persistent Connections](#non-persistent-connections)
+    * [Persistent Connections](#persistent-connections)
+    * [HTTP response and request messages](#http-response-and-request-messages)
+        * [HTTP Request](#http-request)
+            * [Method Types](#method-types)
+        * [HTTP Response](#http-response)
+* [HTTP Inspection Tools in Google Chrome](#http-inspection-tools-in-google-chrome)
+* [The Domain Name Service (DNS)](#the-domain-name-service-dns)
+    * [Other DNS services](#other-dns-services)
+    * [DNS: Critical Network Functions via The Client-Server Paradigm](#dns-critical-network-functions-via-the-client-server-paradigm)
+    * [A Distributed, Hierarchical Database](#a-distributed-hierarchical-database)
+    * [DNS Caching](#dns-caching)
+    * [DNS Record](#dns-record)
+    * [DNS Messages](#dns-messages)
+    * [Inserting Records into the DNS Database](#inserting-records-into-the-dns-database)
+    * [How DNS works?](#how-dns-works)
+* [TODO](#todo)
 
 # Introduction to the reference model
 
@@ -186,7 +221,7 @@
     * transmitted data may be lost or received out-of-order
       </br><img src="./img/2/6.png" alt="alt text" width="500" height="300">
 
-### TCP Services
+## TCP Services
 
 * The TCP service model includes a connection-oriented service and a reliable data transfer service. When an application
   invokes TCP as its transport protocol, the application receives both of these services from TCP.
@@ -360,9 +395,9 @@ class UDPClient {
     * A mail access protocol, such as POP3, is used to transfer mail from the recipient’s mail server to the recipient’s
       user agent.
 
-### Mail Access Protocols
+## Mail Access Protocols
 
-#### Post Office Protocol V3 (POP3)
+### Post Office Protocol V3 (POP3)
 
 * POP3 is an extremely simple mail access protocol and functionality is rather limited.
 * It is a pull protocol that is used by local email clients.
@@ -383,7 +418,7 @@ class UDPClient {
 * POP3 server does not carry state information across POP3 sessions. This lack of state information across sessions
   greatly simplifies the implementation of a POP3 server.
 
-#### Internet Mail Access Protocol (IMAP)
+### Internet Mail Access Protocol (IMAP)
 
 * the IMAP protocol, defined in [RFC 3501], was invented.
 * It is more complex than POP3
@@ -397,14 +432,14 @@ class UDPClient {
   obtain just the message header of a message or just one part of a multipart MIME message.
     * This feature is useful when there is a low-bandwidth connection
 
-#### Web-Based Email (HTTP)
+### Web-Based Email (HTTP)
 
 * More and more users today are sending and accessing their e-mail through their Web browsers.
 * With this service, the user agent is an ordinary Web browser, and the user communicates with its remote mailbox via
   HTTP. When a recipient, such as Bob, wants to access a message in his mailbox, the e-mail message is sent from Bob’s
   mail server to Bob’s browser using the HTTP protocol rather than the POP3 or IMAP protocol.
 
-#### MIME Type
+### MIME Type
 
 * MIME stands for Multipurpose Internet Mail Extensions and is used to identify the content type of mail messages so
   that the correct encoding and decoding can be applied.
@@ -528,19 +563,11 @@ class UDPClient {
 * Here (a) is HTTP 1.0 non-persistence connection, (b) HTTP 1.1 persistence connection. (c) HTTP/2 pipelining
   </br><img src="./img/2/11.png" alt="alt text" width="500" height="300">
 
-# HTTP Inspection Tools in Google Chrome
-
-* To view the hosts : "chrome://dns"
-* To logging on local: "chrome://net-export/"
-    * You can now carry on browsing the internet as normal or carry out other activities such as reading emails. When
-      you're ready to complete the log, click on the “Stop Logging” button to end the recording.
-    * To see the logs a suitable viewer required
-
-# HTTP response and request messages
+## HTTP response and request messages
 
 * There are two types of HTTP messages: request, response
 
-## HTTP Request
+### HTTP Request
 
 * Here is a sample of request
 * The first line of an HTTP request message is called the request line; the subsequent lines are called the header
@@ -562,7 +589,7 @@ class UDPClient {
         * uses GET method
         * input is uploaded in URL field of request line:www.somesite.com/animalsearch?monkeys&banana
 
-### Method Types
+#### Method Types
 
 * HTTP/1.0:
     * GET
@@ -577,7 +604,7 @@ class UDPClient {
     * DELETE
         * deletes file specified in the URL field
 
-## HTTP Response
+### HTTP Response
 
 * The response from the server may or may not contain the page requested.
 * Response has three sections: an initial status line, six header lines, and then the entity body.
@@ -590,6 +617,14 @@ class UDPClient {
 * General and ascii format  
   </br><img src="./img/2/16.png" alt="alt text" width="500" height="300">
   </br><img src="./img/2/17.png" alt="alt text" width="500" height="300">
+
+# HTTP Inspection Tools in Google Chrome
+
+* To view the hosts : "chrome://dns"
+* To logging on local: "chrome://net-export/"
+    * You can now carry on browsing the internet as normal or carry out other activities such as reading emails. When
+      you're ready to complete the log, click on the “Stop Logging” button to end the recording.
+    * To see the logs a suitable viewer required
 
 # The Domain Name Service (DNS)
 
@@ -633,7 +668,7 @@ class UDPClient {
 * **Load distribution.** DNS is also used to perform load distribution among replicated servers, such as replicated Web
   servers.
 
-## DNS: CRITICAL NETWORK FUNCTIONS VIA THE CLIENT-SERVER PARADIGM
+## DNS: Critical Network Functions via The Client-Server Paradigm
 
 * Like HTTP, FTP, and SMTP, the DNS protocol is an application-layer protocol since it
     * runs between communicating end systems using the client-server paradigm and
