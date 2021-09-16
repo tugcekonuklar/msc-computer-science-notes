@@ -48,6 +48,7 @@
 
 <img src="./img/1/2.png" alt="alt text" width="500" height="300">
 </br><img src="./img/1/18.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/19.png" alt="alt text" width="500" height="300">
 
 * Layer 1 is the physical layer, so it's just about some copper inside some cable, shoving electrical pulses down.
     * there's no intelligence, it just repeats and re-amplifies, or doesn't send the signal on as it goes,
