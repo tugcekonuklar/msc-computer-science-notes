@@ -46,3 +46,18 @@
     * Chapter 2, Section 2.2, "The Web and HTTP"
     * Chapter 2, Section 2.2.3, "HTTP Messaeg Format",
     * Chapter 2, Section 2.5 (6th Ed.), "DNS - The Internet's Directory Service" or Section 2.4 (7th Ed.)
+
+## WEEK 3
+
+* Lesson 2:
+* Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed.)
+    * Chapter 3, Section 3.3, "Connectionless Transport: UDP"
+* Optional/Further Reading:
+    * [A Guide To UDP In Java](https://www.baeldung.com/udp-in-java), Baeldung
+    * [A Simple Java UDP Server and UDP Client](https://systembash.com/a-simple-java-udp-server-and-udp-client/),
+      Systembash.
+* Lesson 3:
+* Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed.)
+    * Chapter 3, Section 3.5 "Connection-Oriented Transport: TCP"
+    * Chapter 3, Section 3.4 "Principles of Reliable Data Transfer"
+    * Chapter 3, Sections 3.4.3 "Go-Back-N (GBN)" and 3.4.4 "Selective Repeat (SR)" 
