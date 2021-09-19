@@ -127,6 +127,7 @@
 * 2 things are considering to select UDP
     * Is the timely arrival is important than guarantee of data arrival
     * Is the process tolerant to lost data?
+
 * UDP is most frequently used for real time applications, where the programmer can have more control over how to respond
   to incoming/outgoing communications and manually manage lost data.
     * It enables much more flexibility but does require the programmer to consider much more carefully how an
@@ -140,6 +141,13 @@
     * In this way, an application at the server end can potentially hold communications with many more clients than if
       it was using TCP.
 
+* UDP takes messages from the application process, attaches source and destination port number fields for the multi-
+  plexing/demultiplexing service, adds two other small fields, and passes the resulting segment to the network layer.
+    * The network layer encapsulates the transport-layer segment into an IP datagram and then makes a best-effort
+      attempt to deliver the segment to the receiving host.
+    * If the segment arrives at the receiving host, UDP uses the destination port number to deliver the segment’s data
+      to the correct application process.
+
 ### UDP Segment structure
 
 * UDP packet and its data.
@@ -152,8 +160,84 @@
     * Destination port - the port number of the receiving application (process-to-process protocol)
     * Length - the length of the UDP header and the UDP data, in bytes.
     * Checksum - this field is used for error checking. It is optional in IPv4 and mandatory in IPv6.
-    
 
+## Checksum
 
+* [Binary numbering system documentation](./doc/BINARY%20NUMBERS%202021.docx)
+* [P-Checksum](./doc/P-Checksum.pdf)
+* [How to Calculate IP Header Checksum (With an Example)](https://www.thegeekstuff.com/2012/05/ip-header-checksum/)
 
-    
+* A check sum is basically a value that is computed from data packet to check its integrity.
+* Through integrity, we mean a check on whether the data received is error free or not.
+* This is because while traveling on network a data packet can become corrupt and there has to be a way at the receiving
+  end to know that data is corrupted or not. This is the reason the checksum field is added to the header.
+* At the source side, the checksum is calculated and set in header as a field.
+    * At the destination side, the checksum is again calculated and crosschecked with the existing checksum value in
+      header to see if the data packet is OK or not.
+* [IP Protocol Header](https://www.thegeekstuff.com/2012/03/ip-protocol-header/)
+  </br><img src="./img/3/3.png" alt="alt text" width="500" height="300">
+
+* So, as far as the algorithm goes, IP header checksum is : **16 bit one’s complement of the one’s complement sum of all
+  16 bit words in the header**
+    * This means that if we divide the IP header is 16 bit words and sum each of them up and then finally do a one’s
+      compliment of the sum then the value generated out of this operation would be the checksum.
+
+### Question
+
+* An IPv4 datagram has arrived with the following information in the header (in hexadecimal notation)
+  `0x45 00 00 54 00 03 58 50 20 06 00 00 7C 4E 03 02 B4 0E 0F 02`
+    * Is the packet corrupted?
+    * Are there any options?
+    * Is the packet fragmented?
+    * What is the size of the data?
+    * How many more routers can the packet travel to?
+    * What is the identification number of the packet?
+    * What is the type of service?
+
+* Answer
+    * VER = 0x4 = 4
+    * HLEN =0x5 = 5 -> 5 * 4 = 20 bytes
+    * Service =0x00 = 0 (Normal/routine)
+    * Total Length = 0x0054 = 84 bytes
+    * Identification = 0x0003 = 3
+    * Flags and Fragmentation = 0x5850 -> D = 1, M= 0, offset = 6224
+    * Time to live = 0x20 = 32
+    * Protocol = 0x06 = 6
+    * Checksum = 0x0000??
+    * Source Address: 0x7C4E0302 = 124.78.3.2
+    * Destination Address: 0xB40E0F02 = 180.14.15.2
+
+* If we see the checksum, we get 0x0000. The packet is likely to be corrupted.
+* Since the length of the header is 20 bytes, there are no options.
+* Since D = 1 and M = 0 and offset = 6224, the packet is not permitted to be fragmented.
+* The total length is 84. Data size is 64 bytes (84-20 = 64 bytes).
+* Since the value of time to live = 32, the packet may visit up to 32 more routers.
+* The identification number of the packet is 3.
+* The type of service is normal.
+
+# Encapsulation
+
+* When a host transmits data across a network to another device, the data goes through a process called “encapsulation”
+  in which it is wrapped with protocol information at each layer of the OSI model.
+    * Each layer communicates only with its peer layer on the receiving device.
+
+* To communicate and exchange information, each layer uses **Protocol Data Units (PDUs)**.
+    * These hold the control information attached to the data at each layer of the model.
+    * They’re usually attached to the header in front of the data field, but can also be in the trailer, or end, of it.
+
+* At a transmitting device, the data-encapsulation method works like this:
+    1. User information is converted to data for transmission on the network.
+    2. Data is converted to segments, and a reliable connection is set up between the transmitting and receiving hosts.
+    3. Segments are converted to packets or datagrams, and a logical address is placed in the header so each packet can
+       be routed through an internet work.
+    4. Packets or datagrams are converted to frames for transmission on the local network.
+    5. Hardware (Ethernet) addresses are used to uniquely identify hosts on a local network segment. Frames are
+       converted to bits, and a digital encoding and clocking scheme is used.
+
+# TCP (connection)
+
+# TODO:
+
+* [UDP in Java](https://www.baeldung.com/udp-in-java)
+* [A Simple Java UDP Server and UDP Client](https://systembash.com/a-simple-java-udp-server-and-udp-client/)
+* Spend some time researching concepts such as PPP, de-encapsulation and tunnelling with regard to encapsulation
