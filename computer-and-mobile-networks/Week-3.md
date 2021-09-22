@@ -234,7 +234,249 @@
     5. Hardware (Ethernet) addresses are used to uniquely identify hosts on a local network segment. Frames are
        converted to bits, and a digital encoding and clocking scheme is used.
 
+</br><img src="./img/3/8.png" alt="alt text" width="500" height="300">
+
 # TCP (connection)
+
+* TCP provides a very important service - a standard, general purpose method for the reliable delivery of data.
+* “Reliable” here refers to the reliability between applications running on one computer to another.
+* TCP provides this reliability by adding services on top of IP, which is connectionless and does not guarantee the
+  delivery of packets.
+* TCP is the primary transport protocol for reliable, full-duplex, virtual circuit connections inside the IP datagram.
+  </br><img src="./img/3/4.png" alt="alt text" width="500" height="300">
+
+* TCP Features:
+    * Basic data transfer;
+    * Reliability;
+    * Flow control;
+    * Multiplexing;
+    * Connections;
+    * Precedence and security.
+
+* TCP overview:
+    * Point 2 point : one server one receiver
+    * reliable, in-order byte stream : no "Message boundaries"
+    * pipelined:  TCP congestion and flow control set the window size
+    * Full duplex data: Bi-directional data flow in the same connection and maximum segment size (MSS)
+    * Connection-oriented, handshaking inits the sender/receiver state before the data transfer
+    * Flow control: sender will not overwhelmed ...
+
+* TCP Segment Structure:
+
+    * Header and a data field which contains the application data
+    * Data gets broken down into smaller chunks, which are appropriate for the MSS (maximum segment size)
+    * Source and destination port numbers are required for all transmissions - multiplexing and demultiplexing
+    * The header contains a checksum field like a UDP
+    * the sequence number for packets that are broken down
+        * Sequence number is also byte stream "number" of first byte in segment's data
+    * The acknowledgement - the ACK, for reliable data transmission.
+        * sequence of next byte expected from other side
+        * cumulative ACK
+        * the sender to learn of the receiver’s view of the world (in this case, whether or not a packet was received
+          correctly) is for the receiver to provide explicit feedback to the sender. The positive (ACK) and negative (
+          NAK)
+          acknowledgment replies in the message-dictation scenario are examples of such feedback.
+            * In principle, these packets need only be one bit long; for example, a 0 value could indicate a NAK and a
+              value of 1 could indicate an ACK.
+              </br><img src="./img/3/5.png" alt="alt text" width="500" height="300">
+              </br><img src="./img/3/7.png" alt="alt text" width="500" height="300">
+
+* The TCP just sees ordered but unstructured data so uses the sequential order number to organise it.
+    * that means that it sees unstructured data. It doesn't know how to make sense of it.
+    * it needs to make sure that it has it in the right order to interpret it at the receiving node.
+    * the sequence number is critical.
+    * It's byte-streamed for the first byte of a segment and over a stream, not the series of segments in that stream,
+
+</br><img src="./img/3/6.png" alt="alt text" width="500" height="300">
+
+* if the user types in the letter ‘C’, the start sequence number is 42 in this slide and the client number is 79.
+    * The sequence number of a segment is the sequence number of the first byte in the data field.
+    * the first segment from the client has 42 in its sequence number, the first segment from the server will have
+      sequence number 79.
+    * The ACK number - acknowledgement number - is the sequence number of the next byte of data the host is waiting for.
+    * After TCP connections are made before sending data, the client is waiting for byte 79 and the server is waiting
+      for byte 42.
+    * The first segment sent from the client to the server includes one byte ASCII, which represents the letter C in its
+      data field, plus 42 in its sequence field, giving a total of 43, and the process is reversed for echo back.
+
+* Setting up timeout
+    * TCP uses a timeout retransmit mechanism in order to recover lost segments because otherwise they'd be flying
+    * Timeout should be larger than the connection’s round-trip time - “RTT”. That is the time taken from when the
+      segment is sent, to when it's acknowledged.
+    * If the timeout is too small, then unnecessary retransmissions happen
+    * If it's too big, then the sender responds too slow to lost packets.
+    * The method of SampleRTT, where the time from segment transmission until ACK is received is measured, is used to
+      decide the timeout value.
+        * To be more resilient/smoother against fluctuations in RTT, this can be averaged over multiple measurements.
+
+* Reliable Data Transfer
+    * TCP creates a RDT on top of unreliable IP service
+        * IP doesn't guarantee datagram delivery, it doesn't guarantee in-order delivery of datagrams, and it does not
+          guarantee the integrity of the datagrams, therefor you can conclude that it's quicker.
+    * TCP’s reliable data transfer service ensures that data streams that a process reads out of its TCP receive buffer
+      is uncorrupted, without gaps, without duplications and in sequence order. That is, in byte order.
+    * TCP:
+        * Pipelined segments
+        * Cumulative ACKs
+        * Single retransmission timer
+    * Retransmission triggered by
+        * timeout events
+        * duplicate ACKs
+
+* TCP sender events
+    * From the sender's viewpoint, retransmission is a life saver.
+    * The sender doesn't know whether a packet of data was lost, whether an acknowledgement might have been lost or if
+      the packet or the acknowledgement were simply overly delayed.
+    * Implementing a time-based retransmission mechanism requires a countdown timer that can interrupt the sender after
+      a given amount of time has expired.
+    * The sender needs to be
+        * a) start the timer each time a packet - either a first-time packet or a retransmission - is sent
+        * b) respond to a timer interrupt (taking appropriate actions)
+        * c) stop the timer.
+          </br><img src="./img/3/9.png" alt="alt text" width="500" height="300">
+
+    * Normally, retransmissions are triggered by timeouts and duplicate acks.
+        * It's valid to send multiple packets back to back without waiting for the ACK.
+            * Then, if the ACK for the last packet is received and others are lost, the client knows that the server has
+              received everything up until that point
+            * If the ACKs aren't received within the timeout, then the very first non-ACKed packet is resent.
+
+* Flow Control
+    * TCP connection receives bytes in sequence, it puts the data into a buffer and the application process reads from
+      it. But it can overflow if the application process is too slow at reading it, or receives too much data too
+      quickly.
+    * TCP has a flow-control service to stop receiver’s buffers overflowing, and it's at a speed matched with the
+      service and it's part of congestion control.
+    * Server tells client how much their room has in its buffer.
+        * It puts the value in the receive window field of every sequential byte sent back to client, and Server sets
+          the rewind to be equal to the received buffer
+
+## The End-to-End principle
+
+* The end-to-end principle states that the transport issues are the responsibility of other endpoints and should not be
+  delegated to the core network.
+* Two issues falling under this category are data corruption and congestion.
+    * For data corruption, even though essentially all links on the Internet have link-layer checksums to protect
+      against data corruption, TCP still adds its own checksum (in part because of a history of data errors introduced
+      within routers).
+    * TCP is today essentially the only layer that addresses congestion management.
+
+## Transport Service Primitives
+
+* Programmers never see the network service but can see some primitives
+* A connection-orientated transport interface must follow the 5 principles below.
+* It must allow programs to establish, use and then release connections.
+  </br><img src="./img/3/10.png" alt="alt text" width="500" height="300">
+* The Transport Protocol Data Unit (TPDU) sends messages from transport entity to transport entity and these are
+  contained in packets (exchanged by the network layer).
+    * These packets are then contained in frames
+* When a frame arrives, the data link layer processes the frame header and passes the contents of the frame payload
+  field up to the network entity.
+* The network entity then processes the packet header and passes the contents up to the transport entity.
+  </br><img src="./img/3/12.png" alt="alt text" width="500" height="300">
+
+* When a client needs to communicate with the server it executes a CONNECT primitive.
+    * The transport entity carries out this primitive by blocking the caller and sending a packet to the server.
+    * The client’s CONNECT call causes a CONNECTION REQUEST TPDU to be sent to the server; on its arrival the transport
+      entity checks to see that the server is blocked on a LISTEN.
+    * It then unblocks the server and sends a CONNECTION ACCEPTED TPDU back to the client, and when the TPDU arrives,
+      the client is unblocked and the connection is established.
+
+* Data can now be exchanged using the SEND and RECEIVE primitives.
+    * A (blocking) RECEIVE to wait for the other party to do a SEND can be sent by either party.
+
+* When a connection is no longer needed, it must be released to free up table space within the two transport entities.
+* Disconnection has two variants: asymmetric and symmetric.
+    * **In asymmetric disconnection**, either transport user can issue a DISCONNECT primitive which results in a
+      DISCONNECT TPDU being sent and actioned.
+    * **In the symmetric variant**, each variant is closed separately, independent of each other. When one side sends a
+      DISCONNECT, that means it has no more data to send but is still willing to accept data. A connection is only
+      released when both sides have done a DISCONNECT.
+      </br><img src="./img/3/11.png" alt="alt text" width="500" height="300">
+
+## TCP Activity
+
+* If the server process is running, then the client can initiate a TCP connection to the server. This happens as
+  follows:
+    * The client creates a ‘socket’ and specifies the address of the server process, which is: IP address of the server
+      and the port number of the server process.
+    * When the ‘socket’ has been created in the client program, TCP in the client then initiates a three-way handshake
+      and establishes a TCP connection with the server.
+    * The three-way handshake takes place at the transport-layer and is completely transparent to the server and client
+      programs. See the diagram below.
+
+* During handshake:
+    * the client knocks on the ‘door’ of the server process requesting a connection.
+    * The server responds by opening the ‘door’ - i.e. creating a new socket, which is dedicated to that particular
+      client.
+    * At the end of the handshaking phase, a TCP connection exists between the client’s socket and the server's new
+      socket, referred to as the server’s ‘connection socket’.
+
+</br><img src="./img/3/13.png" alt="alt text" width="500" height="300">
+
+# QUIZ:
+
+* The OSI has seven layers, which layer does SMTP work at?
+    * Application
+* You need to have secure communications using HTTPS. What port number is used by default?
+    * 443
+* You want to implement a mechanism that automates the IP configuration, including IP address, subnet mask, default
+  gateway, and DNS information. Which protocol will you use to accomplish this?
+    * Dynamic Host Configuration Protocol (DHCP) is used to provide IP information to hosts on your network. DHCP can
+      provide a lot of information, but the most common is IP address, subnet mask, default gateway, and DNS
+      information.
+* What protocol is used to find the hardware address of a local device?
+    * Address Resolution Protocol (ARP) is used to find the hardware address from a known IP address.
+* You need to login to a Unix server across a network that is not secure. Which of the following protocols will allow
+  you to remotely administrator this server securely?
+    * SSH
+* If you can ping by IP address but not by hostname, or FQDN, which of the following port numbers is related to the
+  server process that is involved?
+    * The problem is with DNS, which uses both TCP and UDP port 53.
+* Which of the following describe the DHCP Discover message?
+    * A client that sends out a DHCP Discover message in order to receive an IP address sends out a broadcast at both
+      Layer 2 and Layer 3. The Layer 2 broadcast is all Fs in hex, or FF:FF:FF:FF:FF:FF. The Layer 3 broadcast is
+      255.255.255.255, which means all networks and all hosts. DHCP is connectionless, which means it uses User Datagram
+      Protocol (UDP) at the Transport layer, also called the Host-to-Host layer.
+* What layer 4 protocol is used for a Telnet connection, and what is the default port number?
+    * Telnet uses TCP at the Transport layer with a default port number of 23.
+* Which statements are true regarding ICMP packets?
+    * Internet Control Message Protocol (ICMP) is used to send error messages through the network, but ICMP does not
+      work alone. Every segment or ICMP payload must be encapsulated within an IP datagram (or packet).
+* Which of the following services use TCP?
+    * SMTP, FTP, and HTTP use TCP
+* Which of the following services use UDP?
+    * DHCP, SNMP, and TFTP use UDP. SMTP, FTP, and HTTP use TCP.
+* Which of the following are TCP/IP protocols used at the Application layer of the OSI model?
+    * Telnet, File Transfer Protocol (FTP), and Trivial FTP (TFTP) are all Application layer protocols. IP is a Network
+      layer protocol. Transmission Control Protocol (TCP) is a Transport layer protocol.
+* Which of the following protocols is used by e-mail servers to exchange messages with one another?
+    * SMTP is used by a client to send mail to its server and by that server to send mail to another server. POP3 and
+      IMAP are used by clients to retrieve their mail from the server that stores it until it is retrieved. HTTP is only
+      used with web-based mail services.
+* If you use either Telnet or FTP, which is the highest layer you are using to transmit data?
+    * Both FTP and Telnet use TCP at the Transport layer; however, they both are Application layer protocols, so the
+      Application layer is the best answer for this question.
+* Which of the following protocols can use TCP and UDP, permits authentication and secure polling of network devices,
+  and allows for automated alerts and reports on network devices?
+    * Simple Network Management Protocol, is typically implemented using version 3, which allows for a connection
+      oriented service, authentication and secure polling of network devices, and allows for alerts and reports on
+      network devices.
+* You need to transfer files between two hosts. Which two protocol can you use?
+    * Secure Copy Protocol (SCP), and File Transfer Protocol (FTP), can be used to transfer files between two systems.
+* What layer in the IP stack is equivalent to the Transport layer of the OSI model?
+    * The four layers of the IP stack (also called the DoD model) are Application/Process, Host-to-Host, Internet, and
+      Network Access. The Host-to-Host layer is equivalent to the Transport layer of the OSI model.
+* You need to make sure that your network devices have a consistent time across all devices. What protocol do you need
+  to run on your network?
+    * Network Time Protocol will ensure a consistent time across network devices on the network.
+* Which of the following allows a server to distinguish among different simultaneous requests from the same host?
+    * Through the use of port numbers, TCP and UDP can establish multiple sessions between the same two hosts without
+      creating any confusion. The sessions can be between the same or different applications, such as multiple
+      web-browsing sessions or a web-browsing session and an FTP session.
+* Which of the following protocols uses both TCP and UDP?
+    * DNS uses TCP for zone exchanges between servers and UDP when a client is trying to resolve a hostname to an IP
+      address.
 
 # TODO:
 
