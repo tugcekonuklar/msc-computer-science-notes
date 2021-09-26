@@ -60,4 +60,28 @@
 * Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed.)
     * Chapter 3, Section 3.5 "Connection-Oriented Transport: TCP"
     * Chapter 3, Section 3.4 "Principles of Reliable Data Transfer"
-    * Chapter 3, Sections 3.4.3 "Go-Back-N (GBN)" and 3.4.4 "Selective Repeat (SR)" 
+    * Chapter 3, Sections 3.4.3 "Go-Back-N (GBN)" and 3.4.4 "Selective Repeat (SR)"
+
+## WEEK 4
+
+* Lesson 1:
+    * Required Reading: Computer Networking: A Top-Down Approach (6th and 7th Ed. as indicated)
+        * Chapter 4, Section 4.1, "Introduction" (6th Ed.) or "Overview of Network Layer" (7th Ed.)
+        * Chapter 4, Section 4.3 (6th Ed.) "What's Inside a Router?" or Section 4.2 (7th Ed.)
+
+* Lesson 2:
+    * Required Reading: Computer Networking: A Top-Down Approach (6th and 7th Ed. as indicated)
+        * Chapter 4, Section 4.4 (6th Ed.) "The Internet Protocol (IP): Forwarding and Addressing in the Internet" up to
+          and including Section 4.4.1 "Datagram Format" or Section 4.3 (7th Ed.) "The Internet Protocol (IP): IPv4,
+          Addressing, IPv6, and More" up to and including Section 4.3.2 "IPv4 Datagram Fragmentation"
+
+* Lesson 3:
+* Required Reading: Computer Networking: A Top-Down Approach (6th and 7th Ed. as indicated)
+    * Chapter 4, Section 4.4.2 (6th Ed.) "IP4 Addressing" to Section 4.4.4 (6th Ed.) "IPv6" or Section 4.3.3 (7th Ed.)
+      to Section 4.3.5 (7th Ed.)
+    * Chapter 4, Section 4.4.2 (6th Ed.) sub-section "Network Address Translation (NAT)" or Section 4.3.4 (7th Ed.)
+* Optional/Further Reading:
+    * [What is an IP Address?](https://computer.howstuffworks.com/internet/basics/what-is-an-ip-address.htm) by How
+      Stuff works.com
+    * [IP addressing and subnetting for new users](https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html#anc0)
+      by Cisco.com
