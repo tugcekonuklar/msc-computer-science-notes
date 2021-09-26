@@ -16,6 +16,24 @@
 #### Sub titles:
 
 * [What is the transport layer?](#what-is-the-transport-layer)
+    * [Data transfer between layers](#data-transfer-between-layers)
+        * [Transport layer](#transport-layer)
+* [Types of connection - UDP (connectionless)](#types-of-connection---udp-connectionless)
+    * [UDP (connectionless)](#udp-connectionless)
+        * [UDP Segment structure](#udp-segment-structure)
+    * [Checksum](#checksum)
+    * [Question](#question)
+* [Encapsulation](#encapsulation)
+* [TCP (connection)](#tcp-connection)
+    * [The End-to-End principle](#the-end-to-end-principle)
+    * [Transport Service Primitives](#transport-service-primitives)
+    * [TCP Activity](#tcp-activity)
+    * [GO-Bank-N Protocol (GBN)](#go-bank-n-protocol-gbn)
+* [Ports and Sockets](#ports-and-sockets)
+    * [Ports](#ports)
+    * [Socket](#sockets)
+* [Quiz](#quiz)
+* [Todo](#todo)
 
 # What is the transport layer?
 
