@@ -414,6 +414,70 @@
 
 </br><img src="./img/3/13.png" alt="alt text" width="500" height="300">
 
+* What uses would unicast communication have?
+    * Point to point communication
+    * Equipment monitoring
+    * Alarms
+
+* What are the benefits of Unicast?
+    * Unicast transmission has been in use for a long time, with well-established protocols and easy-to-deploy
+      techniques. Well-known and trusted applications such as http, smtp, ftp and telnet all use the unicast standard
+      and employ the TCP transport protocol. On a network, transmission takes place from host to host, which can reduce
+      the traffic burden on a Local Area Network (LAN), as a whole.
+
+* What are the drawbacks of Unicast?
+    * If a network device is called upon to send a message to multiple nodes, it has to send multiple unicast messages,
+      each addressed to a specific device. This first requires the sender to know the exact IP address of each
+      destination device. In addition, each unicast client that connects to the host server uses up some network
+      bandwidth. If multiple clients are involved, this may introduce scaling issues as far as network and server
+      resources are concerned. The problem becomes even more pronounced if many hosts are transmitting via unicast to
+      many receivers, at the same time.
+
+</br><img src="./img/3/14.png" alt="alt text" width="500" height="300">
+
+* Your TCP socket will be highlighted lilac and you should look for TCP under the ‘Protocol’ heading and an arrow
+  pointing to or from the socket port 1735. You can see above that the last two lines are my communication that has been
+  captured. The bottom line is the acknowledgement [ACK] and the next line up is the message [PSH]. Its source is the
+  loopback 127.0.0.1 and its protocol is TCP and the ports in use are 50232 and 1735. The communication pipe is the
+  connection to the server and client via port 1735 and the welcoming port is 50232, which completes the ‘three-way
+  handshake’ as described earlier in the three-way handshake diagram
+
+## GO-Bank-N Protocol (GBN)
+
+* In a Go-Back-N (GBN) protocol, the sender is allowed to transmit multiple packets (when available) without waiting for
+  an acknowledgment, but is constrained to have no more than some maximum allowable number, N, of unacknowledged packets
+  in the pipeline.
+
+</br><img src="./img/3/15.png" alt="alt text" width="500" height="300">
+
+* Sequence numbers in the interval [0,base-1] correspond to packets that have already been transmitted and acknowledged.
+  The inter- val [base,nextseqnum-1] corresponds to packets that have been sent but not yet acknowledged. Sequence
+  numbers in the interval [nextseqnum,base+N-1] can be used for packets that can be sent immediately, should data arrive
+  from the upper layer. Finally, sequence numbers greater than or equal to base+N cannot be used until an unacknowledged
+  packet currently in the pipeline (specifically, the packet with sequence number base) has been acknowledged.
+
+* A simple sliding window protocol uses "go-back-n" recovery.
+* A receiver utilising Go-Back-N recovery only accepts segments that arrive in sequence and discards any out-of-sequence
+  segments.
+    * It always returns an acknowledgement containing the sequence number of the last segment received.
+* The sender must wait for an acknowledgement once its sending buffer is full.
+    * Once received, it removes all the acknowledged segments from the sending buffer and uses a retransmission timer to
+      detect segment losses.
+* When the go-back-n sender receives an acknowledgement, it restarts the transmission timer only if there are still
+  unacknowledged segments in its sending buffer
+* When the retransmission timer expires, the go-back-n sender assumes that all unacknowledged segments currently stored
+  in its sending buffer have been lost
+    * Thus It retransmits all the unacknowledged segments in the buffer and restarts the transmission timer.
+* This is a good system to utilise the bandwidth when packet losses occur occasionally. However, if the losses are high,
+  the performance drops because;
+    * the go-back-n receiver does not accept out-of-sequence segments
+    * the go-back-n sender retransmits all unacknowledged segments once it has detected a loss.
+
+</br><img src="./img/3/16.png" alt="alt text" width="500" height="300">
+
+## Ports and Sockets
+
+
 # QUIZ:
 
 * The OSI has seven layers, which layer does SMTP work at?
