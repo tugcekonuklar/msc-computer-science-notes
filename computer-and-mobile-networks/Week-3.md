@@ -477,6 +477,56 @@
 
 ## Ports and Sockets
 
+### Ports
+
+* A port is a 16 bit number used by the host-to-host protocol to identify to which higher level protocol or application
+  program it must deliver incoming messages.
+* Well-known:
+    * These belong to standard servers.
+    * For example, Telnet uses port 23.
+    * Well-known port numbers range between 1 and 1023
+    * Most servers require only a single port except for the BOOTP server which uses 767 and 68, and the FTP server
+      which uses 20 and 21.
+    * Well-known ports are controlled and assigned by
+      the [Internet Assigned Numbers Authority (IANA)](https://www.iana.org/) and on most systems can only be used by
+      system processes or by programs executed by admin users.
+    * Well-known ports allow clients to find servers without configuration information.
+* Ephemeral
+    * Some clients do not need well-known port numbers because they initiate communication with servers and the port
+      numbers they are using are contained in the TCP/UDP datagrams sent.
+    * Each client process is allocated a port number for as long as it needs it by the host on which it is running.
+    * Ephemeral ports numbers have values greater than 1023, normally in the range of 1024 to 65535.
+    * These are not controlled by IANA and can be used by most systems.
+
+* If two different applications are trying to use the same port numbers on one host then this clash is avoided, but with
+  applications requesting an available port from TCP/IP, the port is dynamically assigned and can differ from one
+  invocation to the next.
+
+* UDP, TCP and ISO TP-4 all use the same principles for port management.
+
+### Sockets
+
+* The socket interface is one of several application programming interfaces to the communication protocols
+* A **socket** is a special type of file handle which is used by a process to request network services from the
+  operating system
+* A **socket address** is in triple **<protocol, local address, local port>**, e.g. <tcp, 192.168.16.8080>
+* A **conversation** is the communication link between the two processes.
+* An **association** is the 5-tuple that completely specifies the two processes that comprise a connection: <protocol,
+  local-address, local-port, foreign-address, foreign-port>
+    * so <tcp, 192.168.16, 1500, 192.168.43.75, 22> would be valid.
+* A **half association** is either one of the following which specifies half a connection:
+    * <protocol, local-address, local-process> or <protocol, foreign-address, foreign-process>
+    * This is also called a socket or transport address.
+
+* Two processes communicate through TCP sockets which provides a process with a full duplex byte stream connection to
+  another process.
+
+* TCP uses the same port principle as UDP to provide multiplexing.
+    * Like UDP, TCP uses well-known and ephemeral ports.
+    * Each side of a TCP connection has a socket that can be identified by the triple address.
+    * If two processes are communicating over TCP, they have a logical connection that is uniquely identifiable by the
+      two sockets involved.
+    * Server processes are able to manage multiple conversations through a single port.
 
 # QUIZ:
 
