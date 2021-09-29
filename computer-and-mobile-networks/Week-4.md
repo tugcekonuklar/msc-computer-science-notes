@@ -13,6 +13,17 @@
 #### Sub titles:
 
 * [What is the network layer?](#what-is-the-network-layer)
+    * [Interplay between routing and forwarding](#interplay-between-routing-and-forwarding)
+* [IPv4 and IPv6](#ipv4-and-ipv6)
+    * [IP version 6 (IPv6)](#ip-version-6-ipv6)
+* [Network Addresses](#network-addresses)
+    * [Classful Addressing](#classful-addressing)
+    * [Private Addresses](#private-addresses)
+    * [Fragmentation & IP Packet Structure](#fragmentation--ip-packet-structure)
+    * [Address Resolution Protocol (ARP)](#address-resolution-protocol-arp)
+* [Questions](#questions)
+* [Quiz IPv4 & IPv6](#quiz-ipv4--ipv6)
+* [Todo](#todo)
 
 # What is the network layer?
 
@@ -99,7 +110,7 @@
     * If the size of the IP datagram is larger than the link MTU, the transmitter (i.e. a source host or a router on the
       path) needs to fragment the datagram to fit into frames.
         * his is called **fragmentation** . After fragmentation, individual fragments travel to the destination host
-          independently from each other and they are reassembled into the full IP datagram only at the last destination
+          independently of each other and they are reassembled into the full IP datagram only at the last destination
           host.
 
 ## IP version 6 (IPv6)
