@@ -615,3 +615,8 @@
 * [UDP in Java](https://www.baeldung.com/udp-in-java)
 * [A Simple Java UDP Server and UDP Client](https://systembash.com/a-simple-java-udp-server-and-udp-client/)
 * Spend some time researching concepts such as PPP, de-encapsulation and tunnelling with regard to encapsulation
+
+
+* **The ACK value is 'x' if the segment never arrives, or is equal to the next expected sequence number**
+* **The sequence number for the first segment is always the starting value**
+* **If the sender doesn't send a segment, write 'x'; otherwise, the sequence number is equal to the previous sequence number + the segment size**
