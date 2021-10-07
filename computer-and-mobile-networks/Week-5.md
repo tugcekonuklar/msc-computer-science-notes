@@ -57,7 +57,7 @@
   by the IEEE. However, the physical cable is often called Ethernet too.
     * Ethernet standards define the protocols and technology used within the network access layer.
 * One function of Ethernet is to encapsulate Internet layer packets into PDU's called frames .
-  </br><img src="./img/4/1.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/5/1.png" alt="alt text" width="500" height="300">
 * The important fields to note are:
     * Destination address : the 48-bit MAC address assigned to the NIC. Unlike IP, this address is assigned permanently
       to the NIC during manufacture.
@@ -124,7 +124,7 @@
       backwards.
 
 * Switches forward frames using the destination address to make switching decisions.
-  </br><img src="./img/4/3.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/5/2.png" alt="alt text" width="500" height="300">
 * In above the topology includes a second Ethernet switch, which is connected to the existing switch via Port 3. Devices
   node3 and node4 have been moved to Switch 2, and their MAC addresses have been added dynamically (or automatically) to
   the MAC address table against the new ports to which they are connected.
