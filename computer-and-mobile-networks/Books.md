@@ -85,3 +85,28 @@
       Stuff works.com
     * [IP addressing and subnetting for new users](https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html#anc0)
       by Cisco.com
+
+# WEEK 5
+
+* Lesson 1:
+* Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed. unless otherwise indicated)
+* Chapter 5, Section 5.1 (6th Ed.) "Introduction to the Link Layer" or Chapter 6, Section 6.1 (7th Ed.)
+* Chapter 5, Section 5.4.3 (6th Ed.) "Link Layer Switches" or Chapter 6, Section 6.4.3 (7th Ed.)
+* Chapter 1, Section 1.3.1 "Packet Switching"
+* Chapter 1, Section 1.3.2 "Circuit Switching"
+* Chapter 1, Section 1.3.3 "A Network of Networks"
+* Chapter 4, Section 4.4 (6th Ed.) "The Internet Protocol (IP): Forwarding and Addressing in the Internet" or Chapter 4,
+  Section 4.3 (7th Ed.) "The Internet Protocol (IP): IPv4, Addressing, IPv6, and More"
+* Chapter 4, Section 4.5 (6th Ed.) "Routing Algorithms" and Section 4.6 (6th Ed.) "Routing in the Internet" or Chapter
+  5, Section 5.2 (7th Ed.) "Routing Algorithms" to Section 5.4 (7th Ed.) "Routing Among the ISRs: BGP"
+
+
+* Lesson 2:
+* Required Reading: Computer Networking: A Top-Down Approach (6th and 7th Ed. as indicated)
+* Chapter 5, Section 5.3.1 (6th Ed.) "Channel partitioning Protocols" or Chapter 6, Sections 6.3.1 (7th Ed.)
+* Chapter 5, Section 5.3.2 (6th Ed.) "Random Access Protocols" or Chapter 6, Sections 6.3.2 (7th Ed.)
+* Chapter 5, Section 5.3.3 (6th Ed.) "Taking-Turn Protocols" or Chapter 6, Section 6.3.3 (7th Ed.)
+
+* Lesson 3:
+* Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed. as indicated)
+* Chapter 5, Section 5.2 (6th Ed.) "Error-Detection and Correction Techniques" or Chapter 6, Section 6.2 (7th Ed.)

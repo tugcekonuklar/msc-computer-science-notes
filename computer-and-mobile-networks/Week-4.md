@@ -84,7 +84,7 @@
 
 * IPv4 can receive either TCP segments or UDP datagrams from the transport layer, which it encapsulates within packets.
 * IPv4 Header tags
-    * Source address : the 32-bit address assigned to the NIC of the host that created a packet, not the MAC address
+    * Source address : the 32-bit address assigned to the (network interface card) NIC of the host that created a packet, not the MAC address
     * Destination address : the 32-bit address of the device to which the packet is sent.
     * Data : this is the payload (pure data) that an IP carries, typically a segment or datagram from the transport
       layer. This will vary across devices and mediums .
@@ -310,7 +310,7 @@
 * What effect will an inappropriate DHCP server have on hosts using static IP addresses?
     * None; DHCP servers cannot override statically assigned IP information
 
-* What is the name for a 48-bit (6-byte) numerical address physically assigned to a network interface, such as a NIC?
+* What is the name for a 48-bit (6-byte) numerical address physically assigned to a network interface, such as a NIC(network interface card)?
     * A MAC address, sometimes called a hardware address or even a burned-in address.
 
 * What gives IPv6 the ability to reference more addresses than IPv4?
