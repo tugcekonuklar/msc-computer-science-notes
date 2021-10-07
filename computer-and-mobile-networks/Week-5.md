@@ -137,3 +137,52 @@
       network.
     * Thus, most switches only maintain entries that are currently being used for frame forwarding.
     * Once frame forwarding finishes, switches delete MAC address entries after a short delay of typically 5 minutes.
+
+## Broadcast and Collision domains
+
+* ARP creates a segment, which is encapsulated within a packet address, using the source IP address of PC1. However, the
+  destination IP address is the ‘255.255.255.255’ address reserved by IPv4 for broadcasting to all devices within an IP
+  subnet.
+* The broadcast packet is encapsulated by the NIC into a frame, again using the source IP address of PC1. The
+  destination MAC address is FF:FF:FF:FF:FF:FF, which is reserved by Ethernet for broadcasts to all devices within the
+  local network.
+* The broadcast MAC address FF:FF:FF:FF:FF:FF is used as the destination of ARP requests to find the MAC of a given IP
+  address. So, all devices in the network, despite the destination MAC is not matching their own, pick up this message
+  as they know it's a broadcast message, and process it.
+* A broadcast domain is an area in which any "network broadcast" is sent to every device in the broadcast domain.
+    * For example, if a workstation is set up to get its IP address from a DHCP server it uses a "broadcast address"
+      that is sent over the network to retrieve the IP address from the DHCP server.
+
+* A collision domain is an area where collisions can occur in a network.
+* A hub creates an expense both collision domain and bordcast domain
+* A switch separetes collision domains but creates one broadcast domain
+* A router separetes collision and boardcast domains.
+  </br><img src="./img/5/3.png" alt="alt text" width="500" height="300">
+
+* Since no "intelligent functions" can take place with a hub (they only clean-up, amplify and retime signals) we have
+  one big broadcast domain and one big collision domain.
+    * Once the hub finds information being transmitted over a port it does not go to the next port, it starts back over
+      at the port 1! Therefore you want your more important devices on the first ports.
+    * When any collision happens, grounding both them transmit and receive pins for a short while (jamming), to stop the
+      collision and then the workstation randomly picks a number of milliseconds to wait to retransmit its information,
+      called back-of algorithm
+      </br><img src="./img/5/4.png" alt="alt text" width="500" height="300">
+* In a switch each port becomes its own collision domain.
+* A switch, unlike a hub, also has the possibility to store information to be sent out later
+    * if workstation A and D were transmitting at the same time, the switch could store information from one workstation
+      while passing on the transmission from the other over the backbone. This is called store-and-forward.
+* A switch is an intelligent device. It allows an administrator to change the priorities of the ports to determine who
+  gets to transmit first in the event of tie.
+    * The information from the other ports would be stored and transmitted later after the first one is done.
+* with a switch, there are many collision domains (one per port) and one big broadcast domain.
+* By keeping the broadcast domain as small as possible we keep our "overhead" traffic as minimal as possible and,
+  therefore, lessen any possible network traffic.
+    * This switch has 1 broadcast and 8 collision domains.
+      </br><img src="./img/5/5.png" alt="alt text" width="500" height="300">
+
+* With multiple switches there exists the possibility for excessive broadcasts that could slow our network down.
+    * A router could be used to reduce the broadcast domain size.
+    * Recall, each interface on a router, in fact, is its own broadcast domain.
+    * now eight collision domains and two broadcast domains
+      </br><img src="./img/5/6.png" alt="alt text" width="500" height="300">
+
