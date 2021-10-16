@@ -186,3 +186,5 @@
     * now eight collision domains and two broadcast domains
       </br><img src="./img/5/6.png" alt="alt text" width="500" height="300">
 
+## Router operation
+
