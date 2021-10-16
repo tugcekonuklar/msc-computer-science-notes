@@ -426,6 +426,37 @@
 * You connect a new host to your wireless network. The host is set to receive a DHCP address and the WEP key is entered
   correctly, however the host cannot connect to the network. What might e problem be?
     * MAC filtering is enabled on the AP
+    
+* Together, MIMO and OFDM technologies are the cornerstone of emerging broadband wireless networks.
+    * True
+* In a MIMO scheme the transmitter employs a single antenna.
+    * False
+* Diverse multipath fading offers multiple views of the transmitted data at the receiver, thus increasing robustness.
+    * True
+* In a multipath scenario where each receiving antenna would experience a different interference environment, there is a high probability that if one antenna is suffering a high level of fading,  another antenna has sufficient signal level.
+    * True
+* Spatial diversity can be used when transmitting conditions are favourable and for relatively short distances compared to spatial multiplexing.
+    * False
+* A disadvantage of MU-MIMO is that the available capacity cannot be shared to meet time-varying demands.
+    * False
+* MIMO-MAC systems outperform point-to-point MIMO.
+    * True
+* In OFDM all of the subcarriers are dedicated to a single data source.
+    * True
+* MIMO systems are characterized by the number of antennas at each end of the wireless channel.
+    * True
+* OFDM cannot overcome intersymbol interference in a multipath environment.
+    * False
+* The IFFT operation has the effect of ensuring that the subcarriers do not interfere with each other.
+    * True
+* MU-MIMO techniques are used in both Wi-Fi and 4G cellular networks.
+    * True
+* Orthogonal Frequency-Division Multiple Access employs multiple closely spaced subcarriers.
+    * True
+* Subchannelisation is not useful for battery-powered devices.
+    * False
+* Spread spectrum is an important form of encoding for wireless communications.
+    * True
 
 # TODO:
 
