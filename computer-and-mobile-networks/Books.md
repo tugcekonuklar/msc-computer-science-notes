@@ -110,3 +110,24 @@
 * Lesson 3:
 * Required Reading: Computer Networking: A Top-Down Approach (6th or 7th Ed. as indicated)
 * Chapter 5, Section 5.2 (6th Ed.) "Error-Detection and Correction Techniques" or Chapter 6, Section 6.2 (7th Ed.)
+
+# WEEK 7
+
+* Lesson 1:
+    * Chapter 8, Section 8.1, "What is Network Security"
+* Lesson 2:
+* Required Reading: Computer Networking: A Top Down Approach (6th or 7th Ed.)
+    * Chapter 8, Section 8.2 "Principles of Cryptography"
+    * Chapter 8, Section 8.3.3, subsection "Public Key Certification"
+    * Chapter 8, Section 8.5.2 "PGP"
+    * Chapter 8, Section 8.3.2 "Mesage Authentication Code"
+    * Chapter 8, Section 8.3.3 "Digital Signatures"
+
+* Lesson 3:
+
+* Required Reading: Computer Networking: A Top Down Approach (6th or 7th Ed.)
+
+    * Chapter 8, Section 8.6 "Securing TCP Connections: SSL"
+    * Chapter 8, Section 8.7 "Network-Layer Security: IPsec and Virtual Private Networks"
+    * Chapter 8, Section 8.7.4 "The IPsec Datagram"
+    * Chapter 8, Section 8.9.2 "Intrusion Detection Systems"
