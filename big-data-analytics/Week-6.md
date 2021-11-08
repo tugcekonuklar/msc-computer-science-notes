@@ -292,10 +292,11 @@ VALUES (‘00001’, ’SAM’, ’Williams’, ’m’, 1979 / 5 / 9’, ‘Her
 * One very important feature of a database is that the data it contains should be correct.
 * ACID Consistency Model,
     * Atomic : All operations that make up a transaction succeed or every operation is rolled back to the initial
-      consistent state of the database. Consistent : On the completion of a transaction, all users see the same updated
-      data. Isolated :Transactions do not contend with one another to modify data. Contentious access to data is
-      moderated by the database so that transactions appear to run sequentially. Durable : The results of applying a
-      transaction are permanent, even in the presence of failures.
+      consistent state of the database. 
+    * Consistent : On the completion of a transaction, all users see the same updated data. 
+    * Isolated :Transactions do not contend with one another to modify data. Contentious access to data is
+      moderated by the database so that transactions appear to run sequentially. 
+    * Durable : The results of applying a transaction are permanent, even in the presence of failures.
 * BASE Consistency Model
     * Basic Availability :The database appears to work most of the time.
     * Soft-state:  When the database is updated, it may be inconsistent for some period of time.
