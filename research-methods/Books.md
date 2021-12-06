@@ -54,4 +54,14 @@
 * Lesson 4:
 * Required reading:
     * Chapter 2, "Review of the Literature" in Research Design: Qualitative, Quantitative & Mixed Methods Approaches.
-    * Chapter 3 "Reading and Reviewing" in Writting for Computer Science 
+    * Chapter 3 "Reading and Reviewing" in Writting for Computer Science
+
+# WEEK 3
+
+* Lesson 3:
+    * Required Reading:
+        * Chapter 8, "Quantitative Methods" in Research Design: Qualitative, Quantitative & Mixed Methods Approaches.
+        * Chapter 4 "Hypotheses, Questions and Evidence" in Writing for Computer Science.
+    * Optional reading:
+        * [Field, A.P. (2000) Discovering Statistics Using SPSS for Windows: Advanced Techniques for the Beginner](https://eu.alma.exlibrisgroup.com/leganto/public/44YORK_INST/citation/40294584910001381?auth=SAML)
+ 
