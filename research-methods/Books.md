@@ -64,4 +64,11 @@
         * Chapter 4 "Hypotheses, Questions and Evidence" in Writing for Computer Science.
     * Optional reading:
         * [Field, A.P. (2000) Discovering Statistics Using SPSS for Windows: Advanced Techniques for the Beginner](https://eu.alma.exlibrisgroup.com/leganto/public/44YORK_INST/citation/40294584910001381?auth=SAML)
- 
+
+# WEEK 4
+
+* Lesson 1:
+    * Chapter 4, "Hypotheses, Questions and Evidence" in Writing for Computer Science.
+
+* Lesson 2:
+    * Chapter 11, "Graphs, Figures and Tables" in Writing for Computer Science.

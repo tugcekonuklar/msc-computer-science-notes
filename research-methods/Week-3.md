@@ -179,12 +179,21 @@
 
 ## Quantitative Research statistics
 
+# Descriptive and Inferential Analysis (Continue Week 4)
+
 * There are two forms of quantitative data analysis
-* **descriptive statistics** - used to reveal patterns in the data, count frequency of occurrence in the data and show
+* **Descriptive statistics** - used to reveal patterns in the data, count frequency of occurrence in the data and show
   the distribution of variables within the data
     * Descriptive statistics are used to organise and describe data numerically, often through showing measures of
       central tendency (e.g. mean, median, mode) or data spread (e.g. standard deviation, range).
-* **inferential statistics** - a more complex set of statistical tests used to analyse associations between variables,
+    * These help you to visualise or understand what data is telling you.
+    * Frequency distribution: The frequency distribution of a variable is a summary of the frequency of individual
+      values or ranges for that variable.
+    * Central tendency: This is the estimate of the centre of the distribution of values. There are three main estimates
+      of central tendency: mean, median and mode
+    * Dispersion: Is the spread around the central tendency and two common measures are range and standard deviation.
+
+* **Inferential statistics** - a more complex set of statistical tests used to analyse associations between variables,
   such as significance, correlation, probability and regression analysis. Each statistical test has a specific function
   and the selection of which one to use will depend on the hypotheses being investigated and the type of data that has
   been collected.
