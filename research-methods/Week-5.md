@@ -6,7 +6,9 @@
 
 #### Sub titles:
 
-*
+* [Qualitative research methods](#qualitative-research-methods)
+* [Typical strategies for collecting primary data in research](#typical-strategies-for-collecting-primary-data-in-research)
+* [TODO](#todo)
 
 # Qualitative research methods
 
