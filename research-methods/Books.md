@@ -72,7 +72,12 @@
 
 * Lesson 2:
     * Chapter 11, "Graphs, Figures and Tables" in Writing for Computer Science.
-    
 
 # WEEK 5
+
 * Chapter 9, "Qualitative Methods" in Research Design: Qualitative, Quantitative & Mixed Methods Approaches.
+
+# WEEK 6
+
+* Lesson 1:
+    * Chapter 9, "Qualitative Methods" in Research Design: Qualitative, Quantitative & Mixed Methods Approaches.
