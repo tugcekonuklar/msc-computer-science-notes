@@ -81,3 +81,36 @@
 
 * Lesson 1:
     * Chapter 9, "Qualitative Methods" in Research Design: Qualitative, Quantitative & Mixed Methods Approaches.
+
+# WEEK 7
+
+* Lesson 1:
+    * NHS data ethics
+* Lesson 2:
+    * Social Distancing and School Closures: Documenting Disparity in Internet Access among School Children Download
+      Social Distancing and School Closures: Documenting Disparity in Internet Access among School Children
+
+
+* Lesson 3:
+
+* Evaluating evaluation: implications for assessing quality (Links to an external site.)
+* Evaluating research: A multidisciplinary approach to assessing research practice and quality (Links to an external
+  site.)
+* Reflexivity, Positionality and Rigor in the Context of Big Data Research Download Reflexivity, Positionality and Rigor
+  in the Context of Big Data Research
+* Review Chapter 9, "Qualitative Methods" in Research Design: Qualitative, Quantitative & Mixed Methods Approaches.
+* Chapter 6, "The Purpose Statement" in Writting for Computer Science
+* Chapter 7, "Research Questions and Hypotheses" in Writting for Computer Science
+* Grave fraudulence in medical device research: a narrative review of the PIN seeding study for the Pinnacle hip
+  system (Links to an external site.)
+* Determination of cyber security awareness of Madiha et al public employees and conscientious rising suggestions
+  Download Determination of cyber security awareness of Madiha et al public employees and conscientious rising
+  suggestions
+* Quality of Experience and Quality of Service of Gaming Services in Fog Computing Download Quality of Experience and
+  Quality of Service of Gaming Services in Fog Computing
+* Intelligence-based Cybersecurity Awareness Training - an Exploratory Project Download Intelligence-based Cybersecurity
+  Awareness Training - an Exploratory Project
+* Quality of Experience Assessment of Video Quality in Social Clouds. Wireless Communications and Mobile Computing
+  Download Quality of Experience Assessment of Video Quality in Social Clouds. Wireless Communications and Mobile
+  Computing
+ 
