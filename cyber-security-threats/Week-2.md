@@ -141,5 +141,141 @@
             * However, this countermeasure is foiled if the attacker can intrude in the communication pre-encryption or
               post-decryption.
         * Encryption can provide continuous authentication, but care must be taken to set it up properly and guard the
-          end points.      
-    
+          end points.
+
+# Activities
+
+* Secure Password submittion:
+    * GET Method is not secure even by usinf HTTPS, because it sets userName and password on the Quesry paramaters which
+      are visiable on URL
+    * POST Form with SSL is the secure way to send username and passwords. Because data is sending on body and encripted
+      with SSL.
+* Data in the browser and in the server are rarely held in encrypted form because it slows processing down - so if
+  anyone has access to either of those programs, there is potential for them to gain access to the unencrypted data.
+* The only visible problem should be the GET method URL containing the request data - making it vulnerable to shoulder
+  surfers. Everything going across the network, in either direction, should be in TLS1.3 packets and encrypted so that
+  the even the nature of the protocol isn't obvious.
+
+## 2-factor authentication (2FA)
+
+* 2FA is involved in logon process, the system itself will generate a one-time password (OTP) which is sent to the user
+  through another channel (e.g. email, mobile phone, code generating app).
+* 2FA introduces an extra step for attackers - they need to obtain credentials AND control of the 2FA channel
+* Use of mobile phone messaging is also a common way of sending the secondary credential to the user, because mobile
+  phones are now very prevalent (a lot of people have them) and ubiquitous (people carry them around most of the time).
+
+# Trust in the site
+
+* 2 situation involving web content
+    * false content
+    * seeking to harm the viewer
+
+* False or Misleading Content
+    * The falsehoods that follow include both obvious and subtle forgeries.
+
+* Defaced Web Site
+    * The simplest attack, a website defacement, occurs when an attacker replaces or modifies the content of a
+      legitimate web site.
+    * For example, recent political attacks have subtly replaced the content of a candidate’s own site to imply falsely
+      that a candidate had said or done something unpopular. Or using website modification as a first step, the attacker
+      can redirect a link on the page to a malicious location, for example, to present a fake login box and obtain the
+      victim’s login ID and password. All these attacks attempt to defeat the integrity of the web page.
+    * A defacement is common not only because of its visibility but also because of the ease with which one can be done.
+    * Web sites are designed so that their code is downloaded, enabling an attacker to obtain the full hypertext
+      document and all programs directed to the client in the loading process.
+    * An attacker can even view programmers’ comments left in as they built or maintained the code. The download process
+      essentially gives the attacker the blueprints to the web site.
+
+* Fake Web Site
+    * The attacker can get all the images a real site uses; fake sites can look convincing.
+
+* Fake Code
+    * One transmission route we did not note was an explicit download: programs intentionally installed that may
+      advertise one purpose but do something entirely different.
+    * Perhaps the easiest way for a malicious code writer to install code on a target machine is to create an
+      application that a user willingly downloads and installs.
+    * smartphone apps are well suited for distributing false or misleading code because of the large number of young,
+      trusting smartphone users.
+
+### Protecting Web Sites Against Change
+
+* Our favorite integrity control, encryption, is often inappropriate: Distributing decryption keys to all users defeats
+  the effectiveness of encryption. However, two uses of encryption can help keep a site’s content intact.
+* Integrity Checksums
+    * Integrity checksums can detect altered content on a web site.
+    * A checksum, hash code, or error detection code is a mathematical function that reduces a block of data (including
+      an executable program) to a small number of bits.
+    * Changing the data affects the function’s result in mostly unpredictable ways, meaning that it is
+      difficult—although not impossible—to change the data in such a way that the resulting function value is not
+      changed. Using a checksum, you trust or hope that significant changes will invalidate the checksum value.
+
+* Signed Code or Data
+    * Using an integrity checker helps the server-side administrator know that data are intact; it provides no assurance
+      to the client. A similar, but more complicated approach works for clients, as well.
+    * a digital signature is an electronic seal that can vouch for the authenticity of a file or other data object. The
+      recipient can inspect the seal to verify that it came from the person or organization believed to have signed the
+      object and that the object was not modified after it was signed.
+    * A digital signature can vouch for the authenticity of a program, update, or dataset. The problem is, trusting the
+      legitimacy of the signer.
+    * A partial approach to reducing the risk of false code is signed code. Users can hold downloaded code until they
+      inspect the seal. After verifying that the seal is authentic and covers the entire code file being downloaded,
+      users can install the code obtained.
+    * signed code may confirm that a piece of software received is what the sender sent, but not that the software does
+      all or only what a user expects it to.
+
+## Malicious Web Content
+
+* Substitute Content on a Real Web Site
+    * More mischievous attackers soon realized that in a similar way, they could replace other parts of a web site and
+      do so in a way that did not attract attention.
+
+* Web Bug
+    * Tiny action points called web bugs can report page traversal patterns to central collecting points, compromising
+      privacy.
+    * a web page is made up of many files: some text, graphics, executable code, and scripts. When the web page is
+      loaded, files are downloaded from a destination and processed; during the processing they may invoke other files (
+      perhaps from other sites) which are in turn downloaded and processed, until all invocations have been satisfied.
+    * When a remote file is fetched for inclusion, the request also sends the IP address of the requester, the type of
+      browser, and the content of any cookies stored for the requested site. These cookies permit the page to display a
+      notice such as “Welcome back, Elaine,” bring up content from your last visit, or redirect you to a particular web
+      page.
+    * Some advertisers want to count number of visitors and number of times each visitor arrives at a site. They can do
+      this by a combination of cookies and an invisible image. A web bug, also called a clear GIF, 1x1 GIF, or tracking
+      bug, is a tiny image, as small as 1 pixel by 1 pixel (depending on resolution, screens display at least 100 to 200
+      pixels per inch), an image so small it will not normally be seen. Nevertheless, it is loaded and processed the
+      same as a larger picture. Part of the processing is to notify the bug’s owner, the advertiser, who thus learns
+      that another user has loaded the advertising image.
+
+    * A single company can do the same thing without the need for a web bug. If you order flowers online, the florist
+      can obtain your IP address and set a cookie containing your details so as to recognize you as a repeat customer. A
+      web bug allows this tracking across multiple merchants.
+
+    * Web bugs can also be used in email with images. A spammer gets a list of email addresses but does not know if the
+      addresses are active, that is, if anyone reads mail at that address. With an embedded web bug, the spammer
+      receives a report when the email message is opened in a browser. Or a company suspecting its email is ending up
+      with competitors or other unauthorized parties can insert a web bug that will report each time the message is
+      opened, whether as a direct recipient or someone to whom the message has been forwarded.
+      <img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
+
+* Clickjacking
+    * Clickjacking: Tricking a user into clicking a link by disguising what the link points to
+    * The two technical tasks, changing the color to transparent and moving the page, are both possible because of a
+      technique called framing, or using an iframe. An iframe is a structure that can contain all or part of a page, can
+      be placed and moved anywhere on another page, and can be layered on top of or underneath other frames. Although
+      important for managing complex images and content, such as a box with scrolling to enter a long response on a
+      feedback page, frames also facilitate clickjacking.  
+      <img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
+
+* Drive-By Download
+    * Drive-by download: downloading and installing code other than what a user expects
+    * Similar to the clickjacking attack, a drive-by download is an attack in which code is downloaded, installed, and
+      executed on a computer without the user’s permission and usually without the user’s knowledge.
+
+### Protecting Against Malicious Web Pages
+
+* Access control accomplishes separation, keeping two classes of things apart. In this context, we want to keep
+  malicious code off the user’s system; alas, that is not easy.
+* Users download code to add new applications, update old ones, or improve execution.
+* The other control is a responsibility of the web page owner: Ensure that code on a web page is good, clean, or
+  suitable. Here again, the likelihood of that happening is small, for two reasons.
+* Second, good (secure, safe) code is hard to define and enforce.
