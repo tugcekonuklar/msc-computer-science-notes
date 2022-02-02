@@ -355,4 +355,126 @@
     * <!—#exec cmd=”/usr/bin/telnet &”—>
 * opens a Telnet session from the server running in the name of (that is, with the privileges of) the server.
 * An attacker may find it interesting to execute commands such as chmod (change access rights to an object), sh (
-  establish a command shell), or cat (copy to a file).    
+  establish a command shell), or cat (copy to a file).
+
+# Social Engineering and attacks on the wetware
+
+## Fake Email
+
+* an attacker can attempt to fool people with fake email messages.
+
+## Fake Email Messages as Spam
+
+* Spam is fictitious or misleading email, offers to buy designer watches, anatomical enhancers, or hot stocks, as well
+  as get-rich schemes involving money in overseas bank accounts.
+* Types of spam are rising:
+    * fake “nondelivery” messages (“Your message x could not be delivered”)
+    * false social networking messages, especially attempts to obtain login details
+    * current events messages (“Want more details on [sporting event, political race, crisis] ?”)
+    * shipping notices (“x company was unable to deliver a package to your address —shown in this link.”)
+
+* Volume of Spam: more than %55 is spam mails
+* Spammers make enough money to make the work worthwhile.
+* **Why Send Spam?**
+    * Advertising
+    * Pump and Dump: popular spam topic is stocks
+        * pump and dump game : A trader pumps—artificially inflates—the stock price by rumors and a surge in activity.
+          The trader then dumps it when it gets high enough. The trader makes money as it goes up; the spam recipients
+          lose money when the trader dumps holdings at the inflated prices, prices fall, and the buyers cannot find
+          other willing buyers. Spam lets the trader pump up the stock price.
+    * Malicious Payload
+        * Clicking a link offering you a free prize, and you have actually just signed your computer up to be a
+          controlled agent (and incidentally, you did not win the prize).
+        * Spam email with misleading links is an important vector for enlisting computers as bots.
+    * Links to Malicious Web Sites:
+
+* **What to Do about Spam?**
+    * Legal:
+        * Spam is not yet annoying, harmful, or expensive enough to motivate international action to stop it.
+        * Numerous countries and other jurisdictions have tried to make the sending of massive amounts of unwanted email
+          illegal. In the United States, the CAN-SPAM act of 2003 and Directive 2002/58/EC of the European Parliament
+          are two early laws restricting the sending of spam; most industrialized countries have similar legislation.
+        * Defining the scope of prohibited activity is tricky, because countries want to support Internet commerce,
+          especially in their own borders.
+            * Almost immediately after it was signed, detractors dubbed the U.S. CAN-SPAM act the “You Can Spam” act
+              because it does not require emailers to obtain permission from the intended recipient before sending email
+              messages.
+            * The act requires emailers to provide an opt-out procedure, but marginally legal or illegal senders will
+              not care about violating that provision
+
+    * Source Addresses:
+        * source addresses in email can easily be forged. and Email senders are not reliable
+        * Legitimate senders want valid source addresses as a way to support replies; illegitimate senders get their
+          responses from web links, so the return address is of no benefit.
+        * Accurate return addresses only provide a way to track the sender, which illegitimate senders do not want.
+        * Internet protocols could enforce stronger return addresses
+            * But Such a change would require a rewriting of the email protocols and a major overhaul of all email
+              carriers on the Internet, which is unlikely unless there is another compelling reason, not security.
+    * Screeners:
+        * screeners, tools to automatically identify and quarantine or delete spam
+        * Screeners are highly effective against amateur spam senders, but sophisticated mailers can pass through
+          screeners.
+
+    * Volume Limitations:
+        * limiting the volume of a single sender or a single email system.
+        * The problem is legitimate mass marketers, who send thousands of messages on behalf of hundreds of clients.
+          Rate limitations have to allow and even promote commerce, while curtailing spam; balancing those two needs is
+          the hard part.
+
+    * Postage
+        * A small fee could be charged for each email message sent, payable through the sender’s ISP.
+        * The difficulty again would be legitimate mass mailers, but the cost of e-postage would simply be a recognized
+          cost of business.
+
+* **Fake (Inaccurate) Email Header Data**
+    * one reason email attacks succeed is that the headers on email are easy to spoof, and thus recipients believe the
+      email has come from a safe source
+    * Proposals for more reliable email include authenticated Simple Mail Transport Protocol (SMTP) or SMTP-Auth (RFC
+        2554) or Enhanced SMTP (RFC 1869), but so many nodes, programs, and organizations are involved in the Internet
+              email system that it would be infeasible now to change the basic email transport scheme.
+
+    * It is even possible to create and send a valid email message by composing all the headers and content on the fly,
+      through a Telnet interaction with an SMTP service that will transmit the mail.
+        * Consequently, headers in received email are generally unreliable.
+
+* **Phishing**
+    * In a phishing attack, the email message tries to trick the recipient into disclosing private data or taking
+      another unsafe action.
+    * A more pernicious form of phishing is known as spear phishing, email tempts recipients by seeming to come from
+      sources the receiver knows and trusts.
+        * What distinguishes spear phishing attacks is their use of social engineering: The email lure is personalized
+          to the recipient, thereby reducing the user’s skepticism.
+
+* **Protecting Against Email Attacks**
+* need a way to ensure the authenticity of email from supposedly reliable sources.
+    * PGP (Pretty Good Privacy):
+        * PGP addresses the key distribution problem with what is called a “ring of trust” or a user’s “keyring.”
+            * One user directly gives a public key to another, or the second user fetches the first’s public key from a
+              server.
+            * Some people include their PGP public keys at the bottom of email messages.
+            * And one person can give a second person’s key to a third (and a fourth, and so on).
+            * Thus, the key association problem becomes one of caveat emptor (let the buyer beware): If I trust you, I
+              may also trust the keys you give me for other people.
+            * The model breaks down intellectually when you give me all the keys you received from people, who in turn
+              gave you all the keys they got from still other people, who gave them all their keys, and so forth.
+
+        * Steps /actions of PGP
+            * Create a random session key for a symmetric algorithm.
+            * Encrypt the message, using the session key (for message confidentiality).
+            * Encrypt the session key under the recipient’s public key.
+            * Generate a message digest or hash of the message; sign the hash by encrypting it with the sender’s private
+              key (for message integrity and authenticity).
+            * Attach the encrypted session key to the encrypted message and digest. • Transmit the message to the
+              recipient.
+
+    * S/MIME (Secure Multipurpose Internet Mail Extensions):
+        * S/MIME is the Internet standard for secure email attachments.
+        * S/MIME is very much like PGP and its predecessors, PEM (Privacy-Enhanced Mail) and RIPEM.
+        * The principal difference between S/MIME and PGP is the method of key exchange.
+            * Basic PGP depends on each user’s exchanging keys with all potential recipients and establishing a ring of
+              trusted recipients; it also requires establishing a degree of trust in the authenticity of the keys for
+              those recipients.
+            * S/MIME uses hierarchically validated certificates, usually represented in X.509 format, for key exchange.
+            * Thus, with S/MIME, the sender and recipient do not need to have exchanged keys in advance as long as they
+              have a common certifier they both trust.
+        * S/MIME works with a variety of cryptographic algorithms, such as DES, AES, and RC2 for symmetric encryption.      
