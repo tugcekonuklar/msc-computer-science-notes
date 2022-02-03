@@ -34,3 +34,10 @@
     * [Everything you need to know about DKIM] (https://www.dmarcanalyzer.com/dkim/)
     * [Everything you need to know about DMARC] (https://www.dmarcanalyzer.com/dmarc/)
     * [Email Servers For More Than Half of World’s Top Sites Can Be Spoofed](https://threatpost.com/email-servers-for-more-than-half-of-worlds-top-sites-can-be-spoofed/118840/)
+
+# WEEK 3
+
+* Lesson 1
+    * Security in Computing, Chapter 6, to "Part I - war on networks"
+* Lesson 2
+    * Security in Computing, Chapter 6 sections 6.2 to 6.10
