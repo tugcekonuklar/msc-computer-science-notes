@@ -6,6 +6,30 @@
 
 #### Sub titles:
 
+* [Human factors](#human-factors)
+    * [The Web—User Side](#the-webuser-side)
+        * [Browser Attacks](#browser-attacks)
+        * [Authentication](#authentication)
+* [Activities](#activities)
+    * [2-factor authentication (2FA)](#2-factor-authentication-2fa)
+* [Trust in the site](#trust-in-the-site)
+    * [Protecting Web Sites Against Change](#protecting-web-sites-against-change)
+        * [Malicious Web Content](#malicious-web-content)
+            * [Protecting Against Malicious Web Pages](#protecting-against-malicious-web-pages)
+        * [Google's "site:" search operator](#googles-site-search-operator)
+* [Other web flaws](#other-web-flaws)
+    * [Cross-Site Scripting](#cross-site-scripting)
+    * [SQL Injection](#sql-injection)
+    * [Dot-Dot-Slash](#dot-dot-slash)
+    * [Server-Side Include](#server-side-include)
+* [Social Engineering and attacks on the wetware](#social-engineering-and-attacks-on-the-wetware)
+    * [Fake Email](#fake-email)
+    * [Fake Email Messages as Spam](#fake-email-messages-as-spam)
+    * [Phising](#phishing)
+* [SPF (Sender Policy Framework)](#spf-sender-policy-framework)
+* [DKIM (Domain Keys Identified Mail)](#dkim-domain-keys-identified-mail)
+* [DMARC (Domain-based Message Authentication Reporting and Conformance)](#dmarc-domain-based-message-authentication-reporting-and-conformance)
+
 # Human factors
 
 * Information in computers are intangible, tahts why hard to understand humans the importance.
@@ -437,13 +461,14 @@
       through a Telnet interaction with an SMTP service that will transmit the mail.
         * Consequently, headers in received email are generally unreliable.
 
-* **Phishing**
-    * In a phishing attack, the email message tries to trick the recipient into disclosing private data or taking
-      another unsafe action.
-    * A more pernicious form of phishing is known as spear phishing, email tempts recipients by seeming to come from
-      sources the receiver knows and trusts.
-        * What distinguishes spear phishing attacks is their use of social engineering: The email lure is personalized
-          to the recipient, thereby reducing the user’s skepticism.
+## Phishing
+
+* In a phishing attack, the email message tries to trick the recipient into disclosing private data or taking another
+  unsafe action.
+* A more pernicious form of phishing is known as spear phishing, email tempts recipients by seeming to come from sources
+  the receiver knows and trusts.
+    * What distinguishes spear phishing attacks is their use of social engineering: The email lure is personalized to
+      the recipient, thereby reducing the user’s skepticism.
 
 * **Protecting Against Email Attacks**
 * need a way to ensure the authenticity of email from supposedly reliable sources.
@@ -477,4 +502,121 @@
             * S/MIME uses hierarchically validated certificates, usually represented in X.509 format, for key exchange.
             * Thus, with S/MIME, the sender and recipient do not need to have exchanged keys in advance as long as they
               have a common certifier they both trust.
-        * S/MIME works with a variety of cryptographic algorithms, such as DES, AES, and RC2 for symmetric encryption.      
+        * S/MIME works with a variety of cryptographic algorithms, such as DES, AES, and RC2 for symmetric encryption.
+
+# SPF (Sender Policy Framework)
+
+* [What is SPF?](https://www.dmarcanalyzer.com/spf/)
+* The Sender Policy Framework (SPF) is an email-authentication technique which is used to prevent spammers from sending
+  messages on behalf of your domain. With SPF an organisation can publish authorized mail servers
+* Together with the DMARC related information, this gives the receiver (or receiving systems) information on how
+  trustworthy the origin of an email is. SPF is, just like DMARC, an email authentication technique that uses DNS (
+  Domain Name Service).
+* This gives you, as an email sender, the ability to specify which email servers are permitted to send email on behalf
+  of your domain.
+* An SPF record is a DNS record that has to be added to the DNS zone of your domain. In this SPF record you can specify
+  which IP addresses and/or hostnames are authorized to send email from the specific domain.
+* The mail receiver will use the “envelope from” address of the mail (mostly the Return-Path header) to confirm that the
+  sending IP address was allowed to do so.
+    * This will happen before receiving the body of the message.
+    * When the sending email server isn’t included in the SPF record from a specific domain the email from this server
+      will be marked as suspicious and can be rejected by the email receiver.
+* SPF is one of the authentication techniques on which DMARC is based. DMARC uses the result of the SPF checks and add a
+  check on the alignment of the domains to determine its results.
+* SPF is a great technique to add authentication to your emails. However it has some limitations which you need to be
+  aware of.
+    * SPF does not validate the “From” header. This header is shown in most clients as the actual sender of the message.
+      SPF does not validate the “header from”, but uses the “envelope from” to determine the sending domain
+    * SPF will break when an email is forwarded. At this point the ‘forwarder’ becomes the new ‘sender’ of the message
+      and will fail the SPF checks performed by the new destination.
+    * SPF lacks reporting which makes it harder to maintain
+
+# DKIM (Domain Keys Identified Mail)
+
+* [What is DKIM](https://www.dmarcanalyzer.com/dkim/)
+* DKIM (Domain Keys Identified Mail) is an email authentication technique that allows the receiver to check that an
+  email was indeed sent and authorized by the owner of that domain.
+    * This is done by giving the email a digital signature.
+    * This DKIM signature is a header that is added to the message and is secured with encryption.
+
+* DKIM signature certain that parts of the email among which the message body and attachments haven’t been modified.
+    * DKIM validation is done on a server level.
+
+* Implementing the DKIM standard will improve email deliverability.
+    * If you use DKIM record together with DMARC (and even SPF) you can also protect your domain against malicious
+      emails sent on behalf of your domains.
+
+* In Practice:
+    * The DKIM signature is generated by the MTA (Mail Transfer Agent).
+    * It creates a unique string of characters called Hash Value.
+    * This hash value is stored in the listed domain.
+    * After receiving the email, the receiver can verify the DKIM signature using the public key registered in the DNS.
+    * It uses that key to decrypt the Hash Value in the header and recalculate the hash value from the email it
+      received.
+    * If these two DKIM signatures are a match the MTA knows that the email has not been altered.
+    * This gives the user confirmation that the email was actually sent from the listed domain.
+
+  <img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
+
+# DMARC (Domain-based Message Authentication Reporting and Conformance)
+
+* [What is DMARC?](https://www.dmarcanalyzer.com/dmarc/)
+* DMARC is is an email validation system designed to protect your company’s email domain from being used for email
+  spoofing, phishing scams and other cybercrimes.
+* DMARC leverages the existing email authentication techniques SPF (Sender Policy Framework) DKIM (Domain Keys
+  Identified Mail).
+* DMARC adds an important function, reporting.
+    * When a domain owner publishes a DMARC record into their DNS record, they will gain insight in who is sending email
+      on behalf of their domain.
+    * This information can be used to get detailed information about the email channel.
+    * With this information a domain owner can get control over the email sent on his behalf.
+
+* Securing your email with DMARC gives email receivers certainty whether an email is legit and has originated from you.
+  This results in a positive impact on email delivery and also prevents others from sending email using your domain.
+
+* DMARC does not only provides full insight in email channels, it also makes phishing attacks visible.
+    * DMARC is more powerful: DMARC is capable of mitigating the impact of phishing and malware attacks, preventing
+      spoofing, protect against brand abuse, scams and avoid business email compromise
+
+* When the DMARC policy is enforced to reject, organizations are protected against:
+    * Phishing on customers of the organisation
+    * Brand abuse & scams
+    * Malware and Ransomware attacks
+    * Employees from spear phishing and CEO fraud to happen
+
+* types of DMARC reports:
+    * Aggregate DMARC reports (RUA)
+        * Sent on a daily basis
+        * Provides an overview of email traffic
+        * Includes all IP addresses that have attempted to transmit email to a receiver using your domain name
+    * Forensic DMARC reports (RUF)
+        * Real time
+        * Only sent for failures
+        * Includes original message headers
+        * May include original message
+
+* DMARC Policies
+    * Within DMARC it is possible to instruct email receivers what to do with an email which fails the DMARC checks.
+    * DMARC policy instructs to handle the emails according the DMARC policy, but email receivers are not obligated to
+      take the DMARC policy into account.
+        * Email receivers sometimes use their own local policy.
+    * Monitor policy: p=none :
+        * This monitoring policy instructs email receivers to send DMARC reports to the address published in the RUA or
+          RUF tag of the DMARC record.
+        * The none policy only gives insight in who’s sending email on behalf of a domain and will not affect the
+          deliverability.
+    * Quarantine policy: p=quarantine:
+        * the DMARC policy quarantine instructs email receivers to put emails failing the DMARC checks in the spam
+          folder of the receiver.
+        * This mail goes to spam folder
+    * Reject policy: p=reject:
+        * the DMARC policy reject instructs email receivers to not deliver emails failing the DMARC checks at all.
+        * This policy mitigates the impact of spoofing.
+        * Since the DMARC policy reject makes sure all incorrect setup emails (spoofing emails) will be deleted by the
+          email receiver and not land in the inbox of the receiver.
+* sites with No SPF, SPF with SOFTFAIL, only, and SPF with SOFTFAIL, and DMARC with action none were all “vulnerable.”
+* DMARC – which takes SPF and DKIM, another form of authentication – into consideration, can either quarantine or reject
+  emails, but when it’s set to none, no action is taken.
+
+<img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
+<img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>
