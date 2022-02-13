@@ -280,4 +280,43 @@
           certificate authority, certifying the accuracy of the binding.
           </br><img src="./img/4/11.png" alt="alt text" width="500" height="300"></br>
     * Create signature without Hierarchy
-    
+
+# Symmetric and Asymmetric encryption
+
+* Symmetric encryption is often considered to be less computationally expensive than asymmetric, and thus more
+  efficient.
+    * However it does not necessarily fully solve the problems that encryption helps with. \
+* good encryption systems should also provide for :
+    * Non-repudiation - i.e. provide a guarantee that what is received is what was originally sent - so both parties see
+      the same data/information.
+    * Authentication of sender and/or recipient - i.e. provide a guarantee that only the intended sender and/or
+      recipient could have originated or read the data.
+
+* forgery and impersonation problem can solve by using an asymmetric encryption scheme - either for the whole
+  transaction, or just for agreement/exchange of the key for a faster symmetric encryption session.
+* In asymmetric encryption, each party can generate a pair of related keys. The relationship between these keys is such
+  that
+    * it is (relatively) easy to generate a pair
+    * It is very difficult to determine one member of the pair from the other
+    * Data encrypted with one key can only be decrypted with the other - and vice versa
+* So, having generated a pair of keys, each party can designate one as a private key - which they will keep secret and
+  the other as a public key - which they can broadcast to the world
+    * A message encrypted with someone’s private key can only be decrypted with their public key - thus providing
+      authentication of the sender.
+    * A message encrypted with someone’s public key can only be decrypted with their private key - thus ensuring that
+      only the intended recipient can read it.
+    * A message encrypted with A’s private key and B’s public key can only have been sent by A and read by B etc. giving
+      us both authentication and non-repudiation.
+
+* how can we establish the authenticity of published public keys?
+    * “in-person” exchange,
+    * “chain of trust” mechanism.
+    * By designating certain bodies as trustworthy and accepting their keys as genuine called “root authorities” who can
+      assign trust to other public keys by signing them
+        * The signature is really nothing more than a hashed value of the new key which is then encrypted with the root
+          authority’s private key.
+        * The assigned trust may simply indicate that the signed key can be used for communication of a specified type,
+          or it may indicate that the signed key can also be used to assign trust to other keys through the same signing
+          mechanism (delegated trust).
+        * Various mechanisms exist for doing this, but the most common (used by web servers) is the X.509 certificate
+          scheme.
