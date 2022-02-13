@@ -70,7 +70,7 @@
       browser can read, copy, and redistribute anything the user enters in a browser. The threat here is that the
       attacker will intercept and reuse credentials to access financial accounts and other sensitive data.
     * Man-in-the-browser: Trojan horse that intercepts data passing through the browser
-      <img src="./img/2/1.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/2/1.png" alt="alt text" width="500" height="300"></br>
 * **Keystroke Logger**
     * A keystroke logger (or key logger) is either hardware or software that records all keystrokes entered.
     * The logger either retains these keystrokes for future use by the attacker or sends them to the attacker across a
@@ -279,7 +279,7 @@
       receives a report when the email message is opened in a browser. Or a company suspecting its email is ending up
       with competitors or other unauthorized parties can insert a web bug that will report each time the message is
       opened, whether as a direct recipient or someone to whom the message has been forwarded.
-      <img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
 
 * Clickjacking
     * Clickjacking: Tricking a user into clicking a link by disguising what the link points to
@@ -288,7 +288,7 @@
       be placed and moved anywhere on another page, and can be layered on top of or underneath other frames. Although
       important for managing complex images and content, such as a box with scrolling to enter a long response on a
       feedback page, frames also facilitate clickjacking.  
-      <img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
 
 * Drive-By Download
     * Drive-by download: downloading and installing code other than what a user expects
@@ -556,7 +556,7 @@
     * If these two DKIM signatures are a match the MTA knows that the email has not been altered.
     * This gives the user confirmation that the email was actually sent from the listed domain.
 
-  <img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
 
 # DMARC (Domain-based Message Authentication Reporting and Conformance)
 
@@ -618,5 +618,5 @@
 * DMARC – which takes SPF and DKIM, another form of authentication – into consideration, can either quarantine or reject
   emails, but when it’s set to none, no action is taken.
 
-<img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
-<img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>

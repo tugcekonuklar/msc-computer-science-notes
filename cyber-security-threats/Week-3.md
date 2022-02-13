@@ -101,16 +101,16 @@
             * some signals can be intercepted in an area several hundred miles wide and a thousand miles long
         * However, because satellite communications are generally heavily multiplexed, the risk is small that any one
           communication will be intercepted.
-          <img src="./img/3/1.png" alt="alt text" width="500" height="300"></br>
+          </br><img src="./img/3/1.png" alt="alt text" width="500" height="300"></br>
 
 * All network communications are potentially exposed to interception; thus, sensitive signals must be protected.
-  <img src="./img/3/2.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/2.png" alt="alt text" width="500" height="300"></br>
 
 ## Protocol Layers
 
 * Network communications are performed through a virtual concept called the Open System Interconnection (or OSI) model.
 * The OSI model, most useful conceptually, describes similar processes of both the sender and receiver.
-  <img src="./img/3/3.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/3.png" alt="alt text" width="500" height="300"></br>
 
 * Interception can occur at any level of this model: For example, the application can covertly leak data, as we
   presented in Chapter 3, the physical media can be wiretapped,or a session between two subnetworks can be compromised.
@@ -155,7 +155,7 @@
           through the network), so the session layer may have to reorder packets.
         * The presentation layer removes compression and sets the appearance appropriate for the destination computer.
         * Finally, the application layer formats and delivers the data as a complete unit.
-          <img src="./img/3/4.png" alt="alt text" width="500" height="300"></br>
+          </br><img src="./img/3/4.png" alt="alt text" width="500" height="300"></br>
 * Routing:
     * The Internet has many devices called routers, whose purpose is to redirect packets in an effort to get them closer
       to their destination.
@@ -233,13 +233,13 @@
           a security disadvantage.
         * A similar problem occurs when new hosts can be added to the network.
         * Every network node must be able to react to the possible presence of new, untrustable hosts.
-          <img src="./img/3/5.png" alt="alt text" width="500" height="300"></br>
+          </br><img src="./img/3/5.png" alt="alt text" width="500" height="300"></br>
 
     * Unknown Path:
         * there may be many paths from one host to another. Suppose that a user on host A1 wants to send a message to a
           user on host B3. That message might be routed through hosts C or D before arriving at host B3. Host C may
           provide acceptable security, but D does not.
-          <img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
+          </br><img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
 
 ## Modification, Fabrication: Data Corruption
 
@@ -254,7 +254,7 @@
 * The TCP/IP protocol suite (which we describe later in this chapter), is used for most Internet data communication.
   TCP/IP has extensive features to ensure that the receiver gets a complete, correct, and well-ordered data stream,
   despite any errors during transmission.
-  <img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
 
 * Sequencing
     * A sequencing attack or problem involves permuting the order of data. Most commonly found in network
@@ -291,7 +291,7 @@
     * Replay attacks can also be used with authentication credentials. Transmitting an identity and password in the
       clear is an obvious weakness, but transmitting an identity in the clear but with an encrypted password is
       similarly weak,
-      <img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
 
     * A similar example involves cookies for authentication.
     * If the attacker can intercept cookies being sent to (or extract cookies stored by) the victim’s browser, then
@@ -392,14 +392,14 @@
     * a wireless network consists of an access point or router that receives, forwards and transmits data, and one or
       more devices, sometimes called stations, such as computers or printers, that communicate with the access point.
     * A NIC identifies itself (and hence its connected computer) by a supposedly unique MAC address.
-      <img src="./img/3/9.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/9.png" alt="alt text" width="500" height="300"></br>
 
 * WiFi Access Range
     * Distance is an important consideration with WiFi, but it is hard to state precisely. Wireless signals degrade
       because of interference from intervening objects, such as walls, machinery, and trees, as well as distance; a
       receiver will not establish, or may drop, a connection with a poor signal, one that is weak or has lost a lot of
       data.
-      <img src="./img/3/10.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/10.png" alt="alt text" width="500" height="300"></br>
 
 * WiFi Frames
     * Each WiFi data unit is called a frame. Each frame contains three fields: MAC header, payload, and FCS (frame check
@@ -416,7 +416,7 @@
       application handling the data.
     * The frame check sequence is an integrity check (actually a cyclic redundancy) to ensure accurate transmission of
       the entire frame.
-      <img src="./img/3/11.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/11.png" alt="alt text" width="500" height="300"></br>
 
     * Management Frames:
         * Of the three frame types, management frames are the most important now because they control the establishment
@@ -493,7 +493,7 @@
     * **In open mode an access point continually broadcasts its SSID; in closed mode a client continually broadcasts a
       request to connect to a given SSID from a given MAC address.**
 
-      <img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
     * Operating in closed mode would seem to be a successful way to prevent unauthorized access: If you do not know the
       SSID, you cannot request a connection. However, closed mode leaves the client exposed.
     * In open mode, the client is quiet, monitoring beacons, until it finds one to which it wants to connect; thus, the
@@ -691,7 +691,7 @@
     * A ping of death is a simple attack, using the ping command that is ordinarily used to test response time from a
       host. Since ping requires the recipient to respond to the packet, all the attacker needs to do is send a flood of
       pings to the intended victim
-      <img src="./img/3/13.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/13.png" alt="alt text" width="500" height="300"></br>
 
 * Smurf
     * The smurf attack is a variation of a ping attack.
@@ -704,7 +704,7 @@
           image below, showing the single broadcast attack being reflected back on the victim. In this way the attacker
           uses the entire subnetwork to multiply the attack’s effect.
 
-<img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
 
 * Echo–Chargen
     * The echo–chargen attack works between two hosts. Chargen is an ICMP protocol that generates a stream of packets to
@@ -718,7 +718,7 @@
       source and destination address of the first packet, so B hangs in a loop, constantly creating and replying to its
       own messages.
 
-<img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
 
 * SYN Flood
     * This attack uses the TCP protocol suite, making the session-oriented nature of these protocols work against the
@@ -747,7 +747,7 @@
       bytes. These three pieces overlap, so they cannot be reassembled properly. In an extreme case, the operating
       system locks up with these partial data units it cannot reassemble, thus leading to denial of service.
 
-<img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
 
 ## Denial of Service by Addressing Failures
 
@@ -762,7 +762,7 @@
       and replying to a query before the real DNS server can respond. Such a situation, called DNS spoofing, is
     * Any server can respond to a DNS lookup request; the first responder wins. Being first lets an attacker redirect
       traffic.
-      <img src="./img/3/17.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/17.png" alt="alt text" width="500" height="300"></br>
 
 * Rerouting Routing
     * One example of a man-in-the-middle attack involves one node’s redirecting a network so that all traffic flows
@@ -831,7 +831,7 @@
       and continue the exchange begun by the original sender. In this way, as shown in figure below, the attacker has
       surreptitiously slid into the session, taking the place of the original sender. This inserted packet is a replay
       carefully constructed by a man in the middle
-      <img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
 
     * Meanwhile, as shown in below imege, the attacker sends an RST (reset) command to the original sender, convincing
       the sender that the receiver has closed the original connection. The sender can attempt to open a new connection
@@ -895,7 +895,7 @@
 * The attacker repeats this process with many target computers. Each of these compromised systems then becomes what is
   known as a zombie. The target systems’ users carry out their normal work, unaware of the resident zombie. Many current
   vulnerability attacks download code to the compromised machine to turn it into a zombie.
-  <img src="./img/3/20.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/20.png" alt="alt text" width="500" height="300"></br>
 
 ## Scripted Denial-of-Service Attacks
 
@@ -974,8 +974,8 @@
       which have a similar but shorter layered model.) Similarly, decryption occurs just as the communication arrives at
       and enters the receiving computer.
     * Link encryption covers a communication from one node to the next on the path to the destination.
-      <img src="./img/3/21.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/3/22.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/21.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/22.png" alt="alt text" width="500" height="300"></br>
     * Link encryption is especially appropriate when the transmission line is the point of greatest vulnerability. If
       all hosts on a network are reasonably secure but the communications medium is shared with other users or is not
       secure, link encryption is an easy control to use. Link encryption is also desirable when all communication on a
@@ -988,8 +988,8 @@
       done by software running on the host computer.
     * The encryption addresses potential flaws in lower layers in the transfer model
     * When end-to-end encryption is used, messages sent through several hosts are protected.
-      <img src="./img/3/23.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/3/24.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/23.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/24.png" alt="alt text" width="500" height="300"></br>
 
 * Comparison of Encryption Methods:
     * With link mode, all transmissions are protected along a particular link.
@@ -1096,8 +1096,8 @@
     * The fundamental data structures of IPsec are the authentication header (AH) and the encapsulated security
       payload (ESP). The ESP replaces (includes) the conventional TCP header and data portion of a packet,
     * The ESP contains both an authenticated portion and an encrypted portion,
-      <img src="./img/3/29.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/3/30.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/29.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/30.png" alt="alt text" width="500" height="300"></br>
 * Key Management:
     * As with most cryptographic applications, the critical element is key management. IPsec addresses this need with
       the Internet Security Association Key Management Protocol, or ISAKMP. Like SSL, ISAKMP requires that a distinct
@@ -1168,7 +1168,7 @@
 
 ### Types of Firewalls
 
-<img src="./img/3/36.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/36.png" alt="alt text" width="500" height="300"></br>
 
 * Network Technology Background:
     * Types of firewalls include
@@ -1232,7 +1232,7 @@
 
 ### Comparison of Firewall Types
 
-<img src="./img/3/41.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/41.png" alt="alt text" width="500" height="300"></br>
 
 * Outside users can access tools and data in a firewall’s demilitarized zone but cannot get to more sensitive resources
   on the more protected inside network.
@@ -1260,7 +1260,7 @@
       access them directly.
     * Using a process called network address translation (NAT), the source firewall converts source address
       192.168.1.35:80 in the packet to the firewall’s own address, 173.203.129.90. T
-      <img src="./img/3/42.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/42.png" alt="alt text" width="500" height="300"></br>
 
 
 * Data Loss Prevention:
@@ -1411,7 +1411,7 @@
       interface; that is, no router can route anything directly to that address because the router does not know such a
       device exists. It is the perfect passive wiretap. If the IDS needs to generate an alert, it uses only the alarm
       interface on a completely separate control network.
-      <img src="./img/3/45.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/45.png" alt="alt text" width="500" height="300"></br>
 
 ### IDS Strengths and Limitations
 

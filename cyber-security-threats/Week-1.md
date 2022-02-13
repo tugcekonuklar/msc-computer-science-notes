@@ -51,7 +51,7 @@
     * Availability: This property ensures the object can be accessible and alterable when subject is required.
         * This includes precautions against unpredictable events such as floods, fires, asteroid strikes, global
           pandemics etc.
-          <img src="./img/1/1.png" alt="alt text" width="500" height="300"></br>
+          </br><img src="./img/1/1.png" alt="alt text" width="500" height="300"></br>
 
 # Threats and Risks
 
@@ -100,10 +100,10 @@
 * Step by step guid to exploring the key issues
     * Right Top, Context Establishment and contains a reminder that ISO/IEC 27001 clauses 4, 5.2 and 6 provide further
       information  
-      <img src="./img/1/2.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/1/3.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/1/4.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/1/5.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/1/2.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/1/3.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/1/4.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/1/5.png" alt="alt text" width="500" height="300"></br>
 
 # Activity 1 : Establishing context
 
@@ -177,7 +177,7 @@
 
 # Why do this?
 
-<img src="./img/1/6.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/1/6.png" alt="alt text" width="500" height="300"></br>
 
 * how to identfy those threts?
     * where BS 7799-3 Clause 6 comes into play
@@ -257,7 +257,7 @@
 
 * So, for just a few of the elements listed above, I can start to construct a consequences table
   (without worrying about the exact nature of the breach yet)
-  <img src="./img/1/7.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/1/7.png" alt="alt text" width="500" height="300"></br>
 
 * And so on....
 * For each in-scope system/process we will have a list of adverse effects that a breach can have on the business, and an
