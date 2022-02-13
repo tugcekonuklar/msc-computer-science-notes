@@ -41,3 +41,15 @@
     * Security in Computing, Chapter 6, to "Part I - war on networks"
 * Lesson 2
     * Security in Computing, Chapter 6 sections 6.2 to 6.10
+
+# WEEK 4
+
+* Lesson 1
+    * Security in Computing, Chapter 2, section 2.3
+    * Security in Computing, Chapter 12
+* Lesson 2
+    * [The GNU Privacy Guard](https://www.gnupg.org/)
+    * [The GNU Privacy Handbook](https://gnupg.org/gph/en/manual.html)
+* Optional reading
+    * [The Code Book](https://eu.alma.exlibrisgroup.com/leganto/readinglist/citation/40937176580001381?institute=44YORK_INST&auth=SAML)
+      by Simon Singh. Published by Fourth Estate
