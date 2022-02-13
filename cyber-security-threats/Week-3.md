@@ -1512,4 +1512,71 @@
       security personnel is a perpetual challenge.
     * Full-time maintenance. Because they interact with so many different systems, SIEMs are inherently complex, so
       deploying, maintaining, and customizing them are expert skills in themselves.
-    * User training.  
+    * User training.
+
+# Discussion: Port scanning
+
+* The external interface has 4 open TCP ports:
+    * port 80 - http (non-encrypted web TCP communications come through here)
+    * port 443 - https (encrypted web TCP (using TLS) communications generally come through here)
+    * port 139 - This is a NetBIOS service generally used on a local windows based network for facilitating
+      communications between connected machines.
+    * port 445 - microsoft-ds - otherwise known as "SMB over IP" (SMB is samba, which is often used to facilitate file
+      transfer between networks with both linux and windows machines - there are other uses)
+* All of these services are potentially vulnerable.
+* Vulnerability in ports 80 an 443:
+    * Assuming the host system is running as a web server which allows external traffic, having ports 80 and 443 is
+      necessary. This gives access to the same demo applications that are running on the loopback interface (127.0.0.1).
+* If the open ports were intentional (running a web server), then it would be necessary to implement multiple
+  precautionary measures. Despite any precautions taken, there are massive security issues due to the unfiltered inputs
+  in the demo web applications. This would allow an external threat agent to run a reverse shell attack on the server (
+  the virtual machine in this case). One could gain shell/terminal access to the machine relatively easily.
+* In order to protect the machine, it would be extremely important to change the vulnerable code on these web sites /
+  applications.
+* Port 445 should absolutely not be exposed to external networks (internet, etc). It opens up the potential for hackers
+  to gain direct access to a machine without the users knowledge. On an internal network, there are natural reasons for
+  this port to be open (as long as it is correctly configured). At minimum, as Simon Green suggested above, a firewall
+  should be used to filter all external access to this port (this is still not particularly secure).
+* Port 139 is presumably open to support file sharing set up through SAMBA (SMB) - in other words, ports 139 and 445 are
+  open for the same reasons. As above, this port should not be open to external networks.
+* To further protect ports 139 and 445, a VPN could be used to encrypt network traffic and MAC address filtering could
+  also be used to prevent unknown systems from accessing the network (of course, MAC addresses can still be spoofed). A
+  multi-pronged security approach would provide the best options.
+* On top of this, these open ports could also suggest a lot about the network that this system is operating on. For
+  example - it is likely using both windows and linux boxes, since samba file sharing is in place. Perhaps the system is
+  connected to an older windows server? Perhaps this system in question is functioning as both an internal SAMBA server
+  and an external web server (a very, very bad idea!).
+
+* [14 Most Common Network Protocols And Their Vulnerabilities](https://www.geeksforgeeks.org/14-most-common-network-protocols-and-their-vulnerabilities/)
+
+* [Attack Surface Analysis Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html)
+
+# Tripwire
+
+* While we have a Terminal window open, let’s look at another way of detecting an attack on the system. Once an attacker
+  has obtained access, they are likely to plant some sort of malware on the system, often by modifying system files to
+  grant them elevated privileges, or to perform some action whenever the code in those files is executed.
+* A relatively simple way to detect alteration of a file is to maintain a database of hash values for each important
+  system file, and periodically compare hashes of the files on the system to the historic database. If there is a
+  mismatch, further action is required to determine if the file in question has been modified by an attacker, or as a
+  result of some innocent activity (like regular operating system patching).
+* One fairly popular tool for this purpose is Tripwire (Links to an external site.) [19] which has already been
+  installed and run with the default configuration on your VM to build an initial database.
+* Because it needs elevated privileges to run, we need to preface the tripwire command with sudo (“super-user do”, “run
+  as root” or “run as administrator” - your account is in the group of users who are allowed to use this to temporarily
+  acquire higher than normal privileges).
+* So, in the Terminal window you should enter
+    * sudo tripwire --check | more
+    * (Note - the “| more” is optional, but it sends the output of Tripwire into a pager program which will display the
+      results one page a time so you can take your time reading them. Press space to advance to the next page).
+* And let it run to completion - it will take a few minutes because it’s checking the whole file system.
+* As it runs, do you see any causes for concern?
+* Now, let’s modify a program in a way that won’t affect its normal operation, but will add data to the file. We’re
+  going to add a single byte to the end of the tripwire binary itself:
+    * sudo sh -c ‘echo “D” >> /usr/sbin/tripwire’
+    * (Be careful about the quotes - if you mix up the single and double quotes you’ll get some unexpected results. And
+      be sure to use >> instead of > or you’ll overwrite the whole file).
+* Now, repeat the tripwire check from before and see if anything has changed, particularly in the Unix Filesystem and
+  following sections.
+    * (Note: you can restore an unmodified version of Tripwire by using sudo cp /usr/bin/TripWire /usr/sbin/tripwire in
+      the terminal window).
