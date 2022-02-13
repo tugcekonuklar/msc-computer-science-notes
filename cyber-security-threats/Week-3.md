@@ -492,6 +492,7 @@
       query with an invitation to connect.
     * **In open mode an access point continually broadcasts its SSID; in closed mode a client continually broadcasts a
       request to connect to a given SSID from a given MAC address.**
+
       <img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
     * Operating in closed mode would seem to be a successful way to prevent unauthorized access: If you do not know the
       SSID, you cannot request a connection. However, closed mode leaves the client exposed.
@@ -702,7 +703,8 @@
           to all 1s; broadcast mode packets are distributed to all hosts on the subnetwork. The attack is depicted in
           image below, showing the single broadcast attack being reflected back on the victim. In this way the attacker
           uses the entire subnetwork to multiply the attack’s effect.
-          <img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
 
 * Echo–Chargen
     * The echo–chargen attack works between two hosts. Chargen is an ICMP protocol that generates a stream of packets to
@@ -715,7 +717,8 @@
       echoes that B dutifully returns to A, just as in a game of tennis. Alternatively, the attacker can make B both the
       source and destination address of the first packet, so B hangs in a loop, constantly creating and replying to its
       own messages.
-      <img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
 
 * SYN Flood
     * This attack uses the TCP protocol suite, making the session-oriented nature of these protocols work against the
@@ -743,7 +746,8 @@
       might say it is position 0 for length 60 bytes, another position 30 for 90 bytes, and another position 41 for 173
       bytes. These three pieces overlap, so they cannot be reassembled properly. In an extreme case, the operating
       system locks up with these partial data units it cannot reassemble, thus leading to denial of service.
-      <img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
+
+<img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
 
 ## Denial of Service by Addressing Failures
 
@@ -829,12 +833,12 @@
       carefully constructed by a man in the middle
       <img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
 
-    * Meanwhile, as shown in below imeage, the attacker sends an RST (reset) command to the original sender, convincing
+    * Meanwhile, as shown in below imege, the attacker sends an RST (reset) command to the original sender, convincing
       the sender that the receiver has closed the original connection. The sender can attempt to open a new connection
       with the recipient, unaware that the attacker is continuing the previous session. Depending on the application
       that was running, the attacker can accept the sender as a new user (possibly requiring the user to reauthenticate)
       or reject the user for duplicating a connection already in progress.
-      <img src="./img/3/19.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/19.png" alt="alt text" width="500" height="300"></br>
     * Thus, with a session hijack attack, an attacker can slide into an ongoing communication stream without being
       obvious to either of the two original parties; the communication continues with the attacker substituting for the
       original sender, while that sender is stopped.
@@ -1001,11 +1005,12 @@
       only for those messages and applications for which it is needed. Furthermore, the encryption can be done with
       software, so we can apply it selectively, one application at a time or even to one message within a given
       application.
-    * advantage of end-to-end encryption is also a disadvantage regarding encryption keys. Under end-to-end encryption,
+    * Advantage of end-to-end encryption is also a disadvantage regarding encryption keys. Under end-to-end encryption,
       a virtual cryptographic channel exists between each pair of users. To provide proper security, each pair of users
       should share a unique cryptographic key. The number of keys required is thus equal to the number of pairs of
       users, which is n * (n – 1)/2 for n users. This number increases rapidly as the number of users increases.
-      <img src="./img/3/25.png" alt="alt text" width="500" height="300"></br>
+
+</br><img src="./img/3/25.png" alt="alt text" width="500" height="300"></br>
 
 ### Browser Encryption
 
@@ -1029,7 +1034,9 @@
       encryption, and hashing.
     * When client and server begin an SSL session, the server sends a set of records listing the cipher suite
       identifiers it can use; the client responds with its preferred selection from that set.
-      <img src="./img/3/26.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/26.png" alt="alt text" width="500" height="300"></br>
+
+
 * SSL Session:
     * SSL encryption protects only from the browser to the destination decryption point. Vulnerabilities before
       encryption or after decryption are unaffected.
@@ -1042,8 +1049,9 @@
     * Below you can see that the DigiCert root certificate was issued by GTE CyberTrust Solutions. Other fields include
       period of validity, algorithms used, date of issuance, and contact details. Thus, an interested user could compare
       the full chain of certificates and signatures starting from a trusted root.
-      <img src="./img/3/27.png" alt="alt text" width="500" height="300"></br>
-      <img src="./img/3/28.png" alt="alt text" width="500" height="300"></br>
+
+</br><img src="./img/3/27.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/28.png" alt="alt text" width="500" height="300"></br>
 
 ### Onion Routing
 
@@ -1104,7 +1112,7 @@
     * In transport mode (normal operation), the IP address header is unencrypted. In tunnel mode, the recipient’s
       address is concealed by encryption, and IPsec substitutes the address of a remote device, such as a firewall, that
       will receive the transmission and remove the IPsec encryption.
-      <img src="./img/3/31.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/31.png" alt="alt text" width="500" height="300"></br>
 
 ## Virtual Private Networks
 
@@ -1115,8 +1123,9 @@
 * The alternative is a virtual private network between the offices.
 * Firewalls (described in the next section) can implement a VPN. When a user first establishes a communication with the
   firewall, the user can request a VPN session with the firewall.
-  <img src="./img/3/32.png" alt="alt text" width="500" height="300"></br>
-  <img src="./img/3/33.png" alt="alt text" width="500" height="300"></br>
+
+</br><img src="./img/3/32.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/3/33.png" alt="alt text" width="500" height="300"></br>
 
 ### System Architecture
 
@@ -1126,11 +1135,11 @@
   approach is to segment the network, with many hosts on segments that are not immediately visible to the outside.
 * network, whereas in Figure 6-50(b) only computer A is visible. The network of devices B– E in part (b) is known as a
   protected subnet, and device A is called a dual-homed gateway.
-  <img src="./img/3/34.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/34.png" alt="alt text" width="500" height="300"></br>
 * First, host A becomes a single point of failure: If gateway A is not available for any reason
 * Furthermore, the gateway device A becomes a potential bottleneck, so devices B through E share access through A; if A
   is slow or if one of B–E consumes a large amount of network bandwidth, the other machines’ performance suffers.
-  <img src="./img/3/35.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/35.png" alt="alt text" width="500" height="300"></br>
 
 # Firewalls
 
@@ -1180,12 +1189,12 @@
     * The primary disadvantage of packet filtering routers is a combination of simplicity and complexity. The router’s
       inspection is simplistic; to perform sophisticated filtering, the rules set needs to be very detailed. A detailed
       rules set will be complex and therefore prone to error.   
-      <img src="./img/3/37.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/37.png" alt="alt text" width="500" height="300"></br>
 
 * Stateful Inspection Firewall:
     * Stateful inspection firewalls judge according to information from multiple packets.
     * A stateful inspection firewall maintains state information from one packet to another in the input stream.
-      <img src="./img/3/38.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/38.png" alt="alt text" width="500" height="300"></br>
 
 * Application Proxy:
     * An application proxy simulates the behavior of a protected application on the inside network, allowing in only
@@ -1196,7 +1205,7 @@
     * The proxy can demand strong authentication (name, password, and challenge– response), validate the
       challenge–response itself, and then pass on only simple name and password authentication details in the form
       required by a specific internal host’s operating system.
-      <img src="./img/3/39.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/39.png" alt="alt text" width="500" height="300"></br>
 
 * Circuit-Level Gateway:
     * A circuit-level gateway connects two separate subnetworks as if they were one contiguous unit.
@@ -1206,7 +1215,7 @@
       verifies the circuit when it is first created. After the circuit has been verified, subsequent data transferred
       over the circuit are not checked. Circuit-level gateways can limit which connections can be made through the
       gateway.
-      <img src="./img/3/40.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/40.png" alt="alt text" width="500" height="300"></br>
 
 * Guard:
     * A guard is a sophisticated firewall.
@@ -1280,7 +1289,7 @@
 * The components in the figure are the four basic elements of an intrusion detection system, based on the Common
   Intrusion Detection Framework of [STA96]. An IDS receives raw inputs from sensors. It saves those inputs, analyzes
   them, and takes some controlling action.
-  <img src="./img/3/44.png" alt="alt text" width="500" height="300"></br>
+  </br><img src="./img/3/44.png" alt="alt text" width="500" height="300"></br>
 * DSs perform a variety of functions:
     * • monitoring users and system activity
     * • auditing system configuration for vulnerabilities and misconfigurations • assessing the integrity of critical
@@ -1475,7 +1484,7 @@
     * security information and event management, or SIEM, tools come into play. SIEMs are software systems that collect
       security-relevant data from a variety of hardware and software products in order to create a unified security
       dashboard
-      <img src="./img/3/46.png" alt="alt text" width="500" height="300"></br>
+      </br><img src="./img/3/46.png" alt="alt text" width="500" height="300"></br>
 
 * Data Collection:
     * SIEMs can regularly collect such log files from throughout an enterprise, updating SOC personnel on the company’s
