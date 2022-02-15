@@ -53,3 +53,10 @@
 * Optional reading
     * [The Code Book](https://eu.alma.exlibrisgroup.com/leganto/readinglist/citation/40937176580001381?institute=44YORK_INST&auth=SAML)
       by Simon Singh. Published by Fourth Estate
+
+# WEEK 5
+
+* Lesson 1
+    * Security in Computing, Chapter 7
+* Lesson 2
+    * Security in Computing, Chapter 8
