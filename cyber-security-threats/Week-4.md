@@ -320,3 +320,94 @@
           mechanism (delegated trust).
         * Various mechanisms exist for doing this, but the most common (used by web servers) is the X.509 certificate
           scheme.
+
+# GPG/PGP email encryption
+
+* GPG/PGP is a key generation and management tool.
+* “full-generate-key” option to see all options that are possible.
+    * `gpg --full-generate-key`
+* Gpg will have added your new keys to its keyring file.
+    * list all the keys that are held there with `gpg -k`
+
+* to encrypt and sign files,but one of the more useful is to sign text message for onward transmission `gpg --clearsign`
+  option
+    * `gpg --clearsign mytext.txt`
+
+* You should now have a mytext.txt.asc file
+* Use `gpg --decrypt mytext.txt.asc` to check the status of the signed text.
+* More ingo [The GNU Privacy Guard](https://www.gnupg.org/)
+  and [The GNU Privacy Handbook](https://gnupg.org/gph/en/manual.html)
+* To produce the signature GPG goes through the following steps:
+    * Generate a hash of the file. Hashing is a one way function where a given input is transformed to an output by an
+      algorithm. With a good hashing algorithm it should not be possible to go from the hash back to the input When I
+      ran through the example mine was hashed using SHA256 (I was unable to determine if it was SHA-2 or SHA-3).
+    * The hash is then encrypted with the private key of the user signing the file.
+    * The original text is surrounded by "ASCII armour" and the PGP signature is appended to the bottom of the file.
+
+* To verify a signature GPG goes through the following steps:
+    * Use the ASCII armour to determine what portion of the file was originally signed.
+    * Use the same SHA256 algorithm to produce a hash value of the file
+    * Take the signature appended to the file and decrypt it using the public key of the user believed to have signed
+      it. This will decrypt the hash value produced at the time the file was signed.
+    * A comparision of the decrypted hash and the hash value produced in step 2 is done. If they match then the file
+      hasn't been tampered with and was signed by the sender. If they do not match two situations could have occured:
+        * The file was tampered with after it had been signed
+        * The private key that produced the signature does not match the public key used in the verification process.
+          This could suggest the person who signed it is not who you expected it to be.
+
+# Activity: SSL/TLS certificates
+
+## Step 1 : Establish yourself as a certification authority
+
+* Anyone can become a CA, although browsers only automatically accept certificates with a chain of trust leading to a
+  known trusted root CA.
+* All that is required is a CA X.509 certificate.
+* This can be created using open source tools such as `openssl`.
+* create a new directory “ca-certs” and enter it ( `cd ca-certs` ).
+* command to generate a new signing key.
+    * `openssl genrsa -des3 -out my-ca.key 2048`
+    * (N.B. the 2048 above refers to the number of bits to be used for the key – you can alter this to suit your own
+      requirements, but 2048 represents a good trade off between processing time and key strength).
+    * will be prompted for a passphrase. This is a secret used to unlock the encryption key when it is required. you may
+      use any phrase you wish, providing you can remember it.
+* Once the process has completed, you should have a file called my-ca.key in the current directory.
+    * This contains your CA signing key, encrypted with your passphrase.
+* Creating a CA certificate for yourself and sign it with your own key.
+    * `openssl req -new -x509 -days 3650 -key my-ca.key -out my-ca.crt`
+    * During this process, you will have to provide the passphrase that you used during key generation and then give
+      some information about your CA, such as address etc
+* To view the contents of you certificate
+    * `openssl x509 -in my-ca.crt -text -noout`
+
+## Step 2 : Creating a server certificate.
+
+* In order to obtain a server certificate, the server needs a signing key which can be used to generate a certificate
+  request.
+    * To create a new server key
+    * `openssl genrsa -des3 -out myhost.key 1024`
+
+* Creates Certificate Signing Request which can be sent to a CA for final certification
+    * `openssl req -new -key myhost.key -out myhost.csr`
+    * in this process Fully Qualified Domain Name (FQDN) will ask (i.e localhost.localdomain)
+
+* To sign will localhost's certificate with your CA's key and set the lifetime of the certificate.
+    * `openssl x509 -req -in myhost.csr -out myhost.crt -sha256 -CA my-ca.crt -CAkey my-ca.key -CAcreateserial -days 3650`
+
+# Https
+
+* **Question**: HTTPS includes a provision for certificates to be installed on both client and server side, but the
+  client is rarely used. Why might it be useful to have client-side certificates, and why do you think most people don’t
+  use them ? Client-side certificates would provide another layer of authentication to allow a host or server to
+  identify who a user is. They could also be used as part of two factor authentication to make passwords stronger (this
+  may be a 'better' alternative the present common use of SMS for two-factor authentication which is prone to its own
+  security issues). From this point, it would seem a good idea but (as often seems to be the case) it causes it's own
+  problems:
+    * **Answer**:
+    * the difficulty in setting up digital certificates in the first place - people are familiar with use of usernames
+      and passwords (even if they are not used that securely!) asking people to set up digital certificates may be
+      beyond many.
+    * most users login from multiple devices. This would mean that certificates would need to be synced over all of
+      these devices.
+    * the effort/cost for hosts to implement checking certificates - at present servers are set up to ask for
+      authentication in the way of usernames and passwords, to add digital certificate checking would involve some work
+      on their part when there is no real incentive for them to do so.
