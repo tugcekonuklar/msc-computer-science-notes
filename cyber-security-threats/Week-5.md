@@ -393,5 +393,48 @@
       involves maintaining a query history for each user and judging a query in the context of what inferences are
       possible, given previous results.
 
+# Exercises : SQL
 
-    
+## Inferences
+
+* Exercise: Translate the tracker attack examples into SQL and try them on the database for this section.
+    * SELECT COUNT(name) FROM 7_7 WHERE SEX=”F” AND RACE=”C” AND DORM=”Holmes”
+    * Converts into
+        * SELECT COUNT(name) FROM 7_7 WHERE SEX=”F”
+    * From which we subtract the result of
+        * SELECT COUNT(name) FROM 7_7 WHERE SEX=”F” AND (RACE!=”C” OR DORM!=”Holmes”)
+
+## Complex queries
+
+* Exercise: Table 7.11 cannot be produced by a single query, but if you combine the results of 2 queries you can get all
+  the data needed to produce it. What are those two queries? (hint - you will need to use the “rollup” SQL keyword of
+  MySQL - see 12.20.2 GROUP BY Modifiers (Links to an external site.) [24]).
+    * Table 7.11
+        * SELECT sex,dorm,count(name) from 7_7 group by sex,dorm with rollup SELECT sex,dorm,count(name) from 7_7 group
+          by dorm,sex with rollup
+* Exercise: Table 7.13 is much easier to produce. How would you do it? (hint, use of GROUP BY is likely to make it
+  simple)
+    * SELECT sex,drugs,count(name) from 7_7 group by sex,drugs order by sex, drugs
+
+* Exercise: Table 7.14 is much harder, but try it for yourself - you may need to use conditional COUNTIF clauses to get
+  it to work properly.
+    * `SELECT sex, COUNT(IF(drugs=0 OR drugs=1,1,null)) ‘0 or 1’, COUNT(IF(drugs=2 OR drugs=3,1,null)) ‘2 or 3’, FROM 7_7 group_by sex`
+    * The IF statement returns 1 if the condition is met, or null if it is not. COUNT only counts the non-nulls. The
+      strings are optional (although we’ve set them, we haven’t used them) and can be used to set row headers which can
+      be returned to the calling code.
+
+# Discusions
+
+* how else might you prevent inferential and statistical attacks?
+    * There are several approaches that could be used to protect data against statistical attacks:
+        * Random Data Perturbation - add a certain level of disturbance to the data, so then attackers cannot infer
+          exact values;
+        * Concealmentment - hiding and/or protecting sensitive data;
+        * Providing a random sample for the statistical attack query.
+    * These are just some of the valid approaches, however, a skilled attacker might find different ways to explore
+      vulnerabilities, leading database managers to limit the accessibility of the database. Limiting the accessibility
+      of the database can lead to the availability of data problems, therefore any technique applied should be chosen
+      with caution.
+
+#  Cloud storage
+* Often known as “somebody else’s computer”, Cloud services are increasingly popular because they offer reductions in cost by allowing several organisations to share the costs of maintenance through a service provider. However, cloud doesn’t have to be a service - it is possible to run your own private cloud
