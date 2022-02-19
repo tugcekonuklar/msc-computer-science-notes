@@ -60,3 +60,28 @@
     * Security in Computing, Chapter 7
 * Lesson 2
     * Security in Computing, Chapter 8
+
+# WEEK 7
+
+* Lesson 1
+    * Clause 6.4.3 of [BS7799-3](https://bsol-bsigroup-com.libproxy.york.ac.uk/PdfViewer/Viewer?pid=000000000030354572)
+* Lesson 2
+
+    * Clause 6.4.4 of BS7799-3
+    * Clause 6.4.5 of BS7799-3
+
+* Lesson 3
+    * Clause 7.2.1 of BS7799-3
+    * Clause 7.2.2 of BS7799-3
+    * Clause 7.2.3 of BS7799-3
+    * Clause 7.3 of BS7799-3
+* Lesson 4
+    * Clause 8 of BS7799-3
+* Lesson 5
+* Lesson 6
+
+    * Clause 9 of BS7799-3
+    * Clause 10 of BS7799-3
+    * Clause 11 of BS7799-3
+    * Clause 12 of BS7799-3
+    * Clause 13 of BS7799-3
