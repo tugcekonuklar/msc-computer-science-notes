@@ -692,7 +692,7 @@
       to limit SSH and screen-sharing traffic so that the connections must originate from your IP address space.
       </br><img src="./img/5/8.png" alt="alt text" width="500" height="300"></br>
 
-# Summarru Cloud
+# Summary Cloud
 
 * The cloud has five defining characteristics:
     * • On-demand self-service • Broad network access
