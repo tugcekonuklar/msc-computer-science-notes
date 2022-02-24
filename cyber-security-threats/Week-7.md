@@ -31,10 +31,11 @@
 * it is common for there to be debate about whether the risk values being produced are “correct” or not. If there is
   consensus that they are not then it indicates that either the risk evaluation grid (Table 3 is an example) is wrong or
   one or both of the impact and likelihood ranking scales is wrong.
-  </br><img src="./img/7/5.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/7/6.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/7/7.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/7/8.png" alt="alt text" width="500" height="300"></br>
+
+</br><img src="./img/7/5.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/7/6.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/7/7.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/7/8.png" alt="alt text" width="500" height="300"></br>
 
 * the qualitative risk matrix design should be driven by risk criteria of the organization(6.4.5).
 
@@ -73,9 +74,9 @@
     * If something is required by law to be in place then this must be immediately be placed on the 'not accepted' list.
 * All risks classed as low or very low i.e very rare likelihood or very low impact can be accepted.
 
-      </br><img src="./img/7/9.png" alt="alt text" width="500" height="300"></br>
-      </br><img src="./img/7/10.png" alt="alt text" width="500" height="300"></br>
-      </br><img src="./img/7/11.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/7/9.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/7/10.png" alt="alt text" width="500" height="300"></br>
+</br><img src="./img/7/11.png" alt="alt text" width="500" height="300"></br>
 
 # Activity: Model response
 
