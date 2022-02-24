@@ -135,18 +135,18 @@
     * c. process payments
     * d. ship order once payment has been received.
     * e. forecast demand for parts based on historical data
-    * i. - so historic data must be correct
+        * i. - so historic data must be correct
     * f. issue orders to suppliers
     * g. maintain a list of customers who want to be emailed
     * i. with preferences about contact type & frequency maintained
     * h. Send emails to subscribers as required
     * i. Perform personnel functions
-    * i. Payroll
-    * ii. Tax
+        * i. Payroll
+        * ii. Tax
     * j. Perform accounting functions
-    * i. Tax
-    * ii. Money in
-    * iii. Money out
+        * i. Tax
+        * ii. Money in
+        * iii. Money out
 * Issues
     * a. Internally - protect data from unauthorised access, ensure that data held is accurate, ensure that data held is
       available when required
@@ -211,7 +211,7 @@
     * c. process payments
     * d. ship order once payment has been received.
     * e. forecast demand for parts based on historic data
-    * i. - so historic data must be correct
+        * i. - so historic data must be correct
     * f. issue orders to suppliers
     * g. maintain a list of customers who want to be emailed
     * i. with preferences about contact type & frequency maintained
