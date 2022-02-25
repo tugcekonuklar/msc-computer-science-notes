@@ -239,17 +239,17 @@
   list for now - these are customer payment handling, mailing lists and payroll it needs systems to
     * a. maintain an accurate list of parts in stock
     * b. allow customers to place orders for parts in stock
-    * c. process payments
+    ~~* c. process payments~~
     * d. ship order once payment has been received.
     * e. forecast demand for parts based on historic data
         * i. - so historic data must be correct
     * f. issue orders to suppliers
-    * g. maintain a list of customers who want to be emailed
-        * i. with preferences about contact type & frequency maintained
-    * h. Send emails to subscribers as required
+    ~~* g. maintain a list of customers who want to be emailed
+        * i. with preferences about contact type & frequency maintained~~
+    ~~* h. Send emails to subscribers as required
     * i. Perform personnel functions
         * i. Payroll
-        * ii. Tax
+        * ii. Tax~~
     * j. Perform accountancy functions
         * i. Tax
         * ii. Money in
