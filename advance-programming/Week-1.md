@@ -168,8 +168,9 @@ area = pi * radius**2  #comment after a line of code
 * Strings are an index from position 0 and each individual character can be accessed and manipulated using this index.
   The string “blue bird.” is 10 characters long and is an index from 0 to 9.
 * Using this index, individual characters can be accessed easily using the square bracket notation [ ]
-* Just like Java strings, Python strings are **immutable**; they cannot be changed once created. Even if a method looks as
-  if it is adapting an existing string, it is not. It is creating a new one and discarding (in some cases) the old one
+* Just like Java strings, Python strings are **immutable**; they cannot be changed once created. Even if a method looks
+  as if it is adapting an existing string, it is not. It is creating a new one and discarding (in some cases) the old
+  one
 
 ``` 
 In [1]: myString = "Blue Birds."
@@ -194,10 +195,12 @@ Out[6]: 'e B'
       <img src="./img/1/6.png" alt="alt text" width="500" height="300">
 
 ## Formatting Strings
+
 * One of the most useful methods that the string object provides is the format() metho
-  * 2 ways to use
-  
+    * 2 ways to use
+
 * .format()
+
 ```
 In [7]: firstName = "Frank"
 In [8]: age = 34
@@ -206,12 +209,14 @@ Out[9]: 'My name is Frank and I am 34 years old.'
 ```
 
 * f placed before the string and the variables are embedded in the {}
+
 ```  
 In [10]: f"My name is {firstName} and I am {age} years old."
 Out[10]: 'My name is Frank and I am 34 years old.'
 ```
 
 * for numbers
+
 ``` 
 In [11]: pi = 3.14159
 In [12]: rad = 6
@@ -224,24 +229,31 @@ print(f"42. I am {myHeight:.2f}m tall and weigh {myWeight:.4f}kg")
 ```
 
 ## Console Output
+
 * print() command
+
 ```
 In [15]: print("A string:", myString, "A number:", 1567)
 A string: Blue Birds. A number: 1567
 ```
-* four keyword arguments that can be placed at the end of the argument list as required. These are sep, end, file and flush. 
-    * For formatting purposes, sep adds a separator between previous arguments (the default is a space), and end changes how the output should be terminated (the default is a new line
-  
+
+* four keyword arguments that can be placed at the end of the argument list as required. These are sep, end, file and
+  flush.
+    * For formatting purposes, sep adds a separator between previous arguments (the default is a space), and end changes
+      how the output should be terminated (the default is a new line
+
 ``` 
 In [16]: print(56,78,"pink", sep="*",end="!")
 56*78*pink!
 ```
 
 ## Console Input
+
 * The input() method captures and returns anything entered in the console.
-* The returned content is always a string, so if integers or floating point values are required by the program, then the string will need to be cast to the appropriate type
-  * Simply wrap the input() method in either int() or float()
-  
+* The returned content is always a string, so if integers or floating point values are required by the program, then the
+  string will need to be cast to the appropriate type
+    * Simply wrap the input() method in either int() or float()
+
 ``` 
 In [17]: name = input("Name: ")
 Name: Frank
@@ -254,7 +266,9 @@ In [21]: f"{name} the sum of {num1} and {num2} is {sum}."
 Out[21]:'Frank the sum of 45 and 67 is 112.'
 
 ```
+
 * user try catch
+
 ``` 
     try:
         myAge = int(input("Enter your age: "))
@@ -262,14 +276,99 @@ Out[21]:'Frank the sum of 45 and 67 is 112.'
         print("Something has gone wrong")
 ```
 
+# Lab
 
+* Exercise one
+* Write a program that outputs a times table from a given (user entered) integer value. It should start at 2 and output
+  only the EVEN multiples. If the user entered the value 13, the even times table would be outputted in the following
+  format:
 
+* The even timetable for 13 is:
+* 2 times 13 is 26 4 times 13 is 52 6 times 13 is 78 This program should continue until the user chooses to exit. You
+  should format this so that the text “times” and “is” is always in the same column. The program should output up to and
+  including 20 times the user value.
 
+```
+def lab1():
+    try:
+        inputNumber = int(input("Enter Number: "))
+        for i in range(2, 21, 2):
+            result = i * inputNumber;
+            print(f'{i} times {inputNumber:.2f} is  {result:.2f} ')
+    except:
+        print("there is a problem")
 
+```
 
+* Exercise two
+* In the sample code given for 'Iteration' in 1.1, there is a program for printing out a left-sided triangle of stars.
+* Adapt the code to create a right-sided triangle. Adapt the code to output a diamond. Write a menu system so the user
+  can choose the left or right-sided triangle, or diamond. Enable the program to take user input for the symbol used to
+  generate the pattern and dictate the size of the pattern. The output from the program should look like this:
 
+                                                *
+      *                      *                 ***
+      **                    **                *****
+      ***                  ***                 ***
+      ****                ****                  *
 
+Left-sided Right-sided Diamond
 
+``` 
+def lab2():
+    try:
+        selected = int(input("Pres number of types that you want to select :  "
+                             "\n 1-Left-sided "
+                             "\n 2-Right-sided "
+                             "\n 3-Diamond "))
+        if selected == 1:
+            print("*\n**\n***\n****")
+        elif selected == 2:
+            print("     *\n    **\n   ***\n  ****")
+        else:
+            print("    *   \n   **   \n   ***  \n  **** ")
+    except:
+        print("there is a problem")
+
+```
+
+* Exercise three
+* Write a program that outputs a calendar, given two values inputted by the user. If the user inputs the values of 30
+  and 7, the following structure will be produced, where 30 generates the number of days in the month and 7 (
+  Sunday) indicates which day of the week the calendar starts on. The user should only be able to input a valid range of
+  numbers, and regardless of the values entered the calendar should always output 7 lines (even if some of them are
+  blank)
+  .
+
+``` 
+# ugly solution without using data structures
+def lab3():
+    try:
+        days = int(input("Count of days in a month : "))
+        startWeekDay = int(input("Start week day : "))
+        print("Calender")
+        print("M   T   W  Th   F   S  Su")
+        start = 0
+        index = 1
+        calender = ""
+        while start <= 7 and index <= days + 6:
+            if startWeekDay == start and index <= days:
+                day = days - (days - index)
+                calender += str(day)
+                calender += "   "
+                startWeekDay = (start + 1) % 7
+                index += 1
+            else:
+                calender += "    "
+            start = (start + 1) % 7
+            if start == 0:
+                print(calender)
+                calender = ""
+            if start == 0 and index >= days:
+                break
+    except:
+        print("there is a problem")
+```
 
 # TODO:
 
