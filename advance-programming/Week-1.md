@@ -370,6 +370,11 @@ def lab3():
         print("there is a problem")
 ```
 
+# Data Structure
+
+* Python provides a number of built-in data structures.
+* Sequence types include range, lists and tuples and more complex types are dictionaries and sets.
+
 # TODO:
 
 * McKinney W. (2017) Python for Data Analysis. 2nd Ed. O'Reilly Media - Chapter 2
