@@ -315,21 +315,28 @@ def lab1():
 Left-sided Right-sided Diamond
 
 ``` 
+
 def lab2():
     try:
         selected = int(input("Pres number of types that you want to select :  "
                              "\n 1-Left-sided "
                              "\n 2-Right-sided "
                              "\n 3-Diamond "))
-        if selected == 1:
-            print("*\n**\n***\n****")
-        elif selected == 2:
-            print("     *\n    **\n   ***\n  ****")
-        else:
-            print("    *   \n   **   \n   ***  \n  **** ")
+        size = int(input("size :  "))
+        text = "\n"
+        for x in range(1, size):
+            if selected == 1:
+                text += str("*" * x) + "\n"
+            elif selected == 2:
+                text += str(" " * (size - x)) + ("*" * x) + "\n"
+            elif selected == 3:
+                if x <= size / 2:
+                    text += str(" " * (size - x)) + ("*" * x) + (" " * (size - x)) + "\n"
+                else:
+                    text += str(" " * x) + ("*" * (size - x)) + (" " * x) + "\n"
+        print(text)
     except:
         print("there is a problem")
-
 ```
 
 * Exercise three
