@@ -341,31 +341,24 @@ def lab2():
   .
 
 ``` 
-# ugly solution without using data structures
+
 def lab3():
     try:
         days = int(input("Count of days in a month : "))
         startWeekDay = int(input("Start week day : "))
         print("Calender")
-        print("M   T   W  Th   F   S  Su")
-        start = 0
-        index = 1
-        calender = ""
-        while start <= 7 and index <= days + 6:
-            if startWeekDay == start and index <= days:
-                day = days - (days - index)
-                calender += str(day)
-                calender += "   "
-                startWeekDay = (start + 1) % 7
-                index += 1
-            else:
-                calender += "    "
-            start = (start + 1) % 7
-            if start == 0:
-                print(calender)
-                calender = ""
-            if start == 0 and index >= days:
-                break
+        calender = "M\tT\tW\tTh\tF\tS\tSu"
+        print(calender)
+        startWeekDay -=1
+        text = "\t" * startWeekDay
+
+        for day in range(1, days + 1):
+            if startWeekDay % 7 == 0:
+                text += "\n"
+            text += (str(day) + "\t")
+            startWeekDay += 1
+        print(text)
+
     except:
         print("there is a problem")
 ```
@@ -374,6 +367,198 @@ def lab3():
 
 * Python provides a number of built-in data structures.
 * Sequence types include range, lists and tuples and more complex types are dictionaries and sets.
+
+## List[]
+
+* List is mutable
+* Can contain a mix of any object.
+* To create a list, square brackets [] are placed around comma-separated literals or variables
+* A list has an index start at 0
+* Negative index (-2) will start from the tail of the list
+* List can be used to act as a stack (Last-In-First-Out) but do not make efficient queues (First-In-First-Out) for large
+  sets of data.
+
+```
+In [1]: myNum = 98
+In [2]: myList = [45, 6.78, "Frank", myNum]
+In [3]: myList
+Out[3]: [45, 6.78, 'Frank', 98]
+
+In [4]: myList[1:3]
+Out[4]: [6.78, 'Frank']
+
+In [5]: myList[-2]
+Out[5]: 'Frank' 
+```
+
+``` 
+In [6]: for x in myList:
+   ...:     print(x, end="*")
+   ...:     
+45*6.78*Frank*98*
+
+In [7]: if 'Frank' in myList:   
+   ...:     print("Frank, You are in position:", myList.index('Frank'))
+   ...:
+Frank, You are in position: 2
+```
+
+* Lists can contain other lists and therefore create a matrix as shown here (3 lists, each containing 4 elements):
+
+``` 
+In [8]: matrix = []
+In [9]: num = 1
+In [10]: for x in range(1,4):
+    ...:     temp = []
+    ...:     for y in range(1,5):
+    ...:         num *= 2
+    ...:         temp.append(num)
+    ...:     matrix.append(temp)
+    ...:     
+In [11]: matrix
+Out[11]: [[2, 4, 8, 16], [32, 64, 128, 256], [512, 1024, 2048, 4096]]
+
+```
+
+* If the delimiter is a space, this is the default for the split() method; otherwise, the delimiting character is passed
+  as an argument to the split() method. Lists can also be created by joining elements together using the join() method.
+  <img src="./img/1/7.png" alt="alt text" width="500" height="300">
+
+* When to use:
+    * List[] is best used when you are wanting to make frequent changes to the data set.
+    * They are more suited to small sets of data as methods such as insert are computationally expensive.
+    * If the data contains duplicates, a list is more appropriate than a set{}, and if natural ordering is required
+      there are methods to easily enable this.
+
+## Tuple()
+
+* tuples are immutable (cannot be changed).
+* Tuples are created using parentheses() and a comma-separated "," list of literals or variables.
+
+``` 
+In [12]: myTuple = ("Cat", "Mouse", 56, 78)
+In [13]: mySequence = 78,45,56,20
+In [14]: type(myTuple)
+Out[14]: tuple
+
+In [15]: type(mySequence)
+Out[15]: tuple
+```
+
+* slice can use
+
+``` 
+In [16]: anotherTuple = myTuple[0:2]
+In [17]: anotherTuple
+Out[17]: ('Cat', 'Mouse')
+
+In [18]: type(anotherTuple)
+Out[18]: tuple
+
+In [19]: singleton = (45678,)
+In [20]: singleton
+Out[20]: (45678,)
+```
+
+* When to use:
+    * Tuple() is best used when it is imperative that no accidental changes can be made to the data, retaining data
+      integrity.
+    * Extracting parts as a list[] for manipulation can then be achieved while being assured that the actual data has
+      not been changed.
+    * They are more suited to large sets of data and can contain duplicates. A sorted list[] (copy) can be generated
+      from a tuple().
+
+## Set{}
+
+* Sets are an unordered collection of objects which must be unique (no duplicates)
+* Sets are mutable, but can only contain immutable (hashable) objects.
+
+``` 
+In [21]: mySet = {'A', '5', 5, "Jam"}
+In [22]: mySet
+Out[22]: {'5', 5, 'A', 'Jam'}
+In [23]: mySet.add(5.0)
+In [24]: mySet
+Out[24]: {'5', 5, 'A', 'Jam'}
+```
+
+* They also have methods for removing individual elements such as pop(), remove() and discard()
+  <img src="./img/1/8.png" alt="alt text" width="500" height="300">
+  <img src="./img/1/9.png" alt="alt text" width="500" height="300">
+* When to use:
+* Set{} should be used when there is a requirement to specifically apply set functions to the data.
+* There is a need to ensure that there are no duplicates within the data set, and none can be added.
+
+## Dictionary{K:V}
+
+* Dictionaries are a mapping data structure; they map keys to values (referred to as a 'key-value pair').
+* In a dictionary, the key must be unique, but the values do not need to be.
+* As with the other data structures, the key and values can be any object and can mix types.
+
+``` 
+In [25]: weekdays = {1:"Mon", 2:"Tues", 3:"Wed", 4: "Thur", 5:"Fri"}
+In [26]: weekdays
+Out[26]: {1: 'Mon', 2: 'Tues', 3: 'Wed', 4: 'Thur', 5: 'Fri'}
+```
+
+<img src="./img/1/10.png" alt="alt text" width="500" height="300">
+* When to use:
+* Dictionary{K:V} is best used when you want to map a set of objects to a set of identifiers.
+* They are highly versatile and the built-in functionality makes it easy to extract and sort both keys and values.
+
+## Conversions
+
+* Python has a number of methods that help with converting between data structures and other object types, such as
+  strings
+* The zip() method can be used to combine two iterable objects together.
+    * For example, two lists could be combined to form a dictionary, where one list is acting as the key and the other
+      as the value.
+    * This produces a list of tuples that each contain a pair of objects, which can then be cast using the dict()
+      constructor (short for dictionary). The following demonstrates this:
+
+``` 
+In [27]: nums = list(range(1,9,2))
+In [28]: nums
+Out[28]: [1, 3, 5, 7]
+
+In [29]: names = ["Jan", "Sam", "Pam", "Joe"]
+In [30]: numNames = zip(nums,names)
+In [31]: listTuples =list(numNames)
+In [32]: listTuples
+Out[32]: [(1, 'Jan'), (3, 'Sam'), (5, 'Pam'), (7, 'Joe')]
+In [33]: dictNames = dict(listTuples)
+In [34]: dictNames
+Out[34]: {1: 'Jan', 3: 'Sam', 5: 'Pam', 7: 'Joe'}
+
+```
+
+* If the two iterables are not equal in size the returns structure will be paired to the smaller of the two and the rest
+  discarded.
+* Once a zipped object is unzipped, its contents are gone.
+
+* packing
+
+``` 
+In [35]: fruit = ["apple", "pear", "banana", "grapefruit"] #Packing
+In [36]: a,*b,c = fruit #Unpacking
+In [37]: print(a, b, c)
+apple ['pear', 'banana'] grapefruit
+```
+
+* The asterisk (*) in line 36 can be interpreted as “and the rest” and is performing a mini-repack.
+
+# Activity 4: Data structures
+
+* Using an appropriate Python data structure, implement two programs that demonstrate the behaviour of a stack (LIFO)
+  queue (FIFO). For each program, you should create a menu system to enable the user to manipulate the structure, and
+  the program should keep running until the user chooses to exit. An example menu for a stack would be:
+``` 
+1. Push
+2. Pop
+3. View
+
+```
+
 
 # TODO:
 
@@ -384,3 +569,7 @@ def lab3():
   63-89.
 * [Pep8 guide](https://peps.python.org/pep-0008/)
 * Padmanabhan T. R. (2016) Programming with Python. Undergraduate Topics in Computer Science. Springer, Cham. pp 137-174
+* Beazley. D. Jones B. K.  (2013) Python Cookbook. 3rd Ed. O'Reilly Media pp 1-36
+* Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham. pp 49-60,
+  and 61-67
+
