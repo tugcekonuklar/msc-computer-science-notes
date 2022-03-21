@@ -559,6 +559,7 @@ apple ['pear', 'banana'] grapefruit
 * Using an appropriate Python data structure, implement two programs that demonstrate the behaviour of a stack (LIFO)
   queue (FIFO). For each program, you should create a menu system to enable the user to manipulate the structure, and
   the program should keep running until the user chooses to exit. An example menu for a stack would be:
+
 ``` 
 1. Push
 2. Pop
@@ -566,6 +567,317 @@ apple ['pear', 'banana'] grapefruit
 
 ```
 
+# Functions
+
+* functions are defined using the def keyword.
+
+``` 
+# A function definition with no arguments
+def functionName ():
+  statement1
+  statement2
+```
+
+## Arguments
+
+``` 
+# A single required argument passed in
+def functionName (argument1Label):  
+
+# Two required arguments passed in
+def functionName (argument1Label, argument2Label):
+```
+
+* A single asterisk * operator is used to indicate a variable number of attributes e.g. *args whereas two asterisks are
+  used to indicate keywords consisting of variable_name = value pairs e.g. **kwargs as shown below:
+
+``` 
+# A variable length argument, 0 to many can be passed in
+def functionName (argument1Label, args*, **kwargs):
+
+# calling the function
+funtionName("Normal", arg1, arg2, arg3, keyword1="value", keyword2="value"
+
+```
+
+* Default value
+
+``` 
+# An argument with a default value 
+def functionName (argument1Label="Default Value"):
+```
+
+* All arguments in Python are ‘passed by object-reference’. This means that if the argument is changed within the body
+  of the function, this will also change the value of variable outside of the function. However, this is only true for
+  mutable objects. If the object is immutable it cannot be changed at all. Here is an example of List as it is mutable:
+
+```
+In [1]: myList = [3,4,5]
+In [2]: myList
+Out[2]: [3, 4, 5]
+In [3]: id(myList)
+Out[3]: 4597091080
+In [4]: def extend(aList):
+   ...:     print(id(aList)    # Prints out the reference in aList
+   ...:     aList.append([9,8,7])
+   ...: 
+In [5]: extend(myList)         # Pass myList into the function
+4597091080                     # Outputs the id of aList (same as myList)
+In [6]: myList
+Out[6]: [3, 4, 5, [9, 8, 7]]   # MyList has changed
+In [7]: id(myList)
+Out[7]: 4597091080             # MyList id has not changed
+
+```
+
+* However, this is not true if values are re-assigned to the same variable, using the assignment operator, within the
+  body of the function.
+
+``` 
+In [8]: myList
+Out[8]: [1, 2, 3]
+In [9]: id(myList)
+Out[9]: 4597265480
+In [10]: def extendAgain(myList):
+    ...:     myList = ['a','b','c']        # Creates a new variable
+    ...:     myList.append([9,8,7])
+    ...:     print("Function:",myList)
+    ...:     print("Function", id( myList))
+In [11]: extendAgain(myList)
+Function: ['a', 'b', 'c', [9, 8, 7]]
+Function 4597284296                    # myList has a different id
+In [12]: myList                        # inside the function
+Out[12]: [1, 2, 3]
+In [13]: id(myList)
+Out[13]: 4597265480
+```
+
+## Return
+
+``` 
+# A function with a return statement that returns the contents of X
+def functionName ():
+  # do some stuff
+  return X
+```
+
+* Un/Packing variables
+
+```
+In [14]: myList = [1,2,3,4]
+In [15]: def swap(aList):
+    ...:     a,b,c,d = myList             # Unpack 
+    ...:     return b,d,a,c               # Reorder and pack
+In [16]: swapList = swap(myList)
+In [17]: swapList
+Out[17]: (2, 4, 1, 3)
+In [18]: type(swapList)
+Out[18]: tuple
+```
+
+```  
+In [19]: def combine(nums, names):
+    ...:     a,b,c = nums
+    ...:     d,e,f = names
+    ...:     return { a:d, b:e, c:f }
+In [20]: names = ["Tanveer", "Fleur", "Takeo"]
+In [21]: numbers = [1,2,3]
+In [22]: myMap = combine(numbers, names)
+In [23]: myMap
+Out[23]: {1: 'Tanveer', 2: 'Fleur', 3: 'Takeo'}
+
+```
+
+## Variable Scope
+
+``` 
+In [24]: name = "Tanveer"                      # Global variable
+In [25]: def printHeader():
+    ...:     title = "Employee of the month"   # Local Variable
+    ...:     # Accessing both local and global variables
+    ...:     print(f"{title}: ** {name} **")   
+    ...:                               
+In [26]: printHeader()
+Employee of the month: ** Tanveer **
+In [27]: title   # Variable no longer exists generates an error
+-------------------------------------------------------------------------
+NameError 
+```
+
+# Modules and Classes
+
+* Modules are files containing useful functions that can be imported into many programs.
+* Classes are a means of encapsulating attributes (data) and methods (behaviour) in a template that can be used to
+  create many similarly structured objects.
+
+## Modules
+
+* To use the functions in this file in another program it first needs to be imported, like any other external package.
+  As follows:
+    * ``` import FileName ```
+
+* access the functions in this file by making a call as follows:
+
+```  
+# for a function that simply does something
+FileName.functionName()
+
+# Parameters can be passed the same as in any other
+FileName.functionName(parameter1, parameter2)
+
+# Values can be returned form the function, the same as in any other
+variable = FileName.functionName()
+
+```
+
+## Classes
+
+* Objects are instances of a class, whereas the class is the structure that is written in code to provide a template for
+  the attributes and methods (functionality) of each object.
+* general structure of an object in OOP:
+    * Constructors are used to instantiate one or more copies of the class and are called when an object is first
+      created.
+    * Objects consist of fields/attributes that hold the state of the object.
+    * Methods/functions that define the behaviour of the object.
+
+* The keyword class is used to identify the code structure representing a class.
+
+``` 
+class NameOfClass (object):
+```
+
+* In Python, a constructor is referred to as the initialisation method as every class has to override the function __
+  init__ from the class object.
+* In order to ensure that any attributes that are passed at construction time are referenced by the object, and still
+  exist when the method goes out of scope (completes), the first parameter for __
+  init__  should always be the term self.
+* This simply enables the reference for the object to be associated with the variables (object attributes) and methods
+  created within this class.
+
+```  
+def __init__(self):
+```
+
+* To define attributes within the class the values that are passed in at initialisation can be assigned to the local (
+  internal) environment as follows:
+
+``` 
+  self.variableName = parameterName
+```
+
+* Class methods (behaviours) are then defined within the body of the class using the def keyword, followed by an
+  appropriate label. For all your methods, the first parameter should be self, to ensure a reference to the current
+  object. Other parameters can be added and as with normal functions, a return statement can be used at the end of the
+  method.
+
+``` 
+def myMethod(self):
+```
+
+* Notice that when an object is created, and any methods are called on it, there is no requirement to pass anything in
+  for the self parameter. Python handles this internally. If other parameters have been defined in the initialisation
+  method, or other class methods, these would be required within the method calls.
+
+``` 
+variableName = MyObject()    #creating object from the class
+
+varaibleName.MyMethod()      #accessing a method defined 
+                             #in the class for that object
+```
+
+``` 
+In [1]: class Person(object):
+   ...:     def __init__(self, name, address, age):
+   ...:         self.name = name
+   ...:         self.address = address
+   ...:         self.age = age
+   ...:     
+   ...:     def personalDetails(self):
+   ...:         return self.name, self.address, self.age
+
+In [2]: fleur = Person("Fleur", "Paris", 32)
+In [3]: tanveer = Person("Tanveer", "Mumbai", 19)
+In [4]: fleur.personalDetails()    
+Out[4]: ('Fleur', 'Paris', 32)
+In [5]: tanveer.personalDetails()
+Out[5]: ('Tanveer', 'Mumbai', 19)
+```
+
+## Inheritance (is a relationship)
+
+* There are three slightly different approaches to inheritance
+    * The simplest approach is: Class X inherits all the methods from class Y. This is known as implicit inheritance
+        * ``` class Tutor(Person): ```
+        * Unlike Java, Python can support multiple inheritance by adding multiple parent classes in the class
+          declaration. However, this is strongly discouraged as it can generate confusing and unmanageable code.
+
+    * The second approach is to inherit some methods and override others by providing a method with the same signature (
+      name and parameters) in the child class. When the child class is instantiated, the local (child) version of the
+      method will be used, not the inherited (parent) version.
+
+    * The third approach is where the methods and attributes of the parent class are required, but the child class also
+      needs to extend these with its own methods and or attributes. This requires a call to super in the methods and is
+      most often used in the initialisation method (constructor) to ensure the attributes of the parent are instantiated
+      for the child.
+
+```       
+super(localClassName, self).__init__()    # call to parent class # constructor
+super(localClassName, self).methodName()  # call to extend a method from # parent class
+```
+
+* Child of Person Class
+
+```
+In [6]: class Tutor(Person):
+   ...:         id = 0
+   ...:         def __init__(self, name, address, age, salary, id):
+   ...:             super(Tutor, self).__init__(name, address, age)
+   ...:             self.salary = salary
+   ...:             self.id = id
+   ...:         def personalDetails(self):
+   ...:             return super(Tutor, self).personalDetails(), 
+   ...:             self.salary, self.id 
+   ...:            
+
+In [7]: class Student(Person):
+   ...:         def __init__(self, name, address, age, id):
+   ...:             super(Student, self).__init__(name, address, age)
+   ...:             self.id = id
+   ...:
+   ...:         def personalDetails(self):
+   ...:             return super(Student, self).personalDetails(),self.id
+   ...:      
+   
+In [8]: jane = Tutor("Jane", "New York", 45, 34000, 67930)
+In [9]: jane.personalDetails()
+Out[9]: (('Jane', 'New York', 45), 34000)
+In [10]: takeo = Student("Takeo", "Tokyo", 23, "CMOD00045678")
+In [11]: takeo.personalDetails()
+Out[11]: (('Takeo', 'Tokyo', 23), 'CMOD00045678')
+
+```
+
+## Composition (has a relationship)
+
+* Composition in OOP is where one class contains another class as an attribute
+* The keyword **None** can be assigned to an object attribute until the details of that object are worked out. If the
+  object already exists, like a built-in Python object, a default or empty object can be assigned, simply using comments
+  to sketch out the attributes until the constructor is built. This creates a placeholder constructor using the keyword
+  None, until everything is ready to be created.
+
+``` 
+In [12]: class Person(object):
+    ...:     name = None   # Place holder for an object 
+    ...:                   # that needs to be created
+    ...:     age = 0       # setting a default value for an Integer
+    ...:     pastJobs = [] # creating an empty List
+    ...:     # CONTAINS: DOB object - reminder to add 
+    ...:     # this to the constructor
+    ...:     
+    ...:     # A sketch for a constructor
+    ...:     def __init__(self, name, age, dob): 
+    ...:         None # yet to be defined 
+```
 
 # TODO:
 
@@ -580,3 +892,11 @@ apple ['pear', 'banana'] grapefruit
 * Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham. pp 49-60,
   and 61-67
 
+* Lee K. D. (2014) Python Programming Fundamentals. 2nd Ed. Undergraduate Topics in Computer Science. Springer, Cham, pp
+  115-143
+* Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham, pp 39-47
+* **1.14 Activity 5: Functions**
+* Lee K. D. (2014)Python Programming Fundamentals. 2ndEd. Undergraduate Topics in Computer Science. Springer, Cham:
+    * pp 91-113
+    * pp 163-188
+* **1.16 - Activity 6: Modules and Classes**
