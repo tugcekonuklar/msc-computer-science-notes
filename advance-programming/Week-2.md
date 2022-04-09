@@ -334,6 +334,50 @@ Couldn't put Humpty together again.
 Half a pound of tuppenny rice,
 Half a pound of treacle.
 ```
+* Depending on what the program requires, there may be a need to temporarily store parts of the file, or use regular expressions (see lesson 5) to find, change or extract parts of the file.
+* Here is an example that keeps the first two lines of the new nursery rhyme and adds two (overwriting the existing content) from the previous nursery rhyme.
+```
+In [29]: file = open("Pop_Goes_The_Weasel.txt", 'r+')
+In [30]: print("File pointer: ", file.tell())
+File pointer:  0
+
+In [31]: for line in file:
+   ...:     print(line)
+   ...:     
+Half a pound of tuppenny rice,
+Half a pound of treacle.
+That's the way the money goes,
+Pop! goes the weasel.
+
+In [32]: print("File pointer: ", file.tell())
+File pointer:  109
+
+In [33]: file.seek(56,0)
+Out[33]: 56
+
+In [34]: file.write("All the king's horses and all the king's men\n")
+Out[34]: 45
+
+In [35]: print("File pointer: ", file.tell())
+File pointer:  101
+
+In [36]: file.write("Couldn't put Humpty together again.\n") 
+Out[36]: 36
+
+In [37]: print("File pointer: ", file.tell())
+File pointer:  137
+
+In [38]: file.seek(0,0)
+Out[38]: 0
+
+In [39]: for line in file:
+    ...:     print(line)
+    ...:    
+Half a pound of tuppenny rice,
+Half a pound of treacle.
+All the king's horses and all the king's men
+Couldn't put Humpty together again.
+```
 
 
 # TODO
