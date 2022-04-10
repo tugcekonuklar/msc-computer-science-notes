@@ -310,8 +310,8 @@ FileExistsError                           Traceback (most recent call last)
 FileExistsError: [Errno 17] File exists: 'Pop_Goes_The_Weasel.txt
 ```
 
-* The third action, **appending (retain the existing file content and add more to it) to the end of an existing file**, uses
-  the character flag ‘a’.
+* The third action, **appending (retain the existing file content and add more to it) to the end of an existing file**,
+  uses the character flag ‘a’.
     * However, here the file has to exist and if it does not a FileNotFoundError exception will be generated.
 
 ``` 
@@ -334,8 +334,12 @@ Couldn't put Humpty together again.
 Half a pound of tuppenny rice,
 Half a pound of treacle.
 ```
-* Depending on what the program requires, there may be a need to temporarily store parts of the file, or use regular expressions (see lesson 5) to find, change or extract parts of the file.
-* Here is an example that keeps the first two lines of the new nursery rhyme and adds two (overwriting the existing content) from the previous nursery rhyme.
+
+* Depending on what the program requires, there may be a need to temporarily store parts of the file, or use regular
+  expressions (see lesson 5) to find, change or extract parts of the file.
+* Here is an example that keeps the first two lines of the new nursery rhyme and adds two (overwriting the existing
+  content) from the previous nursery rhyme.
+
 ```
 In [29]: file = open("Pop_Goes_The_Weasel.txt", 'r+')
 In [30]: print("File pointer: ", file.tell())
@@ -379,6 +383,167 @@ All the king's horses and all the king's men
 Couldn't put Humpty together again.
 ```
 
+## Binary access
+
+* To access the file in binary mode the ‘b’ flag needs to be set, followed by read(‘r’), write(‘w’) or both (‘+’), as
+  demonstrated below.
+* Reading a byte from a text file produces text when outputted. The small b before the character indicates that this is
+  a translation from a byte.
+
+``` 
+In [40]: file = open("Pop_Goes_The_Weasel.txt", 'br')
+In [41]: for line in file:
+   ...:     print(line)
+   ...:    
+In [42]: print(file.read(1))
+b'H'
+```
+
+## Closing a File
+
+* Opening a file for any type of read or write operations takes up system resources. These resources are unavailable for
+  any other application running on the same system while the program is using them.
+    * 2 ways to close
+        * ``` In [43]: file.close() ```
+        * With
+
+``` 
+      In [44]:  with open("Pop_Goes_The_Weasel.txt") as file:
+    ...:     for line in file:
+    ...:        print(line, end="")
+    ...:           
+    Half a pound of tuppenny rice,
+    Half a pound of treacle.
+    That's the way the money goes,
+    Pop! goes the weasel. 
+```
+
+# Exception handling
+
+* Try … except statement
+    * the except statement is excepting all and any exceptions
+
+```   
+In [47]: fileName = "myFile.txt"
+In [48]: try:
+...:     file = open(fileName)
+...: except:
+...:     print("An I/O error has been generated.")
+...:     
+An I/O error has been generated.
+```
+
+* This will catch spesific exceptions
+
+``` 
+In [49]: import sys
+    ...: fileName = "Humpty_Dumpty.txt"
+    ...: try:
+    ...:     file = open(fileName)
+    ...:     line = file.read()
+    ...:     words = line.split()
+    ...:     value = int(words[0])
+    ...: except FileNotFoundError:
+    ...:     print("The file does not exist")
+    ...: except ValueError:
+    ...:     print("That is not a number")
+    ...: except OSError as err:
+    ...:     print("OS error: {0}".format(err))
+    ...: except:
+    ...:     print("Unexpected Error", sys.exc_info()[0])
+    ...:     
+That is not a number
+```
+
+* Optional else.. finally
+
+``` 
+In [50]: fileName = "Humpty_Dumpty.txt"
+    ...: try:
+    ...:     file = open(fileName)
+    ...: except FileNotFoundError:
+    ...:     print("The file does not exist")
+    ...: else:
+    ...:     for line in file:
+    ...:         print(line, end="")
+    ...: finally:
+    ...:     print("\nClosing file")
+    ...:     file.close()
+    ...:     
+All Humpty Dumpty sat on a wall.
+Humpty Dumpty had a great fall.
+All the king's horses and all the king's men
+Couldn't put Humpty together again.
+Closing file
+
+
+In [51]: fileName = "MissingFile.txt"
+    ...: try:
+    ...:     file = open(fileName)
+    ...: except FileNotFoundError:
+    ...:     print("The file does not exist")
+    ...: else:
+    ...:     for line in file:
+    ...:         print(line, end="")
+    ...: finally:
+    ...:     print("\nClosing file")
+    ...:     file.close()
+    ...:     
+The file does not exist
+Closing file
+```
+
+## Re-raising an exception
+
+* Java provides the throw andthrows keywords to enable errors to be passed back to the point the method is called.
+  Python does not enable this but does allow exceptions to be raised manually within the code, without an error having
+  occurred.
+
+``` 
+In [52]: import sys
+    ...: fileName = "MissingFile.txt"
+    ...: try:
+    ...:     file = open(fileName)
+    ...: except BaseException as err:
+    ...:     print("Unexpected Error caught: ", err)
+    ...:     print("then passed else where")
+    ...:     raise err
+Unexpected Error caught:  [Errno 2] No such file or directory: 'MissingFile.txt'
+then passed else where
+--------------------------------------------------------------------
+FileNotFoundError                       Traceback (most recent call last)
+<ipython-input-17-4eebae96f330> in <module>()
+      6     print("Unexpected Error caught: ", err)
+      7     print("then passed else where")
+----> 8     raise err
+```
+
+## User-defined exceptions
+
+* The base class for user-defined exceptions is the Exception class which should be used as the parent for new
+  generalised exceptions. It is best practice that these classes are named with names that end with Error to clearly
+  identify them.
+
+## Assertions
+
+* An assertion is simply a test of some condition, which throws an error if the condition returns false. In Python the
+  assertion statement has the following structure:
+  ``` assert condition, “optional message” ```
+
+``` 
+In [53]: num = 9
+In [54]: num2 =20
+In [55]: assert (num > num2), "num is too small"
+--------------------------------------------------------------------
+AssertionError                          Traceback (most recent call last)
+<ipython-input-8-d7d11f55a261> in <module>()
+----> 1 assert (num > num2), "num is too small"
+AssertionError: num is too small
+```
+
+#  Regular expressions
+
+
 
 # TODO
 
@@ -387,5 +552,16 @@ Couldn't put Humpty together again.
 * Beazley. D., Jones B. K.  (2013) Python Cookbook. 3rd Ed. O'Reilly Media, Sections: 6.9-6.10
 * McKinney W. (2017) Python for Data Analysis. 2nd Ed. O'Reilly Media. Section 6.2
 * Beazley. D., Jones B. K.  (2013) Python Cookbook. 3rd Ed. O'Reilly Media: 6.1-6.7 (Links to an external site.)
+* McKinney W. (2017) Python for Data Analysis. 2nd Ed. O'Reilly Media.
+    * Section 3.3
+    * Section 6.1
+* Padmanabhan T. R. (2016) Programming with Python. Undergraduate Topics in Computer Science. Springer, Cham pp
+  175-197Links to an external site.
+* Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham pp
+  69-78Links to an external site. 
+* [Python Exceptions](https://docs.python.org/3/library/exceptions.html)
+* Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham. pp 69-78Links to an external site.
+* Beazley. D., Jones B. K.  (2013)Python Cookbook.3rd Ed.  O'Reilly Media. Chapter 14 (Links to an external site.)
+
 
  
