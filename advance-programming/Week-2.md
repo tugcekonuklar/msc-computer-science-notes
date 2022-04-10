@@ -420,6 +420,8 @@ b'H'
 
 # Exception handling
 
+<img src="./img/2/21.png" alt="alt text" width="500" height="300">
+
 * Try … except statement
     * the except statement is excepting all and any exceptions
 
