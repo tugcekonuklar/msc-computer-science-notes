@@ -176,3 +176,51 @@ In [20]: del addValues
 In [21]: result()
 The sum is:  30
 ```
+
+# Lambda function
+
+* A lambda function is a short anonymous function, that can take any number of parameters (more often referred to as
+  arguments in this context), return a value, but only contains a single expression.
+    * ``` lambda arguments : expression ```
+
+``` 
+In [22]: x = lambda y : y * 2
+In [23]: print(x(5))
+10
+```
+
+* lambda functions can be used to create closures (functions that retain their enclosing scope), making it possible to
+  generate a set of similar (related) functions with very little code
+
+``` 
+In [24]: def includeVAT(price):
+    ...:     return lambda x : (price * 1.2) * x
+    ...: 
+In [25]: itemCost = includeVAT(0.57)
+In [26]: itemCost(10)
+Out[26]: 6.84
+```
+
+* In the above code, the parameter price is used to generate a lambda expression that finds the cost of a number of
+  items including the UK Value Added Tax (VAT) percentage. The lambda expression stored in the variable itemCost (line
+    25) is the equation: (0.57*1.2) * x, where x is yet to be provided when the expression is used. In line 26 the
+        lambda expression is accessed via the itemCost variable and passed the value 10 which will replace x in the
+        equation. So: (
+        0.57 * 1.2) * 10 = 6.84.
+* **This type of structure is often used when creating and assigning behaviours to multiple GUI components and
+  generating on-the-fly code of events that may only happen once given a specific set of circumstances.**
+
+``` 
+In [27]: itemCosts = []
+In [28]: for i in range(1,9):
+    ...:     itemCosts.append(includeVAT(i))
+In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
+5 items at £7: £ 42.0 including VAT
+```
+
+* Padmanabhan T. R. (2016) Programming with Python. Undergraduate Topics in Computer Science. Springer, Cham Section
+  4.1.1 Lambda FunctionLinks to an external site.
+* Beazley. D., Jones B. K.  (2013) Python cookbook 3rd Ed. O'Reilly Media Functions 7.7 – p224
+
+#  Graphical user interface design
+
