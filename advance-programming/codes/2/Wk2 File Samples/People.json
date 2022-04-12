@@ -1,0 +1,48 @@
+{
+	"students":[
+	{"id":897654,
+	    "fullName":{
+	        "title":"Mrs",
+	        "first":"Lisa",
+			"surname":"Penny",
+			"other":["Melanie"]},
+	    "age": 32,
+	    "city": "London"},
+
+	{"id":786789,
+		"fullName":{
+		    "title":"Mr",
+		    "first":"Lorenzo",
+		    "surname":"Dubois",
+		    "other":["Ruelle", "Garlen"]},
+	    "age": 38,
+		"city": "Paris"},
+
+	{"id":546854,
+		"fullName":{
+		    "title":"Mr",
+		    "first":"Takeshi",
+			"surname":"Tanaka",
+			"other":[null]},
+		"age": 25,
+		"city": "Tokyo"},
+
+    {"id":238751,
+		"fullName":{
+		    "title":"Mr",
+			"first":"Tanveer",
+			"surname":"Patel",
+			"other":["Vihaan"]},
+		"age": 27,
+		"city": "Mumbai"},
+	
+	{"id":894573,
+		"fullName":{
+		    "title":"Miss",
+		    "first":"Iolanda",
+		    "surname":"Melo",
+		"other":["Bianca"]},
+		"age": 23,
+		"city": "Lisbon"}
+    ]
+}

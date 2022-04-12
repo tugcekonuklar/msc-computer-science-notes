@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE name SYSTEM "studentgrades.dtd">
+
+<studentgrades>
+	<Student>
+	<ID>16430122-1521></ID>
+	<Student>Place,Camden G.</Student>
+	<Maths>
+		<Test1>54%</Test1>
+		<Test2>63%</Test2>
+	</Maths>
+
+	<English>
+		<Essay1>C+</Essay1>
+		<Essay2>B+</Essay2>
+	</English>
+
+	<IT>
+		<Activity1>Pass</Activity1>
+		<Test_2>32%</Test_2>
+		<Essay3>C+</Essay3>
+	</IT>
+	</Student>
+
+	
+	<Student>
+	<ID>16470212-9851></ID>
+	<Student>Weber, Lucy X.</Student>
+	<Maths>
+		<Test1>32%</Test1>
+		<Test2>41%</Test2>
+	</Maths>
+
+	<English>
+		<Essay1>C-</Essay1>
+		<Essay2>C-</Essay2>
+	</English>
+
+	<IT>
+		<Activity1>Fail</Activity1>
+		<Test_2>73%</Test_2>
+		<Essay3>D+</Essay3>
+	</IT>
+	</Student>
+
+	<Student>
+	<ID>16060213-9990></ID>
+	<Student>Branch, caesar A.</Student>
+	<Maths>
+		<Test1>73%</Test1>
+		<Test2>81%</Test2>
+	</Maths>
+
+	<English>
+		<Essay1>C-</Essay1>
+		<Essay2>C+</Essay2>
+	</English>
+
+	<IT>
+		<Activity1>Pass</Activity1>
+		<Test_2>63%</Test_2>
+		<Essay3>B+</Essay3>
+	</IT>
+	</Student>
+
+	<Student>
+	<ID>16720905-9422></ID>
+	<Student>Beck, Sara, K.</Student>
+	<Maths>
+		<Test1>66%</Test1>
+		<Test2>57%</Test2>
+	</Maths>
+
+	<English>
+		<Essay1>C-</Essay1>
+		<Essay2>D+</Essay2>
+	</English>
+
+	<IT>
+		<Activity1>Pass</Activity1>
+		<Test_2>41%</Test_2>
+		<Essay3>C-</Essay3>
+	</IT>
+	</Student>
+
+	<Student>
+	<ID>16471011-55884></ID>
+	<Student>Valenzuela,Daphne E.</Student>
+	<Maths>
+		<Test1>43%</Test1>
+		<Test2>45%</Test2>
+	</Maths>
+
+	<English>
+		<Essay1>B+</Essay1>
+		<Essay2>A-</Essay2>
+	</English>
+
+	<IT>
+		<Activity1>Fail</Activity1>
+		<Test_2>63%</Test_2>
+		<Essay3>C-</Essay3>
+	</IT>
+	</Student>
+
+</studentgrades>

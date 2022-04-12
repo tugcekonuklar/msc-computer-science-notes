@@ -1,0 +1,16 @@
+{
+	"transcripts":[
+		{"studentID":436958, "grades":
+			[{"maths":[78,81]}, {"art":["B-","A"]}, {"IT": ["Pass", 67, "B"]}]},
+		{"studentID":897654,"grades":
+			[{"maths":[54,63]}, {"art":["C+","B+"]},{"IT": ["Pass", 32, "C+"]}]},
+		{"studentID":786789,"grades": 
+			[{"maths":[32,41]}, {"aet":["C-","C-"]},{"IT": ["Fail", 73, "D+"]}]},
+		{"studentID":546854,"grades": 
+			[{"maths":[73,81]}, {"art":["C-","C+"]},{"IT": ["Pass", 63, "B+"]}]},
+		{"studentID":238751,"grades": 
+			[{"maths":[66,57]}, {"art":["C-","D+"]},{"IT": ["Pass", 41, "C-"]}]},
+		{"studentID":894573,"grades": 
+			[{"maths":[43,45]}, {"art":["B+","A-"]},{"IT": ["Fail", 63, "C-"]}]}
+	]
+}

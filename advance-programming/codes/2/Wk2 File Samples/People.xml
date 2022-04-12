@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student>
+	<fullName title="Mrs">
+		<firstName>Lisa</firstName>
+		<surname>Penny</surname>
+		<other num= "1">
+			<name>Melanie</name>
+		</other>
+	</fullName>
+	<age>32</age>
+	<city>London</city>
+	</student>
+	
+	
+	<student>
+	<fullName title="Mr">
+		<firstName>Lorenzo</firstName>
+		<surname>Dubois</surname>
+		<other num="2">
+			<name>Ruelle</name>
+			<name>Garlen</name>
+		</other>
+	</fullName>
+	<age>38</age>
+	<city>Paris</city>
+	</student>
+	
+	
+	<student>
+	<fullName title="Mr">
+		<firstName>Takeshi</firstName>
+		<surname>Tanaka</surname>
+	</fullName>
+	<age>25</age>
+	<city>Tokyo</city>
+	</student>
+	
+	<student>
+	<fullName title="Mr">
+		<firstName>Tanveer</firstName>
+		<surname>Patel</surname>
+		<other num="1">
+			<name>Vihaan</name>
+		</other>
+	</fullName>
+	<age>27</age>
+	<city>Mumbai</city>
+	</student>
+
+	
+	<student>
+	<fullName title="Miss">
+		<firstName>Iolanda</firstName>
+		<surname>Melo</surname>
+		<other num="1">
+			<name>Bianca</name>
+		</other>
+	</fullName>
+	<age>23</age>
+	<city>Lisbon</city>
+	</student>
+
+</students>

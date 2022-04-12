@@ -1,0 +1,16 @@
+<!ELEMENT studentgrades (ID,Student,Maths,English,IT)>
+<!ELEMENT ID (#PCDATA)>
+<!ELEMENT Student (#PCDATA)>
+<!ELEMENT Maths (Test1,Test2)>
+<!ELEMENT Test1 (#PCDATA)>
+<!ELEMENT Test2 (#PCDATA)>
+
+<!ELEMENT English (Essay1,Essay2)>
+<!ELEMENT Essay1 (#PCDATA)>
+<!ELEMENT Essay2 (#PCDATA)>
+
+<!ELEMENT IT (Activity1,Test_2,Essay3)>
+<!ELEMENT Activity1 (#PCDATA)>
+<!ELEMENT Test_2 (#PCDATA)>
+<!ELEMENT Essay3 (#PCDATA)>
+

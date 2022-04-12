@@ -543,9 +543,281 @@ AssertionError                          Traceback (most recent call last)
 AssertionError: num is too small
 ```
 
-#  Regular expressions
+# Regular expressions
 
+* A regular expression (regex for short) is a system of symbols (metacharacters) and rules that enable sophisticated
+  pattern matching within text. Regex is used to find specific parts (one or many) of text or to find and replace parts
+  of text. Each regex pattern and the string it is to be applied to is submitted to a sophisticated pattern matching
+  engine that is optimised for these types of tasks.
 
+## Revisiting Strings
+
+* Python provides a range of string functions that do basic pattern matching and string manipulation such as:
+* .format()Recall that format() or f (at the beginning of a string) enables some simple formatting instructions to be
+  applied such as:
+    * replacing a part of a string with contents of a variable
+    * adding space (width) within strings
+    * outputting values to given decimal places.
+* .split() Enables a string to be broken into parts and given a delimitator which can be a character or a string to be
+  matched.
+* .isalnum() A Boolean check for whether or not the string is alphanumeric. There is a range of isX() functions testing
+  capitalisation, for spaces, etc. These are worth exploring for basic string testing.
+* .replace() Returns a string where a given string pattern is replaced by a second string pattern.
+
+## Python re library
+
+* The python re library provides support for regular expressions. Most of the functions for applying a regex to a string
+  require at least the pattern string (regex) and the string to be analysed, passed as parameters.
+* The library also provides a series of flags (optional) which can be used with most of the functions, which enables the
+  adjustment of pattern matching engine’s interpretation of some of the regex metacharacters
+  <img src="./img/2/22.png" alt="alt text" width="500" height="300">
+
+## Constructing a regular expression
+
+* Before applying these functions, a regular expression needs to be constructed. Regular expressions are simply strings
+  denoting a pattern that needs to be matched by the pattern matching engine. To find a word the matching engine just
+  needs the sequence of characters that represent that word.
+  <img src="./img/2/23.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/24.png" alt="alt text" width="500" height="300">
+
+## RAW STRING
+
+* Python strings can be used to express the regular expression to be submitted to the matching engine. However, this is
+  not always the most effective way, depending on the type of pattern that needs to be matched. Sometimes a pattern
+  needs to match a literal that is also a regex metacharacter. Which can be overly complexed using Python strings
+  <img src="./img/2/25.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/26.png" alt="alt text" width="500" height="300">
+
+## Using compile
+
+* Another way to submit a regex is by generating a regular expression object via the compile() function. This function
+  will take both Python and raw strings to generate the object. The advantage of using an object is that the same regex
+  can then be applied to more than one string without error. Here is an example of how to compile a regex and apply it
+  to two different strings:
+
+``` 
+In [56]: import re
+In [57]: pattern = re.compile('.*U|Y.*Y|U')
+In [58]: result = pattern.match("Universiy of York")
+In [59]: if result:
+    ...:     print("match")
+    ...: else:
+    ...:     print("no match")
+    ...: 
+match
+In [60]: result = pattern.match("York has a University")
+In [61]: if result:
+    ...:     print("match")
+    ...: else:
+    ...:     print("no match")
+    ...:     
+match
+```
+
+## Match object
+
+* Both search() and match() return a match object or None if no match was made. While this can be used simply to test if
+  a match has been made (as demonstrated in the video above) it also contains other information about the match that can
+  be queried to identify specific matches to the regular expression. Some of the functions that can be used on a match
+  object are:
+    * group() return one or more subgroups of the match
+    * re() the regular expression passed to search() or match()
+    * string() the string passed to search() or match()
+
+### Python String functions or Regex?
+
+* Sometimes sting processing may be simpler using standard python constructs. Python code is easier to construct and
+  read but compared to the regex engine, is slow to perform. On the other hand, some regular expressions are very
+  complex, and require a deeper understanding of the regex engine to optimise, and may result in difficult to understand
+  expressions. This is a design decision that will need to be made given the nature of the program and the types of data
+  set it is going to be working with.
+
+# Parsing
+
+* When iterating over a file containing strings of symbols in order to identify specific patterns, this is referred to
+  as parsing. The formal definition of ‘to parse’ is ‘analysing a string to resolve it into logical syntactical
+  components’. There are a number of reasons to parse a document for use with a program such as:
+    * extract (copy only) data into a program
+    * interpreting data, the transformation from one format to another
+    * inserting/deleting data at a specific point.
+
+## CSV
+
+* https://docs.python.org/3/library/csv.html
+* Python provides a standard CSV parser. This can be accessed using import CSV (Links to an external site.). This parser
+  can be used with other delimiters, such as an excel-tab. The reader(), reads in from a file and generates a list of
+  strings unless specific flags are set to return other types. It uses the iterator protocol and __next__() function to
+  enable each element to be accessed. Similarly, the writer() writes to a file and transforms given strings into
+  delimitated strings. There are a number of helper functions to set and determine the dialect of CSV files as not all
+  will use the standard comma.
+  <img src="./img/2/27.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/28.png" alt="alt text" width="500" height="300">
+
+## XML
+
+* Most XML parsers operate in one of two ways, either SAX (Simple API for XML) or DOM (Document Object Model). Their
+  differences are:
+* DOM:
+    * Is model based
+    * The whole document is loaded into memory
+    * Is read and write so edits can be made to the document
+    * The tree can be traversed in any direction
+    * Slow at runtime
+* SAX:
+    * Is event based (this will be covered in more detail in next week’s lessons),
+    * Only small parts of the document are in memory at any one time
+    * Is read-only
+    * Steps through the document (triggering events like tagStart) so data can only be extracted at the current position
+    * Fast at runtime
+* Some of the submodules allow for validation, either via XML Schema (XSD) or DTD and handle namespaces. XPath is a
+  means of traversing XML documents and is also supported in some modules.
+* One of the simplest to get started with is **xml.etree.ElementTree.** This can load the XML document into memory like
+  DOM using parse(), or treat it like SAX using **interparse**() which returns partial structures that can be held in
+  memory. It does not have the full feature set provided by the DOM library for manipulation, but its lightweight
+  approach and faster processing will be suitable for most general XML tasks.
+  <img src="./img/2/29.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/30.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/31.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/32.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/33.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/34.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/35.png" alt="alt text" width="500" height="300">
+
+## JSON
+
+* Reading and writing to JSON format requires import json (Links to an external site.) and works with Python objects and
+  structures. There is not a perfect match between Python and JSON and Table 1 shows how the translation works.
+* Similar to the other formats there are a number of flags that can be set to fine tune the translation process. This
+  class can generate the JSONDecodeError when things go wrong importing a JSON file.
+  <img src="./img/2/36.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/37.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/38.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/39.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/40.png" alt="alt text" width="500" height="300">
+  <img src="./img/2/42.png" alt="alt text" width="500" height="300">
+
+# Databases
+
+* The three types of dtabases that will be examined here are:
+    * Relational databases – modelled as a set of tables (columns as attributes, rows as instances) and their
+      relationships.
+    * Document oriented database – modelled as a collection of documents, each of which can contain data with different
+      structures.
+    * Object oriented database – modelled as a collection of objects with hierarchical structures.
+
+## Relational
+
+* They are designed as a set of tables, relations, that are linked together by using unique identifiers in each table,
+  referred to as primary keys.
+* There is a complex design process referred to as normalisation that aims to reduce data redundancy by breaking up
+  chunks of data into separate tables.
+* Relational databases use Structured Query Language (SQL) for their creation and manipulation. While there are
+  generally standard commands to SQL, individual vendors of Databases adapt this to provide specialist features.
+    * Postgres
+    * MySQL
+    * SQLite
+
+### Structured Query Language (SQL)
+
+* SQL provides commands for the creation, maintenance and querying of a relational database.
+* Each table is referred to by a label and each column within that table is a labelled attribute. Some of the columns
+  within a table will be designated as primary keys (unique identifier within this table) and foreign keys (columns
+  referenced by other tables).
+* Commands:
+    * CREATE() : command would be used to define the details of the table's structure, including the columns labels
+      along with their data type, size and whether or not they can be empty
+    * INSERT()
+    * DROP()
+    * UPDATE()
+    * UNION and JOIN (Intersection).
+      <img src="./img/2/57.png" alt="alt text" width="500" height="300">
+      <img src="./img/2/58.png" alt="alt text" width="500" height="300">
+
+## Document Database
+
+* Transferring the data stored in JSON file into and out of a relational database would defeat the point of JSON’s
+  lightweight approach. Therefore using a document database to be able to store and retrieve JSON formatted files makes
+  a lot of sense.
+
+* MongoDB
+* CouchDB
+* Couchbase
+
+* in search method find(), 0 -> exclude, 1-> include.
+
+<img src="./img/2/42.png" alt="alt text" width="500" height="300">
+<img src="./img/2/43.png" alt="alt text" width="500" height="300">
+<img src="./img/2/44.png" alt="alt text" width="500" height="300">
+<img src="./img/2/45.png" alt="alt text" width="500" height="300">
+<img src="./img/2/46.png" alt="alt text" width="500" height="300">
+<img src="./img/2/47.png" alt="alt text" width="500" height="300">
+<img src="./img/2/48.png" alt="alt text" width="500" height="300">
+<img src="./img/2/49.png" alt="alt text" width="500" height="300">
+<img src="./img/2/50.png" alt="alt text" width="500" height="300">
+<img src="./img/2/51.png" alt="alt text" width="500" height="300">
+<img src="./img/2/52.png" alt="alt text" width="500" height="300">
+<img src="./img/2/53.png" alt="alt text" width="500" height="300">
+<img src="./img/2/54.png" alt="alt text" width="500" height="300">
+<img src="./img/2/55.png" alt="alt text" width="500" height="300">
+<img src="./img/2/56.png" alt="alt text" width="500" height="300">
+
+## Object orientated database
+
+* As the name suggests these databases are based on the concept of an object as OOP languages, such as Java, perceive
+  them.
+* The aim was to minimise or avoid any conversion or decomposition as there is with relational databases.
+* Querying an object store would result in the whole object being returned for inspection, rather than parts of it (as
+  would be the case if they were returned from a relational table).
+* Db4o
+
+# Production
+
+* Each production consists of up to three aspects that should be considered at each stage:
+    * Design: What models, frameworks and other documentation should you produce to support your ideas.
+    * Implementation: What code structures you should consider building and testing to demonstrate how the data is used
+      in your programme.
+    * Reflection: Consider the decisions you have made. Why have you made specific selections and what particular parts
+      of the data/scenario have informed your choices.
+
+## Production 1: Data translation for storage
+
+To enable a program to function each time it runs there needs to be an external and persistent data storage system that
+retains the state of the data. There are two considerations here. The physical storage medium for the data, such as a
+file or database and the format/structure of the data such as CSV or XML. This week you have explored a number of
+different formats in both regards as follows:
+
+CSV XML JSON MongoDB SQL Database Other file formats? Select ONE format that you consider as most suited to the data in
+the scenario and the aims of the program. The format selected should support both the nature of the data and the aims of
+the application being designed. It should provide distinct advantages and minimal limitations over other data formats.
+It should not be selected solely because it is the easiest to program, although this can be included as an advantage if
+applicable.
+
+### Design:
+
+Produce a model that shows how the data needs to be restructured to take best advantage of the selected format and work
+more effectively within the program. Where you have created groups or objects from the data show how they relate to each
+other.
+
+### Implementation:
+
+Implement a parser that reads in the original data file. You may want to create a subset of the data file for testing
+and speed. Your program should then perform the translation from the original format/structure into your selected
+format. The result of this process should then be outputted to its relevant physical medium (files/database).
+
+At this stage there is no requirement to handle data types (other than those inherent in the data format, i.e. numbers
+and “Strings”), conversions or missing data. The program can be demonstrated as a simple console based application,
+requiring the input of the file name by the user and sufficient output to demonstrate the correctness of the translation
+process.
+
+Your program should produce regular output statements to the console so that it is easy to follow what the program is
+doing and provides a visual demonstration of the translation process. This will also be handy for any debugging
+required.
+
+### Reflection on design decisions:
+
+Write a 200-word reflection that states the reason for your format selection and the advantages the format leads to the
+data and application and any limitations on the future use of this data within the selected format. You should consider
+what literature supports your reasoning/decisions.
 
 # TODO
 
@@ -560,10 +832,15 @@ AssertionError: num is too small
 * Padmanabhan T. R. (2016) Programming with Python. Undergraduate Topics in Computer Science. Springer, Cham pp
   175-197Links to an external site.
 * Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham pp
-  69-78Links to an external site. 
+  69-78Links to an external site.
 * [Python Exceptions](https://docs.python.org/3/library/exceptions.html)
-* Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham. pp 69-78Links to an external site.
-* Beazley. D., Jones B. K.  (2013)Python Cookbook.3rd Ed.  O'Reilly Media. Chapter 14 (Links to an external site.)
+* Stephenson B. (2014) The Python Workbook. A Brief Introduction with Exercises and Solutions. Springer, Cham. pp
+  69-78Links to an external site.
+* Beazley. D., Jones B. K.  (2013)Python Cookbook.3rd Ed. O'Reilly Media. Chapter 14 (Links to an external site.)
+* https://docs.python.org/3/library/re.html
+* Igual L., Seguí S. (2017) Introduction to Data Science. Undergraduate Topics in Computer Science. Springer, Cham.
+  Section 10.2Links to an external site.
+
 
 
  

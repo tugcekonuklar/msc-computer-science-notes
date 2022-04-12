@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey>
+	<participant id="1">
+		<gender>M</gender>
+		<age>19</age>
+		<course>Computing</course>
+		<email measure="min/day">30</email>
+		<research measure="hour/week">5</research> 
+		<gaming measure="hour/week">0</gaming>
+		<socialising measure="hour/week">2</socialising>
+		<device>Phone</device>
+  </participant>
+	<participant id="2">
+		<gender>F</gender>
+		<age>21</age>
+		<course>English</course>
+		<email measure="min/day">15</email>
+		<research measure="hour/week">1</research> 
+		<gaming measure="hour/week">4</gaming>
+		<socialising measure="hour/week">5</socialising>
+		<device>Tablet</device>
+  </participant>
+	<participant id="3">
+		<gender>F</gender>
+		<age>19</age>
+		<course>Business</course>
+		<email measure="min/day">30</email>
+		<research measure="hour/week">3</research> 
+		<gaming measure="hour/week">3</gaming>
+		<socialising measure="hour/week">10</socialising>
+		<device>Laptop</device>
+  </participant>
+	<participant id="4">
+		<gender>M</gender>
+		<age>23</age>
+		<course>Business</course>
+		<email measure="min/day">30</email>
+		<research measure="hour/week">3</research> 
+		<gaming measure="hour/week">10</gaming>
+		<socialising measure="hour/week">0</socialising>
+		<device>Tablet</device>
+  </participant>			
+	<participant id="5">
+		<gender>M</gender>
+		<age>19</age>
+		<course>Computing</course>
+		<email measure="min/day">60</email>
+		<research measure="hour/week">5</research> 
+		<gaming measure="hour/week">10</gaming>
+		<socialising measure="hour/week">10</socialising>
+		<device>Laptop</device>
+  </participant>
+	<participant id="6">
+		<gender>M</gender>
+		<age>20</age>
+		<course>Design</course>
+		<email measure="min/day">60</email>
+		<research measure="hour/week">5</research> 
+		<gaming measure="hour/week">14</gaming>
+		<socialising measure="hour/week">15</socialising>
+		<device>Desktop</device>
+  </participant>
+	<participant id="7">
+		<gender>M</gender>
+		<age>26</age>
+		<course>Computing</course>
+		<email measure="min/day">50</email>
+		<research measure="hour/week">10</research> 
+		<gaming measure="hour/week">15</gaming>
+		<socialising measure="hour/week">2</socialising>
+		<device>Phone</device>
+  </participant>			
+	<participant id="8">
+		<gender>F</gender>
+		<age>19</age>
+		<course>Education</course>
+		<email measure="min/day">30</email>
+		<research measure="hour/week">5</research> 
+		<gaming measure="hour/week">5</gaming>
+		<socialising measure="hour/week">1</socialising>
+		<device>Laptop</device>
+  </participant>			
+	<participant id="9">
+		<gender>F</gender>
+		<age>19</age>
+		<course>Design</course>
+		<email measure="min/day">10</email>
+		<research measure="hour/week">15</research> 
+		<gaming measure="hour/week">12</gaming>
+		<socialising measure="hour/week">5</socialising>
+		<device>Tablet</device>
+  </participant>		
+	<participant id="10">
+		<gender>M</gender>
+		<age>19</age>
+		<course>Business</course>
+		<email measure="min/day">10</email>
+		<research measure="hour/week">10</research> 
+		<gaming measure="hour/week">15</gaming>
+		<socialising measure="hour/week">10</socialising>
+		<device>Phone</device>
+  </participant>
+	<participant id="11">
+		<gender>F</gender>
+		<age>21</age>
+		<course>Business</course>
+		<email measure="min/day">45</email>
+		<research measure="hour/week">5</research> 
+		<gaming measure="hour/week">5</gaming>
+		<socialising measure="hour/week">20</socialising>
+		<device>Desktop</device>
+  </participant>
+	<participant id="12">
+		<gender>M</gender>
+		<age>19</age>
+		<course>Computing</course>
+		<email measure="min/day">30</email>
+		<research measure="hour/week">3</research> 
+		<gaming measure="hour/week">6</gaming>
+		<socialising measure="hour/week">8</socialising>
+		<device>Phone</device>
+  </participant>	
+	<participant id="13">
+		<gender>M</gender>
+		<age>19</age>
+		<course>Computing</course>
+		<email measure="min/day">10</email>
+		<research measure="hour/week">2</research> 
+		<gaming measure="hour/week">10</gaming>
+		<socialising measure="hour/week">12</socialising>
+		<device>Desktop</device>
+  </participant>	
+	<participant id="14">
+		<gender>F</gender>
+		<age>21</age>
+		<course>Business</course>
+		<email measure="min/day">45</email>
+		<research measure="hour/week">1</research> 
+		<gaming measure="hour/week">8</gaming>
+		<socialising measure="hour/week">9</socialising>
+		<device>Phone</device>
+  </participant>
+	<participant id="15">
+		<gender>F</gender>
+		<age>32</age>
+		<course>Computing</course>
+		<email measure="min/day">15</email>
+		<research measure="hour/week">0</research> 
+		<gaming measure="hour/week">1</gaming>
+		<socialising measure="hour/week">10</socialising>
+		<device>Tablet</device>
+  </participant>	
+	<participant id="16">
+		<gender>F</gender>
+		<age>19</age>
+		<course>Business</course>
+		<email measure="min/day">10</email>
+		<research measure="hour/week">1</research> 
+		<gaming measure="hour/week">9</gaming>
+		<socialising measure="hour/week">16</socialising>
+		<device>Laptop</device>
+  </participant>		 		
+</survey>
