@@ -731,8 +731,8 @@ match
     * DROP()
     * UPDATE()
     * UNION and JOIN (Intersection).
-      <img src="./img/2/57.png" alt="alt text" width="500" height="300">
-      <img src="./img/2/58.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/2/57.png" alt="alt text" width="500" height="300"></br>
+      </br> <img src="./img/2/58.png" alt="alt text" width="500" height="300"></br>
 
 ## Document Database
 
