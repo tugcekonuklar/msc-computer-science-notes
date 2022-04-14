@@ -72,4 +72,40 @@
     * Chapter 14- pp 642-643 (Links to an external site.)
     * Sebesta, R. W. (2016) Concepts of programming languages. Boston: Pearson
     * Chapter 6 - Links to an external site.pp 145-161Links to an external site.
-    * Lee K. D. (2014) Python Programming Fundamentals. 2nd Ed. Undergraduate Topics in Computer Science. Springer, Cham 
+    * Lee K. D. (2014) Python Programming Fundamentals. 2nd Ed. Undergraduate Topics in Computer Science. Springer, Cham
+
+# WEEK 4
+
+* The core textbook for this module is:
+    * McKinney W. (2017). Python for Data Analysis. 2nd ed. Springer. O'Reilly Media
+
+* Lesson 1:
+    * Chapter 2
+    * Chapter 20 (Links to an external site.)
+        * Hinton, P, R. (2014) Statistics explained. London: Routledge
+    * Chapter 4 & 5 (Links to an external site.)
+        * Diamond, Ian., and Jefferies, J. (2001) Beginning Statistics: An Introduction for Social Scientists. Routledge
+    * Chapter 12, Section 12.4
+        * Chapter 2 (pp. 23-41)
+        * Chapter 13, (pp 223-233)
+
+    * O’Regan G. (2013) Mathematics in Computing London: Springer-Verlag Pages 149-184
+    * Vince J. (2015) Matrices. In: Foundation Mathematics for Computer Science. Springer, Cham
+
+* Lesson 2:
+    * Chapter 4
+        * McKinney W. (2017). Python for Data Analysis. 2nd ed. Springer. O'Reilly Media
+* Lesson 3:
+    * Chapter 5
+        * McKinney W. (2017). Python for Data Analysis. 2nd ed. Springer. O'Reilly Media
+* Lesson 4:
+    * Chapter 6, section 6.1
+
+Chapter 6, section 6.2
+
+Chapter 7, sections 7.1 and 7.2
+
+McKinney W. (2017). Python for Data Analysis. 2nd ed. Springer. O'Reilly Media
+ 
+
+ 
