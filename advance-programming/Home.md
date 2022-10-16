@@ -9,14 +9,6 @@ This module is for MSC Software Engineering lessons notes.
 - [Week-3](#week-3)
 - [Week-4](#week-4)
 
-### Per week
-
-- [Week-1](/advance-programming/Week-1.md)
-- [Week-2](/advance-programming/Week-2.md)
-- [Week-3](/advance-programming/Week-3.md)
-- [Week-4](/advance-programming/Week-4.md)
-- [Books](/advance-programming/Books.md)
-
 # WEEK 1
 
 #### Main Topics
