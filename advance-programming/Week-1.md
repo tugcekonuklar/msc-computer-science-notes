@@ -8,7 +8,7 @@
   referred to as 'Scalar types'.
 * Unlike in Java, Python does not let you declare variables without assigning a value to them. So variables in Python
   are only declared at the point they are needed and assigned an initial value.
-  <img src="./img/1/1.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/1.png" alt="alt text" width="500" height="300">
 
 ```py
   In [5]: num1 = 6
@@ -35,7 +35,7 @@ In [15]: print(f"Whole number: {wholeNum}, Remainder: {remainder}")
 Whole number: 17, Remainder: 3
 ```
 
-  <img src="./img/1/2.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/2.png" alt="alt text" width="500" height="300">
 
 # Decision / Conditions
 
@@ -62,7 +62,7 @@ In [3]: if num1 > num2:
 
 ## Condition statements
 
-<img src="./img/1/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/3.png" alt="alt text" width="500" height="300">
 
 # Loops
 
@@ -118,7 +118,7 @@ Finished!
 ```
 
 * Loop controls
-  <img src="./img/1/4.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/4.png" alt="alt text" width="500" height="300">
 
 # Best Practice
 
@@ -134,7 +134,7 @@ Finished!
     * Function names should focus on what the function does and not on how it is implemented.
 * Python coders typically use either snake_case or camelCase to differentiate words used in their variable names.
 * the keywords (commands) cannot be used as variable names. like below:
-  <img src="./img/1/5.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/5.png" alt="alt text" width="500" height="300">
 
 * **White space:**
     * An expected standard is to use 2 or 4 spaces for indentation. Tabs should generally be avoided as their size
@@ -192,7 +192,7 @@ Out[6]: 'e B'
 * built-in functions:
     * [build in functions](https://docs.python.org/3/library/functions.html)
     * some built-in functions for string
-      <img src="./img/1/6.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/1/6.png" alt="alt text" width="500" height="300">
 
 ## Formatting Strings
 
@@ -429,7 +429,7 @@ Out[11]: [[2, 4, 8, 16], [32, 64, 128, 256], [512, 1024, 2048, 4096]]
 
 * If the delimiter is a space, this is the default for the split() method; otherwise, the delimiting character is passed
   as an argument to the split() method. Lists can also be created by joining elements together using the join() method.
-  <img src="./img/1/7.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/7.png" alt="alt text" width="500" height="300">
 
 * When to use:
     * List[] is best used when you are wanting to make frequent changes to the data set.
@@ -490,8 +490,8 @@ Out[24]: {'5', 5, 'A', 'Jam'}
 ```
 
 * They also have methods for removing individual elements such as pop(), remove() and discard()
-  <img src="./img/1/8.png" alt="alt text" width="500" height="300">
-  <img src="./img/1/9.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/8.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/9.png" alt="alt text" width="500" height="300">
 * When to use:
 * Set{} should be used when there is a requirement to specifically apply set functions to the data.
 * There is a need to ensure that there are no duplicates within the data set, and none can be added.
@@ -508,7 +508,7 @@ In [26]: weekdays
 Out[26]: {1: 'Mon', 2: 'Tues', 3: 'Wed', 4: 'Thur', 5: 'Fri'}
 ```
 
-<img src="./img/1/10.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/10.png" alt="alt text" width="500" height="300">
 * When to use:
 * Dictionary{K:V} is best used when you want to map a set of objects to a set of identifiers.
 * They are highly versatile and the built-in functionality makes it easy to extract and sort both keys and values.

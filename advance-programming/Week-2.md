@@ -40,7 +40,7 @@
   characters, punctuation and codes for non-printable control charters such as a cage return (‘\n’).
 * This is a very small set of encoded symbols, and it was realised fairly early on that a more extensive and flexible
   system was needed
-  </br><img src="./img/2/1.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/1.png" alt="alt text" width="500" height="300"></br>
 
 * ASCII is the default encoding in HTML 4.01, which is still used in about 5% of web pages. Python 2.X’s default
   encoding is ASCII
@@ -71,9 +71,9 @@
 * UTF-8 is a variable length encoding system which uses a minimum of one byte when encoding low code points, with up to
   four bytes are available for symbols with higher code point values. Unicode restricts the number of bits used for
   encoding to twenty-one, which leaves a number of “padding bits” in each byte used.
-  </br><img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
 
 ## UTF-16 and UTF-32
 
@@ -134,9 +134,9 @@
 # Comma Separated Values .CSV
 
 * This is a common file structure used for large data sets requiring little or no semantic information or metadata
-  </br><img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/7.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/7.png" alt="alt text" width="500" height="300"></br>
 
 # eXtensible Mark-up Language .XML
 
@@ -150,16 +150,16 @@
   use an XML Schema. This is a validation document that is itself written in XML. This enables it to be highly
   extensible and take advantage of the XML structure. It is much easier to maintain than a DTD. Both these documents, a
   DTD and XML Schema serve the purpose of being used by a program to validate the correctness of an XML document  
-  </br><img src="./img/2/8.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/9.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/10.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/11.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/12.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/13.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/14.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/15.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/16.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/17.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/8.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/9.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/10.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/11.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/12.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/13.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/14.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/15.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/16.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/17.png" alt="alt text" width="500" height="300"></br>
 
 ## JavaScript Object Notation .JSON
 
@@ -174,8 +174,8 @@
   lightweight and breaking away from the complexity of languages like XML.
 * It extends the functionality of JSON by providing structures like Maps. Like Python, indentation is used to provide
   structure and meaning within the syntax, making this a human-readable format
-  </br><img src="./img/2/18.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/19.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/18.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/19.png" alt="alt text" width="500" height="300"></br>
 
 ## HDF5 format
 
@@ -197,7 +197,7 @@
           data to get to the file. To do this the relative path starts with ../ to indicate the jump up the structure.
         * “..\Data\File.txt”
 
-</br><img src="./img/2/20.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/20.png" alt="alt text" width="500" height="300"></br>
 
 ## Hidden characters
 
@@ -420,7 +420,7 @@ b'H'
 
 # Exception handling
 
-</br><img src="./img/2/21.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/21.png" alt="alt text" width="500" height="300"></br>
 
 
 * Try … except statement
@@ -571,23 +571,23 @@ AssertionError: num is too small
   require at least the pattern string (regex) and the string to be analysed, passed as parameters.
 * The library also provides a series of flags (optional) which can be used with most of the functions, which enables the
   adjustment of pattern matching engine’s interpretation of some of the regex metacharacters
-  </br><img src="./img/2/22.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/22.png" alt="alt text" width="500" height="300"></br>
 
 ## Constructing a regular expression
 
 * Before applying these functions, a regular expression needs to be constructed. Regular expressions are simply strings
   denoting a pattern that needs to be matched by the pattern matching engine. To find a word the matching engine just
   needs the sequence of characters that represent that word.
-  </br><img src="./img/2/23.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/24.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/23.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/24.png" alt="alt text" width="500" height="300"></br>
 
 ## RAW STRING
 
 * Python strings can be used to express the regular expression to be submitted to the matching engine. However, this is
   not always the most effective way, depending on the type of pattern that needs to be matched. Sometimes a pattern
   needs to match a literal that is also a regex metacharacter. Which can be overly complexed using Python strings
-  </br><img src="./img/2/25.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/26.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/25.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/26.png" alt="alt text" width="500" height="300"></br>
 
 ## Using compile
 
@@ -651,8 +651,8 @@ match
   enable each element to be accessed. Similarly, the writer() writes to a file and transforms given strings into
   delimitated strings. There are a number of helper functions to set and determine the dialect of CSV files as not all
   will use the standard comma.
-  </br><img src="./img/2/27.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/28.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/27.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/28.png" alt="alt text" width="500" height="300"></br>
 
 ## XML
 
@@ -676,13 +676,13 @@ match
   DOM using parse(), or treat it like SAX using **interparse**() which returns partial structures that can be held in
   memory. It does not have the full feature set provided by the DOM library for manipulation, but its lightweight
   approach and faster processing will be suitable for most general XML tasks.
-  </br><img src="./img/2/29.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/30.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/31.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/32.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/33.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/34.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/35.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/29.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/30.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/31.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/32.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/33.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/34.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/35.png" alt="alt text" width="500" height="300"></br>
 
 ## JSON
 
@@ -690,12 +690,12 @@ match
   structures. There is not a perfect match between Python and JSON and Table 1 shows how the translation works.
 * Similar to the other formats there are a number of flags that can be set to fine tune the translation process. This
   class can generate the JSONDecodeError when things go wrong importing a JSON file.
-  </br><img src="./img/2/36.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/37.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/38.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/39.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/40.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/36.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/37.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/38.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/39.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/40.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
 
 # Databases
 
@@ -731,8 +731,8 @@ match
     * DROP()
     * UPDATE()
     * UNION and JOIN (Intersection).
-      </br><img src="./img/2/57.png" alt="alt text" width="500" height="300"></br>
-      </br> <img src="./img/2/58.png" alt="alt text" width="500" height="300"></br>
+      </br></br><img src="./img/2/57.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/2/58.png" alt="alt text" width="500" height="300"></br>
 
 ## Document Database
 
@@ -746,21 +746,21 @@ match
 
 * in search method find(), 0 -> exclude, 1-> include.
 
-</br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/43.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/44.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/45.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/46.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/47.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/48.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/49.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/50.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/51.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/52.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/54.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/55.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/56.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/53.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/43.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/44.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/45.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/46.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/47.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/48.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/49.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/50.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/51.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/52.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/54.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/55.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/56.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/53.png" alt="alt text" width="500" height="300"></br>
 
 ## Object orientated database
 

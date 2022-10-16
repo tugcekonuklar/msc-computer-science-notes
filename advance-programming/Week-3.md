@@ -22,7 +22,7 @@
 * The programmer will then simply generate the code for the ‘Action’ and associate it with the handler in some way.
 * The event handler will then also need to be associated with an aspect of the system and the type of events it needs to
   listen for.
-  </br> <img src="./img/3/1.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/1.png" alt="alt text" width="500" height="300"></br>
 
 * What can be captured is an understanding of the state of the program given the occurrence of an event. So in the
   example above (Fig. 1), it can be said that before the button ‘add text’ is activated there is no text in the text
@@ -38,7 +38,7 @@
 * type of program is deterministic in nature.
     * In sequential programming regardless of any iteration, the number of branching statements or function calls, it is
       always possible (however complex) to step through the program and map out all possible paths.
-      </br> <img src="./img/3/2.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/2.png" alt="alt text" width="500" height="300"></br>
 
 * non-deterministic
     * With event-driven programming, mapping out all possible paths is not possible.
@@ -48,7 +48,7 @@
       event-driven approach.
     * When an event is generated, what generated the event, and where in the context of the program's current state that
       event fits, are both aspects that need to be considered.
-      </br> <img src="./img/3/3.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/3.png" alt="alt text" width="500" height="300"></br>
 
 # Formal tools
 
@@ -67,10 +67,10 @@
 
 * A state diagram has two fixed points, the start and the end. Between the boxes contain the state details of various
   elements in the system, and the lines between them define the action that changes these from one state to another.
-  </br> <img src="./img/3/4.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/4.png" alt="alt text" width="500" height="300"></br>
 * Notations and meanings of State Machine Diagrams
-  </br> <img src="./img/3/5.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/5.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
 
 * UML is designed with some flexibility in mind, and while some organisations and development teams a have strict rules
   about how it is used, UML’s aim is to ensure clear communication.
@@ -86,7 +86,7 @@
     * Any adaptions to the standard notation – a key
 
 * [Seidl M., Scholz M., Huemer C., Kappel G. (2015) The State Machine Diagram. In: UML @ Classroom. Undergraduate Topics in Computer Science. Springer, Cham. Chapter 5: pp. 85-106](https://link-springer-com.libproxy.york.ac.uk/content/pdf/10.1007/978-3-319-12742-2.pdf)  
-  </br> <img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
 
 ## Closures and Lambda expressions
 
@@ -244,13 +244,13 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
     7. Scroll bar – to move across/down information in presented in a contained space
     8. Menu bar – to provide functionality
     9. Tabs - to move between views within the same window
-       </br> <img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
+       </br> </br><img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
 
 * For wireframe:
     * Pencil – open source project developing a GUI prototyping tool. Available across platforms.
     * Lucidchart is an online-only application for many types of diagram which is available under your Google drive
       account.
-      </br> <img src="./img/3/9.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/9.png" alt="alt text" width="500" height="300"></br>
 
 # Basic Design Principles and User Testing
 
@@ -260,14 +260,14 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
   the [Nielson/Norman Group](https://www.nngroup.com/articles/ten-usability-heuristics/)  for research-based user
   experience.
 
-    </br> <img src="./img/3/10.png" alt="alt text" width="500" height="300"></br>
+    </br> </br><img src="./img/3/10.png" alt="alt text" width="500" height="300"></br>
 * brief introduction to a set of GUI design principles as laid out by Jeff Johnson in Designing with the Mind in mind
 * The most important of these principles in the context of GUI design are; proximity, similarity, continuity, closure,
   symmetry, figure ground and common fate.
 * Proximity:
     * The first principle, proximity, states that the relative distance between objects determines how they are
       associated with each other. By changing the distances, we can generate visual groups.
-      </br> <img src="./img/3/11.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/11.png" alt="alt text" width="500" height="300"></br>
 * Similarity:
     * Objects with the same properties such as size, shape, colour and other styling look similar and tend to be
       associated as a group. This affect is more pronounced when proximity is applied as well. Both proximity and
@@ -276,23 +276,23 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
       file. Here we see that the save buttons are grouped on the right, with a large space and separated from the
       un-save button which has the potential to lose all data. Both proximity and similarity, button shape and size are
       used here.
-      </br> <img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
 
 * Continuity:
     * demonstrates how the brain adds information that is not necessarily there.
-      </br> <img src="./img/3/13.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/13.png" alt="alt text" width="500" height="300"></br>
     * It is perceived as one continuous shape; in this case a sea monster, with our brain filling in the missing
       information under the sea line.
 * Closure :
     * is also about adding extra information to perceive a whole object.
-      </br> <img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
-      </br> <img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
     * Top left: is this a collection of triangles with a single rectangle, or, is it a stack of rectangles? You are more
       likely to have perceived a stack with the brain adding the missing information to create complete shapes.
 * Symmetry:
     * It seeks to even things out and find balance. In this way, the images are simplified into more comprehensive
       shapes
-      </br> <img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
     * Here the pattern on the left side is more likely to be perceived as overlapping squares, than either of the two
       shapes on the right. One a rotated L shape, and the second a complex 8-sided figure. An example of this can be
       commonly found in art and design programs to provide controls for changing the colour of an objects fill or its
@@ -304,8 +304,8 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
       as being closer to us and therefore of more interest. However, the viewer can switch their interest and focus on
       what may be in the background. Visual illusions can be created by balancing this figure ground effect. So, the
       view can be easily switched between the two.   
-      </br> <img src="./img/3/17.png" alt="alt text" width="500" height="300"></br>
-      </br> <img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/17.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
     * Movement is a tricky thing to make effective in interface design. Anything that moves immediately becomes the
       focus of attention. However, when multiple elements move together in the same way, this works as a mechanism for
       grouping them. As movement is dynamic, it is perceived that will happen to one element will happen to all
@@ -317,10 +317,10 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
 ## Colors:
 
 * [Platton](https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF)
-  </br> <img src="./img/3/19.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/20.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/21.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/22.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/19.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/20.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/21.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/22.png" alt="alt text" width="500" height="300"></br>
 
 ### Further Reading:
 
@@ -338,7 +338,7 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
   take a number of different forms, usually dependent on the software’s development stage, or the nature of what needs
   to be tested. This can include; needs analysis, validation, tests, exploratory tests and evaluation test. Figure 1
   below gives an overview of the different tests and where they are more typically applied in the development process.
-  </br> <img src="./img/3/23.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/23.png" alt="alt text" width="500" height="300"></br>
 
 * Tests can be of a variety of types, using observations or asking users to complete evaluation forms. They may be
   performed on a prototype system, paper or digital, the live system, or other similar systems to understand what types
@@ -375,7 +375,7 @@ In [33]: window.mainloop()
 
 * The call to mainloop() starts the window running. This activates a loop that is listening for any events, such as
   minimising and maximising the window.
-  </br> <img src="./img/3/24.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/24.png" alt="alt text" width="500" height="300"></br>
 
 ## Adding Components
 
@@ -404,7 +404,7 @@ In [41]: text.pack()
 In [42]: window.mainloop()
 ```
 
-  </br> <img src="./img/3/25.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/25.png" alt="alt text" width="500" height="300"></br>
 
 ## Container Widgets
 
@@ -430,7 +430,7 @@ In [52]: window.mainloop()
 * Extending the previous code, here a Frame object has been added, and the label and button attached to this as their
   parent object. The Frame has been given a wide border using borderwidth, and when pack is applied it has instructed to
   place the frame to the left of the main window as shown
-  </br> <img src="./img/3/26.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/26.png" alt="alt text" width="500" height="300"></br>
 * Other container-like components have more specific functionality or styling, such as:
     * ttk.LabelFrame
     * ttk.NoteBook
@@ -448,7 +448,7 @@ In [52]: window.mainloop()
       laid out in response to this. Most suitable for highly structured interfaces, with many components.
     * place() – **uses absolute position** (exact coordinates) to place objects. Requires alternative coordinates for
       window resizing or use with a fixed window. This is the most flexible layout and also the most complex to apply.
-      </br> <img src="./img/3/27.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/27.png" alt="alt text" width="500" height="300"></br>
 
 ```  
 import tkinter as tk 
@@ -484,7 +484,7 @@ window.mainloop()
   1 via the grid_columnconfigure() and grid_rowconfigure() function all space is used. As the window is resized, all the
   labels will resize to fill the window. Figure 1 shows (A) without grid_columnconfigure() and gird_rowconfigure() set,
   and (B) with them all set with a weight of 1.
-  </br> <img src="./img/3/28.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/28.png" alt="alt text" width="500" height="300"></br>
 
 ``` 
 In [64]:import tkinter as tk
@@ -508,7 +508,7 @@ In [67]: label1.place(height=150, width=100, x=0, y=0)
 * The place() function takes attributes for defining the x, y positioning of the labels, as well as sizing the area
   allocated to the label using height and width, which are optional. The coordinates, in this case, are in relation to
   the parent (containing) component, in this case, the main window.
-  </br> <img src="./img/3/29.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/29.png" alt="alt text" width="500" height="300"></br>
 
 # Adding style
 
@@ -599,7 +599,7 @@ Out[75]: 4
 In [76]: window.mainloop()
 ```
 
-  </br> <img src="./img/3/30.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/30.png" alt="alt text" width="500" height="300"></br>
 
 # Implementing interaction
 
@@ -668,7 +668,7 @@ In [88]: window.mainloop()
   call-back function has access to the objects within the main body of the program.
 * In block 7 is the Entry() widget in which the user will place the term they want a definition for. The callback
   function also accesses that data to perform its action by applying the .get() method to the Entry() object.
-  </br> <img src="./img/3/31.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/31.png" alt="alt text" width="500" height="300"></br>
 
 ## Special variables
 
@@ -704,7 +704,7 @@ window.mainloop()
   tk.SpringVar is used for managing Strings. This special variable is then associated with the Entry() textvariable
   parameter, and is effectively adding listener to the Entry() object. If no callback function is bound to the Entry()
   object, the special variable simply acts as a holder for the value entered by the user.
-  </br> <img src="./img/3/32.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/32.png" alt="alt text" width="500" height="300"></br>
 
 ```
 import tkinter as tk
@@ -730,7 +730,7 @@ user_selection.pack()
 window.mainloop()
 ```
 
-  </br> <img src="./img/3/33.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/33.png" alt="alt text" width="500" height="300"></br>
 
 ## Other methods and constants
 
@@ -760,7 +760,7 @@ window.mainloop()
   appropriate ‘action’. While not identical to the processes within a GUI, it is the concept of the event that drives
   the application on the server side. Thus when designing such systems it is effective to think in terms of user
   requests and the application's response to them.
-  </br> <img src="./img/3/34.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/34.png" alt="alt text" width="500" height="300"></br>
 
 ## Internet of Things (IoT)
 
@@ -778,7 +778,7 @@ window.mainloop()
 * the central control may not be responding back to each sensor, but it will have to ‘listen’ for the incoming message
   and ‘handle’ the data appropriately by performing some sort of ‘action’. Even if that is simply storing the data for
   later.
-  </br> <img src="./img/3/35.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/35.png" alt="alt text" width="500" height="300"></br>
 
 # Production
 

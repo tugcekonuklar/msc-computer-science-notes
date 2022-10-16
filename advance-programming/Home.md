@@ -29,7 +29,7 @@ This module is for MSC Software Engineering lessons notes.
   referred to as 'Scalar types'.
 * Unlike in Java, Python does not let you declare variables without assigning a value to them. So variables in Python
   are only declared at the point they are needed and assigned an initial value.
-  <img src="./img/1/1.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/1.png" alt="alt text" width="500" height="300">
 
 ```py
   In [5]: num1 = 6
@@ -56,7 +56,7 @@ In [15]: print(f"Whole number: {wholeNum}, Remainder: {remainder}")
 Whole number: 17, Remainder: 3
 ```
 
-  <img src="./img/1/2.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/2.png" alt="alt text" width="500" height="300">
 
 # Decision / Conditions
 
@@ -83,7 +83,7 @@ In [3]: if num1 > num2:
 
 ## Condition statements
 
-<img src="./img/1/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/3.png" alt="alt text" width="500" height="300">
 
 # Loops
 
@@ -139,7 +139,7 @@ Finished!
 ```
 
 * Loop controls
-  <img src="./img/1/4.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/4.png" alt="alt text" width="500" height="300">
 
 # Best Practice
 
@@ -155,7 +155,7 @@ Finished!
     * Function names should focus on what the function does and not on how it is implemented.
 * Python coders typically use either snake_case or camelCase to differentiate words used in their variable names.
 * the keywords (commands) cannot be used as variable names. like below:
-  <img src="./img/1/5.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/5.png" alt="alt text" width="500" height="300">
 
 * **White space:**
     * An expected standard is to use 2 or 4 spaces for indentation. Tabs should generally be avoided as their size
@@ -213,7 +213,7 @@ Out[6]: 'e B'
 * built-in functions:
     * [build in functions](https://docs.python.org/3/library/functions.html)
     * some built-in functions for string
-      <img src="./img/1/6.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/1/6.png" alt="alt text" width="500" height="300">
 
 ## Formatting Strings
 
@@ -450,7 +450,7 @@ Out[11]: [[2, 4, 8, 16], [32, 64, 128, 256], [512, 1024, 2048, 4096]]
 
 * If the delimiter is a space, this is the default for the split() method; otherwise, the delimiting character is passed
   as an argument to the split() method. Lists can also be created by joining elements together using the join() method.
-  <img src="./img/1/7.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/1/7.png" alt="alt text" width="500" height="300">
 
 * When to use:
     * List[] is best used when you are wanting to make frequent changes to the data set.
@@ -511,8 +511,8 @@ Out[24]: {'5', 5, 'A', 'Jam'}
 ```
 
 * They also have methods for removing individual elements such as pop(), remove() and discard()
-  <br><img src="./img/1/8.png" alt="alt text" width="500" height="300"> </br>
-  <br><img src="./img/1/9.png" alt="alt text" width="500" height="300"> </br>
+  <br></br><img src="./img/1/8.png" alt="alt text" width="500" height="300"> </br>
+  <br></br><img src="./img/1/9.png" alt="alt text" width="500" height="300"> </br>
 * When to use:
 * Set{} should be used when there is a requirement to specifically apply set functions to the data.
 * There is a need to ensure that there are no duplicates within the data set, and none can be added.
@@ -529,7 +529,7 @@ In [26]: weekdays
 Out[26]: {1: 'Mon', 2: 'Tues', 3: 'Wed', 4: 'Thur', 5: 'Fri'}
 ```
 
-<img src="./img/1/10.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/10.png" alt="alt text" width="500" height="300">
 * When to use:
 * Dictionary{K:V} is best used when you want to map a set of objects to a set of identifiers.
 * They are highly versatile and the built-in functionality makes it easy to extract and sort both keys and values.
@@ -966,7 +966,7 @@ In [12]: class Person(object):
   characters, punctuation and codes for non-printable control charters such as a cage return (‘\n’).
 * This is a very small set of encoded symbols, and it was realised fairly early on that a more extensive and flexible
   system was needed
-  </br><img src="./img/2/1.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/1.png" alt="alt text" width="500" height="300"></br>
 
 * ASCII is the default encoding in HTML 4.01, which is still used in about 5% of web pages. Python 2.X’s default
   encoding is ASCII
@@ -997,9 +997,9 @@ In [12]: class Person(object):
 * UTF-8 is a variable length encoding system which uses a minimum of one byte when encoding low code points, with up to
   four bytes are available for symbols with higher code point values. Unicode restricts the number of bits used for
   encoding to twenty-one, which leaves a number of “padding bits” in each byte used.
-  </br><img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/2.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/3.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/4.png" alt="alt text" width="500" height="300"></br>
 
 ## UTF-16 and UTF-32
 
@@ -1060,9 +1060,9 @@ In [12]: class Person(object):
 # Comma Separated Values .CSV
 
 * This is a common file structure used for large data sets requiring little or no semantic information or metadata
-  </br><img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/7.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/5.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/6.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/7.png" alt="alt text" width="500" height="300"></br>
 
 # eXtensible Mark-up Language .XML
 
@@ -1076,16 +1076,16 @@ In [12]: class Person(object):
   use an XML Schema. This is a validation document that is itself written in XML. This enables it to be highly
   extensible and take advantage of the XML structure. It is much easier to maintain than a DTD. Both these documents, a
   DTD and XML Schema serve the purpose of being used by a program to validate the correctness of an XML document  
-  </br><img src="./img/2/8.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/9.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/10.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/11.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/12.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/13.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/14.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/15.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/16.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/17.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/8.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/9.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/10.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/11.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/12.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/13.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/14.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/15.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/16.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/17.png" alt="alt text" width="500" height="300"></br>
 
 ## JavaScript Object Notation .JSON
 
@@ -1100,8 +1100,8 @@ In [12]: class Person(object):
   lightweight and breaking away from the complexity of languages like XML.
 * It extends the functionality of JSON by providing structures like Maps. Like Python, indentation is used to provide
   structure and meaning within the syntax, making this a human-readable format
-  </br><img src="./img/2/18.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/19.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/18.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/19.png" alt="alt text" width="500" height="300"></br>
 
 ## HDF5 format
 
@@ -1123,7 +1123,7 @@ In [12]: class Person(object):
           data to get to the file. To do this the relative path starts with ../ to indicate the jump up the structure.
         * “..\Data\File.txt”
 
-</br><img src="./img/2/20.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/20.png" alt="alt text" width="500" height="300"></br>
 
 ## Hidden characters
 
@@ -1346,7 +1346,7 @@ b'H'
 
 # Exception handling
 
-</br><img src="./img/2/21.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/21.png" alt="alt text" width="500" height="300"></br>
 
 * Try … except statement
     * the except statement is excepting all and any exceptions
@@ -1496,23 +1496,23 @@ AssertionError: num is too small
   require at least the pattern string (regex) and the string to be analysed, passed as parameters.
 * The library also provides a series of flags (optional) which can be used with most of the functions, which enables the
   adjustment of pattern matching engine’s interpretation of some of the regex metacharacters
-  </br><img src="./img/2/22.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/22.png" alt="alt text" width="500" height="300"></br>
 
 ## Constructing a regular expression
 
 * Before applying these functions, a regular expression needs to be constructed. Regular expressions are simply strings
   denoting a pattern that needs to be matched by the pattern matching engine. To find a word the matching engine just
   needs the sequence of characters that represent that word.
-  </br><img src="./img/2/23.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/24.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/23.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/24.png" alt="alt text" width="500" height="300"></br>
 
 ## RAW STRING
 
 * Python strings can be used to express the regular expression to be submitted to the matching engine. However, this is
   not always the most effective way, depending on the type of pattern that needs to be matched. Sometimes a pattern
   needs to match a literal that is also a regex metacharacter. Which can be overly complexed using Python strings
-  </br><img src="./img/2/25.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/26.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/25.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/26.png" alt="alt text" width="500" height="300"></br>
 
 ## Using compile
 
@@ -1576,8 +1576,8 @@ match
   enable each element to be accessed. Similarly, the writer() writes to a file and transforms given strings into
   delimitated strings. There are a number of helper functions to set and determine the dialect of CSV files as not all
   will use the standard comma.
-  </br><img src="./img/2/27.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/28.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/27.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/28.png" alt="alt text" width="500" height="300"></br>
 
 ## XML
 
@@ -1601,13 +1601,13 @@ match
   DOM using parse(), or treat it like SAX using **interparse**() which returns partial structures that can be held in
   memory. It does not have the full feature set provided by the DOM library for manipulation, but its lightweight
   approach and faster processing will be suitable for most general XML tasks.
-  </br><img src="./img/2/29.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/30.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/31.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/32.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/33.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/34.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/35.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/29.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/30.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/31.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/32.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/33.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/34.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/35.png" alt="alt text" width="500" height="300"></br>
 
 ## JSON
 
@@ -1615,12 +1615,12 @@ match
   structures. There is not a perfect match between Python and JSON and Table 1 shows how the translation works.
 * Similar to the other formats there are a number of flags that can be set to fine tune the translation process. This
   class can generate the JSONDecodeError when things go wrong importing a JSON file.
-  </br><img src="./img/2/36.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/37.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/38.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/39.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/40.png" alt="alt text" width="500" height="300"></br>
-  </br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/36.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/37.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/38.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/39.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/40.png" alt="alt text" width="500" height="300"></br>
+  </br></br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
 
 # Databases
 
@@ -1656,8 +1656,8 @@ match
     * DROP()
     * UPDATE()
     * UNION and JOIN (Intersection).
-      </br><img src="./img/2/57.png" alt="alt text" width="500" height="300"></br>
-      </br> <img src="./img/2/58.png" alt="alt text" width="500" height="300"></br>
+      </br></br><img src="./img/2/57.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/2/58.png" alt="alt text" width="500" height="300"></br>
 
 ## Document Database
 
@@ -1671,21 +1671,21 @@ match
 
 * in search method find(), 0 -> exclude, 1-> include.
 
-</br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/43.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/44.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/45.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/46.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/47.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/48.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/49.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/50.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/51.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/52.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/54.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/55.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/56.png" alt="alt text" width="500" height="300"></br>
-</br><img src="./img/2/53.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/42.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/43.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/44.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/45.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/46.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/47.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/48.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/49.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/50.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/51.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/52.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/54.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/55.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/56.png" alt="alt text" width="500" height="300"></br>
+</br></br><img src="./img/2/53.png" alt="alt text" width="500" height="300"></br>
 
 ## Object orientated database
 
@@ -1793,7 +1793,7 @@ what literature supports your reasoning/decisions.
 * The programmer will then simply generate the code for the ‘Action’ and associate it with the handler in some way.
 * The event handler will then also need to be associated with an aspect of the system and the type of events it needs to
   listen for.
-  </br> <img src="./img/3/1.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/1.png" alt="alt text" width="500" height="300"></br>
 
 * What can be captured is an understanding of the state of the program given the occurrence of an event. So in the
   example above (Fig. 1), it can be said that before the button ‘add text’ is activated there is no text in the text
@@ -1809,7 +1809,7 @@ what literature supports your reasoning/decisions.
 * type of program is deterministic in nature.
     * In sequential programming regardless of any iteration, the number of branching statements or function calls, it is
       always possible (however complex) to step through the program and map out all possible paths.
-      </br> <img src="./img/3/2.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/2.png" alt="alt text" width="500" height="300"></br>
 
 * non-deterministic
     * With event-driven programming, mapping out all possible paths is not possible.
@@ -1819,7 +1819,7 @@ what literature supports your reasoning/decisions.
       event-driven approach.
     * When an event is generated, what generated the event, and where in the context of the program's current state that
       event fits, are both aspects that need to be considered.
-      </br> <img src="./img/3/3.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/3.png" alt="alt text" width="500" height="300"></br>
 
 # Formal tools
 
@@ -1838,10 +1838,10 @@ what literature supports your reasoning/decisions.
 
 * A state diagram has two fixed points, the start and the end. Between the boxes contain the state details of various
   elements in the system, and the lines between them define the action that changes these from one state to another.
-  </br> <img src="./img/3/4.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/4.png" alt="alt text" width="500" height="300"></br>
 * Notations and meanings of State Machine Diagrams
-  </br> <img src="./img/3/5.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/5.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/6.png" alt="alt text" width="500" height="300"></br>
 
 * UML is designed with some flexibility in mind, and while some organisations and development teams a have strict rules
   about how it is used, UML’s aim is to ensure clear communication.
@@ -1857,7 +1857,7 @@ what literature supports your reasoning/decisions.
     * Any adaptions to the standard notation – a key
 
 * [Seidl M., Scholz M., Huemer C., Kappel G. (2015) The State Machine Diagram. In: UML @ Classroom. Undergraduate Topics in Computer Science. Springer, Cham. Chapter 5: pp. 85-106](https://link-springer-com.libproxy.york.ac.uk/content/pdf/10.1007/978-3-319-12742-2.pdf)  
-  </br> <img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/7.png" alt="alt text" width="500" height="300"></br>
 
 ## Closures and Lambda expressions
 
@@ -2015,13 +2015,13 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
     7. Scroll bar – to move across/down information in presented in a contained space
     8. Menu bar – to provide functionality
     9. Tabs - to move between views within the same window
-       </br> <img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
+       </br> </br><img src="./img/3/8.png" alt="alt text" width="500" height="300"></br>
 
 * For wireframe:
     * Pencil – open source project developing a GUI prototyping tool. Available across platforms.
     * Lucidchart is an online-only application for many types of diagram which is available under your Google drive
       account.
-      </br> <img src="./img/3/9.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/9.png" alt="alt text" width="500" height="300"></br>
 
 # Basic Design Principles and User Testing
 
@@ -2031,14 +2031,14 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
   the [Nielson/Norman Group](https://www.nngroup.com/articles/ten-usability-heuristics/)  for research-based user
   experience.
 
-    </br> <img src="./img/3/10.png" alt="alt text" width="500" height="300"></br>
+    </br> </br><img src="./img/3/10.png" alt="alt text" width="500" height="300"></br>
 * brief introduction to a set of GUI design principles as laid out by Jeff Johnson in Designing with the Mind in mind
 * The most important of these principles in the context of GUI design are; proximity, similarity, continuity, closure,
   symmetry, figure ground and common fate.
 * Proximity:
     * The first principle, proximity, states that the relative distance between objects determines how they are
       associated with each other. By changing the distances, we can generate visual groups.
-      </br> <img src="./img/3/11.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/11.png" alt="alt text" width="500" height="300"></br>
 * Similarity:
     * Objects with the same properties such as size, shape, colour and other styling look similar and tend to be
       associated as a group. This affect is more pronounced when proximity is applied as well. Both proximity and
@@ -2047,23 +2047,23 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
       file. Here we see that the save buttons are grouped on the right, with a large space and separated from the
       un-save button which has the potential to lose all data. Both proximity and similarity, button shape and size are
       used here.
-      </br> <img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/12.png" alt="alt text" width="500" height="300"></br>
 
 * Continuity:
     * demonstrates how the brain adds information that is not necessarily there.
-      </br> <img src="./img/3/13.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/13.png" alt="alt text" width="500" height="300"></br>
     * It is perceived as one continuous shape; in this case a sea monster, with our brain filling in the missing
       information under the sea line.
 * Closure :
     * is also about adding extra information to perceive a whole object.
-      </br> <img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
-      </br> <img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/14.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/15.png" alt="alt text" width="500" height="300"></br>
     * Top left: is this a collection of triangles with a single rectangle, or, is it a stack of rectangles? You are more
       likely to have perceived a stack with the brain adding the missing information to create complete shapes.
 * Symmetry:
     * It seeks to even things out and find balance. In this way, the images are simplified into more comprehensive
       shapes
-      </br> <img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/16.png" alt="alt text" width="500" height="300"></br>
     * Here the pattern on the left side is more likely to be perceived as overlapping squares, than either of the two
       shapes on the right. One a rotated L shape, and the second a complex 8-sided figure. An example of this can be
       commonly found in art and design programs to provide controls for changing the colour of an objects fill or its
@@ -2075,8 +2075,8 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
       as being closer to us and therefore of more interest. However, the viewer can switch their interest and focus on
       what may be in the background. Visual illusions can be created by balancing this figure ground effect. So, the
       view can be easily switched between the two.   
-      </br> <img src="./img/3/17.png" alt="alt text" width="500" height="300"></br>
-      </br> <img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/17.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/18.png" alt="alt text" width="500" height="300"></br>
     * Movement is a tricky thing to make effective in interface design. Anything that moves immediately becomes the
       focus of attention. However, when multiple elements move together in the same way, this works as a mechanism for
       grouping them. As movement is dynamic, it is perceived that will happen to one element will happen to all
@@ -2088,10 +2088,10 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
 ## Colors:
 
 * [Platton](https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF)
-  </br> <img src="./img/3/19.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/20.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/21.png" alt="alt text" width="500" height="300"></br>
-  </br> <img src="./img/3/22.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/19.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/20.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/21.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/22.png" alt="alt text" width="500" height="300"></br>
 
 ### Further Reading:
 
@@ -2109,7 +2109,7 @@ In [29]: print("5 items at £7: £", itemCosts[6](5), "including VAT")
   take a number of different forms, usually dependent on the software’s development stage, or the nature of what needs
   to be tested. This can include; needs analysis, validation, tests, exploratory tests and evaluation test. Figure 1
   below gives an overview of the different tests and where they are more typically applied in the development process.
-  </br> <img src="./img/3/23.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/23.png" alt="alt text" width="500" height="300"></br>
 
 * Tests can be of a variety of types, using observations or asking users to complete evaluation forms. They may be
   performed on a prototype system, paper or digital, the live system, or other similar systems to understand what types
@@ -2146,7 +2146,7 @@ In [33]: window.mainloop()
 
 * The call to mainloop() starts the window running. This activates a loop that is listening for any events, such as
   minimising and maximising the window.
-  </br> <img src="./img/3/24.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/24.png" alt="alt text" width="500" height="300"></br>
 
 ## Adding Components
 
@@ -2175,7 +2175,7 @@ In [41]: text.pack()
 In [42]: window.mainloop()
 ```
 
-  </br> <img src="./img/3/25.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/25.png" alt="alt text" width="500" height="300"></br>
 
 ## Container Widgets
 
@@ -2201,7 +2201,7 @@ In [52]: window.mainloop()
 * Extending the previous code, here a Frame object has been added, and the label and button attached to this as their
   parent object. The Frame has been given a wide border using borderwidth, and when pack is applied it has instructed to
   place the frame to the left of the main window as shown
-  </br> <img src="./img/3/26.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/26.png" alt="alt text" width="500" height="300"></br>
 * Other container-like components have more specific functionality or styling, such as:
     * ttk.LabelFrame
     * ttk.NoteBook
@@ -2219,7 +2219,7 @@ In [52]: window.mainloop()
       laid out in response to this. Most suitable for highly structured interfaces, with many components.
     * place() – **uses absolute position** (exact coordinates) to place objects. Requires alternative coordinates for
       window resizing or use with a fixed window. This is the most flexible layout and also the most complex to apply.
-      </br> <img src="./img/3/27.png" alt="alt text" width="500" height="300"></br>
+      </br> </br><img src="./img/3/27.png" alt="alt text" width="500" height="300"></br>
 
 ```  
 import tkinter as tk 
@@ -2255,7 +2255,7 @@ window.mainloop()
   1 via the grid_columnconfigure() and grid_rowconfigure() function all space is used. As the window is resized, all the
   labels will resize to fill the window. Figure 1 shows (A) without grid_columnconfigure() and gird_rowconfigure() set,
   and (B) with them all set with a weight of 1.
-  </br> <img src="./img/3/28.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/28.png" alt="alt text" width="500" height="300"></br>
 
 ``` 
 In [64]:import tkinter as tk
@@ -2279,7 +2279,7 @@ In [67]: label1.place(height=150, width=100, x=0, y=0)
 * The place() function takes attributes for defining the x, y positioning of the labels, as well as sizing the area
   allocated to the label using height and width, which are optional. The coordinates, in this case, are in relation to
   the parent (containing) component, in this case, the main window.
-  </br> <img src="./img/3/29.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/29.png" alt="alt text" width="500" height="300"></br>
 
 # Adding style
 
@@ -2370,7 +2370,7 @@ Out[75]: 4
 In [76]: window.mainloop()
 ```
 
-  </br> <img src="./img/3/30.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/30.png" alt="alt text" width="500" height="300"></br>
 
 # Implementing interaction
 
@@ -2439,7 +2439,7 @@ In [88]: window.mainloop()
   call-back function has access to the objects within the main body of the program.
 * In block 7 is the Entry() widget in which the user will place the term they want a definition for. The callback
   function also accesses that data to perform its action by applying the .get() method to the Entry() object.
-  </br> <img src="./img/3/31.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/31.png" alt="alt text" width="500" height="300"></br>
 
 ## Special variables
 
@@ -2475,7 +2475,7 @@ window.mainloop()
   tk.SpringVar is used for managing Strings. This special variable is then associated with the Entry() textvariable
   parameter, and is effectively adding listener to the Entry() object. If no callback function is bound to the Entry()
   object, the special variable simply acts as a holder for the value entered by the user.
-  </br> <img src="./img/3/32.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/32.png" alt="alt text" width="500" height="300"></br>
 
 ```
 import tkinter as tk
@@ -2501,7 +2501,7 @@ user_selection.pack()
 window.mainloop()
 ```
 
-  </br> <img src="./img/3/33.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/33.png" alt="alt text" width="500" height="300"></br>
 
 ## Other methods and constants
 
@@ -2531,7 +2531,7 @@ window.mainloop()
   appropriate ‘action’. While not identical to the processes within a GUI, it is the concept of the event that drives
   the application on the server side. Thus when designing such systems it is effective to think in terms of user
   requests and the application's response to them.
-  </br> <img src="./img/3/34.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/34.png" alt="alt text" width="500" height="300"></br>
 
 ## Internet of Things (IoT)
 
@@ -2549,7 +2549,7 @@ window.mainloop()
 * the central control may not be responding back to each sensor, but it will have to ‘listen’ for the incoming message
   and ‘handle’ the data appropriately by performing some sort of ‘action’. Even if that is simply storing the data for
   later.
-  </br> <img src="./img/3/35.png" alt="alt text" width="500" height="300"></br>
+  </br> </br><img src="./img/3/35.png" alt="alt text" width="500" height="300"></br>
 
 # Production
 
