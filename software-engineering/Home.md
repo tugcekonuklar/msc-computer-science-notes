@@ -81,7 +81,7 @@ delivery, support
 From an abstract level :<br>
 **_linear , Iterative , Parallel_**
 
-<img src="./img/1/1.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/1.png" alt="alt text" width="500" height="300">
 
 ### Selecting appropriate life-cycle model
 
@@ -94,7 +94,7 @@ From an abstract level :<br>
     * Type of application (e.g. online banking system vs. game)
     * Requirements uncertainty
 
-<img src="./img/1/13.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/13.png" alt="alt text" width="500" height="300">
 
 ### WaterFall:
 
@@ -110,9 +110,9 @@ _Process from - to:_
 
 * **requirement** -> **design** -> **implementation** -> **verification** -> **maintenance**
 
-<img src="./img/1/2.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/2.png" alt="alt text" width="500" height="300">
 
-<img src="./img/1/5.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/5.png" alt="alt text" width="500" height="300">
 
 #### Pitfalls:
 
@@ -127,7 +127,7 @@ _Process from - to:_
 * Same as Waterfall process
 * Not practical end effective in practice
 
-<img src="./img/1/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/3.png" alt="alt text" width="500" height="300">
 
 ### Incremental:
 
@@ -137,7 +137,7 @@ _Process from - to:_
 * In each increment requirements are frozen before starting.<br>
 * Changes in each increment can address for the next incrementation flow<br>
 
-<img src="./img/1/4.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/4.png" alt="alt text" width="500" height="300">
 
 ### Prototyping:
 
@@ -157,7 +157,7 @@ _Process from - to:_
     * To determine the efficacy of some technologies or the appropriateness of a technological choice
 * Prototype is mostly used as part of other life-cycle models, for example spiral models.
 
-<img src="./img/1/6.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/6.png" alt="alt text" width="500" height="300">
 
 Stages required to prepare a prototype are as follows.
 
@@ -221,7 +221,7 @@ Stages required to prepare a prototype are as follows.
     * Iteration -> nature of development process
     * Incrementation -> nature of system delivery
 
-<img src="./img/1/23.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/23.png" alt="alt text" width="500" height="300">
 
 ### Spiral:
 
@@ -245,7 +245,7 @@ Boehm's Spiral model (1988):
 * Highly depend on risk analyse: Risk analyse has to be right.
 * Complex: can be costly to implement.
 
-<img src="./img/1/7.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/7.png" alt="alt text" width="500" height="300">
 
 ## Methodological Approaches
 
@@ -280,7 +280,7 @@ Boehm's Spiral model (1988):
     * **Construction**’s main aim is to build the software system. _Focus implementation_
     * **Transition** deals with product installation and rollout. _Focus deployment_
 
-<img src="./img/1/9.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/9.png" alt="alt text" width="500" height="300">
 
 * Combines many best practices:
     * Iterative
@@ -294,7 +294,7 @@ Boehm's Spiral model (1988):
       stage so you can synchronise them via round trip engineering, for example you can generate a design from the
       program code.
 
-<img src="./img/1/8.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/8.png" alt="alt text" width="500" height="300">
 
 # Agile Development
 
@@ -335,7 +335,7 @@ Agile:<br>
     * System integration
     * Tools to automate user interface production.
 
-<img src="./img/1/10.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/10.png" alt="alt text" width="500" height="300">
 
 ## Essential distinction between plan-driven and agile approaches
 
@@ -353,7 +353,7 @@ Essential distinction to system specifications:
 * Customer collaboration over contract negotiation
 * Responding to change over following a plan
 
-<img src="./img/1/11.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/11.png" alt="alt text" width="500" height="300">
 
 ## Agile development techniques
 
@@ -375,7 +375,7 @@ Essential distinction to system specifications:
         * Refactoring
         * continuous integration
     * Maintaining simplicity by refactoring and simple design XP practices:<br>
-      <img src="./img/1/14.png" alt="alt text" width="600" height="400">
+      </br><img src="./img/1/14.png" alt="alt text" width="600" height="400">
 
 ### User Stories:
 
@@ -394,7 +394,7 @@ Essential distinction to system specifications:
 * Occurs continuously as coding through refactoring.
 * KISS principle
 
-<img src="./img/1/15.png" alt="alt text" width="300" height="200">
+</br><img src="./img/1/15.png" alt="alt text" width="300" height="200">
 
 ### Refactoring
 
@@ -452,7 +452,7 @@ Scrum :
     * Improve trust between customer and team.
 
 Scrum Roles:<br>
-<img src="./img/1/16.png" alt="alt text" width="600" height="400">
+</br><img src="./img/1/16.png" alt="alt text" width="600" height="400">
 
 ## Practical problems with agile methods
 
@@ -499,14 +499,14 @@ Scrum Roles:<br>
 * A collection of actors, use cases and their communications
 * Describes the behaviour of a system from user's standpoint: functional description and its major process.
 
-<img src="./img/1/17.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/17.png" alt="alt text" width="500" height="300">
 
 ### Class Diagram
 
 * Shows the classes in system and their relations.
 * Typically shows the static overview of the system
 
-<img src="./img/1/18.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/18.png" alt="alt text" width="500" height="300">
 
 ### Instance Diagram
 
@@ -515,14 +515,14 @@ Scrum Roles:<br>
 * Only have two counterparts:
     * object name and attributes with values
 
-<img src="./img/1/19.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/19.png" alt="alt text" width="500" height="300">
 
 ### Sequence Diagram
 
 * A type of interaction diagram
 * Shows the object interaction in a time-ordering fashion.
 
-<img src="./img/1/20.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/20.png" alt="alt text" width="500" height="300">
 
 ### Activity Diagram
 
@@ -547,7 +547,7 @@ Scrum Roles:<br>
     * the operation name and class name can be used as the name of an action;
     * an object can be shown as providing the input to or output of an action.
 
-<img src="./img/1/22.png" alt="alt text" width="500" height="300">
+</br><img src="./img/1/22.png" alt="alt text" width="500" height="300">
 
 ## Questions:
 
@@ -588,7 +588,7 @@ Scrum Roles:<br>
     * testing
     * implementation.
 
-<img src="./img/1/21.png" alt="alt text" width="600" height="400">
+</br><img src="./img/1/21.png" alt="alt text" width="600" height="400">
 
 # Sources
 
@@ -858,7 +858,7 @@ Scrum Roles:<br>
   geographic areas, for example they are useful if an organisation has so many branches through out the country or the
   world.
 
-<img src="./img/2/1.png" alt="alt text" width="500" height="300">    
+</br><img src="./img/2/1.png" alt="alt text" width="500" height="300">
 
 * Guidelines: Using questionnaires requires good planning
     * Coding: Decide how to code the results at the end. Every question needs to capable for coding.
@@ -932,7 +932,7 @@ Scrum Roles:<br>
     * those involved in testing
     * subjects of training courses end-users of the new system.
 
-<img src="./img/2/2.png" alt="alt text" width="500" height="300">   
+</br><img src="./img/2/2.png" alt="alt text" width="500" height="300">
 
 ## Documentation Requirement
 
@@ -966,7 +966,7 @@ Scrum Roles:<br>
     * **prototypes**
 * Use case modelling is an iterative process.
 
-<img src="./img/2/12.png" alt="alt text" width="500" height="300">    
+</br><img src="./img/2/12.png" alt="alt text" width="500" height="300">
 
 ## Notation
 
@@ -975,10 +975,10 @@ Scrum Roles:<br>
     * System boundary
     * Use Cases
 
-<img src="./img/2/6.png" alt="alt text" width="500" height="300">   
+</br><img src="./img/2/6.png" alt="alt text" width="500" height="300">
 
 * As an example building a Banking app
-  <img src="./img/2/3.png" alt="alt text" width="600" height="500">
+  </br><img src="./img/2/3.png" alt="alt text" width="600" height="500">
 
 ### Systems
 
@@ -1039,7 +1039,7 @@ Scrum Roles:<br>
 * **Scenario**: used to describe the alternative courses or specific paths through the use case such as response to
   errors where the use case represents the general case.
 * **Step-by-step** form of use case description
-  <img src="./img/2/13.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/2/13.png" alt="alt text" width="500" height="300">
 
 ### Relationships
 
@@ -1069,7 +1069,7 @@ Scrum Roles:<br>
 * **The include use cases never stands alone** because it is not a discrete goal that a user wants to achieve.
     * And also because of that you can not connect include use case directly to the actor, it is wrong
 
-<img src="./img/2/10.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/10.png" alt="alt text" width="500" height="300">
 
 ### Extend :
 
@@ -1084,12 +1084,12 @@ Scrum Roles:<br>
 * **Extension points :** detail version of extend relationship
 * **Extend can be stand alone,** because it helps to user to achieve an additional discrete goal
 
-<img src="./img/2/7.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/7.png" alt="alt text" width="500" height="300">
 
-<img src="./img/2/18.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/18.png" alt="alt text" width="500" height="300">
 
 Example:<br>
-<img src="./img/2/4.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/4.png" alt="alt text" width="500" height="300">
 
 * **Multiple base use cases can point the same included/extend use cases.**
 * **Important** to not overuse, can cause to divide the functional use cases into many small cases that does not contain
@@ -1108,7 +1108,7 @@ Example:<br>
 * Another usage, there may be similar use cases where the common functionality is best represented by generalizing out
   that functionality into a **super-use case** and showing it separately
 
-<img src="./img/2/9.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/9.png" alt="alt text" width="500" height="300">
 
 
 ---
@@ -1123,7 +1123,7 @@ Example:<br>
     * UI can be sketched out with papers to show user formaly or informaly.
     * Sequence of the screen layouts can show in storyboard
 
-<img src="./img/2/8.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/8.png" alt="alt text" width="500" height="300">
 
 ## CASE tool support
 
@@ -1145,7 +1145,7 @@ Example:<br>
   activity diagrams. The idea that it is possible to model business processes and then have them automated directly
   through the use of workflow tools and services
 
-<img src="./img/2/15.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/15.png" alt="alt text" width="500" height="300">
 
 ## Testing and use cases
 
@@ -1168,7 +1168,7 @@ Example:<br>
     * _Could have_ requirements are less important
     * _Won’t have_ this time around requirements can reasonably be left for development in a later increment.
 
-<img src="./img/2/11.png" alt="alt text" width="500" height="300">   
+</br><img src="./img/2/11.png" alt="alt text" width="500" height="300">
 
 ## Capturing use case diagram:
 
@@ -1188,7 +1188,7 @@ Example:<br>
     * When there is a significant difference between the goal of the use case oan actor experience.
         * ie ATM use case Deposit Money use case can separate in 2 use cases : Deposit Cash and Deposit Cheques.
 
-<img src="./img/2/14.png" alt="alt text" width="500" height="300">
+</br><img src="./img/2/14.png" alt="alt text" width="500" height="300">
 
 # Summary:
 
@@ -1204,9 +1204,9 @@ Example:<br>
 
 * **Activities of Requirements Modelling**
 
-<img src="./img/2/16.png" alt="alt text" width="350" height="500">
+</br><img src="./img/2/16.png" alt="alt text" width="350" height="500">
 <br>
-<img src="./img/2/17.png" alt="alt text" width="300" height="200">
+</br><img src="./img/2/17.png" alt="alt text" width="300" height="200">
 
 # Questions:
 
@@ -1342,7 +1342,7 @@ Example:<br>
     * **Attributes and operations specification**
         * involves OCL, activity diagram and state machines.
 
-<img src="./img/3/18.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/18.png" alt="alt text" width="500" height="300"><br>
 
 ## Class diagram: concept and notations
 
@@ -1352,7 +1352,7 @@ Example:<br>
     * Analyse class diagrams : detailed with type data.
     * Design class diagram : more detailed with code to implement the classes.
 
-<img src="./img/3/1.png" alt="alt text" width="500" height="300">   
+</br><img src="./img/3/1.png" alt="alt text" width="500" height="300">
 
 ## Analysis Class Diagram: Concepts and Notation
 
@@ -1365,11 +1365,11 @@ Example:<br>
 
 #### Class
 
-<img src="./img/3/2.png" alt="alt text" width="500" height="300">  
+</br><img src="./img/3/2.png" alt="alt text" width="500" height="300">
 
 #### Object
 
-<img src="./img/3/3.png" alt="alt text" width="500" height="300">  
+</br><img src="./img/3/3.png" alt="alt text" width="500" height="300">
 
 ### Attributes
 
@@ -1386,7 +1386,7 @@ Example:<br>
 * Less commonly, a link can connect an instance to itself.
 * :Client (the colon before the class name indicates an anonymous instance of the class, in other words any client)
 
-<img src="./img/3/4.png" alt="alt text" width="500" height="300">
+</br><img src="./img/3/4.png" alt="alt text" width="500" height="300">
 
 ### Associations between classes
 
@@ -1398,8 +1398,8 @@ Example:<br>
 * The association end name represents a data value that holds a reference to an instance of another domain class rather
   than a value like an integer or a string
 
-<img src="./img/3/5.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/16.png" alt="alt text" width="500" height="300">
+</br><img src="./img/3/5.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/16.png" alt="alt text" width="500" height="300">
 
 ### Multiplicity
 
@@ -1411,9 +1411,9 @@ Example:<br>
         * Every account is for 1, and only 1, customer
 
 * This example, each StaffMember liaises with zero or more Clients, and each Client has only one staffMember to liaises
-  <img src="./img/3/6.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/3/6.png" alt="alt text" width="500" height="300">
   <br>
-  <img src="./img/3/7.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/3/7.png" alt="alt text" width="500" height="300">
 
 ### Operations
 
@@ -1429,7 +1429,7 @@ Example:<br>
     * Send messages to other objects
     * Create or destroy links
 
-<img src="./img/3/8.png" alt="alt text" width="500" height="300">
+</br><img src="./img/3/8.png" alt="alt text" width="500" height="300">
 
 ### Object State
 
@@ -1539,10 +1539,10 @@ Example:<br>
 * **Difference between abstract and interface** : An abstract class contains at least one abstract method, whereas all
   methods in an interface class are abstract.
 
-<img src="./img/3/13.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/17.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/11.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/12.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/13.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/17.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/11.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/12.png" alt="alt text" width="500" height="300"><br>
 
 ## Finding and modelling composition (Aggregation, composition)
 
@@ -1567,8 +1567,8 @@ Example:<br>
   the part share the same lifecycle. For composition, if you destroy the whole, the part will disappear. For
   aggregation, if you destroy the whole, the part may not disappear.
 
-<img src="./img/3/14.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/15.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/14.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/15.png" alt="alt text" width="500" height="300"><br>
 
 # Class modelling
 
@@ -1587,7 +1587,7 @@ Example:<br>
 
 * Boundary classes ‘model interaction between the system and its actors’ (Jacobson et al., 1999).
 * Boundary class represents interaction with the user
-  <img src="./img/3/19.png" alt="alt text" width="500" height="300"><br>
+  </br><img src="./img/3/19.png" alt="alt text" width="500" height="300"><br>
 
 ### Entity classes
 
@@ -1598,7 +1598,7 @@ Example:<br>
 * Entity classes represent the behaviour of things in the application domain and storage of information that is directly
   associated with those things (possibly including some elements of calculation and scheduling).
 
-<img src="./img/3/20.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/20.png" alt="alt text" width="500" height="300"><br>
 
 ### Control classes
 
@@ -1607,7 +1607,7 @@ Example:<br>
 * Control classes represent the calculation and scheduling aspects of the logic of their use cases —at any rate, those
   parts that are not specific to the behaviour of a particular entity class and that are specific to the use case
 
-<img src="./img/3/21.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/21.png" alt="alt text" width="500" height="300"><br>
 
 ## Guidelines for Identifying Classes
 
@@ -1645,7 +1645,7 @@ Example:<br>
     * Can an advert belong to more than one campaign? If so, this could be just a normal association, not an
       aggregation.
 
-<img src="./img/3/22.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/22.png" alt="alt text" width="500" height="300"><br>
 
 # Interaction modelling
 
@@ -1697,8 +1697,8 @@ Example:<br>
       responsibility for a given task.
 * The results are recorded in CRC cards paper CASE.
 
-<img src="./img/3/23.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/24.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/23.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/24.png" alt="alt text" width="500" height="300"><br>
 
 ## Sequence diagram notations
 
@@ -1711,10 +1711,10 @@ Example:<br>
 * Self message: message starts and finishes to the same lifeline
 * Recursive message: message starts and finishes to lifeline on top of the activated lifeline
 
-<img src="./img/3/25.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/26.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/27.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/3/29.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/25.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/26.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/27.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/3/29.png" alt="alt text" width="500" height="300"><br>
 
 # Questions:
 
@@ -1722,7 +1722,7 @@ Example:<br>
     * Class attributes are shared amongst all instances of that class. An instance attribute is local to that object
       instance
 
-<img src="./img/3/28.png" alt="alt text" width="700" height="800"><br>
+</br><img src="./img/3/28.png" alt="alt text" width="700" height="800"><br>
 
 # Sources
 
@@ -1795,7 +1795,7 @@ Relevant module learning outcomes for this week:
     * Focus on **what** the operation should achieve (a black box approach) rather than **how** the operation should
       work (a white box approach).
 
-<img src="./img/4/1.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/1.png" alt="alt text" width="500" height="300">
 
 * Two main purposes of an operation specification
     * From an analysis perspective, an operation specification is created at a point when the analyst’s understanding of
@@ -1831,7 +1831,7 @@ Relevant module learning outcomes for this week:
             * A user should be able to check that it correctly expresses the business logic.
             * A class designer should be able to produce a detailed design of the operation for a programmer to code.
 
-<img src="./img/4/2.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/2.png" alt="alt text" width="500" height="300">
 
 ### Algorithmic approaches (procedural)
 
@@ -1946,7 +1946,7 @@ Relevant module learning outcomes for this week:
 * Arrow ->
     * A property of the collection itself is accessed by using an arrow ‘->’ followed by the name of the property
 
-```js
+```
 context
 Person
 inv:
@@ -1966,13 +1966,13 @@ size() < 3
 * False IMPLIES anything is True
 * anything IMPLIES True is True
 
-<img src="./img/4/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/3.png" alt="alt text" width="500" height="300">
 
-<img src="./img/4/4.png" alt="alt text" width="500" height="700">
+</br><img src="./img/4/4.png" alt="alt text" width="500" height="700">
 
 ## Examples
 
-```js
+```
 // -- Invariants
 context
 Company
@@ -2055,11 +2055,11 @@ size() <= 50
 
 ```
 
-<img src="./img/4/5.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/5.png" alt="alt text" width="500" height="300">
 
 ### Pre- Post  constraints
 
-<img src="./img/4/6.png" alt="alt text" width="300" height="150">
+</br><img src="./img/4/6.png" alt="alt text" width="300" height="150">
 
 ### Properties: AssociationEnds and Navigation
 
@@ -2075,7 +2075,7 @@ size() <= 50
 * When the name of an association-end is missing at one of the ends of an association, the name of the type at the
   association end starting with a lowercase character is used as the rolename.
 
-```js
+```
 context
 Company
 inv: self.manager.isUnemployed = false // -- self.manager is a Person, because the multiplicity of the association is one
@@ -2090,7 +2090,7 @@ notEmpty()  // -- is a set
   builds one value by iterating over a collection.
     * ``` collection->iterate( elem : Type; acc : Type = <expression> | expression-with-elem-and-acc ) ```
 
-```js
+```
 collection->collect(x
 :
 T | x.property
@@ -2138,9 +2138,9 @@ with-v)
 
 ```
 
-<img src="./img/4/7.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/7.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // A vehicle owner must be at least 18 years old
 context
 Vehicle
@@ -2229,9 +2229,9 @@ post: result = name
 
 ### Bank Account
 
-<img src="./img/4/8.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/8.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // CUSTOMER
 context
 Customer
@@ -2431,7 +2431,7 @@ and
 
 ### Campaign
 
-```js
+```
 
 context
 Campaign
@@ -2490,7 +2490,7 @@ self.staffGrade.previous.getGradeFinishDate() = gradeChangeDate.minus(1)
 
 ### Person
 
-```js
+```
 context
 Person
 inv: self.gender = Gender::male
@@ -2517,7 +2517,7 @@ N
 
 ### Crate
 
-```js
+```
 context
 Crate
 // -- the number of bottles may not exceed its capacity
@@ -2548,9 +2548,9 @@ post: bottles = bottles
 including(b)
 ```
 
-<img src="./img/4/17.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/17.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // There are two pre-requisites for a GPModule team: the number of members on a team should be no more than maxNumber and a team ID should contain no more than 10 characters.
 context
 Team
@@ -2593,9 +2593,9 @@ size() = 0
 
 ### 2018
 
-<img src="./img/4/18.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/18.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // 1 [8 marks] There are two pre-requisites for a mortgage: 
 // i) the age of the borrower must be no less than 18 and no more than 65 years old and 
 // ii) the borrower of a mortgage on a house must be the owner of the house.
@@ -2650,9 +2650,9 @@ excludes(h)
 
 ### 2017
 
-<img src="./img/4/19.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/19.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // 1. [8 marks] There are two pre-requisites for a module: the moduleID should contain exactly four characters and the number of students on each module must be at least 10.
 context
 Module
@@ -2707,7 +2707,7 @@ pro: self.creditEarned = self.creaditEarn
     * State machines model one class, how it responds to all the events that affect it
     * It can also be seen as a more detailed view of a class.
 
-<img src="./img/4/9.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/9.png" alt="alt text" width="500" height="300">
 
 ## State Modelling
 
@@ -2767,8 +2767,8 @@ pro: self.creditEarned = self.creaditEarn
     * ‘run-to- completion’ : Once initiated this action must execute fully before any other action is considered
     * What does an action start with /
 
-<img src="./img/4/10.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/4/11.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/10.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/4/11.png" alt="alt text" width="500" height="300">
 
 * The name compartment holds the name of the state. States may be unnamed and anonymous.
 * State internal activity : The internal activities compartment lists the internal activities or state activities that
@@ -2791,9 +2791,9 @@ pro: self.creditEarned = self.creaditEarn
     * Internal transitions do not cause a state change and do not invoke the exit or entry activities.
 * Vertex: Each node in a state machine diagram
 
-<img src="./img/4/12.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/4/12.png" alt="alt text" width="500" height="300"><br>
 
-<img src="./img/4/13.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/13.png" alt="alt text" width="500" height="300">
 
 * Composite states : is the state that has several substates, nested states.
     * A single state that contains a nested state diagram within it known as **submachine**
@@ -2806,7 +2806,7 @@ pro: self.creditEarned = self.creaditEarn
   also shows that the containing state is not exited until both parallel nested submachines are exited with transitions
   that merge at the **join** pseudostate.
 
-<img src="./img/4/14.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/14.png" alt="alt text" width="500" height="300">
 
 ## Preparing a State Machine
 
@@ -2900,8 +2900,8 @@ pro: self.creditEarned = self.creaditEarn
 
 ### Activity
 
-<img src="./img/4/15.png" alt="alt text" width="500" height="300"> <br>
-<img src="./img/4/16.png" alt="alt text" width="500" height="300">
+</br><img src="./img/4/15.png" alt="alt text" width="500" height="300"> <br>
+</br><img src="./img/4/16.png" alt="alt text" width="500" height="300">
 
 # Summary
 
@@ -3025,7 +3025,7 @@ Relevant module learning outcomes for this week:<br>
       aspects of the system also have to be designed in an object- oriented system, but they will be organized in terms
       of classes.
 
-<img src="./img/5/1.png" alt="alt text" width="500" height="300">
+</br><img src="./img/5/1.png" alt="alt text" width="500" height="300">
 
 # 12 Quality Criteria For Good Design
 
@@ -3070,7 +3070,7 @@ Relevant module learning outcomes for this week:<br>
 * A dependency between two packages exist if any dependency exists between any 2 classes in the packages.
 * Here is 4 pachages has dependency each other, eg, Business has a dependency to Database.
 
-<img src="./img/5/2.png" alt="alt text" width="500" height="300">
+</br><img src="./img/5/2.png" alt="alt text" width="500" height="300">
 
 ## Criteria for package design
 
@@ -3102,7 +3102,7 @@ Relevant module learning outcomes for this week:<br>
 * Advantage: Low coupling
 * Disadvantage: Each layer introduce a speed & storage overhead. e.g bottleneck
 
-<img src="./img/5/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/5/3.png" alt="alt text" width="500" height="300">
 
 ### Open Architecture
 
@@ -3110,34 +3110,34 @@ Relevant module learning outcomes for this week:<br>
 * Advantage: This can avoid performance bottlenecks.
 * Disadvantage: it suffers the penalty of increased coupling due to extra dependencies.
 
-<img src="./img/5/4.png" alt="alt text" width="500" height="300">
+</br><img src="./img/5/4.png" alt="alt text" width="500" height="300">
 
 ### Repository Architecture
 
 * This is a system that allow several interfacing components to share the same data.
 * Advantage : Easy to add a subsystem
 * Disadvantage: Repository can be a bottleneck due to excessive queue requests.
-  <img src="./img/5/5.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/5/5.png" alt="alt text" width="500" height="300">
 
 ### Client-server architecture
 
 * Multiple client requests and receive service from a centralized host server.
 * Client needs to know server, but server does not know the client. Server wont effect any client changes by this way.
-  <img src="./img/5/6.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/5/6.png" alt="alt text" width="500" height="300">
 
 ### Peer to peer architecture (P2P)
 
 * Commanly use in network architecture in which each subsystem has the same capabilities and responsibilities. eg multi
   agent apps
 * Disadvantages: introduces more coupling and control flow hazards, so it is more difficult to implement and maintain
-  <img src="./img/5/7.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/5/7.png" alt="alt text" width="500" height="300">
 
 ### Broker architecture
 
 * Client does not need to know where the server, client communicate with broker and broker knows where server is. e.g.
   in a distributed ecommerce system
 
-<img src="./img/5/8.png" alt="alt text" width="500" height="300">
+</br><img src="./img/5/8.png" alt="alt text" width="500" height="300">
 
 ### MVC (Model-View-Controller)
 
@@ -3161,11 +3161,11 @@ Relevant module learning outcomes for this week:<br>
     * Propagation mechanism. This enables the model to inform each view that the model data has changed and as a result
       the view must update itself. It is also often called the dependency mechanism.
 
-<img src="./img/5/10.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/10.png" alt="alt text" width="500" height="300"><br>
 
 [10 Common architecture](https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013)
 
-<img src="./img/5/9.png" alt="alt text" width="700" height="500"><br>
+</br><img src="./img/5/9.png" alt="alt text" width="700" height="500"><br>
 
 # Low-level design
 
@@ -3188,21 +3188,21 @@ Relevant module learning outcomes for this week:<br>
     * Inheritance coupling describes the degree to which a subclass actually needs the features it inherits from its
       base class
 
-<img src="./img/5/11.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/11.png" alt="alt text" width="500" height="300"><br>
 
 * Cohesion is a measure of the degree to which an element contributes to a single purpose
     * Operation cohesion measures the degree to which an operation focuses on a single functional requirement.
     * Class cohesion reflects the degree to which a class is focused on a single requirement
     * Specialization cohesion addresses the semantic cohesion of inheritance hierarchies.
 
-<img src="./img/5/12.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/5/13.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/5/14.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/12.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/13.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/14.png" alt="alt text" width="500" height="300"><br>
 
 ## Attributes and operation specification
 
 * Attributes data types are show with this formule:
-    * ```js <property> ::= [<visibility>] [‘/’] <name> [‘:’ <prop-type>] [‘[’ <multiplicity> ‘]’] [‘=’ <default>] [‘{’ <property-string > [‘,’ <property-string >]* ‘}’] ```
+    * ``` <property> ::= [<visibility>] [‘/’] <name> [‘:’ <prop-type>] [‘[’ <multiplicity> ‘]’] [‘=’ <default>] [‘{’ <property-string > [‘,’ <property-string >]* ‘}’] ```
     * For example :
         * with default value -> balance: Money = 0.00
         * not null -> accountName: String {not null}
@@ -3220,33 +3220,33 @@ Relevant module learning outcomes for this week:<br>
       that class, or by classes in the same package
 
 * Operation signatures: eg credit(amount: Money): Boolean
-    * ```js <parameter-list> ::= <parameter> [‘,’<parameter>]* <parameter> ::= [<direction>] <parameter-name> ‘:’ <type-expression> [‘[’<multiplicity>‘]’ [‘=’ <default>] [‘{’ < property-string >[‘,’ < property-string >]* ‘}’] ```
+    * ``` <parameter-list> ::= <parameter> [‘,’<parameter>]* <parameter> ::= [<direction>] <parameter-name> ‘:’ <type-expression> [‘[’<multiplicity>‘]’ [‘=’ <default>] [‘{’ < property-string >[‘,’ < property-string >]* ‘}’] ```
 
 * Naming:
     * Singular names for classes, eg Customer
     * Attribute names needs to be unabbreviated names with a noun from the domain. eg firstName is better fName
     * Operations should be named with a strong verb, eg validateNumber() is better than numberChecking()
 
-<img src="./img/5/16.png" alt="alt text" width="600" height="400"><br>
-<img src="./img/5/17.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/16.png" alt="alt text" width="600" height="400"><br>
+</br><img src="./img/5/17.png" alt="alt text" width="500" height="300"><br>
 
 ## Designing associations and constraints
 
 * one-to-one association (one way)
 
-<img src="./img/5/18.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/18.png" alt="alt text" width="500" height="300"><br>
 
 * one-to-many (one way)
     * There is also another way to do by using a collection class in it, but still there is a one-to-many association
     * . One-to-many association can be designed with one collection class and many-to-many with two collection classes.
-      <img src="./img/5/19.png" alt="alt text" width="500" height="300"><br>
-      <img src="./img/5/20.png" alt="alt text" width="500" height="300"><br>
+      </br><img src="./img/5/19.png" alt="alt text" width="500" height="300"><br>
+      </br><img src="./img/5/20.png" alt="alt text" width="500" height="300"><br>
 
 * many-to-many (two way)
     * in the second sample 2 ways association is turning one way one-to-many association
     * When we revert many to many to -> one to one or one to many, we reducing coupling.  
-      <img src="./img/5/21.png" alt="alt text" width="500" height="300"><br>
-      <img src="./img/5/22.png" alt="alt text" width="500" height="300"><br>
+      </br><img src="./img/5/21.png" alt="alt text" width="500" height="300"><br>
+      </br><img src="./img/5/22.png" alt="alt text" width="500" height="300"><br>
 
 ## Constraints Design
 
@@ -3273,7 +3273,7 @@ Relevant module learning outcomes for this week:<br>
     * Instantiated patterns are at a micro-architecture level,
     * individual class is at the lowest level of reuse.
 
-<img src="./img/5/23.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/23.png" alt="alt text" width="500" height="300"><br>
 
 * Why we use ?
     * Saves analyse and design time
@@ -3357,8 +3357,8 @@ Relevant module learning outcomes for this week:<br>
       the getInstance() operation no additional instance is created but the object identity of the existing object is
       returned.
 
-<img src="./img/5/24.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/5/25.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/24.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/25.png" alt="alt text" width="500" height="300"><br>
 
 ## Structural Pattern
 
@@ -3394,8 +3394,8 @@ Relevant module learning outcomes for this week:<br>
       operation invokes the relevant operation from its components using a simple loop construct. The Composite subclass
       also has additional operations to manage the aggregation hierarchy so that components may be added or removed.
 
-<img src="./img/5/26.png" alt="alt text" width="500" height="300"><br>
-<img src="./img/5/27.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/26.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/27.png" alt="alt text" width="500" height="300"><br>
 
 ## Behavioral Pattern
 
@@ -3439,7 +3439,7 @@ Relevant module learning outcomes for this week:<br>
       appropriate state object. The original object becomes an aggregate of its states, only one of which is active at
       one time. The state objects form an inheritance hierarchy.
 
-<img src="./img/5/28.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/28.png" alt="alt text" width="500" height="300"><br>
 
 ### Observer Pattern
 
@@ -3464,7 +3464,7 @@ Relevant module learning outcomes for this week:<br>
   performance are impractical. Changes to the subject may cause a set of linked updates to observers to be generated,
   some of which may not be necessary.
 
-<img src="./img/5/29.png" alt="alt text" width="500" height="300"><br>
+</br><img src="./img/5/29.png" alt="alt text" width="500" height="300"><br>
 
 # Questions
 
@@ -3544,7 +3544,7 @@ Relevant Module Learning Outcomes
     * Run the software on the input values
     * Compare results & execution characteristics to expectations
 
-<img src="./img/6/1.png" alt="alt text" width="600" height="300">
+</br><img src="./img/6/1.png" alt="alt text" width="600" height="300">
 
 * **limitation of testing**: Testing can only show the presence of errors, never their absence
     * We should be aware of the limitations of testing Why?
@@ -3607,7 +3607,7 @@ Relevant Module Learning Outcomes
           execution environment, control problems or fundamental architectural problems can be revealed from the very
           beginning.
 
-<img src="./img/6/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/3.png" alt="alt text" width="500" height="300">
 
     * bottom-up
         * starts at lowest level (units) and progressively combines into larger subsystems until final system is reached
@@ -3616,7 +3616,7 @@ Relevant Module Learning Outcomes
         * But environment of testing is not actual execution environment, control problems or fundamental architectural
           problems may not surface until very late.
 
-<img src="./img/6/4.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/4.png" alt="alt text" width="500" height="300">
 
     * big-bang approach
         * All the method links, edits, compiles and runs all the modules together.
@@ -3624,7 +3624,7 @@ Relevant Module Learning Outcomes
         * May possibly be used to create a backbone network, which can subsequently act as a test harness.
         * it is only interesting for small to moderate size projects.
 
-<img src="./img/6/5.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/5.png" alt="alt text" width="500" height="300">
 
 ### Subsystem testing
 
@@ -3676,7 +3676,7 @@ Relevant Module Learning Outcomes
 ## Test Planning
 
 * Test documentation shows details of each test and its expected outcomes with plan
-  <img src="./img/6/2.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/2.png" alt="alt text" width="500" height="300">
 
 # Specification-based testing (Black box testing)
 
@@ -3704,13 +3704,13 @@ Relevant Module Learning Outcomes
   depends on how ‘representative’ you think your chosen points are.
     * Bear in mind that the (implicit) assumption is that all points in the class are representative of the whole class
 * An example to see how equivalence classes can be used to detect errors.
-  <img src="./img/6/6.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/6.png" alt="alt text" width="500" height="300">
 
 * Black box tests are based on the actual requirements, not the internals.
 * Let’s pick one representative input from each class: 1 and 7. So for input 1, the specified output is 0,the test
   result is 0 so it passes. For input 7, the specified output is 7,but the test output is 49, so the error is detected.
 
-<img src="./img/6/7.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/7.png" alt="alt text" width="500" height="300">
 
 * Equvalence classes are good to detect errors
 * But there is some potential problems
@@ -3757,7 +3757,7 @@ Relevant Module Learning Outcomes
   statements.
 * Junction: circle representing junctions. Junction is point at which control flow can merge e.g., end if, end loop.
 
-<img src="./img/6/8.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/8.png" alt="alt text" width="500" height="300">
 
 ## Statement and Branch coverage
 
@@ -3766,14 +3766,14 @@ Relevant Module Learning Outcomes
     * In this example, the test T1 will exercise the statement Z:=X+5; once, therefore gives statement coverage.But what
       if “B>6” should have been “B>=5”? This error cannot be detected by the test.
 
-<img src="./img/6/9.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/9.png" alt="alt text" width="500" height="300">
 
 * Branch or decision coverage aims to have each branch (edge in the CFG) executed at least once.
     * For example the decision point (X>0 and Y>0) has two branches: the true branch and the false branch.Test T1 will
       exercise the false branch and T2 will exercise the true branch. The two tests therefore provides 100% branch
       coverage as well as statement coverage.
 
-<img src="./img/6/10.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/10.png" alt="alt text" width="500" height="300">
 
 * How to choose the path to get coverage?
     * The advice is to pick simple, functionally sensible paths first, then pick additional paths that are small
@@ -3803,7 +3803,7 @@ Relevant Module Learning Outcomes
 
 * Consider the following method:
 
-```java
+```
  int ABS(int x)
         {
         if(x< 0)
@@ -3819,7 +3819,7 @@ Relevant Module Learning Outcomes
   coverage
 * Draw a control flow graph that represents the method code.
 
-<img src="./img/6/11.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/11.png" alt="alt text" width="500" height="300">
 
 ## Conditional coverage
 
@@ -3841,8 +3841,8 @@ Relevant Module Learning Outcomes
       the outcome when B=true.
 * MC/DC achieves a good balance of thoroughness and test size
 
-  <img src="./img/6/12.png" alt="alt text" width="500" height="300">
-  <img src="./img/6/13.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/12.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/13.png" alt="alt text" width="500" height="300">
 
 * [MC/DC Youtube video](https://www.youtube.com/watch?v=9i9xpxn6pzM)
     * Create a truth table,
@@ -3850,7 +3850,7 @@ Relevant Module Learning Outcomes
       condition
     * if result is also filipd then those 2 test can use .
 
-<img src="./img/6/16.png" alt="alt text" width="500" height="300">
+</br><img src="./img/6/16.png" alt="alt text" width="500" height="300">
 
 ## Activity
 
@@ -3858,8 +3858,8 @@ Relevant Module Learning Outcomes
     * Draw a control flow graph
     * Write a test that can achieve statement, but not branch coverage for the max method
 
-  <img src="./img/6/14.png" alt="alt text" width="500" height="300">
-  <img src="./img/6/15.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/14.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/15.png" alt="alt text" width="500" height="300">
 
     * Answer :  T= {1, 2, 3, 4} will achieve statement but not branch coverage. It leaves 5F->O branch unexecuted.
 
@@ -3881,16 +3881,16 @@ Relevant Module Learning Outcomes
 * To all methods in Junit [Junit Source Lib Doc](http://junit.sourceforge.net/javadoc/)
 * You can setup fixtures before/after **all test methods** run test by using
 
-  <img src="./img/6/17.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/6/17.png" alt="alt text" width="500" height="300">
 
-```java
+```
 @Before public void setup(){...}
 @After public void teardown(){...}
 ```
 
 * If you want to set up test fixtures **once** before/after the entire test class
 
-```java
+```
 @BeforeClass public static void setUpBeforeClass(){...}
 @AfterClass public static void tearDownAfterClass(){...}
 ```
@@ -4063,7 +4063,7 @@ Relevant Module Learning Outcomes for this week:
 * Software quality is not just about whether the software functionality has been correctly implemented, but also depends
   on non-functional system attributes as shown below.
     * These attributes reflect the software dependability, usability, efficiency, and maintainability.
-      <img src="./img/7/1.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/7/1.png" alt="alt text" width="500" height="300">
 * It is not possible for any system to be optimized for all of these attributes. For example, improving security may
   lead to loss of performance.
 * The quality plan should therefore define the most important quality attributes for the software that is being
@@ -4115,7 +4115,7 @@ Relevant Module Learning Outcomes for this week:
       validation processes, process support tools, and a description of the documents that should be written during
       these processes.
 
-<img src="./img/7/2.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/2.png" alt="alt text" width="500" height="300">
 
 * Standards have to deliver value, in the form of increased product quality.
 * Product standards have to be designed so that they can be applied and checked in a cost-effective way, and process
@@ -4170,7 +4170,7 @@ Relevant Module Learning Outcomes for this week:
 
 ### The review process
 
-<img src="./img/7/3.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/3.png" alt="alt text" width="500" height="300">
 
 * The review processes are structured into three phases:
     * **Pre-review activities** These are preparatory activities that are essential for the review to be effective.
@@ -4206,7 +4206,7 @@ Relevant Module Learning Outcomes for this week:
     * Managers may be suspicious because inspections require additional costs during design and development.
 
 * Check list:
-  <img src="./img/7/4.png" alt="alt text" width="500" height="300">
+  </br><img src="./img/7/4.png" alt="alt text" width="500" height="300">
 
 # Configuration management
 
@@ -4244,7 +4244,7 @@ Relevant Module Learning Outcomes for this week:
     * The QM team checks that the system quality is acceptable. If so, it then becomes a controlled system, which means
       that all changes to the system have to be agreed on and recorded before they are implemented.
 
-<img src="./img/7/5.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/5.png" alt="alt text" width="500" height="300">
 
 ## Version Managment
 
@@ -4265,7 +4265,7 @@ Relevant Module Learning Outcomes for this week:
     * Baselines are important because you often have to re-create an individual version of a system. For example, a
       product line may be instantiated so that there are specific system versions for each system customer. You may have
       to re-create the version delivered to a customer if they report bugs in their system that have to be repaired.
-      <img src="./img/7/6.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/7/6.png" alt="alt text" width="500" height="300">
 
 * There are two types of modern version control system:
     * **Centralized systems,** where a single master repository maintains all versions of the software components that
@@ -4305,7 +4305,7 @@ Relevant Module Learning Outcomes for this week:
       component that it has been checked out by someone else.
     * The system will also ensure that when the modified components are checked in, the different versions are assigned
       different version identifiers and are stored separately
-      <img src="./img/7/7.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/7/7.png" alt="alt text" width="500" height="300">
 
 * **In a distributed VC system**, such as Git, a different approach is used.
     * A “master” repository is created on a server that maintains the code produced by the development team. Instead of
@@ -4318,7 +4318,7 @@ Relevant Module Learning Outcomes for this week:
     * They may then “**push**” these changes to **the project repositor**y or tell the integration manager that changed
       versions are available.
     * He or she may then “**pull**” these files to the project repository (see Figure 25.6).
-      <img src="./img/7/8.png" alt="alt text" width="500" height="300">
+      </br><img src="./img/7/8.png" alt="alt text" width="500" height="300">
 
 * In distibuted model of development has a number of **advantages**:
     * It provides a backup mechanism for the repository. If the repository is corrupted, work can continue and the
@@ -4349,7 +4349,7 @@ Relevant Module Learning Outcomes for this week:
     * In this case, a developer has to check for clashes and make changes to the components to resolve the
       incompatibilities between the different versions.
 
-<img src="./img/7/9.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/9.png" alt="alt text" width="500" height="300">
 
 * When a new version is created, the system simply stores a delta, a list of differences, between the new version and
   the older version used to create that new version.
@@ -4387,7 +4387,7 @@ Relevant Module Learning Outcomes for this week:
     * **Documentation generation** The build system may be able to generate release notes about the build and system
       help pages.
 
-<img src="./img/7/12.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/12.png" alt="alt text" width="500" height="300">
 
 * Building is a complex process, which is potentially error-prone, as three different system platforms may be involved:
     * **The development system**, which includes development tools such as compilers and source code editors.
@@ -4412,7 +4412,7 @@ Relevant Module Learning Outcomes for this week:
     * If the system passes its tests on the build system, then commit the changes you have made as a new baseline in the
       system mainline.
 
-<img src="./img/7/11.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/11.png" alt="alt text" width="500" height="300">
 
 * Jenkins is a sample for continuous integration tool
 * The advantage of continuous integration is that it allows problems caused by the interactions between different
@@ -4442,7 +4442,7 @@ Relevant Module Learning Outcomes for this week:
         * The checksum approach has the advantage of allowing many different versions of the object code of a component
           to be maintained at the same time.
 
-<img src="./img/7/10.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/10.png" alt="alt text" width="500" height="300">
 
 ## Change management
 
@@ -4495,7 +4495,7 @@ Relevant Module Learning Outcomes for this week:
     * Refactoring, where the software is continually improved, is not seen as an overhead but as a necessary part of the
       development process.
 
-<img src="./img/7/13.png" alt="alt text" width="500" height="300">
+</br><img src="./img/7/13.png" alt="alt text" width="500" height="300">
 
 # Questions
 
