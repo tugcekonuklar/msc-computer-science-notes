@@ -1,5 +1,14 @@
 ## MSC Cyber Security Threats Lesson Notes
 
+## Overview
+
+- [Week-1](#week-1)
+- [Week-2](#week-2)
+- [Week-3](#week-3)
+- [Week-4](#week-4)
+- [Week-5](#week-5)
+- [Week-7](#week-7)
+
 # Module Weekly Outcomes (WLOs)
 
 At the end of specific units, you will be able to:
@@ -48,15 +57,6 @@ At the end of specific units, you will be able to:
 * Use the framework, introduced in week 1, to complete risk management plans (MLO 1, 2, 4, 5, 6)
 * Explain how risk can be evaluated and a decision made about its acceptance (MLO 1, 2, 4, 5, 6)
 * Select, and justify, appropriate treatments for risks from a range of options (MLO 1, 2, 4, 5, 6)
-
-## Overview
-
-- [Week-1](#week-1)
-- [Week-2](#week-2)
-- [Week-3](#week-3)
-- [Week-4](#week-4)
-- [Week-5](#week-5)
-- [Week-7](#week-7)
 
 # WEEK 1
 
