@@ -2,6 +2,8 @@
 
 Here you can find my notes of my master program in The York University 2020
 
+You can reach also from [Github Page](https://tugcekonuklar.github.io/msc-computer-science-notes/)
+
 ## Lessons
 
 * [Algorithm And Data Structure](/algorithm-and-data-structure/Home.md)
