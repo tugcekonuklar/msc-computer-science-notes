@@ -7,8 +7,9 @@ Relevant module learning outcomes for this week:
 
 * Investigate and analyse a problem, write a software requirement specification and design blueprint expressed in UML
   which provides a basis for code generation
-  
+
 #### Title
+
 * Lesson 1 : Operation specification with natural language
 * Lesson 2 : Operation specification with OCLE
 * Lesson 3 : State modelling
@@ -29,7 +30,7 @@ Relevant module learning outcomes for this week:
 * [State Machines](#state-machines)
     * [State Modelling](#state-modelling)
     * [Notation](#notation)
-    * [Preparing a State Machine](#preparing-a-state-machine)  
+    * [Preparing a State Machine](#preparing-a-state-machine)
         * [Behavioural Approach](#a-behavioural-approach)
         * [Lifecycle Approach](#a-lifecycle-approach)
     * [Questions](#questions-for-state-machine)
@@ -128,12 +129,13 @@ Relevant module learning outcomes for this week:
     * **pre** **and** post are the keywords
 * OCL is used to specify invariants of objects and pre- and post conditions of operations. Makes UML (class)
   diagrams more precise.
-* OCL is an excellent tool for formally specifying the constraints and operation contracts that cannot be expressed in a UML model, e.g. class diagrams.  
-* OCL expressions use vocabulary of UML class diagram. OCL is a pure expression language with its expressiveness in terms of UML object models.
+* OCL is an excellent tool for formally specifying the constraints and operation contracts that cannot be expressed in a
+  UML model, e.g. class diagrams.
+* OCL expressions use vocabulary of UML class diagram. OCL is a pure expression language with its expressiveness in
+  terms of UML object models.
 * OCL attribute accesses “navigate” through UML class diagram.
 * Queries (= side-effect-free operations) can be used in OCL
   expressions.
-
 
 ### **OCL keywords:**
 
@@ -206,7 +208,7 @@ Relevant module learning outcomes for this week:
 * Arrow ->
     * A property of the collection itself is accessed by using an arrow ‘->’ followed by the name of the property
 
-```js
+```
 context
 Person
 inv:
@@ -220,10 +222,9 @@ inv:
 #### Logic
 
 * True OR-ed with anything is True
-* False AND-ed with anything is False 
-* False IMPLIES anything is True 
+* False AND-ed with anything is False
+* False IMPLIES anything is True
 * anything IMPLIES True is True
-
 
 <img src="./img/4/3.png" alt="alt text" width="500" height="300">
 
@@ -231,7 +232,7 @@ inv:
 
 ## Examples
 
-```js
+```
 // -- Invariants
 context Company
 inv: self.numberOfEmployees > 50
@@ -299,7 +300,7 @@ inv:
 * When the name of an association-end is missing at one of the ends of an association, the name of the type at the
   association end starting with a lowercase character is used as the rolename.
 
-```js
+```
 context
 Company
 inv: self.manager.isUnemployed = false // -- self.manager is a Person, because the multiplicity of the association is one
@@ -312,7 +313,7 @@ inv: self.employee->notEmpty()  // -- is a set
   builds one value by iterating over a collection.
     * ``` collection->iterate( elem : Type; acc : Type = <expression> | expression-with-elem-and-acc ) ```
 
-```js
+```
 collection->collect(x:T | x.property)
 // -- is identical to:
 collection->iterate(x:T ;acc : T2 = Bag{} | acc->including(x.property))
@@ -334,7 +335,7 @@ self.enfants->exists(sexe = Sexe::Masculin)
 
 <img src="./img/4/7.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // A vehicle owner must be at least 18 years old
 context Vehicle
 inv: self.owner.age >=18
@@ -384,9 +385,10 @@ post: result = name
 ```
 
 ### Bank Account
+
 <img src="./img/4/8.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // CUSTOMER
 context Customer
 //--Test comparison operator
@@ -495,9 +497,10 @@ post: (uncleared = uncleared@pre + amount) and
 (balance = balance@pre + amount)
 
 ```
-### Campaign 
 
-```js
+### Campaign
+
+```
 
 context Campaign
 inv: self.estimatedCost=self.advert.getEstimatedCost()->sum() *(1 + ohRate)
@@ -529,7 +532,7 @@ self.staffGrade.previous.getGradeFinishDate()=gradeChangeDate.minus(1)
 
 ### Person
 
-```js
+```
 context Person
 inv: self.gender=Gender::male or self.gender=Gender::female
 inv: self.savings>=500
@@ -539,9 +542,9 @@ inv: self.CEO->size()<=1
 inv: self.employee->select(self.employee.getAge<60)->size()<100N
 ```
 
-### Crate 
+### Crate
 
-```js
+```
 context Crate
 // -- the number of bottles may not exceed its capacity
 inv: bottles->size()<=capacity
@@ -565,7 +568,7 @@ post: bottles = bottles@pre->including(b)
 
 <img src="./img/4/17.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // There are two pre-requisites for a GPModule team: the number of members on a team should be no more than maxNumber and a team ID should contain no more than 10 characters.
 context Team 
 inv f1: member->size()<=maxNumber
@@ -586,12 +589,13 @@ post:student->excludes(s) and s.team->size()=0
 
 ```
 
-## Exam Questions 
+## Exam Questions
 
 ### 2018
+
 <img src="./img/4/18.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // 1 [8 marks] There are two pre-requisites for a mortgage: 
 // i) the age of the borrower must be no less than 18 and no more than 65 years old and 
 // ii) the borrower of a mortgage on a house must be the owner of the house.
@@ -618,9 +622,10 @@ post: self.house->excludes(h) and
 ```
 
 ### 2017
+
 <img src="./img/4/19.png" alt="alt text" width="500" height="300">
 
-```js
+```
 // 1. [8 marks] There are two pre-requisites for a module: the moduleID should contain exactly four characters and the number of students on each module must be at least 10.
 context Module
 inv f1: self.moduleId.size()=4
@@ -640,83 +645,100 @@ pro: self.creditEarned= self.creaditEarn@pre + mod.getCredit()
 
 ```
 
-
 # State Machines
+
 * State Machine models one class, how it responds to all the events that affect it.
 * All objects have a state, and it determines the value of the object attribute value.
 * A state occupies for a period of time
-* Not  all  events  cause  a  state-change  
+* Not all events cause a state-change
 * Object performs a different action for the same event depending on the object's state.
 * State modelling can help to identify the operations that are required
 * To model state related behaviour, UML state machines are used.
 * A state machine is a description of all the possible lifecycles that an object of a class might follow
     * State machines model one class, how it responds to all the events that affect it
     * It can also be seen as a more detailed view of a class.
-      
+
 <img src="./img/4/9.png" alt="alt text" width="500" height="300">
 
-## State Modelling 
+## State Modelling
+
 * Collect together all events, from all sequence diagrams, for one class.
 * The first step is to check the classes with heavy messaging.
 * Examine which one cause state change and result states,
 * This gives us first cut state chart with a few states and events.
 * We should revise accordingly the class diagram.
 * Needs to check always:
-    * Every event should appear as an incoming message for the appropriate object on an interaction diagram (s). 
-    * Every event should correspond to an operation on the appropriate class (but note that not all operations correspond to events).
+    * Every event should appear as an incoming message for the appropriate object on an interaction diagram (s).
+    * Every event should correspond to an operation on the appropriate class (but note that not all operations
+      correspond to events).
     * Every action should correspond to the execution of an operation on the appropriate class.
 * In sequence diagram , we can see the objects on top as participant and messages are events.
 
 ## Notation
+
 * Initial pseudostate : starting point, indicated by a small solid filled circle
-    * This is only a notational convenience. An object cannot remain in its initial pseudo state, but must immediately move into another named state
+    * This is only a notational convenience. An object cannot remain in its initial pseudo state, but must immediately
+      move into another named state
 * Final state : final state, is shown by a bull’s-eye symbol.
     * This too is a notational convenience and an object cannot leave its final state once it has been entered.
-* State : 
+* State :
 * Transition : Movement from one state to another, and is initiated by a trigger.
 * Trigger : is an event that can cause a state change
-    * When its triggering event occurs a transition is said to fire 
-    * A transition is shown as an open arrow from the source state to the target state.  
-* Change trigger : occurs when a condition becomes true,This is usually described as a Boolean expression (true/false). First and last transitions does not have this.
-    * This form of conditional event is different from a guard condition, which is normally evaluated at the moment that its associated event fires.
-* Call trigger : occurs when an object receives a call for one of its operations, either from another object or from itself
-    * Call triggers correspond to the receipt of a call message and are annotated by the signature of the operation as the trigger for the transition.
+    * When its triggering event occurs a transition is said to fire
+    * A transition is shown as an open arrow from the source state to the target state.
+* Change trigger : occurs when a condition becomes true,This is usually described as a Boolean expression (true/false).
+  First and last transitions does not have this.
+    * This form of conditional event is different from a guard condition, which is normally evaluated at the moment that
+      its associated event fires.
+* Call trigger : occurs when an object receives a call for one of its operations, either from another object or from
+  itself
+    * Call triggers correspond to the receipt of a call message and are annotated by the signature of the operation as
+      the trigger for the transition.
 * Signal trigger : occurs when an object receives a signal
     * As with call triggers the event is annotated with the signature of the operation invoked.
-    * There is no syntactic difference between call triggers and signal triggers, It is assumed that a naming convention is used to distinguish between them.
+    * There is no syntactic difference between call triggers and signal triggers, It is assumed that a naming convention
+      is used to distinguish between them.
     * **A call trigger is a normal message, a signal trigger is an asynchronous message**
-* Relative time trigger : is caused by the passage of a designated period of time after a specified event (frequently the entry to the current state)
+* Relative time trigger : is caused by the passage of a designated period of time after a specified event (frequently
+  the entry to the current state)
     * Relative time triggers are shown by time expressions near the transitions.
 * Guard condition (Guard) : is a Boolean expression that is evaluated at the time the trigger fires
     * The transition only takes place if the guard condition evaluates to true
-    *  A guard condition is a constraint that may involve parameters of the trigger, attributes or links of the object that owns the state machine. 
-    *  A guard is shown in square brackets—‘[‘...’]’.
+    * A guard condition is a constraint that may involve parameters of the trigger, attributes or links of the object
+      that owns the state machine.
+    * A guard is shown in square brackets—‘[‘...’]’.
     * [contractSigned] is a guard condition in example
 * Activity-expression : is executed when a trigger causes the transition to fire
     * begins with the ‘/’ delimiter character
-    * setCampaignActive is example 
+    * setCampaignActive is example
     * activity-expression with multiple actions
         * **left-mouse-down(location) [validItemSelected] / menuChoice = pickMenuItem(location); menuChoice.highlight**
-* Action : are considered to be atomic (that is, they cannot be subdivided) and cannot be interrupted once they have been started   
+* Action : are considered to be atomic (that is, they cannot be subdivided) and cannot be interrupted once they have
+  been started
     * ‘run-to- completion’ : Once initiated this action must execute fully before any other action is considered
     * What does an action start with /
-    
+
 <img src="./img/4/10.png" alt="alt text" width="500" height="300"><br>
 <img src="./img/4/11.png" alt="alt text" width="500" height="300">
-    
+
 * The name compartment holds the name of the state. States may be unnamed and anonymous.
-* State internal activity : The internal activities compartment lists the internal activities or state activities that are executed in that state
+* State internal activity : The internal activities compartment lists the internal activities or state activities that
+  are executed in that state
     * State activities may ‘persist’ for a period of time, perhaps the duration of the state
     * Three kinds of internal event have a special notation.
-        * Entry activities and the exit activities 
-            * These cannot have guard conditions as they are invoked implicitly on entry to the state and exit from the state respectively.
-            * may also involve parameters of incoming transitions (provided that these appear on all incoming transitions) and attributes and links of the owning object
-            * It is important to emphasize that any transition into a state causes the entry activity to fire and all transitions out of a state cause the exit activity to fire.
-            * **‘entry’ ‘/’ activity-name ‘(’ parameter-list ‘)’**  and  **‘exit’ ‘/’ activity-name ‘(’ parameter-list ‘)’**
+        * Entry activities and the exit activities
+            * These cannot have guard conditions as they are invoked implicitly on entry to the state and exit from the
+              state respectively.
+            * may also involve parameters of incoming transitions (provided that these appear on all incoming
+              transitions) and attributes and links of the owning object
+            * It is important to emphasize that any transition into a state causes the entry activity to fire and all
+              transitions out of a state cause the exit activity to fire.
+            * **‘entry’ ‘/’ activity-name ‘(’ parameter-list ‘)’**  and  **‘exit’ ‘/’ activity-name ‘(’ parameter-list
+              ‘)’**
     * do activity
-            * **‘do’ ‘/’ activity-name ‘(’ parameter-list ‘)’**
+        * **‘do’ ‘/’ activity-name ‘(’ parameter-list ‘)’**
 * Internal transition : compartment lists internal transitions.
-    * Each of these transitions is described in the same way as a trigger. 
+    * Each of these transitions is described in the same way as a trigger.
     * Internal transitions do not cause a state change and do not invoke the exit or entry activities.
 * Vertex: Each node in a state machine diagram
 
@@ -725,67 +747,112 @@ pro: self.creditEarned= self.creaditEarn@pre + mod.getCredit()
 <img src="./img/4/13.png" alt="alt text" width="500" height="300">
 
 * Composite states : is the state that has several substates, nested states.
-  * A single state that contains a nested state diagram within it known as **submachine**
-  * Submachine syntax : state name ‘:’ reference-state-machine–diagram-name  
-* Concurrent states : as a product of two (or more) distinct sets of substates, each state of which can be entered and exited independently of substates in the other set.
-  * Splitting the state into two concurrent nested submachines.
+    * A single state that contains a nested state diagram within it known as **submachine**
+    * Submachine syntax : state name ‘:’ reference-state-machine–diagram-name
+* Concurrent states : as a product of two (or more) distinct sets of substates, each state of which can be entered and
+  exited independently of substates in the other set.
+    * Splitting the state into two concurrent nested submachines.
 * Synchronised concurrent states
-* A **fork** pseudostate splitting the transition into two paths, each leading to a specific concurrent substate. It also shows that the containing state is not exited until both parallel nested submachines are exited with transitions that merge at the **join** pseudostate.
+* A **fork** pseudostate splitting the transition into two paths, each leading to a specific concurrent substate. It
+  also shows that the containing state is not exited until both parallel nested submachines are exited with transitions
+  that merge at the **join** pseudostate.
 
 <img src="./img/4/14.png" alt="alt text" width="500" height="300">
 
 ## Preparing a State Machine
+
 * Use case diagram -->  interaction diagrams (sequence diagrams or communication diagrams) --> state machines
 * The lifecycle approach is less formal than the behavioural approach
-###  A behavioural approach
+
+### A behavioural approach
+
 * The initial source of the behaviour approach is **interaction diagrams**
-* 1. Examine all interaction diagrams that involve each class that has heavy messaging.
-* 2. For each class for which a state machine is being built follow steps 3 to 9.
-* 3. On each interaction diagram identify the incoming messages that may correspond to events for the class being considered. Also identify the possible resulting states.
-* 4. Document these events and states on a state machine.
-* 5. Elaborate the state machine as necessary to cater for additional interactions as these become evident, and add any exceptions.
-* 6. Develop any nested state machines (unless this has already been done in an earlier step). 
-* 7. Review the state machine to ensure consistency with use cases. In particular, check that any constraints that are implied by the state machine are appropriate.
-* 8. Iterate steps 4, 5 and 6 until the state machine captures the necessary level of detail.
-* 9. Check the consistency of the state machine with the class diagram, with interaction diagrams and with any other state machine
+*
+    1. Examine all interaction diagrams that involve each class that has heavy messaging.
+*
+    2. For each class for which a state machine is being built follow steps 3 to 9.
+*
+    3. On each interaction diagram identify the incoming messages that may correspond to events for the class being
+       considered. Also identify the possible resulting states.
+*
+    4. Document these events and states on a state machine.
+*
+    5. Elaborate the state machine as necessary to cater for additional interactions as these become evident, and add
+       any exceptions.
+*
+    6. Develop any nested state machines (unless this has already been done in an earlier step).
+*
+    7. Review the state machine to ensure consistency with use cases. In particular, check that any constraints that are
+       implied by the state machine are appropriate.
+*
+    8. Iterate steps 4, 5 and 6 until the state machine captures the necessary level of detail.
+*
+    9. Check the consistency of the state machine with the class diagram, with interaction diagrams and with any other
+       state machine
 
 ### A lifecycle approach
-* This approach does not use interaction diagrams as an initial source of possible events and states. Instead, they are identified directly **from use cases** and from any other requirements documentation that happens to be available.
-* 1. Identify major system events.
-* 2. Identify each class that is likely to have a state dependent response to these events.
-* 3. For each of these classes produce a first-cut state machine by considering the typical lifecycle of an instance of the class.
-* 4. Examine the state machine and elaborate to encompass more detailed event behaviour.
-* 5. Enhance the state machine to include alternative scenarios.
-* 6. Review the state machine to ensure that it is consistent with the use cases. In particular, check that the constraints that the state machine implies are appropriate.
-* 7. Iterate through steps 4, 5 and 6 until the state machine captures the necessary level of detail.
-* 8. Ensure consistency with class diagram and interaction diagrams and other state machines.
 
+* This approach does not use interaction diagrams as an initial source of possible events and states. Instead, they are
+  identified directly **from use cases** and from any other requirements documentation that happens to be available.
+*
+    1. Identify major system events.
+*
+    2. Identify each class that is likely to have a state dependent response to these events.
+*
+    3. For each of these classes produce a first-cut state machine by considering the typical lifecycle of an instance
+       of the class.
+*
+    4. Examine the state machine and elaborate to encompass more detailed event behaviour.
+*
+    5. Enhance the state machine to include alternative scenarios.
+*
+    6. Review the state machine to ensure that it is consistent with the use cases. In particular, check that the
+       constraints that the state machine implies are appropriate.
+*
+    7. Iterate through steps 4, 5 and 6 until the state machine captures the necessary level of detail.
+*
+    8. Ensure consistency with class diagram and interaction diagrams and other state machines.
 
 ## Questions for State Machine
-* 1. What is the difference between a call trigger and a signal trigger?
+
+*
+    1. What is the difference between a call trigger and a signal trigger?
+
     * A call trigger is a normal message, a signal trigger is an asynchronous message
-* 2. What does an action start with?
+*
+    2. What does an action start with?
+
     * /
-* 3. When there is more than one action, what are the actions separated by?
+*
+    3. When there is more than one action, what are the actions separated by?
+
     * ;
-* 4. Does internal transition cause state change?
+*
+    4. Does internal transition cause state change?
+
     * No
-* 5. Does internal transition invoke exit and entry activity?
+*
+    5. Does internal transition invoke exit and entry activity?
+
     * No
-* 6. For a state with internal activities, any transition into the state causes which activity to fine?
+*
+    6. For a state with internal activities, any transition into the state causes which activity to fine?
+
     * Entry
-* 7. For a state with internal activities, any transition out of the state causes which activity to fine?
+*
+    7. For a state with internal activities, any transition out of the state causes which activity to fine?
+
     * Exit
 * All of them correct !
     * A transition to a state with concurrent substates means simultaneously entering the concurrent substates.
     * A transition out of a composite state applies to all its substates (no matter how deeply nested).
-    * The use of the join pseudostate means that the composite state is not exited until both concurrent nested state machines are exited.    
-    
-    
+    * The use of the join pseudostate means that the composite state is not exited until both concurrent nested state
+      machines are exited.
+
 ### Activity
+
 <img src="./img/4/15.png" alt="alt text" width="500" height="300"> <br>
 <img src="./img/4/16.png" alt="alt text" width="500" height="300">
-
 
 # Summary
 
@@ -809,7 +876,7 @@ pro: self.creditEarned= self.creaditEarn@pre + mod.getCredit()
 * Many elements of an operation specification can be written in OCL (UML’s Object Constraint Language). OCL is intended
   for use as a formal language for specifying constraints and queries on an object model, and this includes operation
   pre- and post-conditions and invariants.
-  
+
 * **State machine summary is missing.**
 
 # Examples
@@ -819,6 +886,7 @@ pro: self.creditEarned= self.creaditEarn@pre + mod.getCredit()
 * [3](http://www-sop.inria.fr/members/Charles.Andre/CAdoc/ESINSA/UMLOCL-memo.pdf)
 
 # Sources
+
 [OCLE](http://lci.cs.ubbcluj.ro/ocle/) <br>
 [Ocla Specofocation OMG](https://www.omg.org/spec/OCL/2.4/PDF) <br>
 [Introduction to OCLA](https://formal.iti.kit.edu/~beckert/teaching/Verification-SS06/10OCL.pdf) <br>

@@ -1795,7 +1795,7 @@ Relevant module learning outcomes for this week:
     * Focus on **what** the operation should achieve (a black box approach) rather than **how** the operation should
       work (a white box approach).
 
-</br><img src="./img/4/1.png" alt="alt text" width="500" height="300">
+<img src="./img/4/1.png" alt="alt text" width="500" height="300">
 
 * Two main purposes of an operation specification
     * From an analysis perspective, an operation specification is created at a point when the analyst’s understanding of
@@ -1831,7 +1831,7 @@ Relevant module learning outcomes for this week:
             * A user should be able to check that it correctly expresses the business logic.
             * A class designer should be able to produce a detailed design of the operation for a programmer to code.
 
-</br><img src="./img/4/2.png" alt="alt text" width="500" height="300">
+<img src="./img/4/2.png" alt="alt text" width="500" height="300">
 
 ### Algorithmic approaches (procedural)
 
@@ -1950,9 +1950,7 @@ Relevant module learning outcomes for this week:
 context
 Person
 inv:
-    self.employer
-->
-size() < 3 
+    self.employer->size() < 3 
 ```
 
 #### **Comment notation**
@@ -1966,100 +1964,65 @@ size() < 3
 * False IMPLIES anything is True
 * anything IMPLIES True is True
 
-</br><img src="./img/4/3.png" alt="alt text" width="500" height="300">
+<img src="./img/4/3.png" alt="alt text" width="500" height="300">
 
-</br><img src="./img/4/4.png" alt="alt text" width="500" height="700">
+<img src="./img/4/4.png" alt="alt text" width="500" height="700">
 
 ## Examples
 
 ```
 // -- Invariants
-context
-Company
+context Company
 inv: self.numberOfEmployees > 50
 
-context
-c:Company
+context c:Company
 inv: c.numberOfEmployees > 50
 
-context
-c:Company
-inv
-enoughEmployees: // -- named invariant
+context c:Company
+inv enoughEmployees: // -- named invariant
     c.numberOfEmployees > 50
 
 // -- Pre and Post conditions
-context
-Person::income(d
-:
-Date
-):
-Integer
+context Person::income(d:Date):Integer
 post: result = 5000
 
-context
-Person::income(d
-:
-Date
-):
-Integer
+context Person::income(d:Date):Integer
 pre: d > 2000
 post: result = 5000
 
-context
-Person::income(d
-:
-Date
-):
-Integer // -- with optional condition names
+context Person::income(d:Date): Integer // -- with optional condition names
 pre: parameterOK: d > 2000
 post: resultOK: result = 5000
 
 // -- Let Expression :The let expression allows one to define a variable which can be used in the constraint.
 
-context
-Person
-inv: let income: Integer = self.job.salary
-->
-sum() in
-if isUnemployed then
-income < 100
-else
-income >= 100
-endif
+context Person
+inv: let income: Integer = self.job.salary->sum() in
+    if isUnemployed then
+        income < 100
+    else
+        income >= 100
+    endif
 
 // Combine Props
 // [1] Married people are of age >= 18
-context
-Person
+context Person
 inv:
-    self.wife
-->
-notEmpty()
-implies
-self.wife.age >= 18
-and
-self.husband
-->
-notEmpty()
-implies
-self.husband.age >= 18
+    self.wife-> notEmpty() implies self.wife.age >= 18 and 
+    self.husband->notEmpty() implies self.husband.age >= 18
 
 // [2] a company has at most 50 employees
-context
-Company
+context Company
 inv:
-    self.employee
-->
-size() <= 50
+    self.employee->size() <= 50
 
 ```
 
-</br><img src="./img/4/5.png" alt="alt text" width="500" height="300">
+<img src="./img/4/5.png" alt="alt text" width="500" height="300">
 
 ### Pre- Post  constraints
 
-</br><img src="./img/4/6.png" alt="alt text" width="300" height="150">
+<img src="./img/4/6.png" alt="alt text" width="300" height="150">
 
 ### Properties: AssociationEnds and Navigation
 
@@ -2079,9 +2042,7 @@ size() <= 50
 context
 Company
 inv: self.manager.isUnemployed = false // -- self.manager is a Person, because the multiplicity of the association is one
-inv: self.employee
-->
-notEmpty()  // -- is a set
+inv: self.employee->notEmpty()  // -- is a set
 ```
 
 ### Iterate Operation
@@ -2091,341 +2052,187 @@ notEmpty()  // -- is a set
     * ``` collection->iterate( elem : Type; acc : Type = <expression> | expression-with-elem-and-acc ) ```
 
 ```
-collection->collect(x
-:
-T | x.property
-)
+collection->collect(x:T | x.property)
 // -- is identical to:
-collection->iterate(x
-:
-T;
-acc : T2 = Bag
-{
-}
-|
-acc->including(x.property)
-)
+collection->iterate(x:T ;acc : T2 = Bag{} | acc->including(x.property))
 
 
-self.employé
-->
-select(age > 50)
-self.employé
-->
-select(p | p.age > 50)
-self.employé
-->
-select(p
-:
-Personne | p.age > 50
-)
-self.enfants
-->
-forall(age < 10)
-self.enfants
-->
-exists(sexe = Sexe::Masculin)
+self.employé->select(age > 50)
+self.employé->select(p | p.age > 50)
+self.employé->select(p:Personne | p.age > 50)
+self.enfants->forall(age < 10)
+self.enfants->exists(sexe = Sexe::Masculin)
 
 
 // The complete select syntax now looks like one of:
-collection->select(v
-:
-Type | boolean - expression -
-with-v)
-    collection->select(v | boolean - expression -
-with-v)
+    collection->select(v:Type | boolean - expression -with-v) 
+    collection->select(v | boolean - expression -with-v)
     collection->select(boolean - expression)
 
 ```
 
-</br><img src="./img/4/7.png" alt="alt text" width="500" height="300">
+<img src="./img/4/7.png" alt="alt text" width="500" height="300">
 
 ```
 // A vehicle owner must be at least 18 years old
-context
-Vehicle
-inv: self.owner.age >= 18
+context Vehicle
+inv: self.owner.age >=18
 
 // A car owner must be at least 18 years old
-context
-Car
-inv: self.owner.age >= 18
+context Car
+inv: self.owner.age >=18
 
 // Nobody has more than 3 vehicles
-context
-Person
-inv: self.fleet
-->
-size() <= 3
+context Person
+inv: self.fleet -> size() <=3
 
 // All cars of a person are black
-context
-Person
-inv: self.fleet
-->
-forAll(v | v.colour = #black)
+context Person
+inv: self.fleet -> forAll(v | v.colour = #black)
 
 // Nobody has more than 3 black vehicles
-context
-Person
-inv: self.fleet - select(v | v.colour = #black)
-->
-size() <= 3
+context Person
+inv: self.fleet- select(v | v.colour= #black)-> size()<=3
 
-context
-Person
-inv: self.fleet–>
-iterate(v;
-acc:Integer = 0
-    |
-if (v.colour = #black)
-    then
-acc + 1
-else
-acc
-endif
-) <=
-3
+context Person
+inv: self.fleet–>iterate(v; acc:Integer=0
+    | if (v.colour=#black)
+    then acc + 1 else acc endif) <=3
 
 // A person younger than 18 owns no cars.”
-context
-Person
-inv: age < 18
-implies
-self.fleet–>
-forAll(v | not
-v.oclIsKindOf(Car)
-)
+context Person
+inv: age<18 implies self.fleet–>forAll(v | not v.oclIsKindOf(Car))
 
 // These is a red car
-context
-Car
-inv: Car.allInstances()
-->
-exists(c | c.colour = #red)
+context Car
+inv: Car.allInstances()->exists(c | c.colour=#red)
 
 // Apply operations
 // “If setAge(. . . ) is called with a non-negative argument then the argument becomes the new value of the attribute age
-context
-Person::setAge(newAge
-:
-int
-)
+context Person::setAge(newAge:int)
 pre: newAge >= 0
 post: self.age = newAge
 
 // Calling birthday() increments the age of a person by 1.
-context
-Person::birthday()
-post: self.age = self.age
-@pre
-+1
+context Person::birthday()
+post: self.age = self.age@pre + 1
 
 // Calling getName() delivers the value of the attribute name.
-context
-Person::getName()
+context Person::getName()
 post: result = name
 ```
 
 ### Bank Account
 
-</br><img src="./img/4/8.png" alt="alt text" width="500" height="300">
+<img src="./img/4/8.png" alt="alt text" width="500" height="300">
 
 ```
 // CUSTOMER
-context
-Customer
+context Customer
 //--Test comparison operator
-inv: (firstName < > lastName) < > (firstName = lastName)
+inv: (firstName<>lastName) <>  (firstName=lastName)
 
 //--oclIsTypeOf
 inv: self.oclIsTypeOf(Customer)
 
 //-- Navigation result is a collection
-inv: self.heldAccount
-->
-size() <= 5
+inv: self.heldAccount->size()<=5
 
 //-- Query operation
-inv: self.getAge() >= 18
+inv: self.getAge()>=18
 
 //--Query operation with brackets omittted
-inv: self.getAge >= 18
+inv: self.getAge>=18
 
 //--Customer should have at least one account with balance more than 200
-inv: self.heldAccount
-->
-select(balanceEnquiry() > 200)
-->
-notEmpty
-or
-self.heldAccount
-->
-exists(balanceEnquiry() > 200)
+inv: self.heldAccount -> select (balanceEnquiry()>200) ->notEmpty or
+self.heldAccount -> exists (balanceEnquiry()>200)
 
 //--Customer should have all accounts with balance more than 200
-inv: self.heldAccount
-->
-forAll(balanceEnquiry() > 200)
+inv: self.heldAccount -> forAll (balanceEnquiry()>200)
 
 //-- A customer can have no more than 5 accounts
 //-- Navigation result is a collection
-inv: self.heldAccount
-->
-size() <= 5
+inv: self.heldAccount->size()<=5
 
 /* Customer must be no less than 18 years old*/
-inv: age >= 18
+inv: age>=18
 
-inv: self.age >= 18
+inv: self.age>=18
 
 //-- The sum of a Customer balance for all accounts should be no less than 10
-inv: self.heldAccount
-->
-collect(balanceEnquiry())
-->
-sum >= 10
+inv: self.heldAccount->collect(balanceEnquiry())->sum>=10
 
 /* Customer must be no less than 18 years old*/
-inv: age >= 18
-inv: self.heldAccount
-->
-collect(balanceEnquiry())
-->
-sum >= 1000
+inv: age>=18
+inv: self.heldAccount->collect(balanceEnquiry())->sum>=1000
 
-context
-Customer::addAccount(account
-:
-Account
-)
+context Customer::addAccount(account:Account)
 // --the person shouldn't already own the account
-pre: not
-heldAccount->includes(account)
+pre: not heldAccount->includes(account)
 //--the acount is owned by the new customer and account is added to the customer
-post:(account.holder = self)
-and
-heldAccount = heldAccount
-@pre->
-including(account)
+post:(account.holder = self) and
+heldAccount = heldAccount@pre->including(account)
 
 // ACCOUNT
-context
-Account
+context Account
 //-- An account can only have one holder
-inv
-zero: self.holder
-->
-size = 1
+inv zero: self.holder->size = 1
 
 //-- overdraft limit may not exeed
-inv
-one:    self.balance >= -self.odLimit
+inv one: 	self.balance >= -self.odLimit
 
 //-- customer under 18 years of age are not allowed overdrafts
 //-- Navigation result is a query operation
-inv
-two:    self.holder.getAge() <= 18
-implies
-self.odLimit = 0
+inv two: 	self.holder.getAge()<= 18 implies self.odLimit =0
 
 //--overdrafts are not allowed on deposit accounts
-inv
-three:    self.accountType = #deposit
-implies
-self.odLimit = 0
-or
-self.accountType = AccountType::deposit
-implies
-self.odLimit = 0
+inv three: 	self.accountType = #deposit implies self.odLimit =0 or
+self.accountType=AccountType::deposit implies self.odLimit=0
 
 
-context
-Account::deposit(depType
-:
-DepositType, amount
-:
-Integer
-)
+context Account::deposit(depType: DepositType, amount:Integer)
 //-- zero deposits are not allowed
 //-- the deposit must be applied to the right account
-pre:    amount > 0
-and
-accessor = holder
+pre:	amount>0 and accessor = holder
 // --if the amount deposited is in cash,
 // --if is added to the balance; if it is a cheque, it is added to the uncleared amount
-post:    (depType = #cash
-implies
-self.balance = balance
-@pre
-+amount
-)
-or
-(depType = #cheque
-implies
-self.uncleared = uncleared
-@pre
-+amount
-)
+post:	(depType=#cash implies self.balance = balance@pre + amount) or
+(depType=#cheque implies self.uncleared = uncleared@pre + amount)
 
 
-context
-Account::withdraw(amount
-:
-Integer
-)
+context Account::withdraw(amount:Integer)
 //--zero withdrawals are not allowed
 //--the transaction must not result in the overdraft limit being exceeded
 //--the person making the withdrawal must be the account holder
-pre:amount > 0
-and
-balance - amount >= -odLimit
-and
+pre:amount>0 and
+balance-amount>= -odLimit and
 accessor = holder
 //--the balance is reduced by the amount withdrawn
-post:balance = balance
-@pre
--amount
+post:balance = balance@pre-amount
 
 
-context
-Account::balanceEnquiry()
-:
-Integer
+context Account::balanceEnquiry():Integer
 //--balance details may only be given to the holder of the account
 pre: accessor = holder
 //--the balance is returned
 post: result = balance
 
 
-context
-Account::availableFunds()
-:
-Integer
+context Account::availableFunds():Integer
 //--details of funds available may only be given to the holder of the account
 pre: accessor = holder
 //--the available fund are calculated from the current balance and the customer's overdraft limit
 post: result = balance + odLimit
 
 
-context
-Account::clear(amount
-:
-Integer
-)
+context Account::clear(amount:Integer)
 //--you cannot clear more than the cleared amount
-pre: uncleared >= amount
+pre: uncleared>=amount
 //--the cleared amount is subtracted from the uncleared amount
 //--the balance is increased by the cleared amount
-post: (uncleared = uncleared
-@pre
-+amount
-)
-and
-(balance = balance
-@pre
-+amount
-)
+post: (uncleared = uncleared@pre + amount) and
+(balance = balance@pre + amount)
 
 ```
 
@@ -2433,109 +2240,60 @@ and
 
 ```
 
-context
-Campaign
-inv: self.estimatedCost = self.advert.getEstimatedCost()
-->
-sum() * (1 + ohRate)
+context Campaign
+inv: self.estimatedCost=self.advert.getEstimatedCost()->sum() *(1 + ohRate)
 
-context
-Campaign::upDateEstimatedCost()
+context Campaign::upDateEstimatedCost()
 post:
-    if self.estimatedCost > estimatedCost@pre and
-self.estimatedCost > budget
-and
-self.estimatedCost <= budget * 1.02
-then
-self.clientLetterRequired = 'true'
-else
-self.clientLetterRequired = 'false'
+if self.estimatedCost > estimatedCost@pre and
+    self.estimatedCost>budget and
+    self.estimatedCost<= budget*1.02
+then self.clientLetterRequired= 'true'
+else self.clientLetterRequired = 'false'
 endif
 
-context
-Campaign::checkCampaignBudget()
-:
-Real
-pre: self < > 'null'
-post: result = self.budget - self.estimatedCost
-and
-self.estimatedCost = self.advert.getEstimatedCost()
-->
-sum()
+context Campaign::checkCampaignBudget():Real
+pre: self<> 'null'
+post: result=self.budget-self.estimatedCost and
+self.estimatedCost=self.advert.getEstimatedCost()->sum()
 
 
-context
-CreativeStaff::changeGrade(grade
-:
-Grade, gradeChangeDate
-:
-Date
-)
-pre: grade.oclIsTypeOf(Grade)
-and
+context CreativeStaff::changeGrade(grade:Grade, gradeChangeDate:Date)
+pre: grade.oclIsTypeOf(Grade)and
 gradeChangeDate.isNotEarlierThan(today)
-post: self.staffGrade
-->
-notEmpty
-and
-self.staffGrade.previous
-->
-notEmpty
-and
-self.staffGrade.getGradeStartDate() = gradeChangeDate
-and
-self.staffGrade.previous.getGradeFinishDate() = gradeChangeDate.minus(1)
+post: self.staffGrade->notEmpty and
+self.staffGrade.previous->notEmpty and
+self.staffGrade.getGradeStartDate()=gradeChangeDate and
+self.staffGrade.previous.getGradeFinishDate()=gradeChangeDate.minus(1)
 
 ```
 
 ### Person
 
 ```
-context
-Person
-inv: self.gender = Gender::male
-or
-self.gender = Gender::female
-inv: self.savings >= 500
-inv: self.husband
-->
-notEmpty()
-implies
-self.husband.gender = Gender::male
-context
-Company
-inv: self.CEO
-->
-size() <= 1
-inv: self.employee
-->
-select(self.employee.getAge < 60)
-->
-size() < 100
-N
+context Person
+inv: self.gender=Gender::male or self.gender=Gender::female
+inv: self.savings>=500
+inv: self.husband->notEmpty() implies self.husband.gender=Gender::male
+context Company
+inv: self.CEO->size()<=1
+inv: self.employee->select(self.employee.getAge<60)->size()<100N
 ```
 
 ### Crate
 
 ```
-context
-Crate
+context Crate
 // -- the number of bottles may not exceed its capacity
-inv: bottles->size() <= capacity
+inv: bottles->size()<=capacity
 // --each bottle must fit in the crate
-inv: bottles->forAll(b | b.getDiameter < self.maxDiameter)
+inv: bottles->forAll (b|b.getDiameter<self.maxDiameter)
 // -- the total weight must be less than the maximum
 inv: totalWeight() <= maxWeight
 // -- totalWeight() is derived
-inv: totalWeight() = self.bottles.totalWeight()
-->
-sum() + self.weight
+inv: totalWeight() = self.bottles.totalWeight()->sum() + self.weight
 
-context
-Crate::addBottle(b
-:
-Bottle
-)
+context Crate::addBottle( b : Bottle )
 // -- there must be room in the crate
 pre: bottles->size() < capacity
 // -- the maximum weight for the crate may not be exceeded
@@ -2543,47 +2301,27 @@ pre: totalWeight() + b.totalWeight() <= maxWeight
 // -- the bottle is not yet in the crate
 pre: bottles->excludes(b)
 // --the bottle is added successfully>br/>  
-post: bottles = bottles
-@pre->
-including(b)
+post: bottles = bottles@pre->including(b)
 ```
 
-</br><img src="./img/4/17.png" alt="alt text" width="500" height="300">
+<img src="./img/4/17.png" alt="alt text" width="500" height="300">
 
 ```
 // There are two pre-requisites for a GPModule team: the number of members on a team should be no more than maxNumber and a team ID should contain no more than 10 characters.
-context
-Team
-inv
-f1: member->size() <= maxNumber
-inv
-f2: teamID.size() <= 10
+context Team 
+inv f1: member->size()<=maxNumber
+inv f2: teamID.size()<=10
 
 // The operation addMember is used to allocate a member to a team. It has two pre-requisites that the member does not belong to any team and the team cannot exceed a maximum number limit by adding the member. It has one post-requisite that the member is successfully allocated to the team.
-context
-Team::addMember(m
-:
-Member
-)
-pre: m.team
-->
-size() = 0
-and
-member->size() < maxNumber
+context Team::addMember(m:Member)
+pre: m.team->size()=0 and
+     member->size()<maxNumber
 post: member->includes(m)
 
 // The operation deregisterStudent is used to deregister a student when a student quits a module. It has one pre-requisite that the student must be one of the students who is registered to the module. It has two post-requisites that the student is not registered with the module and the student is removed from his/her team.
-context
-GPModule::deregisterStudent(s
-:
-Member
-)
+context GPModule::deregisterStudent(s:Member)
 pre:student->includes(s)
-post:student->excludes(s)
-and
-s.team
-->
-size() = 0
+post:student->excludes(s) and s.team->size()=0
 
 
 
@@ -2593,104 +2331,55 @@ size() = 0
 
 ### 2018
 
-</br><img src="./img/4/18.png" alt="alt text" width="500" height="300">
+<img src="./img/4/18.png" alt="alt text" width="500" height="300">
 
 ```
 // 1 [8 marks] There are two pre-requisites for a mortgage: 
 // i) the age of the borrower must be no less than 18 and no more than 65 years old and 
 // ii) the borrower of a mortgage on a house must be the owner of the house.
-context
-Mortgage
-inv
-f1: self.borrower.getAge() >= 18
-and
-self.borrower.getAge() <= 65
-inv
-f2: self.borrower = self.house.owner
+context Mortgage
+inv f1: self.borrower.getAge()>=18 and  self.borrower.getAge()<=65
+inv f2: self.borrower = self.house.owner
 
 //2. [12 marks] The operation getMortgage is used to access a mortgage for a borrower. 
 // It has two pre-requisites: i) a minimum deposit of 5% of the house’s value is needed for a mortgage and 
 // ii) by receiving the mortgage the total amount of the borrower’s mortgage will not exceed five times of his/her salary. It has one post-requisite that the mortgage is successfully granted to the applicant.
-context
-Person::getMorgage(m
-:
-Morgage, d
-:
-deposit
-)
-pre: self.home.getPrice() * 0.05 <= d
-and
-self.morgage.getAmount()
-->
-sum() + m.getAmount() < self.salary * 5
-post: self.morgage
-->
-includes(m)
+context Person::getMorgage(m: Morgage,d: deposit)
+pre: self.home.getPrice() * 0.05 <= d and
+    self.morgage.getAmount()->sum() + m.getAmount() < self.salary * 5
+post: self.morgage->includes(m)
 
 //3. [10 marks] The operation sellHouse is used for a house owner to sell his house. It has
 // one pre-requisite that the house in question belongs to the owner. It has two post-
 // requisites: i) the house is successfully sold and ii) the mortgage for the house is removed from the house owner.
-context
-Person::sellHouse(h
-:
-House
-)
-pre: self.house
-->
-includes(h)
-post: self.house
-->
-excludes(h)
-and
-self.morgage.house
-->
-excludes(h)
+context Person::sellHouse(h: House)
+pre: self.house->includes(h)
+post: self.house->excludes(h) and
+    self.morgage.house->excludes(h)
 
 ```
 
 ### 2017
 
-</br><img src="./img/4/19.png" alt="alt text" width="500" height="300">
+<img src="./img/4/19.png" alt="alt text" width="500" height="300">
 
 ```
 // 1. [8 marks] There are two pre-requisites for a module: the moduleID should contain exactly four characters and the number of students on each module must be at least 10.
-context
-Module
-inv
-f1: self.moduleId.size() = 4
-inv
-f2: self.student
-->
-size() >= 10
+context Module
+inv f1: self.moduleId.size()=4
+inv f2: self.student->size()>=10
 
 
 // [12 marks] The operation registerModule is used to register a student to a module. It has two pre-requisites: that the student must not already be registered to that module; and the student has paid for the fees. It has one post-requisite: that the student is successfully registered.
-context
-Student::registerModul(mod
-:
-Module
-)
-pre: self.module
-->
-excludes(mod)
-and
-self.feesPaid = true
-post: self.module
-->
-includes(mod)
+context Student::registerModul(mod : Module)
+pre: self.module->excludes(mod) and
+    self.feesPaid=true
+post: self.module->includes(mod)
 
 //  [10 marks] The operation passModule is used to update student credits earned when they pass 	a module. It has one pre-requisite: that the module must be one of the modules the student has been registered to. It has one post-requisite: that the creditsEarned now held in the object Student must be equal to the previous credit with the credit of this module added into the total.
-context
-Student::passModule(mod
-:
-Module
-)
-pre: self.module
-->
-includes(mod)
-pro: self.creditEarned = self.creaditEarn
-@pre
-+mod.getCredit()
+context Student::passModule(mod: Module)
+pre: self.module->includes(mod)
+pro: self.creditEarned= self.creaditEarn@pre + mod.getCredit()
 
 ```
 
@@ -2707,7 +2396,7 @@ pro: self.creditEarned = self.creaditEarn
     * State machines model one class, how it responds to all the events that affect it
     * It can also be seen as a more detailed view of a class.
 
-</br><img src="./img/4/9.png" alt="alt text" width="500" height="300">
+<img src="./img/4/9.png" alt="alt text" width="500" height="300">
 
 ## State Modelling
 
@@ -2767,8 +2456,8 @@ pro: self.creditEarned = self.creaditEarn
     * ‘run-to- completion’ : Once initiated this action must execute fully before any other action is considered
     * What does an action start with /
 
-</br><img src="./img/4/10.png" alt="alt text" width="500" height="300"><br>
-</br><img src="./img/4/11.png" alt="alt text" width="500" height="300">
+<img src="./img/4/10.png" alt="alt text" width="500" height="300"><br>
+<img src="./img/4/11.png" alt="alt text" width="500" height="300">
 
 * The name compartment holds the name of the state. States may be unnamed and anonymous.
 * State internal activity : The internal activities compartment lists the internal activities or state activities that
@@ -2791,9 +2480,9 @@ pro: self.creditEarned = self.creaditEarn
     * Internal transitions do not cause a state change and do not invoke the exit or entry activities.
 * Vertex: Each node in a state machine diagram
 
-</br><img src="./img/4/12.png" alt="alt text" width="500" height="300"><br>
+<img src="./img/4/12.png" alt="alt text" width="500" height="300"><br>
 
-</br><img src="./img/4/13.png" alt="alt text" width="500" height="300">
+<img src="./img/4/13.png" alt="alt text" width="500" height="300">
 
 * Composite states : is the state that has several substates, nested states.
     * A single state that contains a nested state diagram within it known as **submachine**
@@ -2806,7 +2495,7 @@ pro: self.creditEarned = self.creaditEarn
   also shows that the containing state is not exited until both parallel nested submachines are exited with transitions
   that merge at the **join** pseudostate.
 
-</br><img src="./img/4/14.png" alt="alt text" width="500" height="300">
+<img src="./img/4/14.png" alt="alt text" width="500" height="300">
 
 ## Preparing a State Machine
 
@@ -2900,8 +2589,8 @@ pro: self.creditEarned = self.creaditEarn
 
 ### Activity
 
-</br><img src="./img/4/15.png" alt="alt text" width="500" height="300"> <br>
-</br><img src="./img/4/16.png" alt="alt text" width="500" height="300">
+<img src="./img/4/15.png" alt="alt text" width="500" height="300"> <br>
+<img src="./img/4/16.png" alt="alt text" width="500" height="300">
 
 # Summary
 
