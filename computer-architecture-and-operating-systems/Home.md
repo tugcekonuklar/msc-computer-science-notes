@@ -11,17 +11,20 @@ TBC
 * [Week 2](#week-2): Computer memory with focusing types of memories, capabilities and performance
 * [Week 3](#week-3): Component of systems and how they work together to make up a complete system - Building the system
     - busses and components
-      *[Week 4](#week-4) and [Week 5](#week-1): Exploring the nature of computer systems with the investigation of the
-      operating systems, how they
-      manage workload and maximise efficiency and their role on memory and storage management.
+* [Week 4](#week-4) and [Week 5](#week-1): Exploring the nature of computer systems with the investigation of the
+  operating systems, how they manage workload and maximise efficiency and their role on memory and storage management.
 * [Week 6](#week-5): Basic principle of computer network from hardware and operating system perspective
 * [Week 7](#week-6): Review of security and resilience issues of computer systems.
-
-- [Week-1](/computer-architecture-and-operating-systems/Week-1.md)
 
 # WEEK 1
 
 * [Fundamentals](#fundamentals)
+    * [John von Neumann Model](#john-von-neumann-model)
+        * [John von Neumann Model Bottleneck](#john-von-neumann-model-bottleneck)
+    * [Clock signals](#clock-signals)
+    * [Software view point](#software-view-point)
+    * [Electronics](#electronics)
+        * [Speed versus complexity](#speed-versus-complexity)
     * [Terminology](#terminology)
 
 # Fundamentals
