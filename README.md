@@ -14,4 +14,4 @@ You can reach also from [Github Page](https://tugcekonuklar.github.io/msc-comput
 * [Research Methods](/research-methods/Home.md)
 * [Cyber Security Threats](/cyber-security-threats/Home.md)
 * [Advance Programming ](/advance-programming/Home.md)
-* [Computer Architecture And Operating Systems](/computer-architecture-and-operating-systems)
+* [Computer Architecture And Operating Systems](/computer-architecture-and-operating-systems/Home.md)

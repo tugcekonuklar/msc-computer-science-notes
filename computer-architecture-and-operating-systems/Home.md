@@ -200,6 +200,12 @@ TBC
   used. However, CISC processors still find applications in areas where specialised instructions are required to carry
   out hardware-accelerated jobs, ie image processing.
 
+## Heat and power constraints
+
+## Processors, clock and frequency
+
+## Beating the performance barrier
+
 ## Terminology
 
 * Address :
@@ -245,6 +251,12 @@ TBC
 * System bus
 * Transistors
 * Truth table
+
+# Processors: the heart of the machine.
+
+## TODO Week 1 :
+
+* 1.6 Activity did not finalise
 
 # WEEK 2
 
