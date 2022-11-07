@@ -75,6 +75,8 @@ TBC
 * A **CPU** - Central Processing Unit is a digital electronic circuit built from many transistors. It can hold a small
   amount of temporary data and perform mathematical operations upon them. A CPU can also sequence operations according
   to a program it reads from memory, step by step.
+    * it means :  a CPU performs a sequence of (often mathematical) operations upon temporary data it holds, and this
+      sequence is dictated by a program found in memory.
     * this component better as the Processor,this is the component that does most of the hard work – the computations,
       the data translations and executes the program code in your computer when its running programs.
     * In the simplest computer system, all devices connect to a system bus, the CPU is always the bus master, and all
@@ -200,57 +202,62 @@ TBC
   used. However, CISC processors still find applications in areas where specialised instructions are required to carry
   out hardware-accelerated jobs, ie image processing.
 
+# Processors: the heart of the machine.
+
+* Since the mid 1970's, the vast majority of computer systems have been built around a key component: the single-chip
+  microprocessor.
+* Prior to this time, computer systems were almost always built from a large number of discrete components.
+* These were often individual transistors in small metal canisters, or very simple digital logic components implemented
+  individually as very simple logic chips also known **integrated circuits.**
+* But even further back, computer circuits were built from radio valves filling hundreds of racks, and a multitude of
+  cabinets.
+
 ## Heat and power constraints
+
+* Every time a transistor switches on or off, it consumes some power, known as **dynamic power**.
+* The faster the on-off transitions occur, the more power is consumed.
+* And what happens to all of this power? when a circuit consumes
+  energy,one of the unwanted by-products is **heat**.
+* Incidentally, silicon chips also consume power when the transistors are idle, like a car motor ticking over whilst
+  waiting at a road junction. This is known as **static power**.
+* As Moore's Lawl has predicted successfully for many decades, the number of transistors on a given chip area doubles
+  every two years.
+* In 20 years, the size required to fit a transistor dropped from 1um to 10nm.
+    * This dimension is known as the feature size.
+    * Each incremental advance in silicon technology is called the technology node.
+* Although transistors get smaller and smaller, designers want to use more and more transistors per chip, and those
+  transistors operate faster too. The complexity of processors is thus an ever-increasing feature of computing.
+* Where we have smaller circuits consuming more power and thus generating more heat we can say that **power density**
+  and then **thermal density** increases. This is recognised as a serious problem. This is why a modern processor system
+  is
+  often cooled by a large heat¬sink. a module designed to draw heat away from the processor so that it does not
+  overheat.
+
+## CPU architecture
+
+* **instructions** are different computational operations performing by CPU
+* Some characteristics of instructions
+    * Data Is held in temporary storage components within the CPU, called **registers**. Instructions operate upon these
+      register contents.
+    * Many operations are directly mathematical: add, subtract, multiply, divide, and so on.
+    * Some of these instructions operate only on integers (whole numbers) whilst other operations may be able to act
+      upon floating
+      point or fixed point numbers. Not all processors support both kinds of computation.
+    * Some instructions are logical operations. These perform boolean **logic operations** on data.
+    * Some instructions transfer data to and from memory. These are known as **Load/Store operations**.
+    * Some instructions test conditions and choose which part of the program to execute next.
+* Execution means: A program consists of a number of instructions, and a CPU executes (performs) each instruction in
+  turn.
+* In order to execute an instruction, the CPU must first **fetch** it from memory, where our program is usually stored.
+    * Fetching an instruction, and then executing it, is known as the **fetch-execute cycle**.
+* **linear program sequence**: execution of CPU one instruction after another in a continuous list,
+* **Program-flow instructions**: Some Instructions test conditions and choose what part of the program to execute next'.
+* 
 
 ## Processors, clock and frequency
 
 ## Beating the performance barrier
 
-## Terminology
-
-* Address :
-* Applications
-* Assembly language
-* Cache
-* Combinational circuit
-* Control signal
-* Data
-* Data latch
-* Firmware
-* Frequency
-* Hardware
-* IO device
-* Inverter
-* Logical AND
-* Logical OR
-* Logic gate
-* Logical NOT
-* Logical XOR
-* Machine code
-* Utilities
-* Virus
-* Application-specific:
-* Assembler
-* BIOS
-* Clock signal
-* Compiler
-* CPU
-* Data capacity
-* Data rate
-* Flip-flop
-* General-purpose
-* High level language Interpreter
-* Operating system
-* Power
-* Register
-* Software
-* Peripherals
-* Source code
-* Storage element
-* Synchronous circuit
-* System bus
-* Transistors
-* Truth table
 
 # Processors: the heart of the machine.
 
