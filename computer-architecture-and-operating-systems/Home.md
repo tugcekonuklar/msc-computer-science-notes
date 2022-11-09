@@ -25,7 +25,22 @@ TBC
     * [Software view point](#software-view-point)
     * [Electronics](#electronics)
         * [Speed versus complexity](#speed-versus-complexity)
-    * [Terminology](#terminology)
+* [Processors: the heart of the machine.](#processors-the-heart-of-the-machine)
+    * [Heat and power constraints](#heat-and-power-constraints)
+    * [CPU architecture](#cpu-architecture)
+    * [Beating the performance barrier](#beating-the-performance-barrier)
+    * [Processor frequency](#processor-frequency)
+        * [Scalar execution model](#scalar-execution-model)
+        * [Pipelining](#pipelining)
+        * [Superscalar execution model](#superscalar-execution-model)
+        * [Data flow analysis](#data-flow-analysis)
+        * [Branch Prediction](#branch-prediction)
+        * [Speculative execution](#speculative-execution)
+    * [Performance Balance](#performance-balance)
+    * [Instruction micro-sequencing](#instruction-micro-sequencing)
+    * [Introduction to Pipelining](#introduction-to-pipelining)
+* [Terminology of Instructions](#terminology-of-instructions)
+* [Computers Everywhere](#computers-everywhere)
 
 # Fundamentals
 
@@ -83,6 +98,16 @@ TBC
       devices appear as if they are part of the visible memory of the computer system. This allows for very
       straightforward programming models to access devices and modules within the system, though not necessarily
       the most optimal performance.
+    * Extended definition of CPU:
+        * A CPU is a digital electronic circuit, manufactured from a silicon technology defined as being at one
+          particular technology node, consuming a certain amount of power, and generating a certain amount of heat
+          during its operation
+        * A CPU fetches program instructions from memory using a concept known as the **fetch-execute cycle**,
+          and as each instruction is fetched, it is executed, performing one of a number of possible operations upon
+          data held within the CPU registers.
+        * These operations include mathematical and logical operations, and operations that change the flow of the
+          program to execute parts chosen by the result of testing conditions encountered
+          during a program sequence.
 * Memory System and this is where data items can be stored as numerical values and this is where instruction code from
   the processor can be stored, also as numerical values.
 * IO ( Input, Output ) interface is essentially mechanisms that allow devices to plug into the computer.
@@ -252,14 +277,243 @@ TBC
     * Fetching an instruction, and then executing it, is known as the **fetch-execute cycle**.
 * **linear program sequence**: execution of CPU one instruction after another in a continuous list,
 * **Program-flow instructions**: Some Instructions test conditions and choose what part of the program to execute next'.
-* 
-
-## Processors, clock and frequency
+    * The flow of a fetch-execute cycle sequence, as it moves through memory, is generally **non-linear** (more
+      accurately it is linear for short sequences), interspersed with a number of Jumps to other parts of the memory
+      where the next short linear sequence is located.
+    * Program-flow instructions are therefore frequently encountered.
+*
 
 ## Beating the performance barrier
 
+* Performance is the achievement of certain goals whilst consuming certain resources.
+    * Another way to express this is cost versus benefit or cost-benefit.
+    * We sometimes refer to this as a performance metric.
+* **mips** is simply millions of instructions per second,a simplistic measure of the computational throughput a
+  processor Is capable of.
+* **peak mips**, which measures the maximum possible mips a processor can achieve under the best possible conditions
+* Example for cost measurements:
+    * A given CPU can execute one million instructions per second(**mips**) (meaning it has a throughput of one mips)
+    * The CPU may well require 1 milliwatt of power to do this.
+    * Assume that one watt of electricity costs 1/lOth cent,
+    * Assume the CPU costs $100, and is used for 1yr continuously.
+    * The CPU dimensions are 20x20x5mm
+* Answer:
+  _* Cost efficiency for power is calculated by figuring out the mips/W
+    * to calculate the cost of running the CPU for a given duration
+    * Find the duration in seconds
+    * Multiply the duration with the power consumption in 1 second
+    * Then multiply by the unit cost of electricity and convert the units to W, Dollars etc.
+    * Finally, add the cost of owning the CPU._
+        * This CPU performs 1 mips per milliwatt (because we use 1mw of power and get 1mips in return), or 1000 mips per
+          watt, if you prefer.
+        * One year equates to **365x24x60x60 =31,536,000** seconds,
+        * and each second we consume 1 milliwatt at 1mips, requiring **31,536 watts (31 Kw)**.
+        * At 0.1 cent per watt, this electricity will cost **31.54** dollars.
+        * And 100 dolar CPU price plus makes this CPU for one year is **131.54 dollars**.
 
-# Processors: the heart of the machine.
+* This calculation is important to predict **cost-effectiveness** of a CPU
+* Another Example :
+    * </br><img src="./img/6.png" alt="alt text" width="500" height="300">
+    * Which CPU can do the most processing in one hour?
+        * highest mips per second is also makes highest per an hour. CPU-D 8 mips/1 mW = 8000 mips per watt.
+    * Which CPU is most cost-efficient for power consumed?
+        * _Performance per Dollar: Purchase price / mips_
+        * CPU-C the best dollar for mips => $80/5= $16
+    * Which CPU gives the most performance per dollar?
+        * CPU-C 105$ per year
+    * Which CPU is cheapest to buy and run for one year at 1mips? ▶Which CPU has the worst (highest) power density
+        * _Power density is calculated as Power/Volume, ie W/mm3, bigger the worse._
+        * CPU-A 6uW/mm^3
+* To compare CPUs there are some test programs to run same workload for each CPU in run called **benchmarks**
+
+## Processor frequency
+
+* **clock frequency** is measurement how fast a processor can perform a key internal circut operation
+    * We measure clock per second or Hertz
+* The same identical operation on another processor mig require more or less or same number of clock cycles thats why
+  clock frequency isnot guarantee highed mips or benchmark score by itself.
+* For this we use **clock per instruction (CPI)**
+* </br><img src="./img/6.png" alt="alt text" width="500" height="300">
+* in this example better Z>X>Y
+
+### Scalar execution model
+
+* When a CPU can execute one instruction at a time
+* Execution of instructions is serial. Instruction needs to finish before the next begin.
+
+### Pipelining
+
+* The execution of an instruction involves multiple stages of operation, including fetching the instruction, decoding
+  the opcode, fetching operands, performing a calculation, and so on.
+* Pipelining enables a processor to work simultaneously on multiple instructions by performing a different phase for
+  each of the multiple instructions at the
+  same time.
+* The processor overlaps operations by moving data or instructions into a conceptual pipe with all stages
+  of the pipe processing simultaneously.
+* For example, while one instruction is being executed, the computer is decoding the next instruction. This is the same
+  principle as seen in an assembly line.
+* Instructions do not always need complicated before the next one begin, we called this concept as **overlapped
+  instruction execution**
+* Pipelining allows to run more instruction in fewer clock cycle, meaning inherent CPI decreases, brings better
+  performance
+* This kind of operations is only possible where the 2 instructions do not depend upon one on each other
+* The next instruction clearly can not use the result of the previous unless its waits for the preceding instruction to
+  finish.
+* This potential dependency known **pipeline hazard** or **data hazard**
+* With care and using concept known **data-flow analysis**, code can be written avoid many of this problems.
+
+### Superscalar execution model
+
+* Multiple instructions can start at the same time this called multiple issue,
+    * This is the ability to issue more than one instruction in every processor clock cycle.
+* This is the base of the super scalar execution model
+* In effect, multiple parallel pipelines are used.
+
+### Data flow analysis
+
+* The processor analyzes which instructions are dependent on each other’s results, or data, to create an optimized
+  schedule of instructions.
+* In fact, instructions are scheduled to be executed when ready, independent of the original program order. This
+  prevents unnecessary delay.
+
+### Branch Prediction
+
+* The processor looks ahead in the instruction code fetched from memory and predicts which branches, or groups of
+  instructions, are likely to be processed next.
+* If the processor guesses right most of the time, it can prefetch the correct instructions and buffer them so that the
+  processor is kept busy.
+* The more sophisticated examples of this strategy predict not just the next branch but multiple branches ahead.
+* Thus, branch prediction potentially increases the amount of work available for the processor to execute.
+* Branch means also jump in computer architecture
+* Static branch prediction
+    * In static prediction, all decisions are made at compile-time.
+    * Some static predictors always assume that the jump won't happen and some others assume that the backward jump will
+      occur, which optimizes the loop operations.
+    * Branch delay slots are used to run independent instructions. So, if the branch is taken, the execute cycle is used
+      to execute these independent operations.
+* Dynamic branch prediction
+    * This basically is an educated guess based on the branch history kept by the CPU.
+    * When the dynamic branch predictor hasn't got enough data to use, it can fall back to the static prediction.
+* Hit Rate:
+    * </br><img src="./img/8.png" alt="alt text" width="500" height="300">
+
+### Speculative execution
+
+* Using branch prediction and data flow analysis, some processors speculatively execute instructions ahead of their
+  actual appearance in the program execution, holding the results in temporary locations.
+* This enables the processor to keep its execution engines as busy as possible by executing instructions that are likely
+  to be needed.
+
+## Performance Balance
+
+* performance balance: an adjustment/tuning of the organization and architecture to compensate for the mismatch among
+  the capabilities of the various components.
+    * Designers constantly strive to balance the throughput and processing demands of the processor components, main
+      memory, I/O devices, and the interconnection structures.
+* The problem created by such mismatches is particularly critical at the inter- face between processor and main memory.
+  While processor speed has grown rapidly, the speed with which data can be transferred between main memory and the
+  processor has lagged badly.
+* The interface between processor and main memory is the most crucial pathway in the entire
+  computer because it is responsible for carrying a constant flow of program instructions and data between memory
+  chips and the processor.
+* The interface between the processor and main memory is the most crucial pathway in the entire computer because it is
+  responsible for carrying a constant flow of program instructions and data between the memory and the processor.
+* To improve performance
+    * Increase the memory bus width
+    * Incorporate cache on the dynamic random-access memory (DRAM)
+    * Use close-to-the-processor caches
+    * Increase the memory bus frequency and use a hierarchy of busses and caches
+* Another bottleneck is the increasing I/O demands.
+    * Strategies here include caching and buffering schemes plus the use of higher-speed interconnection buses and more
+      elaborate structures of buses.
+
+## Instruction micro-sequencing
+
+* The internal organisation of the CPU is called the microarchitecture.
+    * **Registers** hold numbers of certain size, ie 8, 16, 32 etc bits.
+    * **Program Counter**, PC, keeps track of the next instruction in the memory so it can be fetched.
+    * The **arithmetic Logic unit (ALU)** does arithmetic or logical operations on data held in registers
+* When one instruction is executed at a time, this is known as the scalar execution and it's broken into
+  micro-instructions such as Fetch, Decode, Read, Execute, Write.
+    * When an instruction is going through different stages of its lifecycle, it's referred to as the instruction being
+      in flight.
+* Micro-sequencing is what happens inside a microprocessor when it is executing an instruction
+* So an instruction does not execute in a single clock cycle as an atomic operation,
+  a single indivisible operation, its actually executed internally as a number of steps in a micro
+  sequence.
+* </br><img src="./img/9.png" alt="alt text" width="500" height="300">
+* Memory read operation resulting from memory a data-fetch (reads data value) or instruction-fetch (reads instructions)
+* </br><img src="./img/10.png" alt="alt text" width="500" height="300">
+
+## Introduction to Pipelining
+
+* With pipelining, a processor can simultaneously work on multiple instructions. In other words, the execution of
+  multiple instructions are overlapped.
+* The 1st optimisation is, back to back register read/writes can be combined into a single clock cycle.
+    * Making 2 parallel reads requires 2 read ports for the Register File and as read and write ports are different,
+      register R/W can happen in parallel anyway. Such a register file would have 2+1=3 ports.
+    * See how RegisterRead 2 and 3 are combined into a single cycle in the image below.
+* Then, as soon as the 1st instruction is fetched, the memory/address bus is available, so, the 2nd instruction can be
+  fetched
+* As one instruction is completing per clock cycle, marked by the RW operations, the CPI is 1.
+    * Although different from pipelining, superscalar architectures allow starting more than 1 instruction on the same
+      core, multiple issue.
+    * While there is not a universal agreement on the definition, superscalar design techniques typically include
+      parallel instruction decoding, parallel register renaming, speculative execution, and out-of-order execution.
+    * These techniques are typically employed along with complementing design techniques such as pipelining, caching,
+      branch prediction, and multi-core in modern microprocessor designs.
+* There is an issue called 'register hazard'. For example when we have ADD R2,R3,R6 and SUB R6,5,R6 and if they are
+  pipelined SUB reads an earlier value of R6 before ADD completes and updates R6.
+    * More generically, when two instructions depend on each other, this leads to pipeline or data hazard.
+    * </br><img src="./img/11.png" alt="alt text" width="500" height="300">
+* There are 2 ways to solve:
+* inserting delay slots automatically when the hazard is detected by the CPU
+    * we are introducing delays and you will notice that now the number of
+      instruction completions is now taking fewer instruction completions over more cycles, so the
+      CPI is dropping here. So this is not the most efficient solution.
+    * </br><img src="./img/12.png" alt="alt text" width="500" height="300">
+* Another and more efficient option is Static Instruction Scheduling, where the compiler re-orders the instructions and
+  moves the instructions that aren't dependent on the target register in between.
+    * </br><img src="./img/13.png" alt="alt text" width="500" height="300">
+
+## Terminology of Instructions
+
+</br><img src="./img/14.png" alt="alt text" width="500" height="300">
+</br><img src="./img/15.png" alt="alt text" width="500" height="300">
+
+* </br><img src="./img/18.png" alt="alt text" width="500" height="300">
+    * </br><img src="./img/19.png" alt="alt text" width="500" height="300">
+
+* </br><img src="./img/16.png" alt="alt text" width="500" height="300">
+    * </br><img src="./img/17.png" alt="alt text" width="500" height="300">
+
+* </br><img src="./img/20.png" alt="alt text" width="500" height="300">
+    * </br><img src="./img/21.png" alt="alt text" width="500" height="300">
+
+* Write a program to compute the following: 9 x (9+3)
+
+``` 
+LDI R1,9
+LDI R2,3
+ADD R1,R2,R3
+MUL R1,R3,R1
+HALT
+```
+
+* Write a program to compute the following:(3x5) - (6 x 4)
+
+```
+LDI R1,3
+LDI R2,5
+MUL R1,R2,R3
+LDI R1,6
+LDI R2,4
+MUL R1,R2,R4
+SUB R4,R3, R1
+HALT
+```
+
+# Computers Everywhere
 
 ## TODO Week 1 :
 
