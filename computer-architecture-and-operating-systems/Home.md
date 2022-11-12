@@ -41,6 +41,10 @@ TBC
     * [Introduction to Pipelining](#introduction-to-pipelining)
 * [Terminology of Instructions](#terminology-of-instructions)
 * [Computers Everywhere](#computers-everywhere)
+    * [General purpose computers](#general-purpose-computers)
+    * [Embedded Systems](#embedded-systems)
+    * [Mainframes and supercomputers](#mainframes-and-supercomputers)
+    * [Ambdal's Law](#ambdals-law)
 
 # Fundamentals
 
