@@ -515,6 +515,103 @@ HALT
 
 # Computers Everywhere
 
+* At the simplest level of abstraction, computer systems can therefore be divided loosely into two groups. The
+  **general-purpose machines** and those **application-specific**.
+
+## General purpose computers
+
+* As computers became more sophisticated and powerful, their uses expanded to many more tasks.
+* At this point, many computers began to be designed with the general market in mind: one machine that can do many
+  things for many customers was more cost-effective to mass-produce and sell.
+* But, at the same time, these general-purpose computer systems became less efficient at very specific tasks. There is a
+  saying 'Jack of all trades, and master of none.
+* it is not just desktops and laptops that are general purpose computers. In recent years,smartphones and tablet
+  computers have become widely popular and powerful enough to be used in similar ways; these are also general purpose
+  computers.
+* Application-specific systems that are engineered to the last detail to be highly efficient at the one, or few,
+  tasks they are designed for.
+* Features of General Purpose Computers
+    * A large amount of memory (large in terms of the everyday u that allows a wide range of tasks to be performed.
+    * A large amount of local disk storage (again, large in everyday terms),
+    * Built from readily available, off-the-shelf, mass-market components,
+    * Can run a variety of operating systems,
+    * Can run a wide variety of software,
+    * Has lots of different kinds of connections for peripheral devices.
+    * Is relatively inexpensive.
+
+## Embedded Systems
+
+* The term embedded system refers to the use of electronics and software within a product, as opposed to a
+  general-purpose computer.
+* A combination of computer hardware and software, and perhaps additional mechanical or other parts, designed to perform
+  a dedicated function. In many cases, embedded systems are part of a larger system or product, as in the case of an
+  anti lock braking system in a car.
+* Embedded systems may or may not be accessible from outside and their user interaction can be limited.
+* </br><img src="./img/25.png" alt="alt text" width="500" height="300">
+* there are a number of elements that differ from the typical desktop or laptop computer:
+    * There may be a variety of interfaces that enable the system to measure, manip- ulate, and otherwise interact with
+      the external environment. Embedded sys- tems often interact (sense, manipulate, and communicate) with external
+      world through sensors and actuators and hence are typically reactive systems; a reactive system is in continual
+      interaction with the environment and executes at a pace determined by that environment.
+    * The human interface may be as simple as a flashing light or as complicated as real-time robotic vision. In many
+      cases, there is no human interface.
+    * The diagnostic port may be used for diagnosing the system that is being controlled—not just for diagnosing the
+      computer.
+    * Special-purpose field programmable (FPGA), application-specific (ASIC), or even non digital hardware may be used
+      to
+      increase performance or reliability.
+    * Software often has a fixed function and is specific to the application.
+    * Efficiency is of paramount importance for embedded systems. They are optimized for energy, code size, execution
+      time, weight and dimensions, and cost.
+* There are several noteworthy areas of similarity to general-purpose computer systems as well:
+    * Even with nominally fixed function software, the ability to field upgrade to fix bugs, to improve security, and to
+      add functionality, has become very important for embedded systems, and not just in consumer devices.
+    * One comparatively recent development has been of embedded system platforms that support a wide variety of apps.
+      Good examples of this are smart- phones and audio/visual devices, such as smart TVs.
+
+## Mainframes and supercomputers
+
+* Connecting one main computer via dumb terminals (hey were simply remote interfaces to the 'real' computer system. This
+  was also an early form of networked computing infrastructure.) and allow users to use hos computers are called main
+  frames
+    * Any user could run their application and perform a task right at their desk. In order to give the impression that
+      everyone had equal access, the concept of time-slicing was utilised.
+* Going in the opposite direction,there were some computing domains
+  where sharing out small slices of compute time to lots of general purpose users was not the primary goal. Instead, the
+  demand was to run hugely complex computational tasks,with massive amounts of data,and to do so as fast as possible. A
+  system designed to fulfil that kind of function is known as a **super computer**.
+
+## Ambdal's Law
+
+* Ambdal's Law deals with the potential speedup of a program using multiple processors compared to a single processor.
+* Amdahl’s Law predicts the maximum speedup possible in a system and where some proportion of its activity P is
+  optimised
+* Amdahl's Law states that if a P percentage of a system is optimised, the maximum possible speedup is 1/(1-P). If P=0,
+  this gives 1, which means no change in speed. P=0.5 gives 2, so, in the best case, if the improved half diminishes to
+  0, this gives us 2 times the initial speed but can't exceed it.
+    * the speedup using a parallel processor with N processors that fully exploits the parallel portion of the program
+      is as follows
+    * **True Speedup**: This formula gives infinity for P=1 as it isn't very realistic. To fix this, the formula is
+      updated as 1/((1-P)+(
+      P/N)) where N is the speedup factor for the optimization (N represents number of processor dividing the workload).
+    * Example, if 80% can be optimised and we have 2 cores, this gives us 1/(0.2 + (0.8/2))=1.7. So, that 20% that can't
+      be parallelised avoids the x2 speed and by incorporating N, we know how much we are going to improve rather than
+      assuming the idealistic case of assigning '0' time.
+    * Also note that when the CPU count approaches infinity, the formula gets closer to the original for of 1/(1-P).
+* </br><img src="./img/22.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/23.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/24.png" alt="alt text" width="500" height="300">
+* we’re assuming it’s a thousand in this case: remember, in reality, when we look at the case where
+  there’s a thousand processors, we are dividing that 80% that we know can be optimised by
+  execution in parallel, we’re dividing that amongst a thousand processors, but we’re not
+  diminishing the remaining 20% at all.
+* And you can see that, no matter how many processors you have, the 0.2
+  portion of the equation will always be there, and that means we can never achieve a better
+  speedup than 5, in the best-case possible scenario. And that’s what Amdahl’s original
+  expression for Amdahl’s Law tells you - maximum speedup is 5, and here we’re approaching
+  very closely the maximum and adding more processors at this point will have very little
+  benefit.
+
 ## TODO Week 1 :
 
 * 1.6 Activity did not finalise
