@@ -622,6 +622,193 @@ HALT
 
 # WEEK 2
 
+* [Making Memory](#making-memory)
+
+# Making Memory
+
+* learn about :
+    * Concepts of memory storage and terminology
+    * Volatile and non-volatile memories
+    * Static and dynamic memory technologies
+* A computer memory retains information (data) for a period of time.
+* A computer memory, on the other hand, is typically a permanent part of the computer system, and can be either volatile
+  or non-volatile.
+* However, storage devices are secondary data storage mediums, often capable of being removed from the computer
+  system, and are typically non-volatile.
+
+## Volatile and Non-Volatile Memory
+
+* Volatile memory: DRAM and SRAM
+    * Static Randomly Access Memory (SRAM) and the Dynamic Random Access Memory (DRAM).
+* Static Randomly Access Memory (SRAM)
+    * Uses 6T bit cell
+    * Operates using purely digital circuitry, and the 6T bit-cell will remain in a zero or one state for as long as
+      power is provided.
+    * Even a short glitch leads to information loss or data corruption.
+    * Is very fast
+    * Has lower storage density and occupies more space than DRAM
+    * Is more expensive than DRAM per bit
+    * SRAM is roughly 3 times slower than the CPU's clock.
+* DRAM
+    * Uses capacitors (A capacitor is almost like a mini-battery, but it loses its charge quickly.) which take less
+      space than 6T bit cell.
+    * is relatively slow compared to SRAM
+    * Has certain additional circuit operating requirements, known as a refresh cycle
+    * Comes in SIMM and DIMM modules
+    * DRAM access time (the time taken to read a data value) is 5-20 times slower than CPU speed.
+    * This potential slow relative speed of memory means that a CPU could spend a lot of time simply waiting for DRAM to
+      respond to a request for data instead of working on it.
+      can be one to three times slower.
+    * DRAM’s come in a number of formats, the most popular of which are small circuit boards known as **SIMM** and **
+      DIMM** modules. These can be slotted into a socket on a motherboard of a computer system, and just as easily
+      removed, making the system easily configurable and upgradeable.
+
+### Non-volatile memories
+
+* Non-Programmable (Read-Only) Memory:
+    * Permanently manufactured with aparticular data content.
+    * Manufactured as an Integrated circuit (1C) with fixed content.
+    * Expensive to design, and to update (needs redesign).
+    * Cheap when mass produced.
+    * Sometimes referred to as Read-Only Memory (ROM).
+    * Data content is never lost.
+
+* One-Time Programmable Memory
+    * Manufactured with an array preset to ablank state.
+    * Can then be programmed to aparticular data content.
+    * Once data is programmed it can never be erased.
+    * Cheaper to manufacture.
+    * Changes to content just require changes to the data being ’burned’ into the memory.
+    * Data content is never lost.
+    * Often known as PROM (Programmable Read Only Memory).
+
+* Once programmed ROM and PROM can never be altered
+* PROM comes un-programmed from the factory and customer programs them once.
+* A true ROM (i.e. one that is manufactured as an 1C with a fixed content) is used where a permanent data content is
+  required, and this is to be mass produced in very large numbers. ROM is used where content must never be altered.
+    * For example, a program in an implanted medical device is safety critical and must never be able to be corrupted or
+      deliberately hacked. ROM is a safe solution here.
+    * However, it is very expensive to manufacture aROM from start to finish. The chips may only cost $5 but the design
+      cost could be $250,000. To avoid such large up-front costs, we often use PROM instead.
+
+* Programmable Non-Volatile Memory :
+    * Can be erased and reprogrammed many times.
+    * Data is retained even when no power is present.
+    * Erasure and reprogramming can be done in several ways:
+    * Non-volatile memory : EPROM and PROM
+        * EPROM: Erasable Programmable ROM, is erased by UV light, and programmed by electrical signals.
+        * EEROM: Electrically Erasable ROM, erased by an electrical signal, programmed by an electrical signal.
+        * EAROM: Electrically Alterable ROM, is reprogrammable by electrical signals.
+        * Flash Memory: A variation of EEROM, has large capacity, cheap, relatively fast to read and write data.
+            * it is removable, non-volatile
+
+### Questions:
+
+* Which Memory protocol allows consecutive locations to be accessed in quick succession?
+    * Burst Mode
+* Fast Page Mode memory is fast because:
+    * It allows multiple columns to be addressed in turn
+* Describe what Cycle time means.
+    * Cycle time is the time taken for a memory device to complete a whole memory access and be ready to start again
+      with the next memory transaction.
+* Which of these memories are non-volatile:
+    * EPROM
+    * PROM
+* Which of these memories can never be altered once configured for their use:
+    * ROM
+    * PROM
+
+# DRAM (Dynamic Random Access Memory)
+
+## Memory Timing Concept:
+
+* DRAM (Dynamic Random Access Memory) requires information to be provided in a form of an address, which tels the DRAM
+  where in the memory chip it should access the data.
+    * Because there are many millions of locations and we then generate a “data write” or a “data read”.
+* There’s a protocol that is a set of procedures that allows a DRAM to perform a read operation.
+* First CPU supplies a ROW (1 Clock cycle), which is half of the address
+* The next we get a column (COL), which is the other half of the address. ROW and COL gives us the whole address
+* The next we WAIT, because DRAM requires some time for internal circuitry to perform the read operation
+* after wait, the DRAM is able to locate the particular item in the memory within the ROW and COL grid of
+  its storage array that we want to access and it can output that piece of information called Data on the bus, we class
+  that as READ
+* </br><img src="./img/26.png" alt="alt text" width="500" height="300">
+* Access time: the time after DRAM compates the address (after COL) and until the end of the READ (which the CPU can
+  then access the data from.)
+* </br><img src="./img/27.png" alt="alt text" width="500" height="300">
+* READ latency: It is beginning from the ROW until the end of READ.
+    * This helps us to understand how fast can read data from memory
+* Recovery cycle: one DRAM finish READD data, depending on initial architecture of DRAM, does not do anything, we caled
+  recovery cycle.
+* </br><img src="./img/28.png" alt="alt text" width="500" height="300">
+* Cycle Time: From beginning to the end of the after READ waiting we called Cycle time. It is probably the most
+  important timing quantity for a memory because it dictates how quickly we can complete an entire READ cycle and then
+  be ready to start the next READ cycle.
+* Performance calculationL
+* Finding the number of reading per second:
+    * So the read rate of the memory is different to the clock rate so don’t get those two things confused. 1333
+      Megahertz is not the same as the amount of read transactions that the memory can perform.
+* </br><img src="./img/29.png" alt="alt text" width="500" height="300">
+* If each read is 32 bits, which is four bytes, then we end up with a memory bandwidth of 266 million (which we’ve
+  already worked out is the reads per second) multiplied by 4 (the number of bytes read per operation)  and that equates
+  to 1064 million bytes per second.
+* </br><img src="./img/30.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/31.png" alt="alt text" width="500" height="300">
+
+## Boosting Memory Performance
+
+* There are some technics to boost the memory performance
+* Standard Read operation:
+* </br><img src="./img/32.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/33.png" alt="alt text" width="500" height="300">
+    * after getting ROW and COL addresses of data, we started to read.
+    * we found in the previous video that the standard access time for a single READ is 5 clock cycle
+    * And this is very inefficient because if we’re only reading one item and
+      transferring one data item on the data BUS in every 5 clock cycles, then the efficiency of that
+      system is no better than 20%.
+* There are 2 technics to Improve:
+    * Burst Mode Access
+    * Fast Page Mode Access
+
+### Burst Mode Access
+
+* Normally after READ, DRAM causes a delay and finally after that delay we get to read the item of interest so we’ve
+  read the first location here and now instead of finishing the operation at this point Burst Mode continues to look at
+  the next location and the next location and the next location in a consecutive manner.
+* </br><img src="./img/34.png" alt="alt text" width="500" height="300">
+* So it's now going to continue to read and there are no delays now because we’ve already accessed the row of interest
+  and we just simply need to select the item within the column that we’re interested in and this will continue **until
+  we come to a point where, when we’ve completed the read burst,**
+* we’ve actually read four items in a row and in this case the **Burst length** is four.
+* 4 reads, taking a total of 8 clock cycles, so the average is 2 clock cycles per read better than 5 clock cyles read.
+
+#### Mixed burst mode
+
+* Example: In a system with 1333MHz clock rate, normal mode requires 7 clocks per block and the burst mode requires 2.5
+  clocks per block and can only be used for 40% of the time on average. What will be the average data rate for a 32 bits
+  system?
+* 2.5*0.4 + 7*0.6 = 5.2 clocks/block
+* 1333x10^6 / 5.2 = 256.35e6 blocks/s = 256.35e6 * 4B = 1025.4 MB/s = 978 MiB/s
+
+## Fast Page Mode Access
+
+* In Page Mode, after we READ we continue to provide Random COL and READ another value.
+* The length of a Page Mode access sequence can be quite long if we want it to be - in this case
+  we’ve made it 4 reads long - and that means 4 reads.
+* </br><img src="./img/35.png" alt="alt text" width="500" height="300">
+* 4 read, requires 11 clock cycle, makes 2,75 clock cycle per READ
+* When we compare and convert 5 clock cyles into a number of gigabytes per second for different cases here
+* On this basis we are assuming a frequency of 1333MHz which is a fairly common standard for memory bus timing, and a
+  32-bit read, which again is a fairly common standard, that means 4 bytes per read.
+* </br><img src="./img/36.png" alt="alt text" width="500" height="300">
+* approximately 1GB per second in standard mode
+* Burst mode, with the reduction in average cycle time, we end up with about 2.5GB per second.
+* Page mode, for a short sequence of access, is equivalent to that of burst mode, has a lower performance - 1.8GB per
+  second
+    * but as page mode is used for longer and longer sequences, it tends towards an ultimate top range value of
+      approximately 2.5GB per second as well.
+    * page mode sequences have the flexibility of not having to be in a continuous incrementing sequence.
+
 # WEEK 3
 
 # WEEK 4
