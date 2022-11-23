@@ -916,6 +916,47 @@ HALT
 
 # The Performance Challenge
 
+## Cache for Speedup
+
+* let's say all of the memory accesses require five clock cycles
+* </br><img src="./img/44.png" alt="alt text" width="500" height="300">
+* we improve the speed of the memory architecture by using some additional architectural structures , known as Cache,
+  and cache is just a fast memory device, lets assume CPU read s from cache with 2 clock cycle.
+* Main memory (DRAM) is large, slow and expensive. Cache is quick, small and quite expensive.
+* why would we read data from cache instead of from memory?
+    * cache keeps copies of memory contents that are used frequently.
+    * So, given that if you were to analyse a program, perhaps 10% of the data in the code will be accessed very
+      frequently and the other 90% of the data in the code might be accessed very infrequently.
+    * We could keep copies of the frequently accessed 10% in the cache memory, thereby the CPU would be able to go the
+      cache memory and get a result very quickly instead of going to the slow memory and getting the result, taking a
+      long time.
+* a mixture of CPU and memory and CPU and cache,
+* </br><img src="./img/45.png" alt="alt text" width="500" height="300">
+* To calculate average clock cycles we need to include hit rates
+* If CPU can find data in Cache we called **hit**, if can not and go to memory we called **missed**
+* </br><img src="./img/46.png" alt="alt text" width="500" height="300">
+
+## Multi-level Cache
+
+* Modern processors tend to have on chip cache integrated into the silicon chip design, because there are so many
+  transistors available in modern CPUs.
+    * It is not difficult to integrate a section of the CPU circuitry to contain an additional cache.
+* lets assume build in cache has 1 cycle
+* CPU cache hit rate is 90% and chip cache hit rates %80
+* </br><img src="./img/47.png" alt="alt text" width="500" height="300">
+* 1.5 – that’s the average memory speed of the system using on chip cache, that would give us quite a significant
+  increase in memory bandwidth
+* multiple levels of cache allows other activities to continue in parallel with the CPU
+* So while the CPU is doing its accessing of data in the cache, you can have something else happening an IO device could
+  access memory
+* we have a situation where the cache may want to fill up some of its content in order to make sure it contains the
+  correct information so that later on when the CPU comes along and wants to use that cache it will get more hits, that
+  is one way that the cache can improve its performance
+* whereby two IO devices want to talk to each other and they also need to use the bus, because the CPU is busy
+  internally accessing its cache, the external bus is available for any combination of these devices to be able to
+  transfer data to each other.
+* That concurrency, that parallelism is another way that on chip cache can boost performance
+
 # WEEK 3
 
 # WEEK 4
