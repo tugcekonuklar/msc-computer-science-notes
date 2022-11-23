@@ -916,13 +916,18 @@ HALT
 
 # The Performance Challenge
 
+* We improve the speed of the memory architecture by using some additional architectural structures , known as Cache,
+  and cache is just a fast memory device
+* Main memory (DRAM) is large, slow and expensive. Cache is quick, small and quite expensive.
+* A cache that holds instructions only is called an i-cache.
+* A cache that holds program data only is called a d-cache.
+* A cache that holds both instructions and data is known as a unified cache.
+
 ## Cache for Speedup
 
 * let's say all of the memory accesses require five clock cycles
+* let's assume CPU read s from cache with 2 clock cycle.
 * </br><img src="./img/44.png" alt="alt text" width="500" height="300">
-* we improve the speed of the memory architecture by using some additional architectural structures , known as Cache,
-  and cache is just a fast memory device, lets assume CPU read s from cache with 2 clock cycle.
-* Main memory (DRAM) is large, slow and expensive. Cache is quick, small and quite expensive.
 * why would we read data from cache instead of from memory?
     * cache keeps copies of memory contents that are used frequently.
     * So, given that if you were to analyse a program, perhaps 10% of the data in the code will be accessed very
@@ -941,7 +946,7 @@ HALT
 * Modern processors tend to have on chip cache integrated into the silicon chip design, because there are so many
   transistors available in modern CPUs.
     * It is not difficult to integrate a section of the CPU circuitry to contain an additional cache.
-* lets assume build in cache has 1 cycle
+* Lets assume build in cache has 1 cycle
 * CPU cache hit rate is 90% and chip cache hit rates %80
 * </br><img src="./img/47.png" alt="alt text" width="500" height="300">
 * 1.5 – that’s the average memory speed of the system using on chip cache, that would give us quite a significant
