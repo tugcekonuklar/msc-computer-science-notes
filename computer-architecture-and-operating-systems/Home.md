@@ -809,6 +809,113 @@ HALT
       approximately 2.5GB per second as well.
     * page mode sequences have the flexibility of not having to be in a continuous incrementing sequence.
 
+## Storage Technology Trends
+
+* Since 1985
+    * SRAM access times and cost per megabyte have decreased by a factor of about 100
+    * DRAM cost per megabyte has decreased by a factor of 44,000 but access times have decreased by only a factor of 10
+    * Disk storage costs per megabyte have dropped by a factor of 3,000,000 and access times have improved much more
+      slowly, by only a factor of 25
+    * CPU cycle times improved 500 times within the same period. So, DRAM and Disk performances are lagging behind the
+      CPU.
+    * While the SRAM keeps up, the gap between DRAM, disk performance and CPU performance is widening.
+    * Modern computers make heavy use of SRAM based caches to try to bridge the processor-memory gap.
+        * This approach works because of a fundamental property of application programs known as locality,
+* </br><img src="./img/37.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/38.png" alt="alt text" width="500" height="300">
+
+## Locality
+
+* Programmers should understand the principle of locality because, in general, programs with good locality run faster
+  than programs with the poor locality.
+* All levels of computer systems, from the hardware to the operating system, to application programs, are designed to
+  exploit locality.
+* The hardware uses cache memories that hold blocks of the most recently referenced instructions and data items.
+* At the OS level, the principle of locality allows the system to use the main memory as a cache of the most recently
+  referenced chunks of the virtual address space.
+* Temporal locality: If at one point a particular memory location is referenced, then it is likely that the same
+  location will be referenced again in the near future.
+    * In this case it is common to make efforts to store a copy of the referenced data in faster memory storage, to
+      reduce the latency of subsequent references.
+* Spatial locality: If a particular storage location is referenced at a particular time, then it is likely that nearby
+  memory locations will be referenced in the near future.
+    * In this case it is common to attempt to guess the size and shape of the area around the current reference for
+      which it is worthwhile to prepare faster access for subsequent reference.
+* </br><img src="./img/41.png" alt="alt text" width="500" height="300">
+    * sumvec function enjoys good locality.
+    * The elements of vector v are read sequentially, one after the other, in the order they are stored in memory
+    * Thus, with respect to variable v, the function has good spatial locality but poor temporal locality since each
+      vector element is accessed exactly once.
+    * Since the function has either good spatial or temporal locality with respect to each variable in the loop body
+    * A function such as sumvec that visits each element of a vector sequentially is said to have a stride-1 (sequential
+      pattern) reference pattern
+    * Visiting every kth element of a contiguous vector is called a stride-k reference pattern. Stride-1 reference
+      patterns are a common and important source of spatial locality in programs.
+    * In general, as the stride increases, the spatial locality decreases.
+* </br><img src="./img/42.png" alt="alt text" width="500" height="300">
+    * The result is a nice stride-1 reference pattern with excellent spatial locality.
+    * The doubly nested loop reads the elements of the array in row-major order. That is, the inner loop reads the
+      elements
+      of the first row, then the second row, and so on.
+    * The sumarrayrows function enjoys good spatial locality because it references the array in the same row-major order
+      that the array is stored
+* </br><img src="./img/43.png" alt="alt text" width="500" height="300">
+    * poor spatial locality
+    * because it scans the array column-wise instead of row-wise.
+    * Since C arrays are laid out in memory row-wise, the result is a stride-N reference pattern,
+
+* Since program instructions are stored in memory and must be fetched by the CPU, we can also evaluate the locality of a
+  program with respect to its instruction fetches
+    * Having a sequentially ordered set of instructions in the loop body and repeating the loop multiple times also
+      gives good temporal locality as the instruction pipelining gets a high hit ratio.
+
+* Summary:
+    * Programs that repeatedly reference the same variables enjoy good temporal locality.
+        * For programs with stride-k: reference patterns, the smaller the stride, the
+          better the spatial locality.
+    * Programs with stride-1 reference patterns have good spatial locality.
+        * Programs that hop around memory with large strides have poor spatial locality.
+    * Loops have good temporal and spatial locality with respect to instruction fetches.
+        * The smaller the loop body and the greater the number of loop iterations, the better the locality.
+
+* **Question:**
+* </br><img src="./img/39.png" alt="alt text" width="500" height="300">
+
+* **Answer:**
+    * To create a stride-1 reference pattern, the loops must be permuted so that the rightmost indices change most
+      rapidly.
+  ```
+  int productarray3d(int a[N][N][N]) 2{
+    for (j = N-1; j >= 0; j--) {
+       for (k = N-1; k >= 0; k--) {
+         for (i = N-1; i >= 0; i--) {
+            product *= a[j][k][i];
+         }
+       }
+    }
+      return product;
+   }
+  ```
+  This is an important idea. Make sure you understand why this particular loop permutation results in a stride-1 access
+  pattern.
+
+* **Question:**
+* </br><img src="./img/40.png" alt="alt text" width="500" height="300">
+
+* **Answer**
+    * The key to solving this problem is to visualize how the array is laid out in memory and then analyze the reference
+      patterns.
+    * Function clear1 accesses the array using a stride-1 reference pattern and thus clearly has the best
+      spatial locality.
+    * Function clear2 scans each of the N structs in order, which is good, but within each struct it hops around in a
+      non-stride-1 pattern at the following offsets from the beginning of the struct: 0, 12, 4, 16, 8, 20 .
+    * So clear2 has worse spatial locality than clear1. Function clear3 not only hops around within each struct,
+      but also hops from struct to struct. So clear3 exhibits worse spatial locality than clear2 and clear1.
+
+* [RAM Benchmarks](https://ram.userbenchmark.com/)
+
+# The Performance Challenge
+
 # WEEK 3
 
 # WEEK 4
