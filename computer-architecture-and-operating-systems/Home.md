@@ -918,10 +918,10 @@ HALT
 
 * We improve the speed of the memory architecture by using some additional architectural structures , known as Cache,
   and cache is just a fast memory device
-* Main memory (DRAM) is large, slow and expensive. Cache is quick, small and quite expensive.
-* A cache that holds instructions only is called an i-cache.
-* A cache that holds program data only is called a d-cache.
-* A cache that holds both instructions and data is known as a unified cache.
+* Main memory (DRAM) is large, slow and cheap. Cache is quick, small and quite expensive.
+* As we noted earlier, SRAM is smaller, more expensive, but much faster than DRAM.
+    * The concept of cache Is to provide a small amount of fast SRAM a long side a large amount of slow DRAM.
+* So far, we have assumed that caches hold only program data. But, in fact, caches can hold instructions as well as data
 
 ## Cache for Speedup
 
@@ -943,7 +943,8 @@ HALT
 
 ## Multi-level Cache
 
-* Modern processors tend to have on chip cache integrated into the silicon chip design, because there are so many
+* Modern processors tend to have on chip cache (on-chip cache) integrated into the silicon chip design, because there
+  are so many
   transistors available in modern CPUs.
     * It is not difficult to integrate a section of the CPU circuitry to contain an additional cache.
 * Lets assume build in cache has 1 cycle
@@ -951,6 +952,22 @@ HALT
 * </br><img src="./img/47.png" alt="alt text" width="500" height="300">
 * 1.5 – that’s the average memory speed of the system using on chip cache, that would give us quite a significant
   increase in memory bandwidth
+* When this example processor is used in asystem where the external memory already has a cache, it would be referred to
+  as a **two-level** cache hierarchy, where the on-chip cache represents level one and the external cache represents
+  level two.
+* benefits of using on-chip cache:
+    * The on-chip cache can be optimised to work with the CPU circuitry to hide the address setup clock cycles, using
+      overlapping activities (pipelining) to make these appear to take zero time. This means that the on-chip cache can
+      deliver anew data item for every clock cycle.
+    * The width of the on-chip cache can be fairly arbitrary, matched to the internals of the CPU rather than external
+      memory, and potentially organised in ways that maximise cache performance for that specific processor under
+      specific conditions.
+    * The instruction cache and data cache can be accessed simultaneously, and it is rare that both caches have amiss
+      at the same time, meaning that even if one cache misses, it can use the external memory bus whilst the other
+      cache continues as if nothing has happened.
+    * The split cache gives the impression that the memory bus no longer has the von Neumann bottleneck. On-chip at
+      least, it is much closer to a Harvard architecture.
+* </br><img src="./img/50.png" alt="alt text" width="500" height="300">
 * multiple levels of cache allows other activities to continue in parallel with the CPU
 * So while the CPU is doing its accessing of data in the cache, you can have something else happening an IO device could
   access memory
@@ -961,6 +978,142 @@ HALT
   internally accessing its cache, the external bus is available for any combination of these devices to be able to
   transfer data to each other.
 * That concurrency, that parallelism is another way that on chip cache can boost performance
+* Operating in parallel. So now, with the ability to operate the CPU such that it can access both instruction and data
+  cache simultaneously, we could reasonably argue that average access time is actually half this amount, or 0.68 clock
+  cycles .
+    * This is evident, because if we can read two values at atime with an average access time of 1.35 clocks, then the
+      average per single value is 1.35 divided by 2, giving 0.68 clocks per access.
+* If we were again to assume the processor/system clock frequency is 1000 MHz, then we can also say that instruction
+  bandwidth for the multilevel system with split cache is 1000/0.68 =1470 Million reads/sec, and the same for data
+  bandwidth.
+
+### Anatomy of a Real Cache Hierarchy
+
+* And furthermore than on-chip cache, this cache may be split into two parts (a dual cache), these being instruction
+  cache and data cache.
+* A cache that holds instructions only is called an i-cache.
+* A cache that holds program data only is called a d-cache.
+* A cache that holds both instructions and data is known as a unified cache.
+* With two separate caches, the processor can read an instruction word and a data word at the same time
+* I-caches are typically read-only, and thus simpler
+* The two caches are often optimized to different access patterns and can have different block sizes, associativities,
+  and capacities.
+* Also, having separate caches ensures that data accesses do not create conflict misses with instruction accesses, and
+  vice versa, at the cost of a potential increase in capacity misses.
+
+#### Performance Impact of Cache Parameters
+
+</br><img src="./img/51.png" alt="alt text" width="500" height="300">
+
+* Cache performance is evaluated with a number of metrics:
+    * **Miss rate**. The fraction of memory references during the execution of a program, or a part of a program, that
+      miss. It is computed as # misses/ # references.
+    * **Hit rate**. The fraction of memory references that hit. It is computed as 1 − miss rate.
+    * **Hit time.** The time to deliver a word in the cache to the CPU, including the time for set selection, line
+      identification, and word selection. Hit time is on the order of several clock cycles for L1 caches.
+    * **Miss penalty**. Any additional time required because of a miss. The penalty for L1 misses served from L2 is on
+      the order of 10 cycles; from L3, 50 cycles; and from main memory, 200 cycles.
+* Impact of Cache Size:
+    * A larger cache will tend to increase the hit rate. On the other hand, it is always harder to make large memories
+      run faster.
+    * As a result, larger caches tend to increase the hit time. This explains why an L1 cache is smaller
+      than an L2 cache, and an L2 cache is smaller than an L3 cache.
+* Impact of Block Size:
+    * for a given cache size, larger blocks imply a smaller number of cache lines, which can hurt the hit rate in
+      programs with more temporal locality than spatial locality.
+    * Larger blocks also have a negative impact on the miss penalty, since larger blocks cause larger transfer times.
+* Impact of Associativity:
+    * The issue here is the impact of the choice of the parameter E, the number of cache lines per set.
+    * The advantage of higher associativity (i.e., larger values of E) is that it decreases the vulnerability of the
+      cache to thrashing due to conflict misses
+    * Higher associativity can increase hit time, because of the increased complexity, and it can also increase the miss
+      penalty because of the increased complexity of choosing a victim line.
+* Impact of Write Strategy:
+    * Write-through caches are simpler to implement and can use a write buffer that works independently of the cache to
+      update memory.
+    * Furthermore, read misses are less expensive because they do not trigger a memory write
+    * In general, caches further down the hierarchy are more likely to use write-back than write-through.
+
+#### Memory Mountain
+
+* The rate that a program reads data from the memory system is called the **read throughpu**t, or sometimes the read
+  bandwidth.
+* If a program reads n bytes over a period of s seconds, then the read throughput over that period is n/s,
+  typically expressed in units of megabytes per second (MB/s).
+* If we were to write a program that issued a sequence of read requests from a tight program loop, then the measured
+  read throughput would give us some insight into the performance of the memory system for that particular sequence of
+  reads.
+* The size and stride arguments to the run function allow us to control the degree of temporal and spatial locality in
+  the resulting read sequence.
+    * Smaller values of size result in a smaller working set size, and thus better temporal locality.
+    * Smaller values of stride result in better spatial locality.
+    * If we call the run function repeatedly with different values of size and stride, then we can recover a fascinating
+      two-dimensional function of read throughput versus temporal and spatial locality. This function is called a
+      **memory mountain** .
+* the performance of the memory system is not characterized by a single number.
+    * Instead, it is a mountain of temporal
+      and spatial locality whose elevations can vary by over an order of magnitude.
+    * Wise programmers try to structure their programs so that they run in the peaks instead of the valleys.
+    * The aim is to exploit temporal locality so that heavily used words are fetched from the L1 cache, and to exploit
+      spatial locality so that as many words as possible are
+      accessed from a single L1 cache line.
+
+## QUIZ - WEEK 2
+
+* **Question 1:** Calculate the number of addressable locations for a memory device with the following total number of
+  address lines
+  a. 16
+  b. 24
+  c. 9
+* Answer:
+  a. 2 16 = 65,536
+  b. 2 24 = 16,777,216
+  c. 2 9 = 512
+
+* **Question 2:** A memory device has 16 address lines and 64 data lines. Calculate the storage capacity of the memory
+  in
+  bytes and kilobytes.
+* Answer:
+    * From question 1 we know that 16 addresses gives us 65536 locations. If each location has 64 data lines (64 bits)
+      then this is 8 bytes (8*8=64). So we have:-
+    * 8 x 65536 = 524,288 bytes
+    * Divide by 1024 to get 512 Kilobytes
+
+* **Question 3:** A memory has the following timing characteristics:-
+    * Access time 3 clock cycles.
+    * Zero Recovery cycles needed.
+    * RAS(ROW Access) and CAS(COL Access) are 1 cycle each.
+      Calculate the average memory read time.
+* Answer:
+    * Calculate the average memory read time.
+    * If we Add ROW, COL, and 3 access time cycles we get 5 cycles.
+    * So the average read time is 5 cycles.
+
+* **Question 4:** For the memory speed calculated in (3), determine the data rate if the memory is 16bits wide and has a
+  clock rate of 1GHz.
+* Answer:
+    * At 1GHz we get 1000/5 = 200 Million reads per second.
+    * Each read is 2 bytes (16 bits), so we get 2x200 Million = 400 Million bytes per second
+    * 400,000,000 / (1024*1024) = 381.467 MBps
+* **Question 5:** A system has a main memory has a read time of 6 clock cycles, a cache with a read time of 1 clock
+  cycle,
+  and a hit rate of 75%.
+  a. Calculate the average memory read time
+  b. Calculate the worst case read time.
+* Answer:
+    * Average read time:
+        * HIT 75% , requires 1 clock cycle, 1 x 75% = 0.75
+        * MISS 25%, requires 1+6 = 7 cycles, 7 x 25% = 1.75
+        * TOTAL = 0.75 +1.75 = 2.5 cycles. (average read time)
+    * The worst case is when a cache miss occurs, resulting in a cache read (1) and a memory read (6) so worst case = 7
+      cycles.
+
+# Quick calculations :
+
+* n address lines can address 2^n locations.
+* n address lines where each memory block is K bits gives 2^n * K / 8 Bytes of memory.
+* If a system's memory is 16 bits wide, has a clock rate of 1GHz and requires 5 clock cycles to access the memory, then
+  the data rate is 10^9 * (16/8) / 5 = 400 MB/s = 381.47 MiB/s = 3.2Gbps
 
 # WEEK 3
 
