@@ -623,6 +623,31 @@ HALT
 # WEEK 2
 
 * [Making Memory](#making-memory)
+    * [Volatile and Non-Volatile Memory](#volatile-and-non-volatile-memory)
+        * [Non-volatile memories](#non-volatile-memories)
+        * [Questions](#questions)
+* [DRAM (Dynamic Random Access Memory)](#dram-dynamic-random-access-memory)
+    * [Memory Timing Concept](#memory-timing-concept)
+    * [Boosting Memory Performance](#boosting-memory-performance)
+        * [Burst Mode Access](#burst-mode-access)
+            * [Mixed burst mode](#mixed-burst-mode)
+        * [Fast Page Mode Access](#fast-page-mode-access)
+    * [Storage Technology Trends](#storage-technology-trends)
+    * [Locality](#locality)
+* [The Performance Challenge](#the-performance-challenge)
+    * [Cache for Speedup](#cache-for-speedup)
+    * [Multi-level Cache](#multi-level-cache)
+        * [Anatomy of a Real Cache Hierarchy](#anatomy-of-a-real-cache-hierarchy)
+            * [ Performance Impact of Cache Parameters](#performance-impact-of-cache-parameters)
+            * [Memory Mountain](#memory-mountain)
+    * [QUIZ - WEEK 2](#quiz---week-2)
+    * [Quick calculations](#quick-calculations-)
+* [More about memory](#more-about-memory)
+    * [Memory maps](#memory-maps)
+    * [Cache Coherency](#cache-coherency)
+    * [Activity - Memory Maps](#activity---memory-maps)
+* [Readings](#readings---week-2)
+* [TODO Week 2](#todo-week-2)
 
 # Making Memory
 
@@ -1066,9 +1091,9 @@ HALT
   b. 24
   c. 9
 * Answer:
-  a. 2 16 = 65,536
-  b. 2 24 = 16,777,216
-  c. 2 9 = 512
+  a. 2^16 = 65,536
+  b. 2^24 = 16,777,216
+  c. 2^9 = 512
 
 * **Question 2:** A memory device has 16 address lines and 64 data lines. Calculate the storage capacity of the memory
   in
@@ -1114,6 +1139,122 @@ HALT
 * n address lines where each memory block is K bits gives 2^n * K / 8 Bytes of memory.
 * If a system's memory is 16 bits wide, has a clock rate of 1GHz and requires 5 clock cycles to access the memory, then
   the data rate is 10^9 * (16/8) / 5 = 400 MB/s = 381.47 MiB/s = 3.2Gbps
+
+# More about memory
+
+## Memory maps
+
+</br><img src="./img/52.png" alt="alt text" width="500" height="300">
+
+* Memory can be split into several parts.
+* memory can be represented by DRAM and by ROM, and also by cache.
+    * DRAM is the main section of memory where data is stored.
+    * ROM, as we’ve discussed previously, is a non-volatile memory and that contains some code that is always present,
+        * so that when you turn the computer system on there’s always some program code available to execute, and that’s
+          usually located at location zero of the memory.
+    * the I/O devices potentially appear as part of the memory because they look just like memory locations
+* </br><img src="./img/58.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/53.png" alt="alt text" width="500" height="300">
+* the entire addressable memory space as a box represents memory as system.
+* It stats zero to the largest location available in system
+* If this system has a 16-bit address range then the maximum address will be FFFFh in hexadecimal.
+    * That’s ( 2^16 -1 ). We use hexadecimal when we refer to memory maps because it’s more convenient
+* Memory starts with ROM
+    * It is 4K, then will allocate from 0 (000h) -> 4095 (0FFFh) (less than 4096)
+* Then DRAM is 32K occupies the next address in memory just above ROM
+    * 0 F F F is 1 0 0 0 and because that is 32K long if we calculate one thousand in
+      hexadecimal plus 32,000 in hexadecimal we’ll end up with this address here: 8 F F F h.
+* I/O devices into the memory.
+    * IO devices can map into memory addresses,
+    * they’re separated by relatively small amounts here and they only occupy a few locations.
+    * What does it mean small memory?
+        * What we mean is that internally, inside this IO
+          device, let’s suppose this is a USB interface for example, there will be a number of registers,
+          effectively storage locations where values can be placed to configure the device, or perhaps
+          to read values to get information about the status of the device - these are known as registers.
+        * They will appear like memory locations, but there are only a very few memory locations in a
+          typical IO device, so for example in this case I reserved eight locations for IO device 1, F000h
+          to F007h, that’s eight locations.
+        * what happens if, for example, an IO device only has three locations that are actually valid?
+            * it would be organised something like this:
+            * If we map that into a section of memory that is bigger than the number of registers, then effectively what
+              happens is the registers repeat
+              at a two-to-the-n binary boundary.
+            * So for example, if there are three registers, that would represent a group of four, the final register not
+              being used at all, and that will just repeat any number of times to fill up that block of memory. And the
+              programmer doesn’t really care about this, because all they need to know is: go to location F000, you can
+              access register 1 of the IO device. The fact that there are duplicates in other parts of the memory is
+              irrelevant to the programmer, and we simply ignore that.
+        * However, the final block of memory (10 Mapping) is unusual. What this memory map suggests is that lO devices
+          are mapped into memory addresses. This memory mapped 10 makes some sense if we remember that 10 devices (or at
+          least their interface circuits) are often connected to the system bus along side memory and CPU and are there
+          for a potentially visible to the CPU as if they are memory spaces.
+        * For example,a keyboard and mouse might have the following address designations:
+            * </br><img src="./img/57.png" alt="alt text" width="500" height="300">
+* And finally, there’s an area of memory that we haven’t allocated to anything.
+    * This would be designated as unused memory
+* </br><img src="./img/54.png" alt="alt text" width="500" height="300">
+
+## Cache Coherency
+
+* One important thing that we might note is that if 1I registers look like memory addresses, then they could, in theory,
+  end up in cache.
+    * In the case of our keyboard,if we keep reading a key value from cache,we will not see new key-presses (only the
+      first
+      one to go into cache).
+    * This is a case where memory content should not be cached.
+    * </br><img src="./img/55.png" alt="alt text" width="500" height="300">
+* Another scenario is where two processors share access to the same memory are a (a shared memory system).
+    * Clearly,if either processor is caching the content of the shared memory block, it will be unaware of any changes
+      made by the other processor,which defeats the point of having shared memory.
+    * </br><img src="./img/56.png" alt="alt text" width="500" height="300">
+* This cache coherency issue is a well known problem.
+* how can we avoid this from happening?
+    * So what we can do is, we can mark a block of memory, and say any values, any address values within a certain range
+      shouldn’t go into Cache and shouldn’t be read from Cache.
+    * Those values are in a privileged part of memory where Caching doesn’t take place and that will prevent that
+      problem from happening.
+
+## Activity - Memory Maps
+
+1. Draw a memory map for each of the following cases:
+
+* i. A system with 32K of memory, 4K ROM, 4K RAM, and 8K Flash Memory.
+* ii. A system with 1MByte of memory, 128K ROM, 512K RAM, and three IO devices with 8 registers each, mapped to the top
+  area of memory.
+* </br><img src="./img/59.png" alt="alt text" width="500" height="300">
+* </br><img src="./img/60.png" alt="alt text" width="500" height="300">
+
+2. (Difficult) A system exists where two computer systems share a portion of memory. Both systems have a 64K address
+   space, 8K ROM, 32K RAM. System one has a further 4K RAM mapped at the top of memory, which is shared with system two,
+   where the same RAM appears directly after the ROM.
+    * Detail Explanation : the IO devices don't hold 1024 registers but instead hold 8 registers each. However, each
+      register can be 32 bits which means that each IO device can be 256 bits. Remember that you are dealing with memory
+      here. In reality, each register can hold between 8 bits and 64 bits based on the size of the memory addresses
+      being used by the system so again, the decision is up to the designer and the system they are working with.
+
+* </br><img src="./img/61.png" alt="alt text" width="500" height="300">
+
+# Readings - Week 2:
+
+* If you would still like to know more, then here are some suggested resources:
+    * Article: (Science and Technology research News), (World’s Smallest DRAM Cell Promises Low-Power Memory in Future
+      Mobile Devices)[https://www.ibm.com/blogs/research/2019/09/worlds-smallest-dram/]. You may find this article
+      interesting in showing how memory technology is continuing to advance, driven by improvements in chip fabrication
+      techniques.
+    * News: (Samsung Newsroom), (Samsung Begins Mass Production of Industry’s First 12Gb LPDDR5 Mobile DRAM for Premium
+      Smartphones)[https://news.samsung.com/global/samsung-begins-mass-production-of-industrys-first-12gb-lpddr5-mobile-dram-for-premium-smartphones]
+      . This is an industry report on a new smartphone processor - an opportunity to find some of the keywords and ideas
+      we have discussed in a real world case.
+    * Article: (Semiconductor Digest), (DRAM, NAND and Emerging Memory Technology Trends and Developments in
+      2019)[https://www.semiconductor-digest.com/dram-nand-and-emerging-memory-technology-trends-and-developments-in-2019/]
+
+# TODO Week 2:
+
+* Computer Organization and Architecture, section 5.2, pages 192-196[ Explains Hamming Code Read.]
+* From bytes to Hexadecimal convertion study!!!
+
+# WEEK 3
 
 # WEEK 3
 
