@@ -1249,6 +1249,15 @@ HALT
     * Article: (Semiconductor Digest), (DRAM, NAND and Emerging Memory Technology Trends and Developments in
       2019)[https://www.semiconductor-digest.com/dram-nand-and-emerging-memory-technology-trends-and-developments-in-2019/]
 
+## NOTES:
+
+* if each location has 64 data lines(64 bits)?
+    * Each location stores a **word**, which will be as wide as the data bus. So, if the data bus is 64-bits then the
+      location has 64-bits
+    * **Bandwidth** is the rate at which information is passed. The bus width is a factor in this, but not the sole
+      determinant. Clock speed and the overheads required also have an impact. But you can say the wider the data bus
+      is, the higher bandwidth it will have.
+
 # TODO Week 2:
 
 * Computer Organization and Architecture, section 5.2, pages 192-196[ Explains Hamming Code Read.]
@@ -1256,7 +1265,321 @@ HALT
 
 # WEEK 3
 
-# WEEK 3
+* Building the System
+* In Lesson 1, we will focus upon the basics of bringing together system components - motherboards, busses, interfaces,
+  and system requirements. In particular we will learn about the following:
+    * Motherboards
+    * Bus Systems and interfaces,
+    * Concurrency in Bus Systems,
+    * Example Bus Standards,
+    * Rack mount and server technology,
+    * How IO devices interact with the system.
+* In lesson 2 we focus on data storage technologies, primarily disk systems and their predecessors, exploring the
+  capabilities of disk systems and performance tradeoffs. Particular topics include:
+    * Early storage systems - how they evolved into disk systems
+    * Modern disk storage systems and principles,
+    * Disk performance evaluation,
+    * The negative impact of fragmentation,
+    * Techniques for improving disk performance,
+    * Solid State Drives - an emerging technology,
+    * Storage Reliability.
+* In lesson 3, we focus on System Peripherals and their connectivity, including underlying network technology
+  principles. We touch upon the following:
+    * Concepts of peripherals Input and output devices,
+    * Overview of input devices,
+    * Overview of output devices,
+    * Connectivity via wired and wire-free systems
+
+# Building the System
+
+## Bus Evaluations
+
+* The **motherboard** has all of the circuit connections, chip-sockets, busses, and miscellaneous additional chips to
+  allow a complete high performance computer system to be built, simply by plugging in and/or connecting the appropriate
+  modules and chips to configure the system.
+* As wires get longer, the frequencies that are **attenuated** get lower.
+* <img src="./img/62.png" alt="alt text" width="500" height="300">
+
+### The system bus vs the dedicated bus
+
+* At the very least, we would expect CPU and memory to communicate via this bus, and also some form of Input/Output
+  device interface to be visible on the same bus (the basic von Neumann Model).
+* This system bus is also sometimes referred to as the **host bus** (where the CPU is the host), but also somewhat less
+  intuitively the **local bus** and the **front-side bus, a memory bus, or the main bus**.
+* Definition of a bus isn’t just a group of wires connecting devices together, but connecting multiple devices together.
+  A bus allows multiple devices to engage in data transfers.
+    * In the simplest mode, the data transfer is between any two devices connected to that bus, but there are scenarios
+      where multiple devices can receive data from one or more other devices sending that data (known as a **broadcast
+      or multicast**).
+* In both of these scenarios there is the concept of a **bus master** and a bus **slave device (or devices**).
+    * The master is in control of the data transfer, and decides when it begins , what is transferred, and when to end
+      the process.
+    * The start, middle, and end of the data transfer process may be referred to as a **bus transaction**.
+* Apart from the system bus, there may be **secondary busses** in our computer system. These can connect to the system
+  bus
+  via an interface chip (known as a **bus bridge or auxiliary bus controller**), or even connect directly to the CPU
+  using a
+  **dedicated bus** in its own right.
+* **Bus hierarchy** is a term which reflects the fact that the bus architecture has a tiered structure, such that the
+  CPU has a host bus or system bus at the top level, and there are auxiliary busses that are subordinate to that.
+* If this direct connection can only connect **point to point**, then it is not a bus in the standard def- inition. We
+  may
+  well have a bus in which only two devices exist because that is all that we have added to the system, but that is not
+  classically a direct point-to-point connection either.
+* <img src="./img/63.png" alt="alt text" width="500" height="300">
+* a **PCI bridge** for example, supports a **PCI bus**.
+    * The bus bridge creates a connection that the CPU can recognise on its host bus, but which also allows the CPU to
+      communicate with devices on the other side of the bridge (those on the
+      auxiliary bus).
+    * This can be the same type of bus, but is possible even if they use a different interface standard and bus
+      protocol.
+    * A bus bridge is often just a particular chip on the motherboard. The advantage of this is that a CPU need not
+      provide every possible bus connectivity that might be selected by a designer; instead the system designer
+      simply supplies the appropriate bridge component.
+* A further observation is that devices on the auxiliary bus can communicate with each other without necessarily
+  involving the CPU, but on occasions can also communicate with the CPU via the bridge.
+    * Therefore, individual busses can potentially operate independently of each other. A bridge permits both
+      compartmentalisation and cooperation.
+* The CPU in this example also has a dedicated bus connecting to the GPU (Graphic Processing Unit) component. This is a
+  highly specialised bus connection, going directly between the GPU and the CPU (not via the system bus). This allows it
+  to operate continuously without interfering with the system bus bandwidth, and without system bus transactions
+  interfering with its own behaviour. In this case, the device connected is a GPU and dedicated busses are often used to
+  permit high performance GPU communication to the CPU (among a number of other scenarios).
+
+#### Concurrency in bus architecture
+
+* the host bus and the auxiliary bus can run **concurrently** (means several entities operating (e.g. transferring data)
+  at the same time.) , provided they do not want to cooperate in a data transfer between their two buses.
+    * Equally, while these two busses are operating concurrently, the dedicated bus can also be operating.
+    * These three busses may not interfere with each other at all during these operations and therefore will not hinder
+      each other’s performance.
+* With concurrency, the system has effectively been subdivided, or partitioned into more or less independent parts that
+  can work simultaneously on different things.
+    * The only exception to this is if the CPU decided to communicate with an auxiliary device (or vice versa), via the
+      bus bridge, in which case both busses would be involved in the transaction and neither bus could be used by any
+      other devices at that time.
+* This is an important observation, because being able to do three things at once means more work done in less time. It
+  can also be measured in another way:
+    * For example: Suppose the system bus has a data transfer bandwidth of 200 Megabytes/sec, the auxiliary bus has a
+      data transfer bandwidth of 500 Megabytes/sec, and the dedicated bus has a data transfer bandwidth of 1
+      Gigabyte/sec.
+    * we can determine that the system has an **effective transfer bandwidt**h of 1.7 Gigabytes/sec (1000 + 200 + 500 =
+      1700
+      Megabytes/sec.).
+    * If we wished to boost performance further, we could add multiple bus bridges to the host bus and have other
+      independent groups of auxiliary bus devices each adding a further 500 Megabytes/sec of system bandwidth.
+* When a system has heavy work to do in particular categories of activity, it can be made more efficient by using a
+  concurrent bus hierarchy, provided that the right kind of busses and devices exist, and their behaviours are
+  compatible with efficient **bus utilisation**
+
+### Bus standards
+
+* Bus standards are important for :
+    * First of all, a well defined standard, maintained by a recognised organisation, provides precise electrical and
+      functional operating principles for that bus, allowing any manufacturer to develop a device that is bus compatible
+      with that standard. This ensures technology is interchangeable, and where possible, open to
+      competition
+* We refer to these **semi-obsolete standards** as legacy bus standards, and computer systems either do not support them
+  any more, or provide support primarily for convenience to allow older technologies to continue to be used for a period
+  of time. A good example of this is the VESA bus standard, which was largely replaced by the PCI bus in the 1990s.
+* <img src="./img/64.png" alt="alt text" width="500" height="300">
+
+### A generic system bus
+
+* Generic means a very standard example of a system bus system without any specialisations
+* **Clock driver** is the circuit that generates the regular on/off signal pulse that represents the **system clock**
+* All devices in the system use this same clock, even the master device. The clock signal acts as a synchronisation
+  mechanism and determines when each event begins and ends on the bus.
+* **Address lines** : These are a group of wires that represent the unique numerical address of a memory location with
+  which the master wishes to interact.
+    * In a system with 10 address lines, these would normally be named **A0** through to **A9**. The number of address
+      lines is
+      related to the addressable memory of the system.
+    * addresses are binary, the relationship is determined by the base-2 number system,
+    * <img src="./img/65.png" alt="alt text" width="500" height="300">
+* **D0-Dn**, represent the **size of data values** that can be transferred across the bus.
+    * This might be a byte, in which case we would expect to see data lines D0 to D7 being represented.
+    * However, many computer systems have 16, 32, or perhaps even 64 data lines.
+* **RAS** and **CAS** relate to **Row-Address-Select**, and **Column-Address-Select** signals.
+    * These are required by memory chips to allow them to be given the row and column information required to access
+      individual memory locations.
+    * Some processors generate these signals directly, while others make use of an additional chip called a **memory**
+      **controller**.
+* Important signals are also needed: **RD (read) and WR (write)**.
+    * These signals are used to control which direction the data is transferred:
+        * if the master sends data to the slave it is a **write transaction** and the WR signal is enabled.
+        * On the other hand, if the master receives data from the slave, it is performing a **read transaction** and RD
+          is enabled instead.
+        * So RD and WR indicate if the slave device is being read from or written to.
+
+### PCI: a very successful Bus Standard
+
+* Some of the key features of the original PCI bus standard are as follows:
+    * 33 MHz Bus Frequency,
+    * 32 bit Data Width,
+    * 32 bit Address Range,
+    * Bus Arbitration requires 5 clock cycles, ▶ Bus Turnaround requires 1 clock cycle,
+* The PCI bus employs **bus multiplexing**, but not in the same way as we encountered earlier for DRAM addressing.
+* Instead of subdividing the address into two parts, the PCI bus uses a single bus to transfer address and data values.
+* This is known as the **address-data bus**.
+* This way, 32 address lines and 32 data lines can actually be the same wires, just at different times.
+* Due to the way the PCI bus works, address and data do not need to be transmitted at the same time. This is therefore
+  another form of multiplexing (data/address multiplexing).
+* Bus bandwidth estimate:
+    * <img src="./img/64.png" alt="alt text" width="500" height="300">
+* this calculation tells us is the **raw bandwidth** of the bus, but not the whole picture.
+    * Raw bandwidth represents how many data transfers a bus can take if one per clock cycle.
+    * Bus systems have protocols that use some clock cycles for controlling the transfer
+    * This leaves less cycles for data
+    * The protocol overhead might be one or two cycles per sequence of data transfers (blocks or payloads)
+* **Bus arbitration** is a process whereby a controller (in this case a PCI controller chip), decides which one among
+  the
+  devices in the system is allowed to be **granted ownership** of the bus at the next opportunity.
+    * It then spends some clock cycles setting up the data transfer - **a total of 5 clock cycles**.
+* Once a device has finished with the bus, it must relinquish or **release ownership** of the bus, so that another
+  device
+  can use it. This requires 1 clock cycle under normal conditions (the **turnaround cycle**).
+* Thats mean 1 data transfer : to transfer one 32-bit data word on the bus requires **seven clock cycles** (**five for
+  arbitration, one for the actual data, and finally one for turnaround).**
+* This **protocol overhead** impacts performance significantly.
+    * If it takes **seven clock cycles to transmit one data word**, then our 132 Million bytes/sec is never going to be
+      achieved,
+    * Indeed, we can only achieve **1/7th of this peak bandwidth**, resulting in data transfer rates of around 18 to 19
+      Million bytes/sec, a very poor substitute for our original expectations.
+* How we can improve ?
+    * For example: if we transfer **10 data words** in a single transaction, rather than one, then the
+      cost is **16 cycles (5 arbitration, 10 data, 1 turnaround)**.
+    * This equates to a data transfer efficiency of around 62% (10/16), and a data transfer rate of over 78
+      Megabytes/sec (62% x 126 Megabytes/sec).
+* So it would seem that the answer to our problems is to increase data transfer block lengths to large numbers, and
+  enjoy data transfer rates close to the maximum possible
+    * however here are problems with this idea:
+        * We do not always want to transfer data in large blocks, so there will always be cases where short and low
+          efficiency transactions will occur.
+        * The longer the block size, the longer other devices have to wait until their next turn. This impacts upon
+          fairness, and ability to respond quickly to events. it means the bus is locked by one device for longer and
+          longer periods. This means that other devices have to wait longer to start their turn at using the bus, and
+          this is often not ideal for performance of some services where timing is important.
+
+### Data rate matching and buffers
+
+* When a device on a fast bus is trying to send a block of data to a device on a slower bus on the other side of the
+  bridge, we consider the idea of a **producer** and a **consumer**, which are in effect the sender and the receiver
+  during a
+  bus transaction, or succession of transactions between the two entities.
+* When a producer creates data faster than a receiver can consume that data, the receiver must **buffer** that data
+  locally, until it can work through the backlog.
+* This is something like an in-tray piling up in an office. As long as the buffer never gets completely full, the
+  producer can continue to send data as fast as the bus will permit.
+
+### USB: Universal Serial Bus
+
+* Whereas PCI is ideal for internal devices such as modules plugged into a computer system motherboard, the USB system
+  is optimised for convenient external peripheral connectivity (in other words, USB is a peripheral bus standard).
+* USB1.0 Key Features
+    * The USB bus can supply limited power to a connected device. Data is transmitted in packets, along with a header,
+      and an error check code.
+    * Data rates of up to 12 Mbits/sec are possible for USB 1.0.
+    * Packets can contain anywhere from 0 to 8192 payload data bits.
+* One of the features that makes USB popular is, albeit, in small amounts, it can also power connected devices.
+* USB supports plug-and-play (known as a hot-swappable) where devices can be plugged/unplugged when the system is
+  powered up and this isn't
+  possible with PCI for example.
+* USB ports on computers can be connected to USB hubs which can provide expansion.
+* USB is legacy compatibility. It means new USB buses can run on old USB bus too.
+* The USB standard is designed to facilitate fast and convenient connection and disconnection of peripherals, and
+  sometimes these are plugged in and unplugged whilst the system is running
+* any USB port can connect to a USB hub, rather than a peripheral, and this provides expansion capability.
+* Hubs can be cascaded, up to the point where the total number of devices in the system is a maximum of 127 devices
+
+#### More common bus standards
+
+* **Thunderbolt** in particular has become very widespread due to the prevalence of certain touchpads and smartphones
+* **Firewire** is also widely used in APPLE products such as laptops and desktop machines
+* For disk storage systems, there are a whole class of bus standards, including **SCSI, IDE, SATA** (but also Firewire
+  to some extent, particularly for external drives), and these provide various kinds of high speed data channels for
+  disk storage units
+* <img src="./img/67.png" alt="alt text" width="500" height="300">
+
+### Industrial and embedded standards
+
+* In industrial settings, computer systems have to have resilience, fault-tolerance, immunity to electrical noise caused
+  by heavy machinery, and operate on power levels that are unnecessary or undesirable in office or domestic scenarios.
+
+#### I2C (Inter-Integrated Chip) bus standard.
+
+* <img src="./img/68.png" alt="alt text" width="500" height="300">
+* **I2C bus** is typically a dedicated I2C interface chip, and a number of devices connected to the I2C bus which that
+  chip supports
+* The I2C system uses a very straightforward protocol, the **SCL (Serial Clock Line)** provides synchronisation, and is
+  always generated by the bus master, so that the devices on the bus which are receiving data will know when data bits
+  are present.
+* The **SDA line (Serial Data)** provides the means to transmit data bits, one bit per clock pulse.
+* Any device on the I2C bus can be master
+    * Any device may attempt to become master, and as a result, several devices might try to do this at the same time.
+      However, the protocol is able to deal with this using a conflict resolution algorithm.
+* **back-off-and-retry** arbitration mechanism, is often used where there is no central controller for a bus system.
+* In most situations, even if two or more masters attempt to gain possession of the bus, only one will succeed.
+* This is based on the assumption that two masters will not communicate with the same slave device simultaneously
+* I2C systems are normally designed such that two masters never access the same slave, or never without some form of
+  mutual agreement.
+* Bus Master resolution protocol
+    * Potential Master waits if SDA appears to be active already (it cannot be master if another device is already busy)
+    * When SDA is inactive, the master attempts to start a transmission.
+    * The would-be master monitors the state of SDA, and if it is not as expected, then this means another device is
+      attempting to be master too. The device then backs off and stops trying to be master.
+    * Otherwise, if no conflict is observed, the would-be device assumes master status, and proceeds.
+
+#### CAN (Controller Area Network) bus
+
+* CAS was originally designed for the automotive industry, to allow many electronic devices distributed around the
+  chassis and bodywork of a vehicle to link together via a two-wire interface.
+* The alternative was for every device to have a bundle of wires leading back to the central control module of the
+  vehicle, and these ’wiring looms’ as they are referred to, were complex and difficult to maintain.
+* An important feature of CAN bus data transfer is the idea of **differential signalling**.
+    * Rather than having a single wire transmitting zeros and ones, the CAN bus system uses two wires, transmitting
+      mirror image data patterns, such that if the first line transmits 0-1-0 as zeros and positive voltages, the second
+      line would transmit zeros and negative voltages.
+    * This duplication help eliminating the electrical noise.
+* D+ represents the normal signal, including noise, and D- represents the inverted signal, but with the same noise (
+  not the inverse noise)
+* <img src="./img/69.png" alt="alt text" width="500" height="300">
+
+### Rack-mount, hot-swap, and servers
+
+* The server platform is the modern equivalent of a mainframe, providing computing resources to many users as if
+  simultaneously.
+    * To achieve this, servers are built with particular specifications, often based on racks full of
+      motherboards (a **rack-mount system**), each with processors housing multiple processing cores, large disk arrays,
+      and large amounts of memory.
+    * Single server racks could quite easily support several hundred processor cores.
+* Such systems also rely upon the ability for engineers to connect and disconnect modules such as hard-disk units
+  which may have failed, without having to turn off the computer system.
+    * This is known as **hot-swapping**, and is one of the design requirements of many server systems.
+    * As we have noted, some bus systems, such as USB and SATA permit this, whilst other bus systems do not.
+
+### IO device mapping and IO servicing
+
+* any suitable IO device or interface chip can appear as a group of memory addresses. This is known as **device
+  mapping**.
+  The CPU, or indeed any other device connected to the bus, can see these IO addresses, and potentially read from or
+  write to them.
+* Memory-mapped IO devices are serviced in 2 ways
+    * **Polling** Either the CPU actively polls the devices if new information is ready or the device is ready to accept
+      new data
+    * Or **Interrupts**, the device signals the CPU by using some special pins to let it know that it's ready.
+        * With the interrupts, the CPU doesn't waste any time checking the IO device.
+* CPU driven data transfer : Once a device has gained the attention of the CPU, the CPU will typically then control a
+  data transfer, from the device to an area of memory, or vice-versa
+* Direct memory access (DMA): it allows an IO device to take over control of the system bus (become bus master) and
+  transfer data to the chosen destination without CPU involvement.
+* There is a trade-off between having very long DMA transfers, causing other devices to wait a long time to get their
+  turn at using the bus (service latency), versus much shorter transfers that allow all devices to get frequent use of
+  the bus in turns, but with the penalty of lower data transfer efficiency.
+
+## Bus Protocols and Efficiency
+
+## Busses And Concurrency
 
 # WEEK 4
 
