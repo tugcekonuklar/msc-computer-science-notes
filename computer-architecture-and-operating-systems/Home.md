@@ -1418,15 +1418,17 @@ HALT
     * 33 MHz Bus Frequency,
     * 32 bit Data Width,
     * 32 bit Address Range,
-    * Bus Arbitration requires 5 clock cycles, ▶ Bus Turnaround requires 1 clock cycle,
+    * Bus Arbitration requires 5 clock cycles,
+    * Bus Turnaround requires 1 clock cycle,
 * The PCI bus employs **bus multiplexing**, but not in the same way as we encountered earlier for DRAM addressing.
 * Instead of subdividing the address into two parts, the PCI bus uses a single bus to transfer address and data values.
 * This is known as the **address-data bus**.
 * This way, 32 address lines and 32 data lines can actually be the same wires, just at different times.
+* The raw bandwidth is 33 x 10^6s -1 x (32/8)B = 132 Million Bytes/sec makes 126 Megabytes/sec
 * Due to the way the PCI bus works, address and data do not need to be transmitted at the same time. This is therefore
   another form of multiplexing (data/address multiplexing).
 * Bus bandwidth estimate:
-    * <img src="./img/64.png" alt="alt text" width="500" height="300">
+    * <img src="./img/66.png" alt="alt text" width="500" height="300">
 * this calculation tells us is the **raw bandwidth** of the bus, but not the whole picture.
     * Raw bandwidth represents how many data transfers a bus can take if one per clock cycle.
     * Bus systems have protocols that use some clock cycles for controlling the transfer
@@ -1460,6 +1462,19 @@ HALT
           fairness, and ability to respond quickly to events. it means the bus is locked by one device for longer and
           longer periods. This means that other devices have to wait longer to start their turn at using the bus, and
           this is often not ideal for performance of some services where timing is important.
+* **Question: Transfer Rate and efficiency Calculation**
+    * A bus system has a protocol overhead of 5 cycles, a bus width of 32 bits, and a bus frequency of 200 MHz.
+      a. Calculate the data transfer rate for single transactions
+      b. Calculate the data transfer efficiency with block sizes of 16 bytes.
+* **Answer:**
+* a. For a single transaction, the time required to transfer 4 bytes (32 bits) is 6 clock cycles, (5 overhead, and one
+  data).
+    * Therefore we can transfer 4/6 = 0.66 bytes per clock cycle.
+    * At 200 million clocks per second, the data rate is 133 Million bytes per second.
+* b. For a 16 byte transaction, this requires 4 data transfers (4 x 32 bits). So the time required to transfer 16 bytes
+  is 5+4 = 9 clock cycles. Or 16/9 bytes per clock = 1.77 bytes per clock cycle.
+    * The ideal performance should be 4 bytes per clock with zero overhead, so the efficiency in this case is 1.77/4 =
+      0.44, or 44%
 
 ### Data rate matching and buffers
 
@@ -1561,8 +1576,8 @@ HALT
 ### IO device mapping and IO servicing
 
 * any suitable IO device or interface chip can appear as a group of memory addresses. This is known as **device
-  mapping**.
-  The CPU, or indeed any other device connected to the bus, can see these IO addresses, and potentially read from or
+  mapping**. The CPU, or indeed any other device connected to the bus, can see these IO addresses, and potentially read
+  from or
   write to them.
 * Memory-mapped IO devices are serviced in 2 ways
     * **Polling** Either the CPU actively polls the devices if new information is ready or the device is ready to accept
@@ -1579,7 +1594,85 @@ HALT
 
 ## Bus Protocols and Efficiency
 
+* In a computer system, only one device at a time controls the bus, known as the bus master. This normally is the CPU
+  however, other peripherals like the IO, can take charge too.
+* In the Direct Memory Access, DMA, condition, IO can take control of the bus and directly write to memory for example.
+* This relieves the CPU from having to deal with such transfers.
+* For example : this case the IO interface is trying to access Memory.
+* In actual fact, the IO Interface, first of all, has to ask permission to use the bus from the CPU –
+  in this case because the CPU is the Bus controller – so it emits a bus request which is one clock
+  cycle where effectively that’s a signal where the IO Interface says ‘I would like to use the bus
+  please’, the CPU if it is able to then acknowledges and the says ‘yes, you can now use the bus
+    * two news boxes in same shade, BUS REQ and BUS ACK.
+* At the end the IO Interface then has to release the bus to say ‘Thank you, I am finished with using the
+  bus now, you can resume your ownership of the bus’ and the CPU can then become bus master
+  again.”
+    * BUS REL comes to the end
+* <img src="./img/70.png" alt="alt text" width="500" height="300">
+* All of that together collectively forms what we call a **bus protocol** and that impacts on
+  performance because it introduces the idea of **bus protocol overhead**
+* so what we have is **a bus protocol where we have 5 cycles of overhead plus n cycles of payload.**
+* definition of **bus efficiency** starting by defining what the bus protocol overhead is, 5 cycles, as we noted, how
+  big is the payload – n cycles where n is some number that depends on the transaction
+* <img src="./img/71.png" alt="alt text" width="500" height="300">
+* **What we are actually saying here is the efficiency is how many bytes I want to transmit divided by how many clock
+  cycles it takes to do that transmission, including the overhead**
+* The payload size and the protocol overhead have a significant impact on the efficiency of the bus in terms of data
+  transfers,
+* and this is why we prefer to transfer data In bursts for example Burst Mode DRAM and also we like to transfer data
+  in bursts in something called DMA – Direct Memory Access – when an IO device talks to memory
+* it likes to do that in blocks rather than in single locations because of the efficiency overhead that
+  that implies.
+
 ## Busses And Concurrency
+
+* To avoid bus collusions secondary/auxiliary busses can be created, which are connected to the main bus via bus
+  bridges. This allows concurrency, aka concurrent bus operations.
+* With concurrency, the system has effectively been subdivided, or partitioned into more or less independent parts that
+  can work simultaneously on different things. This works well until the CPU decides to talk to components of aux
+  busses.
+* The CPU does very little communication with these busses just for some housekeeping and most of the job is done
+  between peripherals, ie by DMA.
+* This architectures also allows CPU to fully utilise the main bus.
+* Bridges also allow connecting secondary busses with different protocols and even the CPU doesn't have to know much
+  about the full protocol as the bridges handle this job.
+* In this scenario we try to read data from disks and send that data onto a network
+* <img src="./img/72.png" alt="alt text" width="500" height="300">
+
+# 3.4 Activity: Bus standards
+
+* <img src="./img/73.png" alt="alt text" width="500" height="300">
+* ISA
+    * ISA stands for Industry Standard Architecture.
+    * It is a 16-bit internal bus used in IBM's PC/AT and similar machines in the 1980s.
+    * Originally called the PC Bus (8-bit version) or AT Bus (16-bit version), ISA was the name used later to avoid
+      using IBM's AT trademark. The history of this is quite interesting with IBM and Compaq battling it out in the ISA
+      vs EISA fight.
+    * Does not support hot-swapping.
+    * Backward compatible.
+    * Obsolete in general purpose machines, but still used in industrial PCs mainly due to legacy compatibility as the
+      original technology has not been updated.
+* VESA
+    * VESA stands for Video Electronics Standards Association, and the VESA Local bus was referred to as the VL-bus or
+      VLB.
+    * Created as a stopgap to support ISA's limited bandwidth.
+    * It is an expansion bus designed to work alongside the ISA bus, intended to accelerate graphics operations.
+    * It achieves this by providing a direct path to expedite memory-mapped I/O and DMA.
+    * Dependent on the x86 architecture.
+    * Difficult to install and remove, resulting in breakages and earning the name Very Long Bus.
+* AGP
+    * Like the VESA, AGP is also an expansion bus which attaches to the video card to improve 3D graphics.
+    * AGP provides a point-to-point pathway, avoiding the system bus and resulting in higher clock speeds.
+    * It benefits from address and data being sent separately; this limits idle states in the bus during read
+      operations.
+    * It simplifies bus handshaking* as PCI bus transactions have varying lengths, whereas AGP transfers are always a
+      multiple of 8 bytes long.
+    * AGP was replaced by PCIe in 2004, and Windows discontinued support in 2016.
+    * Handshaking is an alternative to the strobe approach, where the producer sends the data and does not know whether
+      the consumer has received the data. Handshake approach introduces a control signal that effectively acknowledges
+      and regulates the data transfer.
+
+# Advanced Bus exercises
 
 # WEEK 4
 
@@ -1588,3 +1681,8 @@ HALT
 # WEEK 6
 
 # WEEK 7
+
+# Notes for me :
+
+* millisecond = 1/1000th of a second
+* microsecond = 1/1000000th of a second
