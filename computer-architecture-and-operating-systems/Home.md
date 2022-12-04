@@ -1702,19 +1702,19 @@ HALT
 
 ### Answer 1:
 
-* a) Synchronous bus has  [ (send address + data) + memory access ] operations for one transaction.
-* And 1 transaction requires 1CK(19nsec) + 1 CK(19nsec) + 125 nsec = 163nsec
+* a) Synchronous bus has  **[ (send address + data) + memory access ]** operations for one transaction.
+* And 1 transaction requires **1CK(19nsec) + 1 CK(19nsec) + 125 nsec = 163nsec**
 * Sending 1 byte of data requires 1/163nsec = 1/163.10^-9
-* Sending 4 byte of data requires [( 4 * (1/163.10^-9 ) ) * 1/10^6 ] = 24.5 MB/sec (approximately)
+* Sending 4 byte of data requires **[( 4 * (1/163.10^-9 ) ) * 1/10^6 ] = 24.5 MB/sec (approximately)**
 * And this is the Synchronous bus bandwidth for 4 byte data transfer
 
 * b) Asynchronous bus
-  has [ initial read req + memory access time(includes data ready and handshake makes 3 more operations)  + ( read + handshake + acknowledge) ]
+  has **[ initial read req + memory access time(includes data ready and handshake makes 3 more operations)  + ( read + handshake + acknowledge) ]**
   operations for one transaction.
-* as we know memory access is limited with 125 and wont change and calsulation is like [40nsec + 125nsec + (3*40nsec) ]
-  = 285nsec
+* as we know memory access is limited with 125 and wont change and calsulation is like **[40nsec + 125nsec + (3*40nsec) ]
+  = 285nsec**
 * Sending 1 byte of data requires 1/285nsec = 1/285.10^-9
-* Sending 4 byte of data requires [( 4 * (1/285.10^-9 ) ) * 1/10^6 ] = 14 MB/sec (approximately)
+* Sending 4 byte of data requires **[( 4 * (1/285.10^-9 ) ) * 1/10^6 ] = 14 MB/sec (approximately)**
 * And this is the asynchronous bus bandwidth for 4 byte data transfer
 
 * **Therefore, the synchronous bus has the higher bandwidth at 24.5MB/s.**
@@ -1737,8 +1737,8 @@ HALT
     * **(initial Read operation + 4* (send address + data + 2 idle) + memory access)**
     * and makes **( 1CK + 16CK + 25 ) = 42CK= 168nsec** just to transfer 32 byte data in 1 transaction.
 * 1024 byte requires 1024/32 = 32 transactions to transmit completely
-* and this requires 32*168nsec = 5376nsec
-* and this requires  [( 124 * (1/5376.10^-9 ) ) * 1/10^6 ] = 190,5 MB/sec (approximately)
+* and this requires **32*168nsec = 5376nsec**
+* and this requires  **[( 124 * (1/5376.10^-9 ) ) * 1/10^6 ] = 190,5 MB/sec (approximately)**
 
 ## Question 3:
 
@@ -1758,8 +1758,8 @@ HALT
     * **(initial Read operation + 2* (send address + data + 2 idle) + memory access)**
     * and makes **( 1CK + 8CK + 25CK ) = 34CK= 272nsec** just to transfer 32 byte data in 1 transaction.
 * 512 byte requires 512/32 = 16 transactions to transmit completely
-* and this requires 16*272nsec = 4352nsec
-* and this requires  [( 512 * (1/4352.10^-9 ) ) * 1/10^6 ] = 117,65 MB/sec (approximately)
+* and this requires **16*272nsec = 4352nsec**
+* and this requires  **[( 512 * (1/4352.10^-9 ) ) * 1/10^6 ] = 117,65 MB/sec (approximately)**
 
 # WEEK 4
 
