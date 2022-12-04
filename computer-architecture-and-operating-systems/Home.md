@@ -1674,6 +1674,93 @@ HALT
 
 # Advanced Bus exercises
 
+* A few things to consider before approaching the questions:
+    * A synchronous bus is tied directly to a synchronising clock and therefore does not require handshake operations to
+      manage transactions, while an asynchronous bus does require handshake operations to ensure that channels are
+      available and ready.
+    * Memory access times are specified as fixed durations, such that they can accommodate the maximum number of
+      required operations for a given transaction and will include a little additional time (a few nanoseconds); this
+      allows for the fact that in the real physical world the frequency of a signal is not entirely stable.
+    * Transactions cannot overlap so an initial memory read is often required to prevent any overlap between
+      transactions.
+    * The calculations that can be performed to determine the speed and bandwidth of a bus and bandwidth requirements
+      are estimations, as they cannot cover every potential scenario for a given bus specification. As such, they are
+      based on establishing potential maximum values as the most reliable performance indicator.
+* Note for all 3 questions below:
+    * ns = nanoseconds
+    * MHz = Megahertz
+    * CK = clock cycle
+
+## Question 1:
+
+* You have been given a task to calculate the performance of the following buses:
+    * a) a synchronous bus with the following specification: 50 Mhz frequency, 19 nsec clock cycle (CK), send
+      address/data takes 1CK each, and a 125 nsec memory access time.
+    * b) An asynchronous bus with the following specifications: each handshake takes 40 nsec, with the same 125 nsec
+      memory access time.
+* Assuming both buses can transfer 4 bytes of data, which bus has a higher bandwidth?
+
+### Answer 1:
+
+* a) Synchronous bus has  [ (send address + data) + memory access ] operations for one transaction.
+* And 1 transaction requires 1CK(19nsec) + 1 CK(19nsec) + 125 nsec = 163nsec
+* Sending 1 byte of data requires 1/163nsec = 1/163.10^-9
+* Sending 4 byte of data requires [( 4 * (1/163.10^-9 ) ) * 1/10^6 ] = 24.5 MB/sec (approximately)
+* And this is the Synchronous bus bandwidth for 4 byte data transfer
+
+* b) Asynchronous bus
+  has [ initial read req + memory access time(includes data ready and handshake makes 3 more operations)  + ( read + handshake + acknowledge) ]
+  operations for one transaction.
+* as we know memory access is limited with 125 and wont change and calsulation is like [40nsec + 125nsec + (3*40nsec) ]
+  = 285nsec
+* Sending 1 byte of data requires 1/285nsec = 1/285.10^-9
+* Sending 4 byte of data requires [( 4 * (1/285.10^-9 ) ) * 1/10^6 ] = 14 MB/sec (approximately)
+* And this is the asynchronous bus bandwidth for 4 byte data transfer
+
+* **Therefore, the synchronous bus has the higher bandwidth at 24.5MB/s.**
+
+## Question 2:
+
+* A 64-bit synchronous bus has a frequency(f) of 250 Mhz, a 4nsec clock cycle (CK), send address/data takes 1CK each,
+  2CKs between bus operations, a memory access time of 100nsec/block, bus transfer and reading next data overlap, block
+  size 32 bytes.
+    * How much bandwidth is needed to transmit 1024bytes of data across the bus?
+
+### Answer 2:
+
+* This bus transaction operations are [ (send address + data + 2 idle) + memory access ]
+* Block size is 32 byte, that's mean in 1 transaction we can transfer 32 bytes data.
+* with a 64-bit bus = 8 byte, to transmit 32 byte we need to operate [ (send address + data + 2 idle) ] 32/8 = 4 times
+* [ (send address + data + 2 idle) ] operation takes 1CK + 1CK + 2CK = 4CK , for 32 bytes 4*4 = 16CK
+* In addition to this we need **1CK** for **initial read** in each transaction because operations are not immediate
+* the memory access time 100nsec = 25 CKs and 1 transaction total Cks are:
+    * **(initial Read operation + 4* (send address + data + 2 idle) + memory access)**
+    * and makes **( 1CK + 16CK + 25 ) = 42CK= 168nsec** just to transfer 32 byte data in 1 transaction.
+* 1024 byte requires 1024/32 = 32 transactions to transmit completely
+* and this requires 32*168nsec = 5376nsec
+* and this requires  [( 124 * (1/5376.10^-9 ) ) * 1/10^6 ] = 190,5 MB/sec (approximately)
+
+## Question 3:
+
+* A 128-bit synchronous bus with f = 125 Mhz, an 8 nsec clock cycle (CK), send address/data takes 1CK each, 2CKs between
+  bus operations, a memory access time of 200 nsec, bus transfer and reading next data overlap, block size is 32 bytes.
+  What is the bandwidth for 512 bytes to be transferred across the bus?
+
+### Answer 3:
+
+* This bus transaction operations are [ (send address + data + 2 idle) + memory access ]
+* Block size is 32 byte, that's mean in 1 transaction we can transfer 32 bytes data.
+* with a 128-bit bus = 16 byte, to transmit 32 byte we need to operate [ (send address + data + 2 idle) ] 32/16 = 2
+  times
+* [ (send address + data + 2 idle) ] operation takes 1CK + 1CK + 2CK = 4CK , for 32 bytes 4*2 = 8CK
+* In addition to this we need **1CK** for **initial read** in each transaction because operations are not immediate
+* the memory access time 200nsec = 25 CKs and 1 transaction total CKs are:
+    * **(initial Read operation + 2* (send address + data + 2 idle) + memory access)**
+    * and makes **( 1CK + 8CK + 25CK ) = 34CK= 272nsec** just to transfer 32 byte data in 1 transaction.
+* 512 byte requires 512/32 = 16 transactions to transmit completely
+* and this requires 16*272nsec = 4352nsec
+* and this requires  [( 512 * (1/4352.10^-9 ) ) * 1/10^6 ] = 117,65 MB/sec (approximately)
+
 # WEEK 4
 
 # WEEK 5
