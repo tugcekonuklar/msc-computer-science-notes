@@ -1814,9 +1814,8 @@ HALT
     * If we already have 8.3 ms for rotation, and we add 2 ms for head seek time then the worst case must be 10.3ms.
     * **The best case will be as near to zero as is measurable**. Therefore **the average is half way** between zero and
       10.3 = 5.15 ms.
-* If the same disk has a sector size of 2048 bytes per sector, and 100 sectors per track,what is the data transfer **
-  rate(bytes per sec)**
-  that this disk unit can sustain?
+* If the same disk has a sector size of 2048 bytes per sector, and 100 sectors per track,what is the data transfer
+  **rate(bytes per sec)**  that this disk unit can sustain?
     * **With a hard disk here so the calculation should be in binary** - see the lesson notes p7.
     * If there are 100 sectors, then the whole track contains 204,800 bytes.
     * A whole track can be read **120 times per second** for this disk, therefore we can read **120 x 204,800 bytes per
@@ -1824,6 +1823,24 @@ HALT
     * Now change this to binary megabytes MB per second by calculating the following **((24,576,000)/(1024*1024) =
       23.43MB**
       per second.
+
+------------------------------
+
+* **TODO : Not understand**
+* A drive has a rotational speed of 5400 rpm, a data read rate of 100 Megabytes/sec, and a sector
+  size of 2 KB. What are the worst, best, and average times to access our 3 KB data?
+    * 90 rev / s, 1 rev in 11.11 ms.
+    * Worst case: Full rotation + head seek time (assume 2ms) + 4KB read time based on 100MB/s = 11.11 ms + 2 ms +
+      0.04ms = 13.15 ms. 4 KB / 13.15 ms = 0.3 MB/s
+        * If we account for the actual 3 KB file data, then it becomes 0.22 MB/s
+    * Best case: No seek + 40 us = 40 us. 4 KB / 40 us = 97.7 MB/s
+        * For 3KB => 73.24 MB/s
+    * Avg access time (13.14 + 0.04)/2 = 6.59ms , 0.59 MB/s
+* For the same example above assume the worst cases for contiguous vs fragmented files
+    * Worst case cont = 4KB in 13.15 ms
+    * Worst case frag = 4KB in 26.26 ms (11.11 + 2ms + 0.02)x2
+
+------------------------------
 
 ## Hard Disk Drive, HDD
 
@@ -1886,6 +1903,23 @@ HALT
         * Wear levelling, which spreads the write traffic across different locations, can help tackling this.
           Manufacturers specify a guaranteed write limit, for example, for a 1TB drive it can be 3 Petabytes.
 * <img src="./img/80.png" alt="alt text" width="500" height="300">
+
+# Peripherals and interfaces
+
+* Ethernet uses Carrier Sense/Multiple Access/Collusion Detect, **CSMA/CD** protocol
+* **Carrier Sense** is the stage where the device checks if the ethernet line is already in use
+* **Multiple Access** is sending data if Ethernet is awailable
+* **Collusion detect**, is basically doing is transmitting data, binary ones and zeros onto that wire and then it's
+  saying am I seeing the same information that I am transmitting.
+* If multiple devices attempt to become active at the same time, collusion detection mechanism detects this
+    * Then, involved nodes step immediately and go into **back-off-and-retry** mode where each node waits for a random
+      amount of
+      time.
+    * If the number of nodes is small, then the latency due to having to wait before starting a transfer is quite low.
+      As
+      the node count increases, so does the chances of collisions and the duration of latency.
+* Network protocol efficiency is **Payload/(Payload + Protocol Overhead)**. Payload + Protocol Overhead is called the
+  **Packet Size**.
 
 # WEEK 4
 
