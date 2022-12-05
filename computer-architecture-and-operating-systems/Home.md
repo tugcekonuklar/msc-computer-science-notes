@@ -1790,8 +1790,10 @@ HALT
 ## Disk Performance Concepts
 
 * Data Rate Example:
+* Data rate :
+    * **the amount of data transmitted** during a specified time period between two points **/** **the speed at which
+      data is transferred** from one device to another or between a peripheral device and the computer
 * <img src="./img/81.png" alt="alt text" width="500" height="300">
-
 
 * A hard disk unit is based upon recording data onto the surface of a **Magnetic Material** in such a way that binary
   data values may be stored and then read again. The **Platter** is a rotating disk of metal or other material, which
