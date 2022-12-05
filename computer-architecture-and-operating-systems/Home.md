@@ -1672,6 +1672,19 @@ HALT
       the consumer has received the data. Handshake approach introduces a control signal that effectively acknowledges
       and regulates the data transfer.
 
+# Asynchronous bus protocols
+
+* <img src="./img/74.png" alt="alt text" width="500" height="300">
+
+* Step 1 “Memory read address when seeing ReadReq: This step occurs when the cpu sends address to the bus. The address
+  must be decoded before data can be read from the memory.
+* Step 2, 3, 4: Corresponds to the time it takes to make the data ready for a read/write operation on the bus. This is
+  also known as the memory access time. This time takes 3 handshakes. However, if there also is given a minimum access
+  time, the time required is max(3xClk, min_access_time). Because these values are estimates. The largest value between
+  the two is chosen as the best estimate.
+* Steps 5, 6, 7: Correspond to the time it takes for an I/O device to read the data from the bus. This also takes 3
+  handshake times.
+
 # Advanced Bus exercises
 
 * A few things to consider before approaching the questions:
@@ -1711,7 +1724,8 @@ HALT
 * b) Asynchronous bus
   has **[ initial read req + memory access time(includes data ready and handshake makes 3 more operations)  + ( read + handshake + acknowledge) ]**
   operations for one transaction.
-* as we know memory access is limited with 125 and wont change and calsulation is like **[40nsec + 125nsec + (3*40nsec) ]
+* as we know memory access is limited with 125 and wont change and calsulation is
+  like **[40nsec + 125nsec + (3*40nsec) ]
   = 285nsec**
 * Sending 1 byte of data requires 1/285nsec = 1/285.10^-9
 * Sending 4 byte of data requires **[( 4 * (1/285.10^-9 ) ) * 1/10^6 ] = 14 MB/sec (approximately)**
@@ -1760,6 +1774,82 @@ HALT
 * 512 byte requires 512/32 = 16 transactions to transmit completely
 * and this requires **16*272nsec = 4352nsec**
 * and this requires  **[( 512 * (1/4352.10^-9 ) ) * 1/10^6 ] = 117,65 MB/sec (approximately)**
+
+# Storage Technologies
+
+* As memory is volatile, computers use backing store or disk storage to keep data permanently.
+* First punched cards and then magnetics tapes are used to store data.
+* For a tape storage system there are 2 factors that affect the time
+    * rotational latency + seek time(head armature movement time to move onto the right track), which is the predominant
+      factor
+    * And Read/Write data transfer time
+* A disk cache also is used to help with the read performance. This works because
+    * A file can be read over and over
+    * Read starts, halts and resumes
+
+## Disk Performance Concepts
+
+* A hard disk unit is based upon recording data onto the surface of a **Magnetic Material** in such a way that binary
+  data values may be stored and then read again. The **Platter** is a rotating disk of metal or other material, which
+  rotates at high speeds. Each disk is divided into tracks, and these are then divided into **Sectors**, where small
+  blocks or data can be stored.
+* **RPM(revolutions per minute)** are important for performance:
+    * RPM represents the rate at which the disk surface rotates, typically this can be 5000 up to 10000 rpm.
+    * The faster the disk rotates, the quicker a sector can be brought into position under a read head to access data.
+    * Faster rotation also means quicker data read rates from a sector.
+* A file may appear to contain a certain number of bytes, but occupy more than that on the disk when stored, because
+    * A file can be any size in theory, one byte, two, five thousand, but when stored on a disk, only whole sectors can
+      be used in most disk systems.
+    * This means that if , for example a sector is 1024 bytes long, a 5000 byte file needs 5 sectors, and that is 5 x
+      1024 = 5120 bytes.
+    * In general files are almost always slightly larger on the disk unit than they appear to be in real terms because
+      of this.
+* A disk unit has a rpm of 7200rpm. Calculate how long it will take (worst case) for a sector to rotate into position
+  at a read/write head.
+    * The rotational speed is 7200 revolutions per minute, or 7200/60 = 120 revolutions per second.
+    * If the disk rotates 120 times per second then one rotation is 1/120th of a second or 0.0083 seconds. (8.3ms).
+    * This is the worst case time for a sector to rotate into position.
+* The same disk unit has a head seek time of 2 milliseconds. Calculate the worst case and average access times for the
+  disk.
+    * If we already have 8.3 ms for rotation, and we add 2 ms for head seek time then the worst case must be 10.3ms.
+    * **The best case will be as near to zero as is measurable**. Therefore **the average is half way** between zero and
+      10.3 = 5.15 ms.
+* If the same disk has a sector size of 2048 bytes per sector, and 100 sectors per track,what is the data transfer **
+  rate(bytes per sec)**
+  that this disk unit can sustain?
+    * **With a hard disk here so the calculation should be in binary** - see the lesson notes p7.
+    * If there are 100 sectors, then the whole track contains 204,800 bytes.
+    * A whole track can be read **120 times per second** for this disk, therefore we can read **120 x 204,800 bytes per
+      second = 24.576,000 bytes per second**.
+    * Now change this to binary megabytes MB per second by calculating the following **((24,576,000)/(1024*1024) =
+      23.43MB**
+      per second.
+
+## Tracks, Sectors and Fragmentation
+
+* <img src="./img/75.png" alt="alt text" width="500" height="300">
+* The concept being of a **circular platter**, typically a metal disk made of aluminium, for example, coated with a
+  magnetic powder, which allows small domains of magnetism to be recorded.
+* These platters are then arranged, typically, on a spindle so that we can place multiple platters within a single hard
+  disk unit, and they all rotate at the same speed.
+* Each of those platters has a surface area, where we can store bits and we want to access that surface area in an
+  organised fashion.
+* each platter has a series of rings of data storage capability on its surface called **track**
+* the **head units**, of which there are one per side of a platter is mounted on an **armature** and all the heads
+  typically move simultaneously in such a way that if the head moves in and out
+* **tracks** can represent quite a large amount of information and often files are quite
+  small and so what we tend to do is open this tacks to a number of portions, known as **sectors**
+    * and that means that a small file can occupy one or two sectors rather than occupy an entire
+      track which would very wasteful.
+* How do the files actually map into the sectors of a disk?
+    * **Fragmented :** If sectors that hold a file are further away from each other, this is called fragmentation and it
+      causes more head moves and disk rotations to access the data. Fragmentation also makes the operation times less
+      predictable.
+    * **Contiguous :** If file stored sectors are in the same track right to next each other, this called Contiguous. In
+      this case performance of reading file will be quicker, We have a tightly predictable timing.
+        * And we’ll get the opportunity, and the benefit of having larger and more continuous data
+          transfer operations, which will make bus transfers of data much more efficient.
+* <img src="./img/78.png" alt="alt text" width="500" height="300">
 
 # WEEK 4
 
