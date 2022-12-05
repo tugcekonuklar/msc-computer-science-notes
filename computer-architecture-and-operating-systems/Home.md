@@ -1789,6 +1789,10 @@ HALT
 
 ## Disk Performance Concepts
 
+* Data Rate Example:
+* <img src="./img/81.png" alt="alt text" width="500" height="300">
+
+
 * A hard disk unit is based upon recording data onto the surface of a **Magnetic Material** in such a way that binary
   data values may be stored and then read again. The **Platter** is a rotating disk of metal or other material, which
   rotates at high speeds. Each disk is divided into tracks, and these are then divided into **Sectors**, where small
@@ -1830,12 +1834,21 @@ HALT
 * A drive has a rotational speed of 5400 rpm, a data read rate of 100 Megabytes/sec, and a sector
   size of 2 KB. What are the worst, best, and average times to access our 3 KB data?
     * 90 rev / s, 1 rev in 11.11 ms.
-    * Worst case: Full rotation + head seek time (assume 2ms) + 4KB read time based on 100MB/s = 11.11 ms + 2 ms +
+    * A 3KB file occupies 2 sectors of 2 KB, so the disk unit needs to read 4KB in order to complete its read
+      activity for that block of data
+        * At 100 Megabytes per sec, this requires about (4.10^3 * 100.10^-6 = 4.10^-5 = 0.04ms = 40us) 40 microseconds =
+          0.04ms
+    * **Worst case:** Full rotation + head seek time (assume 2ms) + 4KB read time based on 100MB/s = 11.11 ms + 2 ms +
       0.04ms = 13.15 ms. 4 KB / 13.15 ms = 0.3 MB/s
         * If we account for the actual 3 KB file data, then it becomes 0.22 MB/s
-    * Best case: No seek + 40 us = 40 us. 4 KB / 40 us = 97.7 MB/s
+    * **Best case:** No seek + 40 us(micro second) = 40 us. 4 KB / 40 us = 97.7 MB/s
         * For 3KB => 73.24 MB/s
-    * Avg access time (13.14 + 0.04)/2 = 6.59ms , 0.59 MB/s
+    * **Avg access time** (13.14 + 0.04)/2 = 6.59ms , 0.59 MB/s
+    * Performance estimates:
+    * <img src="./img/82.png" alt="alt text" width="500" height="300">
+    * <img src="./img/83.png" alt="alt text" width="500" height="300">
+    * <img src="./img/84.png" alt="alt text" width="500" height="300">
+
 * For the same example above assume the worst cases for contiguous vs fragmented files
     * Worst case cont = 4KB in 13.15 ms
     * Worst case frag = 4KB in 26.26 ms (11.11 + 2ms + 0.02)x2
@@ -1926,11 +1939,9 @@ HALT
   saying am I seeing the same information that I am transmitting.
 * If multiple devices attempt to become active at the same time, collusion detection mechanism detects this
     * Then, involved nodes step immediately and go into **back-off-and-retry** mode where each node waits for a random
-      amount of
-      time.
+      amount of time.
     * If the number of nodes is small, then the latency due to having to wait before starting a transfer is quite low.
-      As
-      the node count increases, so does the chances of collisions and the duration of latency.
+      As the node count increases, so does the chances of collisions and the duration of latency.
 * Network protocol efficiency is **Payload/(Payload + Protocol Overhead)**. Payload + Protocol Overhead is called the
   **Packet Size**.
 
