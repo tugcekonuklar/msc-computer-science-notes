@@ -1904,6 +1904,19 @@ HALT
           Manufacturers specify a guaranteed write limit, for example, for a 1TB drive it can be 3 Petabytes.
 * <img src="./img/80.png" alt="alt text" width="500" height="300">
 
+## Reliability and fault tolerance
+
+* For disk unit failures, we can use redundant storage arrays. In simple terms, two or more disks can store the same
+  data, and if one fails, another is still available.
+* The RAID disk system (redundant array of independent disks) provides a number of different versions of disk
+  duplication (redundancy) to provide for various scenarios and levels of resilience against data loss.
+    * **RAIDO**: simply combines multiple drives, using a technique known as disk striping.
+        * As they can be read in parallel, this increases the speed but can also increase the failure rate too due to
+          having more disks to fail.
+    * **RAID1**: uses disk mirroring. In this case, two or more drives have identical content. The advantages are;
+        * (a) if one drive fails, the others remain accessible
+        * (b) the drive that can read the data first will always deliver the data ahead of the others
+
 # Peripherals and interfaces
 
 * Ethernet uses Carrier Sense/Multiple Access/Collusion Detect, **CSMA/CD** protocol
