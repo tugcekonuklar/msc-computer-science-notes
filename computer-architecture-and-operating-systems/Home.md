@@ -1825,7 +1825,15 @@ HALT
       23.43MB**
       per second.
 
-## Tracks, Sectors and Fragmentation
+## Hard Disk Drive, HDD
+
+* Tracks that are aligned at the same location but on different platters are called cylinders.
+* Each track is divided into sectors and that's why a file occupies multiples of sector size.
+* In the best case, a file perfectly fits into n sector and worst case wastes a whole sector just for 1 B data. So, the
+  average waste is 0.5 sector.
+    * **Wasted space percentage is (n x SectorSize - ActualFileSize) / (n x SectorSize)**
+
+### Tracks, Sectors and Fragmentation
 
 * <img src="./img/75.png" alt="alt text" width="500" height="300">
 * The concept being of a **circular platter**, typically a metal disk made of aluminium, for example, coated with a
@@ -1850,6 +1858,34 @@ HALT
         * And we’ll get the opportunity, and the benefit of having larger and more continuous data
           transfer operations, which will make bus transfers of data much more efficient.
 * <img src="./img/78.png" alt="alt text" width="500" height="300">
+
+## Solid State Drives (SSD)
+
+* <img src="./img/79.png" alt="alt text" width="500" height="300">
+* An SSD is a large array of memory chips and a controller.
+* As there are no moving parts in SSDs, switching between different files doesn't introduce any time penalty.
+* There’s an additional circuit, known as the controller, and the job of the controller is to try to
+  make the SSD unit look as much as a disk unit as possible to the hardware and the operating
+  system.
+* When a read req comes: The controller translates that read request into a read request that relates to its internal
+  architecture, which in this case is memory chips, and then it decides using some kind of lookup
+  mechanism to find out which memory chip it should access in order to read the data for the file
+* Just like a hard disk where you have sectors, and files may be spread across multiple sectors, in
+  theory, large files could be spread across multiple memory chips
+* Advantages:
+    * SSD Concept is really fast uses microseconds than miliseconds.
+    * the access time is very short, it’s possible for the operating system to interleave multiple file accesses without
+      any noticeable penalties.
+* Disadvantages:
+    * Wear Concept: One downside of SSDs is wear which happens due to atomic level effects in bit cells every time a
+      location is read or written.
+        * after reading and writing those cells for a large number of times repeatedly, those
+          memory cells will start suffering something called fatigue, where writing data valid to that
+          memory cell might result in an error
+    * Solution : Wear-leveling
+        * Wear levelling, which spreads the write traffic across different locations, can help tackling this.
+          Manufacturers specify a guaranteed write limit, for example, for a 1TB drive it can be 3 Petabytes.
+* <img src="./img/80.png" alt="alt text" width="500" height="300">
 
 # WEEK 4
 
