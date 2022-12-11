@@ -1949,6 +1949,324 @@ HALT
 
 # WEEK 4
 
+# Operating System Concepts
+
+## Boot! - From Power-on to Login
+
+* We'd expect to see a hard disk unit or some other storage device implemented in the system and that's where the
+  software is usually stored along with user data.
+* Boot process is from the power on to the login process.
+* When we power on the computer CPU does not know what to do.
+* Who needs to say what to do to CPU?
+    * Software might exist on the hard disk, but we can't access the disk yet because we haven't initialised the
+      computer system
+    * Software can't exist in the memory if it's RAM, because that's volatile and when we turned the memory on, we
+      turn the computer on and the memory contains no valid information.
+* We have BIOS ROM (Basic Input Output System, BIOS, aka bootloader/bootstrap,)(Read only Memory) that is the basic
+  operating systems of the computer system that allows it to perform the very fundamental tasks
+* After powers on BIOS chip is present therefore CPU knows what to do initial state .
+* DPU is starting to read the instructions from the BIOS ROM is to check what resources are available in
+  the system
+* There are some important steps:
+* First: Memory Check
+    * CPU makes Memory check to be sure its existence and enough storage
+    * it will typically go through a simple procedure, reading and writing to that memory, repetitively across the
+      entire address range in order to detect that the memory is actually functioning properly and how much memory
+      is available.
+* Second: read Boot Sector from Hard disk
+    * The next stage involves the hard disk unit via an I/O interface
+    * the CPU knows that it needs to find a bootable device and one example of that is the hard
+      disk. If it's been formatted correctly as a bootable disk unit, the CPU should theoretically be able
+      to read information on that disk and proceed, and it knows how to access the disk by the I/O
+      interface as it’s encoded in the BIOS ROM program code
+    * Problem : how does the CPU knows how to read the disk?
+        * BIOS ROM does not contains all info because hard disks can formated differently, ie Apple, linux, Windows
+        * So overcome this hard disk has a boot sector, that is some particular of sectors (magnetic tracks divided to
+          some sectors, i.e zero sector) which is always known bia CPU or BIOS ROM.
+        * It has the boot sector code. It’s a short program sequence which tells the CPU how to access the disk in this
+          particular format that the disk is being configured to use.
+        * It provides a simple short program sequence, which tells the CPU specifically how to access this kind of disk
+        * That might also tell us, for example, where the operating system files are or what the name of the file is on
+          the disk, and then the operating system could potentially be loaded from that point forward
+        * <img src="./img/86.png" alt="alt text" width="500" height="300">
+* Third: loading Kernel to Memory
+    * After reading boot sector CPU knows which files to upload to memory
+    * And it will proceed at this point to load the operating system and in particular
+    * it loads the essential part of the operating system into memory called the operating system kernel.
+    * This kernel tells the CPU how to utilise all of the remaining devices in the system in a way that is consistent.
+* Forth: IO devices access
+    * after load the content of operating system files to memory, CPU can now access
+      the additional interfaces, it knows how to access things like computers, screens, keyboards and
+      any other devices that may be plugged into the system
+* <img src="./img/85.png" alt="alt text" width="500" height="300">
+
+## The OS and Abstraction
+
+* User Applications (i.e. Microsoft Word) can not develop apps that compatable for every possible of hardware.
+* To avoid this problem, the operating systems provide a very important feature. It is OS abstraction
+* User apps uses OS kernel to reach related computer hardwares like hard disk and memory(DRAM disk). Apps corporate with
+  the OS kernel.
+* By doing this abstraction, that means that the user apps could be written without any knowledge of the underlying
+  hardware.
+* **OS Kernel:** A collection of modules that permit access to the main functionality of the system.
+* **3rd party drivers:** OS uses these to communicate with the HW.
+* **OS utilities:** These are OS-vendor-provided utilities to handle system config, file managements tasks and even
+  basic tools like text editors.
+* **User Apps:** Apps developed or purchased by the user and that run on the system.
+* <img src="./img/87.png" alt="alt text" width="500" height="300">
+
+## OS Types
+
+* **Command Line OS:** Entirely text-based human interfaces and text-based commands.
+* **Graphical OS:** Use graphical representation of the system to provide a graphically interactive experience.
+
+# QUIZ: Operating Systems
+
+* Given that a computer system contains (a) OS Kernel, (b) BIOS) and (c) Boot-sector code, identify which of these
+  represents the correct order of execution from power-on:
+    * b,c,a
+* The important piece of program code, stored in a non-volatile memory, which the CPU starts to execute immediately
+  after power-on is known as?
+    * BIOS
+* In Von Neumann architecture, the user apps cooperate with layers to get to the hardware, what is the first layer of
+  communication before it gets to the drivers?
+  Correct!
+    * OS Kernel
+* Operating systems can be categorises into two major differentiated standards of user interactivity, which can be
+  referred to as:
+    * Command line and graphical operating systems
+* How does the CPU know how to read the disk?
+    * Boot Sector
+* What is the best possible performance gain for a system with 8 cores and 4-way hyperthreading?
+    * 32
+
+## The purpose of the kernel
+
+* **Control access to the lower level HW:** Kernel provides functions/routines/modules to provide reliable and secure
+  means of accessing the HW.
+* **Memory management:** Managing mem alloc/free, virtual mem, memory access by permissions.
+* **Managing CPU time allocation:** Handles task scheduling
+* **Manage fault conditions gracefully** by assuring that the other programs aren't affected by faults.
+* **Controls the access rights** functions of the system on a per user basis.
+* **Managing IO device**s, including Plug&PLay.
+* **Abstraction:** By using the drives the OS abstracts the user from the low-level details of the HW differences, ie,
+  the user usually doesn't need to know if the storage device they are accessing is SCSI, SATA or Flash. Drivers wrap
+  the required functionality and offer a common API.
+* **The OS taskmaster:** Whenever a user program is required to run, OS will take the responsibility of managing it.
+    * Program cycles need to be managed for many programs to run concurrently. These concurrent jobs are called
+      processes.
+    * Task is a looser term that's used to define many things.
+    * Concurrency is also a loose term and sometimes processes just appear to be running concurrently just by switching
+      between them rapidly or they actually run concurrently by being split across multiple physical cores. However,
+      even on multicore systems, it isn't likely to have enough cores to accommodate all the tasks at the same time.
+    * Task-switching allows the sharing of CPU resources to make the best of the available CPU.
+    * Where an OS maintains a policy to decide which task should be executed next and how much time it is allowed, this
+      is known as task-scheduling.
+* **Process and Thread**
+    * If a program is a process, then a process can also contain threads.
+        * Threads are effectively mini-programs that run concurrently as part of the same program.
+        * Or, a thread can be defined as a logical ﬂow that runs in the context of a process.
+        * Each thread has its own unique ThreadID, TID, and all threads running in a process share the entire virtual
+          address space.
+    * Each of these processes and threads require allocation of CPU time, memory resources, and access to various
+      hardware elements, which are almost certainly managed by the OS.
+    * There might be hundreds of processes and threads on a desktop system. However, many of the kernel threads and
+      processes will be working with low effort in the background.
+        * These are often related to services, ie network capabilities. Such special-purpose tasks are sometimes
+          referred to as daemons or service daemons.
+
+* A computer system can be **general-purpose** or **application-specific**, the same is true for operating systems.
+    * General-Purpose: Examples of such operating systems include Linux, MICROSOFT WINDOWS, MAC-OS.
+        * These systems aim to provide every reasonable capability for the general computer user: the home PC, the
+          office desktop, the server-based computing environment, and so on.
+    * Mobile: For smartphones and tablets, APPLE IOS, ANDROID and Windows Mobile are the most common OSes.
+        * These OS versions, particularly ANDROID and IOS are heavily optimised for mobile devices, delivering smooth
+          user interface experiences, saving battery power, minimising the OS code footprint.
+    * RTOS (Real-Time Operating Systems): These are somewhat more specialised toward deployment in specific
+      applications, where the demands of an industrial or a control-system related problem are a priority.
+        * In automotive or healthcare applications where safety features must be validated
+          and legally proven to operate correctly under all possible operating conditions, RTOS functionality becomes
+          more critical.
+        * RTOSes have features to ensure that when faults occur, the system can always recover to a known-good state
+          rapidly, and indeed within a known maximum timescale.
+        * They lack many features of other OSes but they are sacrificed in return of higher reliability.
+        * RTLinux, 'WINDOWS Embedded', OSE and QNX are some examples.
+
+# Exceptions
+
+* Exceptions are a form of exceptional control flow that are implemented partly by the hardware and partly by the
+  operating system.
+* Events generated by the external hardware or software faults lead to abrupt changes in the control flow and are called
+  Exceptional Control Flow.
+* An exception is an abrupt change in the control flow in response to some change in the processor’s state.
+    * The state is encoded in various bits and signals inside the processor. The change in state is known as an event.
+    * The exception may or may not be related to the current operation. For example, page faults or div by 0 are related
+      but
+      a timer event isn't.
+* When the exception handler finishes processing, one of three things happens:
+    * The handler returns control to the current instruction Icurr, the instruction that was executing when the event
+      occurred.
+    * The handler returns control to Inext,the instruction that would have executed next had the exception not occurred.
+    * The handler aborts the interrupted program.
+* Examples to Exceptional control flow (ECF) at different levels
+    * **Application level:** A process can send a signal to another process that abruptly transfers control to a signal
+      handler in the recipient
+    * **OS level:** The kernel transfers control from one user process to another through the context switches.
+    * **Hardware level:** events detected by the hardware trigger abrupt control transfers to exception handlers.
+
+## Exception Handling
+
+* Exceptions handling involves close cooperation between hardware and software.
+* Each type of possible exception in a system is assigned a unique nonnegative integer exception number. Some of these
+  numbers are assigned by the designers of the processor. Other numbers are assigned by the designers of the operating
+  system kernel (the memory-resident part of the operating system).
+* Exception differences from process call:
+    * As with a procedure call, the processor pushes a return address on the stack before branching to the handler.
+      However, depending on the class of except was executing when the event occurred) or the next instruction (the
+      instruction that would have executed after the current instruction had the event not occurred).
+    * The processor also pushes some additional processor state onto the stack that will be necessary to restart the
+      interrupted program when the handler returns.
+    * When control is being transferred from a user program to the kernel, all of these items are pushed onto the
+      kernel’s stack rather than onto the user’s stack
+    * Exception handlers run in kernel mode, which means they have complete access to all system resources.
+
+## Exception classes
+
+* Exceptions can be divided into four classes: interrupts, traps, faults, and aborts.
+* <img src="./img/88.png" alt="alt text" width="500" height="300">
+
+### Interrupts
+
+* Interrupts occur asynchronously as a result of signals from I/O devices that are external to the processor.
+* Hardware interrupts don't occur as a result of the execution of an instruction by the CPU.
+* Exception handlers for hardware interrupts are often called interrupt handlers.
+* External HW components such as network adapters, disk controllers etc trigger interrupt by signalling a pin on the CPU
+  and placing the exception number that identifies the device that raised the interrupt on the system bus.
+* After the current instruction finishes executing, the processor notices that the interrupt pin has gone high, reads
+  the exception number from the system bus, and then calls the appropriate interrupt handler.
+* When the handler returns, it returns the control to the next instruction.
+* The program continues executing as though the interrupt had never happened
+
+### Traps and system calls
+
+* Traps are intentional exceptions that occur as a result of executing an instruction.
+* Like interrupt handlers, trap handlers return control to the next instruction.
+* The most important use of traps is to provide a procedure-like interface between user programs and the kernel, known
+  as a system call.
+    * Services such as reading a file, forking a process etc, that are requested by the user programs are passed on to
+      the kernel via system calls.
+    * Execution of the **syscall n** instruction by the user programs causes a trap to an exception handler that decodes
+      the
+      arguments and calls the appropriate kernel routine.
+    * Despite looking like a normal function call, a system call runs in the kernel mode, so, it can execute privileged
+      instructions.
+
+### Faults
+
+* Faults result from error conditions that a handler might be able to correct.
+* When a fault occurs, the processor transfers control to the fault handler.
+* If the handler is able to correct the error condition, it returns control to the faulting instruction and re-executes
+  it.
+    * Otherwise, the handler returns to an abort routine in the kernel that terminates the application program that
+      caused the fault.
+* A page fault occurs when the page that corresponds to the requested virtual address isn't resident in the memory and
+  needs to be fetched from the disk.
+    * After the fault handler loads the page, the control is transferred to back to the user operation.
+
+### Aborts
+
+* Aborts result from unrecoverable fatal errors, typically hardware errors such as parity errors that occur when DRAM or
+  SRAM bits are corrupted.
+* Abort handlers never return control to the application program.
+    * The handler returns control to an abort routine that terminates the application program.
+
+### Linux x86/64
+
+* Faults and Aborts Examples
+    * Divide error. A divide error (exception 0) occurs when an application attempts to divide by zero or when the
+      result of a divide instruction is too big for the destination operand. Unix does not attempt to recover from
+      divide errors, opting instead to abort the program. Linux shells typically report divide errors as “Floating
+      exceptions.”
+    * General protection fault. The infamous general protection fault (exception 13) occurs for many reasons, usually
+      because a program references an unde- fined area of virtual memory or because the program attempts to write to a
+      read-only text segment. Linux does not attempt to recover from this fault. Linux shells typically report general
+      protection faults as “Segmentation faults.”
+    * Page fault. A page fault (exception 14) is an example of an exception where the faulting instruction is restarted.
+      The handler maps the appropriate page of virtual memory on disk into a page of physical memory and then restarts
+      the faulting instruction. We will see how page faults work in detail in Chapter 9.
+    * Machine check. A machine check (exception 18) occurs as a result of a fatal hardware error that is detected during
+      the execution of the faulting in- struction. Machine check handlers never return control to the application
+      program.
+* Tracks System Calls
+    * <img src="./img/89.png" alt="alt text" width="500" height="300">
+* Each system call has a unique integer number that corresponds to an offset in a jump
+  table in the kernel. (Notice that this jump table is not the same as the exception table.)
+* C methods can either use the syscall functions or convenience wrappers, aka system-level functions, such as 'write'.
+* All arguments to Linux system calls on an x86-64 system are passed through general-purpose registers rather than the
+  stack. int main()
+
+# Workload Management
+
+## Tasks and Process
+
+* Processes are programs that run under the control of the operating system
+    * When a program begins, the OS allocates it a memory space that is private to that process.
+    * It also adds the program to a task-list, to allow it to be given regular intervals of CPU time, time slice, to
+      perform its activities.
+    * This isolation is called the compartmentalisation of processes.
+        * This gives more privacy and security of data within a process
+        * Also resilience to being affected if another process crashes.
+    * As each process has its own private memory, accessing each others' memory requires special methods.
+* A program can be divided into subsections/sub-modules/mini-programs known as **threads**.
+    * Each thread performs a specific task and collectively they help the process/program to achieve its goals.
+    * A thread does not exist on its own but must be created within a process.
+    * Threads within the same process can access the same process memory.
+* **Both threads and processes** can run collectively on a system and together they are referred to as **tasks**.
+* **Multi tasking:**
+    * In the past, When multiple programs need to be executed one at a time, by following priority order, this can
+      either be done manually or by using a job scheduler.
+        * Each job is executed from start to finish and on completion, next program is loaded and started.
+    * In modern tech, To be able to accommodate multiple programs in a way that they appear to be running
+      simultaneously,
+      the multitasking concept is used.
+        * In multitasking, all programs are loaded into memory, which is a downside in terms of memory use, then small
+          portions of programs are executed in their time slices and then the Operating System switches to the next
+          program, so, they
+          keep executing by taking turns.
+        * If a program completes, it's removed from the memory.
+
+### Process Identifier (PIDs) and housekeeping
+
+* In order to keep track of processes, the OS uses the following concepts
+    * Process Identifier, PID, is a unique number that's assigned to a process when it's started.
+    * Process Control Block, PCB, is a more detailed record of a process's key information. It keeps
+        * The Process State
+        * Information about its parent process
+        * Task priority & privileges
+        * IO attribute related info
+* All this information is used for task management, by the scheduler, to manage each process according to the rules and
+  configurations of the OS, the process itself and its owner.
+
+## Multithreading Concepts
+
+* threads allow multiple parallel activities to appear to be happening simultaneously within a
+  particular process. like moving character, updating score of game and playing music at background.
+* There are 2 concepts:
+* **User multithreading:**
+    * OS responsible on managing process but applications responsible for managing the threads
+    * So OS does not have any knowledge thread management of applications and all app can manage differently.
+    * This brings inconsistency, so OS can not interract and manage the threads, not visiable for OS.
+    * <img src="./img/90.png" alt="alt text" width="500" height="300">
+* **Kernel Multithreading:**
+    * This model manages all progress and threads that applications are using.
+    * all of these threads are managed using a consistent policy and all processes have
+      to conform to that policy, but that gives us consistency, and it also means that programmers of these
+      programs don’t need to worry about threading at any detailed level, they know that the operating system will take
+      care of that.
+    * User apps can use API as part of the operating system to request the creation of threads.And then the operating
+      system takes on the responsibility of managing them
+    * <img src="./img/91.png" alt="alt text" width="500" height="300">
+
 # WEEK 5
 
 # WEEK 6
@@ -1959,3 +2277,4 @@ HALT
 
 * millisecond = 1/1000th of a second
 * microsecond = 1/1000000th of a second
+
