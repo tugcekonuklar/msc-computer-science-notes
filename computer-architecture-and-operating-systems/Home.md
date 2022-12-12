@@ -2214,6 +2214,9 @@ HALT
     * When a program begins, the OS allocates it a memory space that is private to that process.
     * It also adds the program to a task-list, to allow it to be given regular intervals of CPU time, time slice, to
       perform its activities.
+    * **Time-slicing** relates to the amount of time allocated to a process, not to a thread. This is used as the basis
+      for
+      scheduling, at the process not thread level.
     * This isolation is called the compartmentalisation of processes.
         * This gives more privacy and security of data within a process
         * Also resilience to being affected if another process crashes.
@@ -2388,13 +2391,13 @@ HALT
 
 # Process Parallelism
 
-* In uniprocessor system (one single CPU system), each thread executed in turns in a small portion for process to
+* In **uniprocessor system (one single CPU system)**, each thread executed in turns in a small portion for process to
   repeat.
     * By interleaving between the processes and the threads for short periods the CPU system gains
       the impression that all of those pieces of code are executing simultaneously.
     * Of course, they’re not really executing simultaneously because we only have a single processor.
     * <img src="./img/92.png" alt="alt text" width="500" height="300">
-* Multiprocessor multithreading comes to improve performance of CPU
+* **Multiprocessor multithreading** comes to improve performance of CPU
     * This consept we have multiple CPUs
     * In the case of multiprocessor multithreading each process could be allocated to a separate CPU
       so that CPU1 executes parts of program A, CPU2 executes parts of program B, and CPU3
@@ -2405,14 +2408,18 @@ HALT
     * Each CPU can dedicate a full resource, a full computational resource, to a single process but multiple threads.
     * Disadvantages: memory has to be shared between threads
     * <img src="./img/93.png" alt="alt text" width="500" height="300">
-* Hyperthreading, or simultaneous multithreading:
+* **Hyperthreading, or simultaneous multithreading**:
     * In this model has multiple CPUs and also each CPU supports multiple threads simultaneously.
+    * Hyper-threading improves process efficiency not thread level efficiency
     * In this process, these threads are being executed in very fine slices, much finer than normal multithreading.
     * Each CPU individualy gives the impression of paralellism (kind of pseudo-parallel fashion).
     * Nonetheless, it allows resource utilisation to be much more efficient.
     * The CPU is only doing one thing at a time and therefore that coordination and that access and that sharing of data
       is much more coherent
       and much easier to manage
+    * Hyper-threading technology converts a single physical processor into two virtual processors, in turn, you get
+      better processor performance since it’s improving the CPU’s efficiency, so it is improving the CPU’s efficiency
+      not thread efficiency. Hyperthreading processes quicker, but the efficiency or inefficiency remains the same.
 * Disadvantages:
     * unipreccessor multithread system, there is a single processor and a single memory, so all of the memory is
       accessible to one processor and that is exactly the ideal situation. There are no blockages there, no
