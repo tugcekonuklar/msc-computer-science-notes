@@ -2215,8 +2215,7 @@ HALT
     * It also adds the program to a task-list, to allow it to be given regular intervals of CPU time, time slice, to
       perform its activities.
     * **Time-slicing** relates to the amount of time allocated to a process, not to a thread. This is used as the basis
-      for
-      scheduling, at the process not thread level.
+      for scheduling, at the process not thread level.
     * This isolation is called the compartmentalisation of processes.
         * This gives more privacy and security of data within a process
         * Also resilience to being affected if another process crashes.
@@ -2375,7 +2374,7 @@ HALT
     * The ability to start multiple instructions in parallel is known as the superscalar execution.
     * However, ILP has its limitations too. Even with clever algorithms and optimisers, in a short sequence, it's rare
       to execute 4 instructions in parallel. For longer sequences, this usually is down to 2 or 3 instructions per clock
-      cycle, IPC.
+      cycle, IPC - inter-process communication .
     * Therefore, for a single core achieving 8 ILP isn't quite possible.
 
 ## Multicore
@@ -2486,6 +2485,108 @@ HALT
           threads are used so the main thread doesn't have to wait for their completion.
 
 # WEEK 5
+
+# Memory Allocation
+
+* **Static memory allocation** occurs when the program allocates a block of memory right at the start and it retains
+  that fixed memory during its lifetime.
+* **Dynamic memory allocation** occurs when a program decides at some point during its operation that it needs a
+  particular size of memory, then, requests it via the memory manager and releases it back when it's done using it.
+* Local variables created in method lifecycles are allocated from the stack.
+
+# Linking
+
+* First, the source code is compiled into machine code so the program can be executed.
+    * However, before the compiled code can be loaded into memory for execution, it needs to be linked against the other
+      referenced libraries, either system or 3rd party.
+    * Therefore, the loaded program itself takes space in the memory too, in addition to the memory it uses during its
+      lifetime.
+* **Static linking** is where all the parts of the program, including external libraries, are combined into a
+  self-contained single block of the program.
+    * This makes everything available for the program to run and removes external dependencies.
+* **Dynamic linking** is where the external and 3rd party libraries are left as references in the program executable.
+  Then, once the program is loaded, its dependencies are loaded separately when needed too.
+    * Dynamic linking keeps the initial memory footprint small
+    * When the same libraries are shared between different programs, they don't have to be included in each program
+      individually.
+* Dynamic linking allows using the memory more efficiently as the libraries for unused functionality aren't loaded into
+  memory. Especially for large applications that only use a fraction of its whole functionality at a given time, this is
+  memory saving.
+    * However, when a functionality is used for the first time, then it has to be loaded from the disk and it comes with
+      a speed penalty.
+
+## Virtual Memory
+
+* <img src="./img/96.png" alt="alt text" width="500" height="300">
+* When the physical memory is fully used by the active applications, the apparent storage capacity of the memory can be
+  extended by leveraging storage devices, ie HardDisk / SSD, and mapping them to the virtual memory space.
+* Then, the least used memory pages are swapped out to the disk and required pages are swapped in to memory.
+* The swapping operations are managed by the paging supervisor.
+* Technically, the virtual memory space can be extended as much as the storage capacity, however, swapping pages in/out
+  is costly and this would slow the system down immensely.
+* As swapping in&out whole program memory would be inefficient, memory is split into pages and deemed to be least
+  required pages are swapped out when the physical memory is full.
+* **Page table** is the index table in which the OS keeps track of which page is kept where, ie resident in the physical
+  memory or the disk.
+* **Page fault** occurs when the required page is not resident in the physical memory and needs to be fetched from the
+  disk.
+* <img src="./img/97.png" alt="alt text" width="500" height="300">
+
+## Task Privacy and Isolation
+
+* Memory allocated to each task is expected to be isolated from the rest of the tasks, so, tasks can keep their data
+  private.
+    * When a process tries to access the memory of another process, this isn't allowed and violates privacy.
+    * Rogue access isn't allowed for 2 reasons; to avoid accidental damage by another process and also deliberate damage
+      or stealing data.
+    * <img src="./img/98.png" alt="alt text" width="500" height="300">
+* However, when the processes need to legitimately exchange data, they need some mechanisms and this concept is called
+  the interprocess communication
+* **Pipe :**
+    * Tasks use a pre-determined name to access a pipe to communicate with another task.
+    * Pipes are usually backed by buffers, so, when the receiving thread isn't active, the data can be held in the
+      buffer.
+    * However, when there are multiple tasks communicating with each other, agreeing on pipe names or hard coding
+      becomes a problem.
+    * <img src="./img/99.png" alt="alt text" width="500" height="300">
+* **Message queues (IPS - inter-process communication):** As pipes allow communication between 2 points, this is
+  limiting when a process wants to receive
+  messages from multiple processes. The producer-consumer idea suits such situations better.
+    * A message is normally made up of a short header and the payload, where the header determines what kind of message
+      is being sent.
+    * If there are multiple processors for one queue, either one random process picks, processes and removes a message
+      or the message is left in the queue or pushed back to the queue afterwards.
+    * <img src="./img/100.png" alt="alt text" width="500" height="300">
+* **Shared memory:** It's possible for a process to make a block of memory it allocated available to its subprocesses.
+    * Modification of the same memory area is protected by a semaphore/mutex, which guarantees mutual exclusion.
+    * Shared memory is more practical than using message queues.
+
+# Activity: Memory management knowledge test
+
+1. Physical memory and why this restricts computer capabilities.
+
+* Physical memory is the memory system of a computer that is made from actual memory chips.
+* Physical memory has a fixed size based on how many ram chips or dimms are present.
+* Fixed memory size would mean that the computer is only capable of having a limited number of applications
+  running at once.
+
+2. Virtual memory is.
+
+* Virtual memory is a memory space that actually extends onto disk storage.
+* VM appears to be much bigger than physical memory, and therefore allows the operating system to have many more
+  applications running at the same time.
+* Applications do not know the difference, they simply see memory via the operating system interfaces/layers.
+
+3. Concept of thrashing and explain why it is undesirable.
+
+* Thrashing occurs when several applications are swapping memory content back and forth to disk in a repetitive
+  fashion.
+* This takes a lot of time since disk access is relatively slow.
+* The time left to do actual work is reduced, so performance suffers.
+* It can be reduced by having a sufficiently large physical memory for the main demands of the key applications in
+  question.
+
+# File systems
 
 # WEEK 6
 
