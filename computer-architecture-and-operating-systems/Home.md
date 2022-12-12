@@ -1850,6 +1850,7 @@ HALT
     * <img src="./img/82.png" alt="alt text" width="500" height="300">
     * <img src="./img/83.png" alt="alt text" width="500" height="300">
     * <img src="./img/84.png" alt="alt text" width="500" height="300">
+    * <img src="./img/95.png" alt="alt text" width="500" height="300">
 
 * For the same example above assume the worst cases for contiguous vs fragmented files
     * Worst case cont = 4KB in 13.15 ms
@@ -2266,6 +2267,216 @@ HALT
     * User apps can use API as part of the operating system to request the creation of threads.And then the operating
       system takes on the responsibility of managing them
     * <img src="./img/91.png" alt="alt text" width="500" height="300">
+
+## Task Scheduling
+
+* Running multiple jobs using time-slicing, such that part of the CPU time was allocated to each job.
+* The task switching overhead occurs due to storing and restoring various data structures, register values and memory
+  regions when switching between tasks.
+    * This limits how fast tasks can be switched.
+* The task scheduler in the OS manages the job of task switching, by using the policies that are known as the scheduling
+  algorithms.
+* In the worst case, task switching might result in the tasks taking longer to complete than the serial execution, due
+  to the switching overhead.
+    * However, task switching can still achieve higher throughput, work done in a given amount of time.
+    * Also, serial execution won't allow servicing multiple requests concurrently and providing a better user
+      experience.
+
+### Scheduling Algorithms
+
+* A non-preemptive scheduler goes through the task queue or list, resuming each task in turn, and allowing it to run
+  until that task yields control back to the scheduler.
+    * The tasks decide how long they get and this can lead to an unfair share of CPU time.
+* **Simplesched (SS)**:
+    * This scheduler has a list of currently running tasks, aka task list, which grows and shrinks as new programs are
+      started and removed.
+    * This uses a simple round-robin model where the items in the list are visited in order and when the end is reached,
+      it starts all over again, going about indefinitely.
+    * With SS, every task gets an equal amount of CPU time and is executed once per full pass through the list.
+    * When the next task is picked from the list, the currently running task is suspended, and the next task is resumed.
+        * This switching mechanism is known as a **context switch**.
+        * A **context switch** is the procedure of saving the volatile machine state associated with a running thread,
+          loading another thread’s volatile state, and starting the new thread’s execution
+        * This involves copying the paused CPU state into the process control block (PCB) and restoring the resuming
+          process's PCB back into the CPU.
+    * Despite being fair, SS has no concept of prioritisation/task priority and therefore, important tasks will have to
+      wait for less important ones to finish.
+    * SS will also allow certain tasks to waste the CPU time in idle or when waiting for I/O, ie from the disk.
+* **Pre-emptive, preemptive, scheduling**:
+    * A regular time-keeping element triggers the switch between the current and the next process. This is achieved by a
+      regular timer interrupt, system ie Repetitive Interrupt Timer (RIT), which sends a signal to the CPU after a
+      certain amount of time, timeslice or quanta, has elapsed.
+    * Preemptive scheduler uses queue rather than a list to be able to employ priorities too.
+    * Depending on the assigned priority, tasks can be allocated different timeslice lengths.
+    * Preemptive scheduler also introduces the concept of allowing tasks to yield the control back to the scheduler if
+      they have nothing to do.
+    * Even when different timeslices are used for different priorities, this allows the scheduling to be deterministic
+      when the completion and waiting times of each task is exactly known.
+        * However, yielding makes things indeterministic and only the worst-case completion times can be known. The
+          variation in the completion times is known as jitter and is an important issue for safety-critical and
+          real-time systems.
+    * **Example:** A system with 5 ms task switching overhead, 20ms quanta allocated to each task and 100 tasks in the
+      queue; 25msx100=2500ms is required to execute all the tasks. So, one task is executed 1/2.5=0.4 times in 1s and
+      each task gets 20ms/2500ms=0.8% of the CPU time.
+    * If 50 of the tasks yield straight away; 25x50 + 5x50=1500ms total time. An active task receives 20/1500=1.33% of
+      CPU time and 1/1.5=0.66 times execution per second.
+* **Multiple queues:**
+    * The method described above still wastes time by scheduling in&out the tasks that yield immediately because they
+      still aren't ready due to an I/O wait.
+    * To address this issue, multiple queues can be utilised. For example, one queue for Ready tasks and another for IO
+      Waiting tasks.
+    * When a task signals that it's waiting for I/O when yielding, it's put on the I/O wait queue until its I/O
+      operation completes and then it's moved back to the ready queue.
+    * Until the I/O completion interrupt is received, ie after the DMA is completed, requesting threads can put
+      themselves on sleep and this frees up CPU time for others.
+    * However, if more and more tasks are blocked on I/O, this might stall the system on I/O operations.
+* **Priorities**:
+    * Linux priorities change between -20 and +19, 0 being the default and -20 the highest priority.
+    * Priorities can be taken into account in different ways;
+        * Either allocate different time slices to tasks depending on the priority
+        * Or, keep the quanta fixed but service the tasks with lower priorities less often. A priority queue can help to
+          place higher priority tasks ahead.
+        * It's also possible to have different queues for priority groups, ie high/medium/low.
+        * RTOS might use Earliest Deadline First, EDF, scheduling model where the most urgent task is given the highest
+          priority.
+
+## Activity : What is your computer actually doing
+
+* When a thread is selected to run, it runs for an amount of time called a quantum.
+* A quantum is the length of time a thread is allowed to run before another thread at the same priority level (or
+  higher, which can occur on a
+  multiprocessor system) is given a turn to run.
+* Quantum values can vary from system to system and process to process for any of three reasons:
+    * system configuration settings (long or short quantums),
+    * foreground/background status of the process,
+    * or use of the job object to alter the quantum
+* A thread might not get to complete its quantum, however. Because Windows implements a pre-emptive scheduler, if
+  another thread with a higher priority becomes ready to run, the currently running thread might be pre-empted before
+  finishing its time slice
+* In fact, a thread can be selected to run next and be pre-empted before even beginning its quantum!
+* The routines that perform these duties are collectively called the kernel’s dispatcher.
+    * The following events might require thread dispatching:
+    * A thread becomes ready to execute—for example, a thread has been newly created or has just been released from the
+      wait state.
+    * A thread leaves the running state because its time quantum ends, it terminates, it yields execution, or it enters
+      a wait state.
+    * A thread’s priority changes, either because of a system service call or because Windows itself changes the
+      priority value.
+    * A thread’s processor affinity changes so that it will no longer run on the processor on which it was running.
+
+## From scalar to superscalar
+
+* Executing one instruction at a time is called scalar operation and has already been discussed to be limiting.
+* In a more advanced model, Instruction Level Parallelism, ILP, can be used where the independent instructions are
+  executed in parallel but dependent instructions still have to wait for each other.
+    * The ability to start multiple instructions in parallel is known as the superscalar execution.
+    * However, ILP has its limitations too. Even with clever algorithms and optimisers, in a short sequence, it's rare
+      to execute 4 instructions in parallel. For longer sequences, this usually is down to 2 or 3 instructions per clock
+      cycle, IPC.
+    * Therefore, for a single core achieving 8 ILP isn't quite possible.
+
+## Multicore
+
+* The amount of increase that's required in the number of transistors, IC complexity and heat for higher ILP isn't
+  justified by the performance gain.
+* Therefore after 4-6 ILP, CPU manufacturers developed Thread Level Parallelism, TLP.
+* So, introducing multiple cores, 4 to 8 typically for Desktop systems, can boost the performance.
+    * However, as they share the same system bus, physical memory and I/O resources, they still need to be shared
+      between these cores.
+    * A multicore architecture will have a structure that includes multi-level cache hierarchy, methods of dealing with
+      memory coherence and some capability to exchange information rapidly between cores.
+
+# Process Parallelism
+
+* In uniprocessor system (one single CPU system), each thread executed in turns in a small portion for process to
+  repeat.
+    * By interleaving between the processes and the threads for short periods the CPU system gains
+      the impression that all of those pieces of code are executing simultaneously.
+    * Of course, they’re not really executing simultaneously because we only have a single processor.
+    * <img src="./img/92.png" alt="alt text" width="500" height="300">
+* Multiprocessor multithreading comes to improve performance of CPU
+    * This consept we have multiple CPUs
+    * In the case of multiprocessor multithreading each process could be allocated to a separate CPU
+      so that CPU1 executes parts of program A, CPU2 executes parts of program B, and CPU3
+      executes parts of program C and they repeadetaly process threads.
+    * in this case each process or program is completely isolated on its own dedicated CPU.
+    * And those CPUs will still execute multithreading, because each of these processes will still
+      potentially have threads, but the threads will remain solely within the domain of a single CPU.
+    * Each CPU can dedicate a full resource, a full computational resource, to a single process but multiple threads.
+    * Disadvantages: memory has to be shared between threads
+    * <img src="./img/93.png" alt="alt text" width="500" height="300">
+* Hyperthreading, or simultaneous multithreading:
+    * In this model has multiple CPUs and also each CPU supports multiple threads simultaneously.
+    * In this process, these threads are being executed in very fine slices, much finer than normal multithreading.
+    * Each CPU individualy gives the impression of paralellism (kind of pseudo-parallel fashion).
+    * Nonetheless, it allows resource utilisation to be much more efficient.
+    * The CPU is only doing one thing at a time and therefore that coordination and that access and that sharing of data
+      is much more coherent
+      and much easier to manage
+* Disadvantages:
+    * unipreccessor multithread system, there is a single processor and a single memory, so all of the memory is
+      accessible to one processor and that is exactly the ideal situation. There are no blockages there, no
+      complications in accessing that data
+    * multiprocessor system, ll of these CPUs are attempting to share information where some of that information is in
+      each of the individual CPUs’ memories.
+    * “shared memory” is a way to maje data to accessable for other CPUs
+    * if it’s a dedicated multiprocessor system where all the CPUs can have access to a memory but then you have
+      potential congestion and conflicts in terms of CPUs wanting to access the data simultaneously
+
+# How programmers use threads
+
+* For C language Programming Posix Threads (pthreads) is thread management interface into the operating system
+* Some concepts are fairly straightforward - creating and terminating threads makes perfect sense. It also makes perfect
+  sense for a thread’s memory resources to be released after a thread terminates.
+* However, we do not always want a thread to discard its memory resource as soon as it terminates, and we may
+  additionally want to know when that termination occurs. To handle this we have the idea of joinable and detached
+  threads.
+* Importantly, if a thread is designated as joinable, rather than detached, then it can terminate without discarding its
+  memory (another thread may want to continue to access this resource even after the resource-owning thread has
+  terminated). Some other thread ultimately has to take responsibility for releasing those resources.
+
+# Thread safety
+
+* A function is said to be thread-safe if and only if it will always produce correct results when called repeatedly from
+  multiple concurrent threads.
+  Thread unsafe functions are grouped as
+    * Functions that do not protect shared, global variables.
+    * Functions that keep state across multiple invocations.
+    * Functions that return a pointer to a static variable.
+    * Functions that call thread-unsafe functions where the calee is type-2 thread-unsafe. If it's type 1 or 3, the
+      caller can still be thread-safe, if protected properly, ie by a mutex etc.
+* Reentrant functions are a subset of thread-safe functions and are more efficient then non-reentrant thread safe
+  methods.
+    * A type-2 thread-unsafe function can be made thread-safe only by rewriting it as reentrant.
+        * If all function arguments are passed by value and all data references are to local auto stack variables, then
+          the function is explicitly reentrant.
+        * If the function is accepting pointers as parameters, then the reentrancy becomes implicit and depends on the
+          callers being careful about protecting the access to those pointers.
+        * In the case of implicit reentracy, it's a property of both the caller and the callee.
+
+# Races
+
+* A race occurs when the correctness of a program depends on one thread reaching point x in its control before another
+  thread reaches point y.
+
+# Concurrent programming with threads
+
+* We do not always want a thread to discard its memory resource as soon as it terminates, and we may additionally want
+  to know when that termination occurs.
+    * Joinable and detached threads are developed to handle these.
+    * If a thread is designated as joinable, rather than detached, then it can terminate without discarding its memory,
+      so
+      another thread can access that memory. However, some other thread ultimately has to take responsibility for
+      releasing
+      those resources.
+    * A joinable thread can be reaped and killed by other threads. Its memory resources (such as the stack) are not
+      freed
+      until it's reaped by another thread. In contrast, a detached thread cannot be reaped or killed by other threads.
+      Its
+      memory resources are freed automatically by the system when it terminates.
+        * For example, a peer thread created to handle each received request by a web server is an example where
+          detached
+          threads are used so the main thread doesn't have to wait for their completion.
 
 # WEEK 5
 
