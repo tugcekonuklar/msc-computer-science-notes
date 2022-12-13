@@ -2657,6 +2657,198 @@ HALT
 
 # File systems
 
+* Due to the disk being split into fixed-sized sectors, the actual file size and the size occupied on the disk aren't
+  always the same.
+    * On average, every file will waste 0.5 sectors of data storage capacity, which is 2048 bytes for a sector size of
+      4096 bytes.
+* As each file consists of multiple sectors, the file system uses a file allocation table keep track of which sector
+  belongs to which file.
+* A file system
+    * Keeps track of the individual identity of files on a disk.
+    * Knows which sectors relate to which files.
+    * Conforms to a standard to make disks interchangeable across systems.
+    * Achieves a degree of efficiency, balancing competing requirements.
+    * Has some fault tolerance of disk problems.
+    * (May) provide a degree of security assurance.
+* So a file system has to respect efficiency, and also the concept of interchangeability.
+* The file system not only keeps track of where files are on the disk, but it also facilitates deletion of files and
+  reuse of the space created by doing so.
+* FAT, File Allocation Table, is one of the earliest file systems.
+    * Legacy FAT systems supported a small number of sectors per disk but modern variations support up to 4 Billion
+      sectors.
+    * This allows choosing the sector size appropriately to optimise the access time rather than fitting the whole disk
+      size into a small number of sectors.
+* NTFS New Technology File System, an evolution from FAT, which includes capabilities for much larger drives and files (
+  FAT32 limits files to 4Gbyte), and also includes some fault-tolerance features to prevent data loss due to power
+  outages etc.
+* APFS APPLE File System, used on APPLE devices such as laptops and desktop machines, smartphones, and so on.
+* EXT Extended File System (various versions Ext2, Ext3, Ext4 etc), used with Linux primarily.
+* The boot sector is responsible for ensuring that the computer system can start up and begin loading the operating
+  system, which is stored on the disk using the chosen file format.
+    * Not all disks have to be bootable of course.
+
+## Volumes and partitions
+
+* The subsections that are created by dividing the total capacity of a drive unit are called partitions.
+    * Each of these can be formatted to appear as if it's a separate drive.
+* Things can work the other way too where multiple drives/partitions are aggregated into a single entity. This is called
+  a spanned volume.
+* If a volume is smaller or the same size as a single drive, then it's no different than a partition. However, volumes
+  can span across multiple physical drives too.
+* A directory is simply a named container used to hold a group (a subset)  of files belonging to the file system.
+    * The root directory is the top-most directory above which no other directory exists.
+
+## File system directory structures
+
+* Data Storage structured with some kind of disk unit, a hard disk
+    * And disk can be divided partitions, the top partition has a block called root directory and has sub-directories
+      and files in it.
+    * disks can sometimes be divided into partitions and each of those partitions can be recognised by the operating
+      system as a separate drive, in terms of the visibility of the file system, even though both of
+      those partitions may actually reside on the single drive unit
+    * that’s a typical structure, a disk unit, a partition, a root directory, subdirectories and
+      then files
+    * <img src="./img/101.png" alt="alt text" width="500" height="300">
+* There are some ways to control the directory structures
+* Symbolic link:
+    * it takes a reference point from some existing place within the file system
+    * it creates a link to that location in the file system via something called a symbolic link, which makes it appear
+      as though it’s present at another place in the file system, like an alias,
+        * for example, it may consider this portion of the file system, the reference point being the beginning of that
+          subdirectory
+    * you can interact with that files system exactly the same as we would in the real location.
+    * The reason we do that is to help make available directory structures to individual users, for
+      example, on a user-by-user basis
+    * <img src="./img/102.png" alt="alt text" width="500" height="300">
+* Virtual Root:
+    * When you want a particular user to be able to view part of the file system by preventing to see the remaining file
+      system.
+    * virtual root directory and this allows the operating system to designate a particular directory, in the directory
+      tree or the hierarchy, to appear to that particular user to be the root directory of the system
+    * <img src="./img/103.png" alt="alt text" width="500" height="300">
+* Hidden File Path:
+    * When we sont want to be visiable some files from users, we can hidden them.
+    *  <img src="./img/104.png" alt="alt text" width="500" height="300">
+
+# Activity: File systems knowledge check
+
+* The diagram below shows a set of four disk units partitioned in various ways. Using the terminology relating to
+  volumes and partitions, explain what each of the items A to E represent, and what is particular about disk 4.
+    * <img src="./img/105.png" alt="alt text" width="500" height="300">
+    * Disk 1 has been divided into two partitions, appearing as drives A and B(sometimes refer to these as logical
+      drives)
+    * There is no free space on Disk1.
+    * Disk 2 contains a partition for logical drive D, and also has a partition for logical drive C.
+    * However, Logical drive C spans multiple volumes (it has partitions on disk 2 and 3)
+    * Drive C is known as a spanned volume.
+    * Disk 3 is only partially used. There is unconfigured space left that could be used for another partition if
+      desired.
+    * Disk 4 has a large partition for drive E, and a boot partition.
+    * Disk4 is therefore a bootable drive, and therefore Disk4 is used to boot up the system.
+* Name three ways in which the ability to access and change a file can be controlled by an operating system/file system.
+    * Make the file read only
+    * Make the file a hidden file
+    * Make the containing directory hidden
+    * Set the file to belong to a particular user group with specific permissions.
+    * Set a user’s virtual root directory below the file position the hierarchy, making it inaccessible.
+* Explain the terms root directory and symbolic link
+    * A **root directory** is the primary directory in the system on a particular disk (or logical disk). There are no
+      directories above this in the directory structure. It contains all other directories hierarchically.
+    * A **symbolic link** is a way to make a directory or file appear in a particular place in the file system
+      hierarchy,
+      even though it is actually located somewhere else. This is typically used for convenience.
+
+# File formats and storage options
+
+## File attributes
+
+* Most file systems support the concept of files having attributes. These help to control
+    * how files can be used
+    * allow users and administrators to track such things as when a file was created
+    * when it was last modified, last read, and so on.
+* File type examples are
+    * Hidden: not normally visible to users
+    * Executable: Allows a file to be executed or not. A user with insufficient permissions won't be able to execute a
+      non-executable file.
+    * System: A file belongs to the OS/kernel.
+    * Read-only: Files that can be viewed but not altered/deleted.
+    * Archive: Some OSs use these for backup purposes.
+* Linux has more complex permissions where read, write, execute permissions can be set individually for the owner, group
+  and others.
+
+## File compression
+
+* There are lossless compression techniques where the original data can be fully restored and lossy compressions where
+  the approximation of the original is regenerated.
+* Files can be compressed to save space. If a 10KB file takes 8KB after compression, the compression ratio is 10/8=1.25,
+  Original Size / Compressed Size.
+    * <img src="./img/107.png" alt="alt text" width="500" height="300">
+* Different compression algorithms work better with a certain type of content. For example, text, image, data
+  records, sensor and unstructured data are usually compressed differently.
+* Example: Compressing an image with Run Length Encoding, RLE.
+    * [Run Length Encoding (RLE)](https://en.wikipedia.org/wiki/Run-length_encoding) is a compression technique.
+    * Run-length encoding (RLE) is a form of lossless data compression in which runs of data (sequences in which the
+      same data value occurs in many consecutive data elements) are stored as a single data value and count, rather than
+      as the original run. This is most efficient on data that contains many such runs, for example, simple graphic
+      images such as icons, line drawings, Conway's Game of Life, and animations.
+    * For files that do not have many runs, RLE could increase the file size.
+* <img src="./img/106.png" alt="alt text" width="500" height="300">
+* Huffman and LZSS are examples to compression methods used in filesystems.
+    * For a 26 letter alphabet, Huffman code represents each letter with 2 bits, so, 4 letters can be coded with 8 bits
+      = 1 Byte, instead of 4.
+    * To further optimise things, more frequent letters are assigned single digit codes and less frequent ones use more
+      digits.
+* For automatically compressed filesystems, the factors that need to be taken into consideration are
+    * Compressing a file requires CPU effort,
+    * CPU effort uses power and time,
+    * N. Compressed files are smaller so use less disk space
+    * Less data means less effort moving it about,
+    * Smaller files can be accessed faster and have less fragmentation.
+* If the **read time = Seek Time + Sector Count x Sector Read Time**
+  *Then for a compressed filesystem, it's **Seek Time + Compressed Sector Count x Sector Read Time + Decompression
+  Time**
+
+## File encryption
+
+* Often, in the process of performing file compression, it is beneficial to also apply encryption. This is a technique
+  that transforms the data content into a form, using a mathematical process, that can only be recovered by reversing
+  that mathematical process when in possession of some key information.
+* As the computers get stronger, decrypting files with brute force takes a shorter time. This isn't a problem for
+  everyday users but to keep files secure for a longer time, they need to be re-encrypted with stronger methods over
+  time.
+* No encryption is unbreakable but stronger ones take longer to crack.
+* Some drives, ie USB pen drives, come with built-in encryption.
+
+## Filesystem resilience
+
+* The physical integrity of data can be protected, to a lesser or greater extent, by using suitable disk hardware
+  configurations, such as RAID storage arrays.
+* For example, to make the file overwrite resiliently, the old copy can be deleted only after the successful creation of
+  the new copy. If this isn't done, a fault during overwriting can lead to having both the old and new copies being
+  incomplete.
+
+## File formats
+
+* There are different file formats such as
+    * ASCII
+    * XML
+    * Binary file
+* Some file formats are very human friendly, but relatively inefficient, whereas others are distinctly unintelligible
+  without program support, but compact and more efficient for the computer system.
+
+## File structures and encodings
+
+* For example, a BMP file consists
+    * Header: Basic information such as file size and other data.
+    * Image Information: A short block of data defining things like image dimensions, number of colours per pixel, and
+      additional options.
+    * Optional Colour Table: a table defining colours used in the image if they are not the default ones.
+    * PixelData: A block of data containing 3 bytes for every pixel in the image.
+
+# TODO : Week 5
+
+* More info [File Systems](https://en.wikipedia.org/wiki/File_system)
+
 # WEEK 6
 
 # WEEK 7
