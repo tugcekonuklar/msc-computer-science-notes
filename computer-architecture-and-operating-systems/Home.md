@@ -2561,6 +2561,81 @@ HALT
     * Modification of the same memory area is protected by a semaphore/mutex, which guarantees mutual exclusion.
     * Shared memory is more practical than using message queues.
 
+# Memory Management
+
+## Swapping
+
+* Processes that are waiting for I/O can be swapped to disk, so their memory can be used by other processes.
+    * Using virtual memory will improve the performance over simple swapping.
+
+## Partitioning
+
+* Memory can be divided into equal or unequal size partitions.
+    * When a process is brought into memory, it's loaded into the smallest partition in which it can fit, however, this
+      still doesn't stop the memory waste completely.
+    * Therefore, variable-sized partitions are used too.
+* As processes memories aren't equal, swapping the processes in and out leaves holes in the memory and situations like
+  having a lot of enough memory but not being able to load processes due to not having enough contiguous memory do
+  arise.
+    * This problem is known as fragmentation where the used and free memory block are scattered in a non-contiguous
+      fashion and is solved by compaction, where the OS shifts the processes' memory back to back to create a contiguous
+      free memory.
+    * Fragmentation also occurs due to allocated and freed memory of different sizes.
+    * However, this is time-consuming and wastes the cpu time.
+* All this memory shifting and swapping in/out brings out the need to keep the memory addresses as logical addresses.
+  Then, to have a mapping between the logical and physical address spaces.
+    * When the processor executes a process, it automatically converts its logical address to a physical address by
+      adding the base address for that process.
+    * As physical memory is more expensive than storage, virtual memory allows extending the memory at the cost of
+      swapping expense.
+    * Swapping, aka paging, is the process of flipping the memory content of applications between the physical memory
+      and storage.
+
+## Paging
+
+* Both unequal fixed-size and variable-size partitions are inefficient in the use of memory. However, if the memory is
+  partitioned into equal fixed-size chunks that are relatively small, and each process is also divided into small
+  fixed-size chunks of some size. Then the chunks of a program, known as pages, could be assigned to available chunks of
+  memory, known as frames, or page frames. At most, then, the wasted space in memory for that process is a fraction of
+  the last page.
+* With paging, the page frames for a process don't need to be contiguous either and logical-to-physical address
+  translations are made by using the paging table.
+* Memory Management Unit, MMU, hardware is also involved in the address translation.
+
+## Virtual memory
+
+* The paging allows demand paging where the pages of a process are kept in the memory when they are needed.
+* When a process branches to an instruction or references a data on a page that isn't in main memory, a page fault is
+  triggered and this tells the OS to bring in the desired page.
+* The OS has to decide which page to throw away when bringing in a new one. This is known as the page replacement and if
+  not done right, the processor spends a lot of time paging data in/out which leaves less for actual operations.
+    * This phenomenon is known as **thrashing**.
+        * Thrashing occurs when a computer's virtual memory resources are overused, leading to a constant state of
+          paging and page faults, inhibiting most application-level processing.
+    * There are different page replacement/management algorithms. One commonly used algorithm is the Least Recently
+      Used.
+* As page tables can be big, it's common to keep the page tables in the virtual memory too and then it also becomes
+  subject to paging.
+* An alternative approach to the use of one- or two-level page tables is the use of an inverted page table.
+* However, if the page table is also swapped out, each memory access might end up requiring 2 accesses, one for the page
+  table and one for the actual memory content. To overcome this, most virtual memory schemes make use of a special cache
+  for page table entries, usually called a **translation lookaside buffer** (TLB).
+
+## Privileges and restrictions
+
+* OS imposes restrictions based on the user types. This helps to protect the system from being tempered by unauthorised
+  users.
+* However, there is also protecting the memory contents aspect of these restrictions, from both accidental and
+  deliberate damage.
+* Linux has Kernel/system and user mode privilege levels
+    * Kernel mode: The code running in this mode is allowed to access every area of the memory. Processes running in the
+      kernel mode are the kernel processes.
+    * User mode: When a process runs in the user mode, a user process, it cannot access the memory arbitrarily and
+      execute certain CPU instructions.
+        * Attempts to violate the access rights is caught and stopped by the kernel and might result in getting the
+          process killed.
+        * User-mode processes can access these restricted resources via the kernel, by making system calls.
+
 # Activity: Memory management knowledge test
 
 1. Physical memory and why this restricts computer capabilities.
