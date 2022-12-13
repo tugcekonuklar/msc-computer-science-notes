@@ -2531,6 +2531,22 @@ HALT
 * **Page fault** occurs when the required page is not resident in the physical memory and needs to be fetched from the
   disk.
 * <img src="./img/97.png" alt="alt text" width="500" height="300">
+* The paging allows demand paging where the pages of a process are kept in the memory when they are needed.
+* When a process branches to an instruction or references a data on a page that isn't in main memory, a page fault is
+  triggered and this tells the OS to bring in the desired page.
+* The OS has to decide which page to throw away when bringing in a new one. This is known as the page replacement and if
+  not done right, the processor spends a lot of time paging data in/out which leaves less for actual operations.
+    * This phenomenon is known as **thrashing**.
+        * Thrashing occurs when a computer's virtual memory resources are overused, leading to a constant state of
+          paging and page faults, inhibiting most application-level processing.
+    * There are different page replacement/management algorithms. One commonly used algorithm is the Least Recently
+      Used.
+* As page tables can be big, it's common to keep the page tables in the virtual memory too and then it also becomes
+  subject to paging.
+* An alternative approach to the use of one- or two-level page tables is the use of an inverted page table.
+* However, if the page table is also swapped out, each memory access might end up requiring 2 accesses, one for the page
+  table and one for the actual memory content. To overcome this, most virtual memory schemes make use of a special cache
+  for page table entries, usually called a **translation lookaside buffer** (TLB).
 
 ## Task Privacy and Isolation
 
@@ -2602,25 +2618,6 @@ HALT
   translations are made by using the paging table.
 * Memory Management Unit, MMU, hardware is also involved in the address translation.
 
-## Virtual memory
-
-* The paging allows demand paging where the pages of a process are kept in the memory when they are needed.
-* When a process branches to an instruction or references a data on a page that isn't in main memory, a page fault is
-  triggered and this tells the OS to bring in the desired page.
-* The OS has to decide which page to throw away when bringing in a new one. This is known as the page replacement and if
-  not done right, the processor spends a lot of time paging data in/out which leaves less for actual operations.
-    * This phenomenon is known as **thrashing**.
-        * Thrashing occurs when a computer's virtual memory resources are overused, leading to a constant state of
-          paging and page faults, inhibiting most application-level processing.
-    * There are different page replacement/management algorithms. One commonly used algorithm is the Least Recently
-      Used.
-* As page tables can be big, it's common to keep the page tables in the virtual memory too and then it also becomes
-  subject to paging.
-* An alternative approach to the use of one- or two-level page tables is the use of an inverted page table.
-* However, if the page table is also swapped out, each memory access might end up requiring 2 accesses, one for the page
-  table and one for the actual memory content. To overcome this, most virtual memory schemes make use of a special cache
-  for page table entries, usually called a **translation lookaside buffer** (TLB).
-
 ## Privileges and restrictions
 
 * OS imposes restrictions based on the user types. This helps to protect the system from being tempered by unauthorised
@@ -2638,28 +2635,25 @@ HALT
 
 # Activity: Memory management knowledge test
 
-1. Physical memory and why this restricts computer capabilities.
+* Physical memory and why this restricts computer capabilities.
+    * Physical memory is the memory system of a computer that is made from actual memory chips.
+    * Physical memory has a fixed size based on how many ram chips or dimms are present.
+    * Fixed memory size would mean that the computer is only capable of having a limited number of applications
+      running at once.
 
-* Physical memory is the memory system of a computer that is made from actual memory chips.
-* Physical memory has a fixed size based on how many ram chips or dimms are present.
-* Fixed memory size would mean that the computer is only capable of having a limited number of applications
-  running at once.
+* Virtual memory is.
+    * Virtual memory is a memory space that actually extends onto disk storage.
+    * VM appears to be much bigger than physical memory, and therefore allows the operating system to have many more
+      applications running at the same time.
+    * Applications do not know the difference, they simply see memory via the operating system interfaces/layers.
 
-2. Virtual memory is.
-
-* Virtual memory is a memory space that actually extends onto disk storage.
-* VM appears to be much bigger than physical memory, and therefore allows the operating system to have many more
-  applications running at the same time.
-* Applications do not know the difference, they simply see memory via the operating system interfaces/layers.
-
-3. Concept of thrashing and explain why it is undesirable.
-
-* Thrashing occurs when several applications are swapping memory content back and forth to disk in a repetitive
-  fashion.
-* This takes a lot of time since disk access is relatively slow.
-* The time left to do actual work is reduced, so performance suffers.
-* It can be reduced by having a sufficiently large physical memory for the main demands of the key applications in
-  question.
+* Concept of thrashing and explain why it is undesirable.
+    * Thrashing occurs when several applications are swapping memory content back and forth to disk in a repetitive
+      fashion.
+    * This takes a lot of time since disk access is relatively slow.
+    * The time left to do actual work is reduced, so performance suffers.
+    * It can be reduced by having a sufficiently large physical memory for the main demands of the key applications in
+      question.
 
 # File systems
 
