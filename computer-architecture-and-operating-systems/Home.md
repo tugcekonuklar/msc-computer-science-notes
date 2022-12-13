@@ -117,7 +117,7 @@ TBC
 * IO ( Input, Output ) interface is essentially mechanisms that allow devices to plug into the computer.
     * for example, a keyboard is an input device, and a video screen is an output device
 
-</br><img src="./img/1.png" alt="alt text" width="500" height="300">
+<img src="./img/1.png" alt="alt text" width="500" height="300">
 
 ### John von Neumann Model Bottleneck
 
@@ -145,7 +145,7 @@ TBC
   expect that a clock signal turns on, turns off again and that will repeat and that will repeat
   , and that would repeat again and this repetitive behaviour is what a **clock signal**
   essentially does.
-  </br><img src="./img/2.png" alt="alt text" width="500" height="300">
+  <img src="./img/2.png" alt="alt text" width="500" height="300">
 * Clock cycle is showing with blue line.
 * That is the basic definition of a **clock** – a rising edge (zero to one) and a falling edge (one to zero) – and these
   edges are what we
@@ -153,7 +153,7 @@ TBC
 * It turns out that one of those on-off transitions is what we refer to as one clock cycle,
 * so when we talk about a clock cycle we’re talking about a complete process of going from zero to one and then back to
   zero again before it repeats.
-  </br><img src="./img/3.png" alt="alt text" width="500" height="300">
+  <img src="./img/3.png" alt="alt text" width="500" height="300">
 * we can also define that clock cycle in terms of a clock period, so this takes a certain amount of time, so there’s an
   amount of time “t”, typically in milliseconds or microseconds or nanoseconds in a clock system, and that value t
   represents a period of time - the clock period.
@@ -205,7 +205,7 @@ TBC
   gate** (or Just an inverter). A further gate, the **XOR gate** performs an exclusive or function, where an output is
   one only when anyone (but not both) inputs are one.
 * truth tables:
-  </br><img src="./img/4.png" alt="alt text" width="500" height="300">
+  <img src="./img/4.png" alt="alt text" width="500" height="300">
 * Mixtures of these eight logic (AND, OR, NOT, XOP, NAND, NOR, NEXOR(XNOR), buffer) gates can also be combined into more
   complex circuits, including circuits that add binary bits together (arithmetic), or perform other mathematical
   operations such as multiplying, comparing, and so on. These circuits are called **combinational circuits**.
@@ -219,7 +219,7 @@ TBC
 * To overcome this, multicore CPUs came to life. Instead of trying to push the CPU to get faster and faster, multiple
   CPU are arranged in parallel. This way, complexity still increases but the operations are allowed to happen in
   parallel.
-  </br><img src="./img/5.png" alt="alt text" width="500" height="300">
+  <img src="./img/5.png" alt="alt text" width="500" height="300">
 * Circuit (b) is more complex, and slower, than circuit (a). Intuitively you might also expect circuit (c) to have
   increased delay compared to (b). After all, circuit (c) is certainly more complex than circuit (b). Whilst it
   is true that increased complexity often, even typically, causes increased delay, it is sometimes possible to have more
@@ -317,7 +317,7 @@ TBC
 
 * This calculation is important to predict **cost-effectiveness** of a CPU
 * Another Example :
-    * </br><img src="./img/6.png" alt="alt text" width="500" height="300">
+    * <img src="./img/6.png" alt="alt text" width="500" height="300">
     * Which CPU can do the most processing in one hour?
         * highest mips per second is also makes highest per an hour. CPU-D 8 mips/1 mW = 8000 mips per watt.
     * Which CPU is most cost-efficient for power consumed?
@@ -337,7 +337,7 @@ TBC
 * The same identical operation on another processor mig require more or less or same number of clock cycles thats why
   clock frequency isnot guarantee highed mips or benchmark score by itself.
 * For this we use **clock per instruction (CPI)**
-* </br><img src="./img/6.png" alt="alt text" width="500" height="300">
+* <img src="./img/6.png" alt="alt text" width="500" height="300">
 * in this example better Z>X>Y
 
 ### Scalar execution model
@@ -399,7 +399,7 @@ TBC
     * This basically is an educated guess based on the branch history kept by the CPU.
     * When the dynamic branch predictor hasn't got enough data to use, it can fall back to the static prediction.
 * Hit Rate:
-    * </br><img src="./img/8.png" alt="alt text" width="500" height="300">
+    * <img src="./img/8.png" alt="alt text" width="500" height="300">
 
 ### Speculative execution
 
@@ -445,9 +445,9 @@ TBC
 * So an instruction does not execute in a single clock cycle as an atomic operation,
   a single indivisible operation, its actually executed internally as a number of steps in a micro
   sequence.
-* </br><img src="./img/9.png" alt="alt text" width="500" height="300">
+* <img src="./img/9.png" alt="alt text" width="500" height="300">
 * Memory read operation resulting from memory a data-fetch (reads data value) or instruction-fetch (reads instructions)
-* </br><img src="./img/10.png" alt="alt text" width="500" height="300">
+* <img src="./img/10.png" alt="alt text" width="500" height="300">
 
 ## Introduction to Pipelining
 
@@ -469,30 +469,30 @@ TBC
 * There is an issue called 'register hazard'. For example when we have ADD R2,R3,R6 and SUB R6,5,R6 and if they are
   pipelined SUB reads an earlier value of R6 before ADD completes and updates R6.
     * More generically, when two instructions depend on each other, this leads to pipeline or data hazard.
-    * </br><img src="./img/11.png" alt="alt text" width="500" height="300">
+    * <img src="./img/11.png" alt="alt text" width="500" height="300">
 * There are 2 ways to solve:
 * inserting delay slots automatically when the hazard is detected by the CPU
     * we are introducing delays and you will notice that now the number of
       instruction completions is now taking fewer instruction completions over more cycles, so the
       CPI is dropping here. So this is not the most efficient solution.
-    * </br><img src="./img/12.png" alt="alt text" width="500" height="300">
+    * <img src="./img/12.png" alt="alt text" width="500" height="300">
 * Another and more efficient option is Static Instruction Scheduling, where the compiler re-orders the instructions and
   moves the instructions that aren't dependent on the target register in between.
-    * </br><img src="./img/13.png" alt="alt text" width="500" height="300">
+    * <img src="./img/13.png" alt="alt text" width="500" height="300">
 
 ## Terminology of Instructions
 
-</br><img src="./img/14.png" alt="alt text" width="500" height="300">
-</br><img src="./img/15.png" alt="alt text" width="500" height="300">
+<img src="./img/14.png" alt="alt text" width="500" height="300">
+<img src="./img/15.png" alt="alt text" width="500" height="300">
 
-* </br><img src="./img/18.png" alt="alt text" width="500" height="300">
-    * </br><img src="./img/19.png" alt="alt text" width="500" height="300">
+* <img src="./img/18.png" alt="alt text" width="500" height="300">
+    * <img src="./img/19.png" alt="alt text" width="500" height="300">
 
-* </br><img src="./img/16.png" alt="alt text" width="500" height="300">
-    * </br><img src="./img/17.png" alt="alt text" width="500" height="300">
+* <img src="./img/16.png" alt="alt text" width="500" height="300">
+    * <img src="./img/17.png" alt="alt text" width="500" height="300">
 
-* </br><img src="./img/20.png" alt="alt text" width="500" height="300">
-    * </br><img src="./img/21.png" alt="alt text" width="500" height="300">
+* <img src="./img/20.png" alt="alt text" width="500" height="300">
+    * <img src="./img/21.png" alt="alt text" width="500" height="300">
 
 * Write a program to compute the following: 9 x (9+3)
 
@@ -551,7 +551,7 @@ HALT
   a dedicated function. In many cases, embedded systems are part of a larger system or product, as in the case of an
   anti lock braking system in a car.
 * Embedded systems may or may not be accessible from outside and their user interaction can be limited.
-* </br><img src="./img/25.png" alt="alt text" width="500" height="300">
+* <img src="./img/25.png" alt="alt text" width="500" height="300">
 * there are a number of elements that differ from the typical desktop or laptop computer:
     * There may be a variety of interfaces that enable the system to measure, manip- ulate, and otherwise interact with
       the external environment. Embedded sys- tems often interact (sense, manipulate, and communicate) with external
@@ -602,9 +602,9 @@ HALT
       be parallelised avoids the x2 speed and by incorporating N, we know how much we are going to improve rather than
       assuming the idealistic case of assigning '0' time.
     * Also note that when the CPU count approaches infinity, the formula gets closer to the original for of 1/(1-P).
-* </br><img src="./img/22.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/23.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/24.png" alt="alt text" width="500" height="300">
+* <img src="./img/22.png" alt="alt text" width="500" height="300">
+* <img src="./img/23.png" alt="alt text" width="500" height="300">
+* <img src="./img/24.png" alt="alt text" width="500" height="300">
 * we’re assuming it’s a thousand in this case: remember, in reality, when we look at the case where
   there’s a thousand processors, we are dividing that 80% that we know can be optimised by
   execution in parallel, we’re dividing that amongst a thousand processors, but we’re not
@@ -757,15 +757,15 @@ HALT
 * after wait, the DRAM is able to locate the particular item in the memory within the ROW and COL grid of
   its storage array that we want to access and it can output that piece of information called Data on the bus, we class
   that as READ
-* </br><img src="./img/26.png" alt="alt text" width="500" height="300">
+* <img src="./img/26.png" alt="alt text" width="500" height="300">
 * Access time: the time after DRAM compates the address (after COL) and until the end of the READ (which the CPU can
   then access the data from.)
-* </br><img src="./img/27.png" alt="alt text" width="500" height="300">
+* <img src="./img/27.png" alt="alt text" width="500" height="300">
 * READ latency: It is beginning from the ROW until the end of READ.
     * This helps us to understand how fast can read data from memory
 * Recovery cycle: one DRAM finish READD data, depending on initial architecture of DRAM, does not do anything, we caled
   recovery cycle.
-* </br><img src="./img/28.png" alt="alt text" width="500" height="300">
+* <img src="./img/28.png" alt="alt text" width="500" height="300">
 * Cycle Time: From beginning to the end of the after READ waiting we called Cycle time. It is probably the most
   important timing quantity for a memory because it dictates how quickly we can complete an entire READ cycle and then
   be ready to start the next READ cycle.
@@ -773,19 +773,19 @@ HALT
 * Finding the number of reading per second:
     * So the read rate of the memory is different to the clock rate so don’t get those two things confused. 1333
       Megahertz is not the same as the amount of read transactions that the memory can perform.
-* </br><img src="./img/29.png" alt="alt text" width="500" height="300">
+* <img src="./img/29.png" alt="alt text" width="500" height="300">
 * If each read is 32 bits, which is four bytes, then we end up with a memory bandwidth of 266 million (which we’ve
   already worked out is the reads per second) multiplied by 4 (the number of bytes read per operation)  and that equates
   to 1064 million bytes per second.
-* </br><img src="./img/30.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/31.png" alt="alt text" width="500" height="300">
+* <img src="./img/30.png" alt="alt text" width="500" height="300">
+* <img src="./img/31.png" alt="alt text" width="500" height="300">
 
 ## Boosting Memory Performance
 
 * There are some technics to boost the memory performance
 * Standard Read operation:
-* </br><img src="./img/32.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/33.png" alt="alt text" width="500" height="300">
+* <img src="./img/32.png" alt="alt text" width="500" height="300">
+* <img src="./img/33.png" alt="alt text" width="500" height="300">
     * after getting ROW and COL addresses of data, we started to read.
     * we found in the previous video that the standard access time for a single READ is 5 clock cycle
     * And this is very inefficient because if we’re only reading one item and
@@ -800,7 +800,7 @@ HALT
 * Normally after READ, DRAM causes a delay and finally after that delay we get to read the item of interest so we’ve
   read the first location here and now instead of finishing the operation at this point Burst Mode continues to look at
   the next location and the next location and the next location in a consecutive manner.
-* </br><img src="./img/34.png" alt="alt text" width="500" height="300">
+* <img src="./img/34.png" alt="alt text" width="500" height="300">
 * So it's now going to continue to read and there are no delays now because we’ve already accessed the row of interest
   and we just simply need to select the item within the column that we’re interested in and this will continue **until
   we come to a point where, when we’ve completed the read burst,**
@@ -820,12 +820,12 @@ HALT
 * In Page Mode, after we READ we continue to provide Random COL and READ another value.
 * The length of a Page Mode access sequence can be quite long if we want it to be - in this case
   we’ve made it 4 reads long - and that means 4 reads.
-* </br><img src="./img/35.png" alt="alt text" width="500" height="300">
+* <img src="./img/35.png" alt="alt text" width="500" height="300">
 * 4 read, requires 11 clock cycle, makes 2,75 clock cycle per READ
 * When we compare and convert 5 clock cyles into a number of gigabytes per second for different cases here
 * On this basis we are assuming a frequency of 1333MHz which is a fairly common standard for memory bus timing, and a
   32-bit read, which again is a fairly common standard, that means 4 bytes per read.
-* </br><img src="./img/36.png" alt="alt text" width="500" height="300">
+* <img src="./img/36.png" alt="alt text" width="500" height="300">
 * approximately 1GB per second in standard mode
 * Burst mode, with the reduction in average cycle time, we end up with about 2.5GB per second.
 * Page mode, for a short sequence of access, is equivalent to that of burst mode, has a lower performance - 1.8GB per
@@ -846,8 +846,8 @@ HALT
     * While the SRAM keeps up, the gap between DRAM, disk performance and CPU performance is widening.
     * Modern computers make heavy use of SRAM based caches to try to bridge the processor-memory gap.
         * This approach works because of a fundamental property of application programs known as locality,
-* </br><img src="./img/37.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/38.png" alt="alt text" width="500" height="300">
+* <img src="./img/37.png" alt="alt text" width="500" height="300">
+* <img src="./img/38.png" alt="alt text" width="500" height="300">
 
 ## Locality
 
@@ -866,7 +866,7 @@ HALT
   memory locations will be referenced in the near future.
     * In this case it is common to attempt to guess the size and shape of the area around the current reference for
       which it is worthwhile to prepare faster access for subsequent reference.
-* </br><img src="./img/41.png" alt="alt text" width="500" height="300">
+* <img src="./img/41.png" alt="alt text" width="500" height="300">
     * sumvec function enjoys good locality.
     * The elements of vector v are read sequentially, one after the other, in the order they are stored in memory
     * Thus, with respect to variable v, the function has good spatial locality but poor temporal locality since each
@@ -877,14 +877,14 @@ HALT
     * Visiting every kth element of a contiguous vector is called a stride-k reference pattern. Stride-1 reference
       patterns are a common and important source of spatial locality in programs.
     * In general, as the stride increases, the spatial locality decreases.
-* </br><img src="./img/42.png" alt="alt text" width="500" height="300">
+* <img src="./img/42.png" alt="alt text" width="500" height="300">
     * The result is a nice stride-1 reference pattern with excellent spatial locality.
     * The doubly nested loop reads the elements of the array in row-major order. That is, the inner loop reads the
       elements
       of the first row, then the second row, and so on.
     * The sumarrayrows function enjoys good spatial locality because it references the array in the same row-major order
       that the array is stored
-* </br><img src="./img/43.png" alt="alt text" width="500" height="300">
+* <img src="./img/43.png" alt="alt text" width="500" height="300">
     * poor spatial locality
     * because it scans the array column-wise instead of row-wise.
     * Since C arrays are laid out in memory row-wise, the result is a stride-N reference pattern,
@@ -904,7 +904,7 @@ HALT
         * The smaller the loop body and the greater the number of loop iterations, the better the locality.
 
 * **Question:**
-* </br><img src="./img/39.png" alt="alt text" width="500" height="300">
+* <img src="./img/39.png" alt="alt text" width="500" height="300">
 
 * **Answer:**
     * To create a stride-1 reference pattern, the loops must be permuted so that the rightmost indices change most
@@ -925,7 +925,7 @@ HALT
   pattern.
 
 * **Question:**
-* </br><img src="./img/40.png" alt="alt text" width="500" height="300">
+* <img src="./img/40.png" alt="alt text" width="500" height="300">
 
 * **Answer**
     * The key to solving this problem is to visualize how the array is laid out in memory and then analyze the reference
@@ -952,7 +952,7 @@ HALT
 
 * let's say all of the memory accesses require five clock cycles
 * let's assume CPU read s from cache with 2 clock cycle.
-* </br><img src="./img/44.png" alt="alt text" width="500" height="300">
+* <img src="./img/44.png" alt="alt text" width="500" height="300">
 * why would we read data from cache instead of from memory?
     * cache keeps copies of memory contents that are used frequently.
     * So, given that if you were to analyse a program, perhaps 10% of the data in the code will be accessed very
@@ -961,10 +961,10 @@ HALT
       cache memory and get a result very quickly instead of going to the slow memory and getting the result, taking a
       long time.
 * a mixture of CPU and memory and CPU and cache,
-* </br><img src="./img/45.png" alt="alt text" width="500" height="300">
+* <img src="./img/45.png" alt="alt text" width="500" height="300">
 * To calculate average clock cycles we need to include hit rates
 * If CPU can find data in Cache we called **hit**, if can not and go to memory we called **missed**
-* </br><img src="./img/46.png" alt="alt text" width="500" height="300">
+* <img src="./img/46.png" alt="alt text" width="500" height="300">
 
 ## Multi-level Cache
 
@@ -974,7 +974,7 @@ HALT
     * It is not difficult to integrate a section of the CPU circuitry to contain an additional cache.
 * Lets assume build in cache has 1 cycle
 * CPU cache hit rate is 90% and chip cache hit rates %80
-* </br><img src="./img/47.png" alt="alt text" width="500" height="300">
+* <img src="./img/47.png" alt="alt text" width="500" height="300">
 * 1.5 – that’s the average memory speed of the system using on chip cache, that would give us quite a significant
   increase in memory bandwidth
 * When this example processor is used in asystem where the external memory already has a cache, it would be referred to
@@ -992,7 +992,7 @@ HALT
       cache continues as if nothing has happened.
     * The split cache gives the impression that the memory bus no longer has the von Neumann bottleneck. On-chip at
       least, it is much closer to a Harvard architecture.
-* </br><img src="./img/50.png" alt="alt text" width="500" height="300">
+* <img src="./img/50.png" alt="alt text" width="500" height="300">
 * multiple levels of cache allows other activities to continue in parallel with the CPU
 * So while the CPU is doing its accessing of data in the cache, you can have something else happening an IO device could
   access memory
@@ -1028,7 +1028,7 @@ HALT
 
 #### Performance Impact of Cache Parameters
 
-</br><img src="./img/51.png" alt="alt text" width="500" height="300">
+<img src="./img/51.png" alt="alt text" width="500" height="300">
 
 * Cache performance is evaluated with a number of metrics:
     * **Miss rate**. The fraction of memory references during the execution of a program, or a part of a program, that
@@ -1144,7 +1144,7 @@ HALT
 
 ## Memory maps
 
-</br><img src="./img/52.png" alt="alt text" width="500" height="300">
+<img src="./img/52.png" alt="alt text" width="500" height="300">
 
 * Memory can be split into several parts.
 * memory can be represented by DRAM and by ROM, and also by cache.
@@ -1153,8 +1153,8 @@ HALT
         * so that when you turn the computer system on there’s always some program code available to execute, and that’s
           usually located at location zero of the memory.
     * the I/O devices potentially appear as part of the memory because they look just like memory locations
-* </br><img src="./img/58.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/53.png" alt="alt text" width="500" height="300">
+* <img src="./img/58.png" alt="alt text" width="500" height="300">
+* <img src="./img/53.png" alt="alt text" width="500" height="300">
 * the entire addressable memory space as a box represents memory as system.
 * It stats zero to the largest location available in system
 * If this system has a 16-bit address range then the maximum address will be FFFFh in hexadecimal.
@@ -1190,10 +1190,10 @@ HALT
           least their interface circuits) are often connected to the system bus along side memory and CPU and are there
           for a potentially visible to the CPU as if they are memory spaces.
         * For example,a keyboard and mouse might have the following address designations:
-            * </br><img src="./img/57.png" alt="alt text" width="500" height="300">
+            * <img src="./img/57.png" alt="alt text" width="500" height="300">
 * And finally, there’s an area of memory that we haven’t allocated to anything.
     * This would be designated as unused memory
-* </br><img src="./img/54.png" alt="alt text" width="500" height="300">
+* <img src="./img/54.png" alt="alt text" width="500" height="300">
 
 ## Cache Coherency
 
@@ -1203,11 +1203,11 @@ HALT
       first
       one to go into cache).
     * This is a case where memory content should not be cached.
-    * </br><img src="./img/55.png" alt="alt text" width="500" height="300">
+    * <img src="./img/55.png" alt="alt text" width="500" height="300">
 * Another scenario is where two processors share access to the same memory are a (a shared memory system).
     * Clearly,if either processor is caching the content of the shared memory block, it will be unaware of any changes
       made by the other processor,which defeats the point of having shared memory.
-    * </br><img src="./img/56.png" alt="alt text" width="500" height="300">
+    * <img src="./img/56.png" alt="alt text" width="500" height="300">
 * This cache coherency issue is a well known problem.
 * how can we avoid this from happening?
     * So what we can do is, we can mark a block of memory, and say any values, any address values within a certain range
@@ -1222,8 +1222,8 @@ HALT
 * i. A system with 32K of memory, 4K ROM, 4K RAM, and 8K Flash Memory.
 * ii. A system with 1MByte of memory, 128K ROM, 512K RAM, and three IO devices with 8 registers each, mapped to the top
   area of memory.
-* </br><img src="./img/59.png" alt="alt text" width="500" height="300">
-* </br><img src="./img/60.png" alt="alt text" width="500" height="300">
+* <img src="./img/59.png" alt="alt text" width="500" height="300">
+* <img src="./img/60.png" alt="alt text" width="500" height="300">
 
 2. (Difficult) A system exists where two computer systems share a portion of memory. Both systems have a 64K address
    space, 8K ROM, 32K RAM. System one has a further 4K RAM mapped at the top of memory, which is shared with system two,
@@ -1233,7 +1233,7 @@ HALT
       here. In reality, each register can hold between 8 bits and 64 bits based on the size of the memory addresses
       being used by the system so again, the decision is up to the designer and the system they are working with.
 
-* </br><img src="./img/61.png" alt="alt text" width="500" height="300">
+* <img src="./img/61.png" alt="alt text" width="500" height="300">
 
 # Readings - Week 2:
 
