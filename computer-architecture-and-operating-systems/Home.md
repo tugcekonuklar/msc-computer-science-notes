@@ -2851,6 +2851,132 @@ HALT
 
 # WEEK 6
 
+# Open Systems Interconnection, OSI, reference model
+
+* [OSI Model](https://en.wikipedia.org/wiki/OSI_model)
+* <img src="./img/108.png" alt="alt text" width="500" height="300">
+* it's a conceptual framework, which describes the functions of a network, beginning with the application layer, which
+  directly serves the end user right down to the physical layer and everything in between.
+* **Application Layer**: this is everything that the end user sees. So HTTP operates at this layer and so does your web
+  browser as well.
+* **Presentation Layer**: This layer makes sure that the data is in a usable format and protocols like encryption and
+  SSH operates at this layer.
+* **Session Layer:** all about maintaining connections and sessions
+* **Transport Layer** : all about transmitting data using protocols like TCP and UDP
+* **Network Layer:** this layer is concerned with logically routing network packets based on IP addresses.
+* **Data Link Layer:** it is concerned with physically transmitting data based on MAC addresses
+* **Physical Layer:** this is all about transmitting bits and bytes over physical devices,like the cables and hubs that
+  make up the network
+* OSI model allows offers data security by encryption at different levels.
+* 0SI model defines a theoretical system of layers and TCP/IP is a practical implementation of it.
+* One of the most important aspects of the OSI model is the transport layer. This ensures that rather than a single
+  connection existing, multiple data flows can coexist.
+    * It does this by interacting with the network layer, where packets are sent and received, on behalf of instances of
+      the session layer, which connects to the user and their particular need of use of the network.
+    * So in fact, a live network may have multiple Application-Presentation-Session layer stacks, all talking to a local
+      transport layer that manages multiple sessions. This is an example of resource multiplexing.
+* Layers below the transport layer are responsible for ensuring that data is transmitted in manageable portions, using
+  packets and frames
+    * They ensure data arrives after being sent, detect and deal with errors, re-send data after faults, and making sure
+      physical data values are transmitted in suitable ways according to agreed standards.
+    * This allows a reliable service provision to be established and maintained. User applications don't need any
+      knowledge of the underlying network technology for this.
+    * TCP segment and IP packet headers
+    * <img src="./img/109.png" alt="alt text" width="500" height="300">
+    * <img src="./img/110.png" alt="alt text" width="500" height="300">
+* UDP segment
+* <img src="./img/111.png" alt="alt text" width="500" height="300">
+* Ethernet Fragment
+* <img src="./img/112.png" alt="alt text" width="500" height="300">
+
+## Bridging, Switching
+
+* Every connection between a client and server requires a unique socket.
+* 1030 is a port and (10.1.1.2 , TCP , port 1030) is a socket.
+* Where the nodes of a network are in the immediate area, it's called a Local Area Network and when they span across
+  distant locations, it's a Wide Area Network.
+* Ethernet is a networking technology where the individual nodes are connected, as in a bus system.
+    * There is no central control or coordination mechanism regarding who and when transmits.
+    * Therefore, Ethernet uses **Carrier Sense Multiple Access Collision Detection, CSMA/CD**, to detect collisions due
+      to
+      multiple nodes attempting to transmit at the same time and resolve them by a simple back-off and retry (within a
+      random amount of time) mechanism.
+* The raw bandwidth represents how much data can be transferred over the physical connection, ie 100 Mb/s. However, the
+  protocol overhead reduces this below this physical limit.
+* <img src="./img/113.png" alt="alt text" width="500" height="300">
+* If in an ethernet network with 4 nodes, 2 nodes are using 98 Mb/s, this leaves very little bandwidth to other nodes
+  and increases the number of back-off&retries.
+    * However, if the network is split into 2 by a bridge and there is 10Mb/s traffic flowing between the two sides of
+      the bridge, this would give 90 + 90 + 10 = 190 Mb/s bandwidth. This gives 90% capacity improvement.
+    * Also, note that each side of the bridge would use 90 + 10 = 100 Mb/s but when the total bandwidth is calculated,
+      10Mb/s is calculated only once as it's shared.
+    * Bridges allow splitting a network into 2 segments or joining two network segments.
+    * When the sender and recipient of a message are at the same side of the bridge, the bridge doesn't forward that
+      message to the other side.
+    * However, if they are at the opposite sides, then the bridge recognises this and forwards the traffic.
+    * <img src="./img/114.png" alt="alt text" width="500" height="300">
+* Another option is to use a switch that routes the traffic only to the relevant node(s), which can be unicast or
+  multicast.
+    * <img src="./img/115.png" alt="alt text" width="500" height="300">
+    * <img src="./img/116.png" alt="alt text" width="500" height="300">
+* A network hub is a simple device that receives incoming packets on any connected port and resending them out on all of
+  the other ports.
+    * There is no filtering, it is simply a way to connect several devices or networks together reliably so they can
+      communicate jointly.
+* A network switch performs a very similar job to a bridge in practice.
+    * However, a switch acts as a kind of interchange between three or more segments.
+    * In addition to the filtering that bridge does, the switch doesn't just need to know that the destination isn't at
+      the same side as the source but also which port it's connected to.
+    * This also includes other downstream switches and is done via lookup tables.
+* Once multiple network segments are introduced, with multiple switches, network segments can link to each other via
+  more than one path. This might provide resilience to failures in network segments or increase available data transfer
+  capacity.
+    * However, it also adds to the complexity of the network switching strategy, ie the speed of routes can be different
+      and change dynamically, so, this requires different switching policies.
+* **Multicast:** When a node decides to transmit data on that the information arrives at the switch and it inspects the
+  destination address of that data and the switch sees that the destination address isn't a single address it's actually
+  a multicast address.
+    * In this case, the information will be routed to all of the destination devices where that multicast address
+      matches this the situation
+    * So actually broadcast information in the sense or selectively broadcast information across parts of the network
+      using this multicast technique.
+
+## Routing
+
+* Routing can be done based on a fixed set of rules.
+    * This is known as static routing, it's fast and predictable.
+    * However, if the network fails, there is no resilience.
+* Another approach is dynamically adaptive routing, whereby information about the network is constantly passed to all
+  switches in the network using additional packets but at the cost of using some network bandwidth.
+    * This information then allows switches and routers to make choices based on real-time network behaviour including
+      different factors such as speed and load.
+    * Dynamic routing also offers resilience to network faults.
+* Routers offer functionality that's very similar to bridges and switches. However, a dedicated router is generally
+  designed to connect a local area network to a larger system, ie WAN. This can be via dial-up, adsl or fibre.
+    * As these technologies are based on sharing the connection across multiple users, uninterrupted and unfluctuating
+      service cannot be guaranteed.
+        * However, dedicated hard/custom-subscriber or leased lines offer this.
+
+## Quiz : Network Basics
+
+* For the following cases, identify where in the OSI reference model you would expect to see that functionality.
+    * A chat App (e.g. twitter) :
+        * Application Layer, (TOP) this would certainly be in the application layer. The app
+          relies entirely upon having access to network facilities via the OSI stack in the operating system.
+    * An electronic circuit that converts groups of 8 bits into 8 bits plus a syncronising signal :
+        * (BOTTOM) Definitely in the Data Link layer. Any encoding prior to conversion from data to electronic signals
+          is handled in the Data Link Layer, ready for transmission via the Physical layer.
+    * A capability that checks the content of a block of data and uses an algorithm to detect transmission errors.
+        * (MIDDLE) Most likely the transport layer, but with the description not being very precise, it is possible that
+          this might be performed or assisted by the Data-Link Layer.
+* Valid points that explain why the OSI system makes it easier to implement networking with software applications.
+    * By providing an abstract view of the network the OSI makes it possible for applications and programmers to use
+      network capabilities with little knowledge of the underlying complexity.
+    * Lower layers of the OSI ensure that data is sent and received reliably, and corrects errors. This means that the
+      applications do not need to implement much in the way of detecting data errors.
+    * The lowest layers of OSI represent hardware, and all of the layers above can operate the same way regardless of
+      which network system is used, almost as if there is no difference.
+
 # WEEK 7
 
 # Notes for me :
