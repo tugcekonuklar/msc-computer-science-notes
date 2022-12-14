@@ -2977,6 +2977,140 @@ HALT
     * The lowest layers of OSI represent hardware, and all of the layers above can operate the same way regardless of
       which network system is used, almost as if there is no difference.
 
+# Getting Connected
+
+# Network node identification
+
+* MAC Address (Media Access Control Address) is a permanently assigned identifier that is preset by the manufacturer of
+  every network interface.
+    * MAC addresses consist of six pairs of hexadecimal digits, which provides 256^6 possible unique codes.
+    * MAC address allows labelling each device uniquely and if two devices have the same MAC address, that's due to a
+      deliberate alternation to impersonate another device.
+* Internet Protocol (IP) address is a dynamic identifier, assigned to any device to allow it to be identified on the
+  internet, regardless of the MAC address of the device.
+    * IPv4 is made up of 4 8-bit segments, ie 177.221.030.127.
+    * The max number of addresses is 256^4 = 4.3 Billion unique values.
+    * IPv6 allows 3.4 x 10^38 unique addresses
+* A port is a number between 1 and 65535 inclusive that signifies a logical gate in a device.
+* Socket acts as the interface between application and transport layer for a program
+* Socket has 2 main purposes
+    * listen to incoming request, typically on the server-side in a client-server model
+    * send data onto network
+* A socket contains 3 things
+    * An IP address
+    * A transport protocol
+    * A port number
+* The DNS Server allows any textual internet domain name, URL, to be translated into an IP address for subsequent direct
+  access.
+* Sites can be directly accessed via their IPs but as IP addresses can dynamically change, using the URL is a more
+  reliable method.
+* Internet Corporation for Assigned Names and Numbers, ICANN, manages the domain and subdomain names.
+* Certain IP ranges such as 10.X.X.X, 172.16.X.X, 192.168.X.X are designated for closed networks , ie home or
+  university,
+  so, they aren't directly connected to the internet (local IPs).
+* When a new network device connects to the local network or WAN, ie broadband, its IP is assigned via Dynamic Host
+  Configuration Protocol, DHCP.
+* Leading 0s in IPv4 addresses mean that the address is octal, ie 192.168.0.046 means 192.168.0.38 decimal.
+    * That's why 192.168.0.046 is not equal 192.168.0.46
+* <img src="./img/117.png" alt="alt text" width="500" height="300">
+
+# Network Services
+
+* A network service is any capability that operates on a user's computer and facilitates some service via the network.
+    * like email systems, web browsers, remote file systems, A/V conferencing etc.
+* All of these services rely upon some underlying operating system components, or additional modules that interact with
+  the operating system.
+    * SSH (Secure Shell) used to permit login on remote computers via the network, access to the command shell and
+      execution of commands, and passing back responses to the initiator.
+    * FTP (File Transfer Protocol) used to facilitate exchange of data files between two systems on a network.
+    * HTTP (HyperText Transfer Protocol) used to support web browser services, including queries sent by browsers and
+      responses sent by web-servers.
+        * The Octal system has digits 0 to 7 (a base-8 number system), as compared to decimal (base-10), Hexadecimal (
+          base-16), and of course Binary (base-2).
+    * SMTP (Simple Mail Transfer Protocol) used to support email transmission and reception in conjunction with
+      mail-servers.
+    * POP (Post Office Protocol) used to support email transmission and reception in conjunction with mail-servers.
+    * CGI(Common Gateway Interface)a mechanism by which servers and web-browsers can exchange data.
+    * X11: Also known as X-windows, an essential component for many remote graphical operating system applications.
+
+## Sockets Interface
+
+* The server and user's program has a socket ID assigned to it when starts up and initiates a connection and attempts to
+  link to application on the remote machine,
+    * For example:
+        * Server 144.32.128.230:1228 (Socket ID=1228)
+        * Client 144.146.128.200:3007 (Socket ID=3007)
+* Remember that many programs can run on one computer and connect to many other computers doing the same thing.
+    * Therefore, it is not enough to simply have the IP addresses alone.
+* Certain socket addresses have reserved like 1023,
+    * any other connection, the operating system will assign unique socket IDs between 1024 and 65535 to any processes
+      requiring them.
+
+# Distributed systems
+
+* In its simplest form, client/server architecture is based on the server offering some services to the client and those
+  two exchanging information over a communication channel, ie TCP/SSH etc.
+* The drawback of this approach is, both the server and client need bespoke software components and updating both ends
+  separately.
+* However, if the server is designed as a web server, then the can simply be a browser, which saves us from having to
+  maintain 2 different components.
+
+# Netstat
+
+* Netstat is an operating system commands that allows us to see internet and network connectivities happening in our
+  computer.
+* 'netstat – n' to display active connections showing numeric IP address and port numbers.
+* Here is the [netstat](https://docs.oracle.com/cd/E19504-01/802-5753/6i9g71m3i/index.html) commands
+
+# IPv6
+
+* An IPv6 address uses 128 bits as opposed to 32 bits in IPv4. IPv6 addresses are written using hexadecimal. Each
+  hexadecimal number uses 4 bits which means an IPv6 address uses 32 hexadecimal numbers. These numbers are grouped in
+  4's giving 8 groups or blocks. The groups are written with a colon as a separator. Shortening techniques are employed
+  to reduce the length of IPv6 addresses.
+* An IPv6 address is split into two parts:
+    * a network and a node component.
+    * Each component has 64 bits.
+    * The network component is the first 64 bits of the address and is used for routing.
+    * The node component is the later 64 bits and is used to identify the address of the interface.
+    * The network node can be split further into a block of 48 bits and a block of 16 bits.
+        * The upper 48-bit section is used for global network addresses. The lower 16-bit section is
+          controlled by network administrators and is used for subnets on an internal network.
+* [Google statistics](https://www.google.com/intl/en/ipv6/statistics.html) shows us that th epercentage of users that
+  access Google over IPv6 in the last 10 years has grown by around 40%.
+* The problem is that switching from IPv4 to IPv6 is not simple and there are several challenges related to the full
+  adoption of IPv6 such as hardware limitations, huge infrastructure costs and lack of training and skills. Many older
+  devices, including personal computers, are not compatible with IPv6. In addition, many router s and servers do not
+  support IPv6.
+* Compared to IPv4, IPv6 uses a simplified header with fewer fields which makes it easier for routers to process. As
+  there is no checksum in the header, IPv6 leaves error checking entirely to TCP, again speeding up processing.
+  IPv6 also does not allow for fragmentation of datagrams.
+    * To send IPv6 datagrams over a network that consists of IPv4 routers (that can't process IPv6 datagrams), tunneling
+      is used. To do this, the sending host wraps the IPv6 datagram in an IPv4 datagram and send it as normal. When the
+      IPv6-capable host at the destination receives this, it checks the header to determine it is an IPv6 datagram and
+      extracts the payload accordingly.
+
+# Virtualisation
+
+* Virtualisation is a concept where an operating system and user applications can run on an emulation of a real machine.
+    * Because a computer can potentially run several instances of these virtual machines (VMs),
+    * then one well-specified computer system (i.e. a server) can emulate a number of virtual machines at the same time.
+    * This also is the approach taken by cloud providers, rather than allocating physical PCs for each customer.
+* A VM looks just like a regular OS installation where the user can have a terminal and even interactive graphical
+  desktop experience, depending on how it's configured.
+* Virtualisation can be both local and on the cloud.
+    * Local virtualisation is commonly used by software developers to access different platform configurations rather
+      than maintaining physical PCs.
+* Hypervisor is intermediary software agent and Each concept Visualization relies upon it.
+* There are 2 main types of virtualisation, native and hosted
+    * Native allows a machine with a specific natively executed hypervisor component to provide multiple virtual
+      machines which share the machine resources as if each user is the sole user of the machine.
+    * Native, type-1, Hosted Hypervisor HV, doesn't need Host OS drivers to support different hardware features as there
+      is no Host OS and the VMs sit directly on the hardware.
+    * Hosted, type-2, Hosted Hypervisor HV, has a native/host OS installed on the hardware and has the hosted hypervisor
+      engine installed as a software component. Then, the soft HV engine allows installing different guest OSs on top.
+    * <img src="./img/118.png" alt="alt text" width="500" height="300">
+
 # WEEK 7
 
 # Notes for me :
