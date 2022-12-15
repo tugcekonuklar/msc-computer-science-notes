@@ -3113,6 +3113,69 @@ HALT
 
 # WEEK 7
 
+# Threats and weaknesses
+
+## Security threats
+
+* Security threats to computer systems can only happen when an unsafe entity is introduced to the system.
+* If a computer system is never connected to the outside world, either to a network or a device, ie flash drive and only
+  ever has trusted software installed, then security issues driven by the exploitation of technology loopholes should be
+  virtually impossible.
+* Security threats can take many forms:
+    * Data theft,
+    * Identity theft,
+    * Deliberate corruption of data,
+    * Denial of access to data,
+    * Denial of access to a service or system,
+    * Misappropriation of computing resources,
+    * Imitation
+    * Others
+
+## Viruses
+
+* Viruses are programs that are written to maliciously access or alter the behaviour of a computer system.
+    * As they are programs, then they must be executed in order for them to do damage and once running, they can cause
+      the damages that are mentioned in the list above.
+* The virus might be executed by tricking the user to run a program, open a web page or even without the user knowing,
+  by booting via a device that's infected with a boot-sector virus.
+    * Limiting the boot device to be only the machine's primary hard disk, stops the boot viruses from being activated
+      via removable storage.
+
+## Virus checkers, aka anti-virus software
+
+* Anti-virus software are programs that potentially inspect every single piece of information being transferred via
+  relevant I/O devices.
+* Anti-virus software aims to spot and stop viruses before they get the chance of running. Instead of checking every
+  byte of data, known patterns are searched in expected locations to speed up the process.
+    * One fundamental problem is, new viruses emerge every day, so, anti-virus databases need to be updated and
+      distributed to users regularly.
+    * Some viruses modify themselves by random mutations to make detection harder.
+* Viruses
+    * It could corrupt file content (as mentioned),
+    * Encrypt your data and demand payment for its release (**ransomware**),
+    * It could simply sit quietly in the background and log keystrokes and ≈attempt to steal passwords and credit card
+      numbers (**key-loggers**).
+    * It could take control of cameras and microphones and record things without the user knowing.
+    * It could relay data files to a remote server (**data theft**)
+    * It could use the infected computer to send spam emails,
+
+## Virus examples
+
+* **CryptoLocker**: a ransomware virus that encrypts files and makes them inaccessible.
+* **ILOVEYOU**: spread via email attachments and once activated, overwrites the OS files and corrupts the user data.
+* **MyDoom** takes control of computers and uses them to spoof Denial of Service attacks.
+* **Storm Worm**: also spread by email, resulting in machines being taken over and used to send spam emails, including
+  the further spreading of the virus.
+* **Sasser**: This virus spreads by scanning remote computer network ports, and attempts to exploit security flaws in
+  operating systems, that allow it to trick the computer into downloading the virus and then doing the same to other
+  machines.
+    * It doesn't do anything nasty to the system itself but just hogs the cpu and network structure to the point where
+      the whole target company infrastructure becomes unusable.
+* **Stuxnet**: allegedly designed by a national security agency as a cyberattack against Iranian nuclear weapons
+  development facilities and transferred via an infected flash-drive whose user was unaware.
+
+
+
 # Notes for me :
 
 * millisecond = 1/1000th of a second
