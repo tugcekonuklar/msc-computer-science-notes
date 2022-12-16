@@ -3174,6 +3174,50 @@ HALT
 * **Stuxnet**: allegedly designed by a national security agency as a cyberattack against Iranian nuclear weapons
   development facilities and transferred via an infected flash-drive whose user was unaware.
 
+## Architectural exploits
+
+* **Architectural Exploit:**
+    * An Architectural Exploit is a virus strategy that allows a virus to see data that should be inaccessible due to OS
+      protection, by exploiting the complex architecture of the processor in an unexpected way.
+    * Note, normally a program or process is not permitted by the operating system to see data belonging to other
+      processes.
+* In computer security, a **side-channel attack** is any attack based on information gained from the implementation of a
+  computer system, rather than weaknesses in the implemented algorithm itself, ie cracking the data by power analysis of
+  the encryption algorithm.
+    * **TLBleed** is an example of how complicated nature of systems can lead to exploits. In this example, the
+      Translation Look-Aside Buffer (TLB)
+      mechanism between the virtual memory and hardware is used to leak data.
+    * The **Spectre** exploit uses the branch prediction and the timing variations of certain subsequent behaviours.
+    * **DMA side-channel attack** is a method by which a device connected to a system can initiate DMA data transfers,
+      and
+      because the operating system is not involved, it cannot administer the normal memory privacy protections that
+      apply at the software level.
+        * A malicious person could plug in something when the machine is unattended, and access all of the computer's
+          memory
+          content, even if the machine is password locked.
+        * BIOS settings may help to prevent such activities from being initiated by plug-in devices.
+    * Hyperthreading can also be exploited in different ways if the OS is missing certain security features.
+
+## Firewalls
+
+* Firewalls are filters built into key network infrastructures and/or operating systems that block certain types of data
+  and limit access to
+    * particular resources on the network
+    * to particular groups of recognised IP addresses,
+    * or perhaps deny access to particular addresses whilst allowing everything else
+* In theory, a firewall can prevent a system from being accessed by a third party trying to access the network from an
+  external connection.
+    * Some of these functionalities are often integrated into routers, whilst operating systems can have some of this
+      functionality as standard.
+* **Denial of Service Attacks**, DoS, are malicious behaviours that attempt to overload a server or network connection,
+  such that normal users of the service cannot get their usual services.
+    * Offending IP addresses can be detected and blocked but as attackers often have the ability to switch to different
+      IPs, this doesn't usually provide an effective form of defense.
+    * Cloud servers however are more prepared to mitigate such attacks, ie by switching in extra servers to handle the
+      load and auto-blocking attackers early on and quickly, which would be very hard to do manually.
+
+
+# The resilient system
 
 
 # Notes for me :
