@@ -318,7 +318,7 @@ TBC
 
 * This calculation is important to predict **cost-effectiveness** of a CPU
 * **Another Example :**
-    * <img src="./img/6.png" alt="alt text" width="500" height="300">
+    * <img src="./img/131.png" alt="alt text" width="500" height="300">
     * **Most processing per hour?**
         * CPU -A
         * <img src="./img/126.png" alt="alt text" width="500" height="300">
