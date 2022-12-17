@@ -3216,9 +3216,122 @@ HALT
     * Cloud servers however are more prepared to mitigate such attacks, ie by switching in extra servers to handle the
       load and auto-blocking attackers early on and quickly, which would be very hard to do manually.
 
-
 # The resilient system
 
+# Encryption and validation
+
+* Data theft can be addressed by encryption. There are different encoding/encryption standards such as
+    * AES: Advanced Encryption Standard
+    * RSA: Rivest—Shamir—Adleman algorithm
+    * DES: Data Encryption Standard
+    * SHA: Secure Hash Algorithm (not for encryption but to check data integrity)
+* No cryptography method is entirely secure. Quantum cryptography is the best hope but it's far from being deployable.
+* Increasing computer processing power makes existing encryption standards weaker.
+    * Therefore, default encryption lengths increased from 64-bits to 128 and then 256.
+* The dilemma is, more powerful hardware is required for encryption but this also makes such hardware available to
+  hackers for breaking these encryptions.
+
+## Data resilience
+
+* Errors can be rare but no electronic circuit is error-free.
+* Error detection and correction is possible but comes at a cost. A higher level of resilience means higher costs.
+    * CRC (Cyclic Redundancy Checks) and parity checking methods can be applied in many contexts, including data
+      storage, data transmission, and memory resilience.
+* Parity concept is based on adding an extra bit each data group, ie row,column, so many bytes etc, based on the number
+  of 1s in the data group.
+    * Even parity, makes the 1s count even, including the parity itself. For example, if the data has an odd number of
+      1s, then the even parity bit is also set to 1, so, we have an even number of 1s.
+    * The core assumption of parity checking is, it can only detect when an odd number of bits are corrupted. However,
+      if an even number of bits are flipped, then the parity still appears as correct.
+    * By extending the parity calculations to vertical and horizontal, the resilience of parity can be increased.
+        * It requires a minimum of 4-bit errors occurring in the same two rows and overlapping columns to create an
+          error case that may be undetectable.
+* Increasing the parity bit count provides extra protection but also increases the overhead and lower the data
+  storage/transfer efficiency. So, this is balanced based on how tolerable errors are for a given application.
+* <img src="./img/119.png" alt="alt text" width="500" height="300">
+
+## Resilient systems
+
+* The Mean-Time-Between-Failure or MTBF is a statistically derived figure that gives us an indication of how likely the
+  failure of a component is.
+* When the MTBF is stated as 50K hours, for example, this is based on the Gaussian distribution and some components
+  might fail earlier or later than that.
+* If the failure of one unit is enough to make the whole system faulty, aka critical failure, then, the system's failure
+  probability is the same as the independent failure rate of a component.
+    * However, the possibility of critical failure can be reduced by redundancy, ie by pairing HDDs. Then, both drivers
+      in a pair have to fail together to cause a critical failure and the probability is the join probability of
+      individual failures.
+    * In the case of pairing, once the 1st failure is identified, then the failed component can be swapped before the
+      2nd one fails, if it supports hot-swapping, that even makes it quicker.
+    * RAID disk arrays use these concepts too.
+* for example to find that the proportion of HDD units failing after 10,000 hours is, let us say 1%, for a given
+  product. Therefore, in a system that has only one HDD of that type, there is a 1% probability that the system will
+  fail within 10,000 hours.
+* Resilience via redundancy
+* <img src="./img/120.png" alt="alt text" width="500" height="300">
+
+## UPS (Uninterruptible Power Supply) systems
+
+* Providing a short term reserve power to a system would give resilience against power cuts and fluctuations.
+* During those couple of minutes, the system can aim for a clean shutdown where any uncommitted data in RAMA is flushed
+  to disk, open files are closed, critical processes are stopped, data loss is prevented and if it's a critical system,
+  the system is put in safe mode.
+* Uninterruptible Power Supply, UPS, serves such a purpose. When the UPS detects a power outage, it sends a signal to
+  the computer to initiate the clean shutdown and power failure procedures.
+* For server farms, more complicated and expensive UPS systems shut down less critical systems as quickly as possible
+  and aim to sustain the critical systems for hours.
+
+## Resilience and safety
+
+* No system can be fault free and when faults happen, the system should have a way of handling this as cleanly as
+  possible. For safety-critical systems, this is more important and the failure shouldn't compromise the safety
+  requirements of the system.
+    * Self-driving cars is one popular example of such challenges.
+    * A complicated system like a self-driving car relies on multiple processors and many sensors. For example, an image
+      processing CPU failure can be mitigated against redundancy, ie by using 3 CPUs instead of one. So, if one starts
+      to disagree with the other 2 due to a failure, the system can still take the right decision, also switch to safe
+      mode and initiate an emergency stop in a safe way.
+    * There are new generation CPUs that are being designed for this purpose and in lock mode, all cores execute the
+      same code.
+    * The process of detecting the fault, switching to a safe mode and coming to stop without any danger is known as
+      **graceful degradation**.
+    * Different faults can be treated differently too. For example, if a particular sensor fails, the device might limit
+      its maximum speed or if one CPU in a triple redundancy configuration fails, then the system might restart the
+      failed one to see if things go back to normal, otherwise start the graceful degradation.
+
+# Activity - week 7
+
+* Read important [The dea of ‘lock mode’ ](https://www.theregister.com/2018/12/18/arm_cortex_a65ae/)
+
+* List three ways that a computer virus could steal user data or information.
+    * (a) By logging keys pressed on the keyboard.
+    * (b) By copying local files to a remote server.
+    * (c) By intercepting camera or microphone.
+* Give three examples of ways in which a computer virus may interfere with data stored on a computer system.
+    * By corrupting files
+    * By encrypting files
+    * By deleting files
+* What is an Architectural Exploit?
+    * An Architectural Exploit is a virus strategy that allows a virus to see data that should be inaccessible due to OS
+      protection, by exploiting the complex architecture of the processor in an unexpected way. Note, normally a program
+      or process is not permitted by the operating system to see data belonging to other processes.
+* Explain the purpose of redundancy in a computer system, and note one disadvantage.
+    * **Redundancy** is the principle where multiple components are used to provide the same capability, such that
+      if any one of those components fails, the other(s) will be able to continue to provide that function. The system
+      continues to operate at the same level of functionality.
+    * A disadvantage of redundancy is of course that it requires more components, so it is more expensive.
+    * Other disadvantages may be large space required, and more power consumed.
+* Give an example where redundancy ensures the safe operation of a system is guaranteed (as far as possible).
+    * An example is an automated vehicles control system, where multiple processors perform the same task, and agree on
+      their calculations to ensure faults cannot cause wrong behaviours.
+* A computer system has a keyboard, monitor and mouse, each with a failure rate of 0.5% in a given period.
+    * (a) What is the probability of no failures in the given period.
+      (b) What is the probability of both keyboard AND mouse failing in the same period.
+    * (a) First of all we note that the probability of a single kind of failure or failures 0.5% and the probability
+      that the individual failure does not occur is 99.5%. Therefore the probability of no failures is can be calculated
+      as follows - 0.995*0.995*0.995 = 0.985 or 98.5%.
+    * (b) For this to happen, both failure probabilities have to coincide. this equates to 0.005 x 0.005 = 0.000025
+      therefore the failure rate would be 0.0025%
 
 # Notes for me :
 
