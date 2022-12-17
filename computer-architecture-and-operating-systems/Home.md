@@ -175,6 +175,7 @@ TBC
       pre-defined piece of low-level code for each statement.
     * Writing the code directly in the **assembly** language, is the 3rd option, where the textual representation of
       each instruction is used.
+* [Compiler vs Interpreter](https://www.youtube.com/watch?v=e4ax90XmUBc)
 
 ## Electronics
 
