@@ -3389,3 +3389,5 @@ measuring instructions per second.
 References: [1] W. Stallings, Computer Organisation and Architecture. Global Edition, 11th ed. Pearson, London, UK,
 
 2021. Chapter 10. Number systems.
+
+* [To top](#overview)
