@@ -262,6 +262,7 @@ TBC
   is
   often cooled by a large heat¬sink. a module designed to draw heat away from the processor so that it does not
   overheat.
+* <img src="./img/132.png" alt="alt text" width="500" height="300">
 
 ## CPU architecture
 
@@ -286,7 +287,6 @@ TBC
       accurately it is linear for short sequences), interspersed with a number of Jumps to other parts of the memory
       where the next short linear sequence is located.
     * Program-flow instructions are therefore frequently encountered.
-*
 
 ## Beating the performance barrier
 
@@ -296,6 +296,8 @@ TBC
 * **mips** is simply millions of instructions per second,a simplistic measure of the computational throughput a
   processor Is capable of.
 * **peak mips**, which measures the maximum possible mips a processor can achieve under the best possible conditions
+    * Often when we talk of billions of instructions per second, it is common to use GOPS and GFLOPS (Giga-operations
+      per second, and Giga floating-point operations per second), and these can also be peak measures in some cases.
 * Example for cost measurements:
     * A given CPU can execute one million instructions per second(**mips**) (meaning it has a throughput of one mips)
     * The CPU may well require 1 milliwatt of power to do this.
@@ -317,6 +319,7 @@ TBC
         * And 100 dolar CPU price plus makes this CPU for one year is **131.54 dollars**.
 
 * This calculation is important to predict **cost-effectiveness** of a CPU
+* ### **IMPORTANT !!**
 * **Another Example :**
     * <img src="./img/131.png" alt="alt text" width="500" height="300">
     * **Most processing per hour?**
@@ -328,14 +331,14 @@ TBC
         * CPU-D
         * <img src="./img/127.png" alt="alt text" width="500" height="300">
     * **Most performance per dollar**
-        * Performance per dollar = cost / mips
+        * **Performance per dollar = cost / mips**
         * CPU C
         * <img src="./img/128.png" alt="alt text" width="500" height="300">
     * **Least Expensive to buy and run for one year at 1 mips**
         * CPU C - 106 dollar
         * <img src="./img/129.png" alt="alt text" width="500" height="300">
     * **Worst and best power density at peak mips**
-        * _Power density is calculated as Power/Volume, ie W/mm3, bigger the worse._
+        * **_Power density is calculated as Power/Volume, ie W/mm3, bigger the worse._**
         * CPU A has the worst power density at peak mips and CPU D has the best.
         * Here image is wrong powers needs to be in order like 40W, 11W, 15W and 5W not 11W in every calculation
         * <img src="./img/130.png" alt="alt text" width="500" height="300">
@@ -347,10 +350,11 @@ TBC
 * **clock frequency** is measurement how fast a processor can perform a key internal circut operation
     * We measure clock per second or Hertz
 * The same identical operation on another processor mig require more or less or same number of clock cycles thats why
-  clock frequency isnot guarantee highed mips or benchmark score by itself.
+  clock frequency is not guarantee highed mips or benchmark score by itself.
 * For this we use **clock per instruction (CPI)**
 * <img src="./img/7.png" alt="alt text" width="500" height="300">
 * in this example better Z>X>Y
+    * Simply looked at CPI
 
 ### Scalar execution model
 
@@ -409,9 +413,20 @@ TBC
       to execute these independent operations.
 * Dynamic branch prediction
     * This basically is an educated guess based on the branch history kept by the CPU.
+        * Processor keeps track of how often particular branches are found to be true or false via a branch history
+          table.
     * When the dynamic branch predictor hasn't got enough data to use, it can fall back to the static prediction.
+* On the other hand, if the prediction is wrong, then that fetched instruction has to be discarded and the CPU then
+  switches to the correct location (which by now it will know).
+    * This is known as a **branch mis-prediction penalty**, and this may be of the order of a few clock cycles
+      typically.
 * Hit Rate:
+    * branch prediction saves one clock cycle and an incorrect prediction suffers a 2 clock cycle penalty, then how do
+      we know we are getting a good deal? We can evaluate this if we know the branch prediction hit rate, which is the
+      success rate of the prediction algorithm:
     * <img src="./img/8.png" alt="alt text" width="500" height="300">
+    * with saving 1,2 clock cycles lets say 1 of 6 instructions can be branches/jumps , for 1 mips (1 milion per sec)
+        * it makes 1,2 X 1.000.000 / 6 = 200.000 clock cycles per second saved.
 
 ### Speculative execution
 
@@ -422,19 +437,17 @@ TBC
 
 ## Performance Balance
 
-* performance balance: an adjustment/tuning of the organization and architecture to compensate for the mismatch among
+* **Performance balance:** an adjustment/tuning of the organization and architecture to compensate for the mismatch
+  among
   the capabilities of the various components.
     * Designers constantly strive to balance the throughput and processing demands of the processor components, main
       memory, I/O devices, and the interconnection structures.
-* The problem created by such mismatches is particularly critical at the inter- face between processor and main memory.
+* The problem created by such mismatches is particularly critical at the interface between processor and main memory.
   While processor speed has grown rapidly, the speed with which data can be transferred between main memory and the
   processor has lagged badly.
-* The interface between processor and main memory is the most crucial pathway in the entire
-  computer because it is responsible for carrying a constant flow of program instructions and data between memory
-  chips and the processor.
 * The interface between the processor and main memory is the most crucial pathway in the entire computer because it is
   responsible for carrying a constant flow of program instructions and data between the memory and the processor.
-* To improve performance
+* **To improve performance balance**
     * Increase the memory bus width
     * Incorporate cache on the dynamic random-access memory (DRAM)
     * Use close-to-the-processor caches
@@ -460,6 +473,8 @@ TBC
 * <img src="./img/9.png" alt="alt text" width="500" height="300">
 * Memory read operation resulting from memory a data-fetch (reads data value) or instruction-fetch (reads instructions)
 * <img src="./img/10.png" alt="alt text" width="500" height="300">
+* <img src="./img/133.png" alt="alt text" width="500" height="300">
+* <img src="./img/134.png" alt="alt text" width="500" height="300">
 
 ## Introduction to Pipelining
 
@@ -493,6 +508,8 @@ TBC
     * <img src="./img/13.png" alt="alt text" width="500" height="300">
 
 ## Terminology of Instructions
+
+* <img src="./img/135.png" alt="alt text" width="500" height="300">
 
 <img src="./img/14.png" alt="alt text" width="500" height="300">
 <img src="./img/15.png" alt="alt text" width="500" height="300">
