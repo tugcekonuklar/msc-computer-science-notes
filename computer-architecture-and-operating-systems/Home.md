@@ -472,8 +472,8 @@ TBC
   sequence.
 * **Memory read operation resulting from memory a data-fetch (reads data value) or instruction-fetch (reads
   instructions)**
-* <img src="./img/9.png" alt="alt text" width="500" height="300">
-* <img src="./img/10.png" alt="alt text" width="500" height="300">
+* <img src="./img/9.png" alt="alt text" width="700" height="400">
+* <img src="./img/10.png" alt="alt text" width="700" height="400">
 * <img src="./img/133.png" alt="alt text" width="500" height="300">
 * <img src="./img/134.png" alt="alt text" width="500" height="300">
 
