@@ -317,18 +317,28 @@ TBC
         * And 100 dolar CPU price plus makes this CPU for one year is **131.54 dollars**.
 
 * This calculation is important to predict **cost-effectiveness** of a CPU
-* Another Example :
+* **Another Example :**
     * <img src="./img/6.png" alt="alt text" width="500" height="300">
-    * Which CPU can do the most processing in one hour?
-        * highest mips per second is also makes highest per an hour. CPU-D 8 mips/1 mW = 8000 mips per watt.
-    * Which CPU is most cost-efficient for power consumed?
-        * _Performance per Dollar: Purchase price / mips_
-        * CPU-C the best dollar for mips => $80/5= $16
-    * Which CPU gives the most performance per dollar?
-        * CPU-C 105$ per year
-    * Which CPU is cheapest to buy and run for one year at 1mips? ▶Which CPU has the worst (highest) power density
+    * **Most processing per hour?**
+        * CPU -A
+        * <img src="./img/126.png" alt="alt text" width="500" height="300">
+    * **Most Cost efficient for power**
+        * mips-per-watt measure, or watts per mips.
+        * the lowest watts per mip, or the highest mips per watt, CPU D
+        * CPU-D
+        * <img src="./img/127.png" alt="alt text" width="500" height="300">
+    * **Most performance per dollar**
+        * Performance per dollar = cost / mips
+        * CPU C
+        * <img src="./img/128.png" alt="alt text" width="500" height="300">
+    * **Least Expensive to buy and run for one year at 1 mips**
+        * CPU C - 106 dollar
+        * <img src="./img/129.png" alt="alt text" width="500" height="300">
+    * **Worst and best power density at peak mips**
         * _Power density is calculated as Power/Volume, ie W/mm3, bigger the worse._
-        * CPU-A 6uW/mm^3
+        * CPU A has the worst power density at peak mips and CPU D has the best.
+        * <img src="./img/130.png" alt="alt text" width="500" height="300">
+
 * To compare CPUs there are some test programs to run same workload for each CPU in run called **benchmarks**
 
 ## Processor frequency
@@ -338,7 +348,7 @@ TBC
 * The same identical operation on another processor mig require more or less or same number of clock cycles thats why
   clock frequency isnot guarantee highed mips or benchmark score by itself.
 * For this we use **clock per instruction (CPI)**
-* <img src="./img/6.png" alt="alt text" width="500" height="300">
+* <img src="./img/7.png" alt="alt text" width="500" height="300">
 * in this example better Z>X>Y
 
 ### Scalar execution model
