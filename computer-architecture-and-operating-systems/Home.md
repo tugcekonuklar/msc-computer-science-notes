@@ -3338,3 +3338,54 @@ HALT
 * millisecond = 1/1000th of a second
 * microsecond = 1/1000000th of a second
 
+# Terms and Computing Common Measurements
+
+# Definitions and Orders of Magnitude for Common Computing Measures
+
+This list of common computing terms and their abbreviations is intended as a simple guide to the most common
+measurements used to describe computing units and are taken from the international SI standards.
+Note: The inclusion of units and definitions is for information only and does not indicate that they will be used as
+part of the module or that they are included in assessment questions.
+
+## Time :
+
+The most common units of time used in computing to measure time performance are listed in the following table:
+
+* <img src="./img/121.png" alt="alt text" width="500" height="300">
+
+## Use of Decimal and Hexadecimal Notation
+
+Hexadecimal notation is a numbering system. Unlike decimal notation (base 10) or binary notation (base 2), it uses 16
+digits (base 16). It is used as a convenient way to represent binary notation, which can be difficult to read and prone
+to error when manipulated by humans.
+
+* <img src="./img/122.png" alt="alt text" width="500" height="300">
+
+## Data Size
+
+A byte is a unit of digital information that most commonly consists of eight bits. Larger units based on the byte are
+used to measure information using either decimal or binary units. Whilst at lower values, the differences between the
+units are small, the differences between binary and decimal notations increase with size.
+In this module, the default is the long-established approach of using binary megabytes, gigabytes, etc., unless stated
+otherwise [1]. Broadly speaking, binary-based values are used for memory capacities, addressing, and mapping, whilst
+decimal values are used for data rates and disk storage capacities.
+
+* <img src="./img/123.png" alt="alt text" width="500" height="300">
+
+## Frequency
+
+Frequency is measured using decimal values as the number of cycles per second.
+
+* <img src="./img/124.png" alt="alt text" width="500" height="300">
+
+## Computing Performance
+
+Floating point operations per second (FLOPS, flops or flop/s) is a measure of computer performance, useful in fields of
+computation that require floating-point calculations. For such cases, it is a more accurate performance measure than
+measuring instructions per second.
+
+* <img src="./img/125.png" alt="alt text" width="500" height="300">
+
+References: [1] W. Stallings, Computer Organisation and Architecture. Global Edition, 11th ed. Pearson, London, UK,
+
+2021. Chapter 10. Number systems.
