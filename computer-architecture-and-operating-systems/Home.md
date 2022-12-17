@@ -337,6 +337,7 @@ TBC
     * **Worst and best power density at peak mips**
         * _Power density is calculated as Power/Volume, ie W/mm3, bigger the worse._
         * CPU A has the worst power density at peak mips and CPU D has the best.
+        * Here image is wrong powers needs to be in order like 40W, 11W, 15W and 5W not 11W in every calculation
         * <img src="./img/130.png" alt="alt text" width="500" height="300">
 
 * To compare CPUs there are some test programs to run same workload for each CPU in run called **benchmarks**
