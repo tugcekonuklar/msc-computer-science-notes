@@ -470,8 +470,9 @@ TBC
 * So an instruction does not execute in a single clock cycle as an atomic operation,
   a single indivisible operation, its actually executed internally as a number of steps in a micro
   sequence.
+* **Memory read operation resulting from memory a data-fetch (reads data value) or instruction-fetch (reads
+  instructions)**
 * <img src="./img/9.png" alt="alt text" width="500" height="300">
-* Memory read operation resulting from memory a data-fetch (reads data value) or instruction-fetch (reads instructions)
 * <img src="./img/10.png" alt="alt text" width="500" height="300">
 * <img src="./img/133.png" alt="alt text" width="500" height="300">
 * <img src="./img/134.png" alt="alt text" width="500" height="300">
