@@ -795,13 +795,16 @@ HALT
 * <img src="./img/27.png" alt="alt text" width="500" height="300">
 * **READ latency**: It is beginning from the ROW until the end of READ.
     * This helps us to understand how fast can read data from memory
-* **Recovery cycle**: one DRAM finish READ data, depending on initial architecture of DRAM, does not do anything, we caled
+* **Recovery cycle**: one DRAM finish READ data, depending on initial architecture of DRAM, does not do anything, we
+  caled
   recovery cycle.
 * <img src="./img/28.png" alt="alt text" width="500" height="300">
 * **Cycle Time**: From beginning to the end of the after READ waiting we called Cycle time. It is probably the most
   important timing quantity for a memory because it dictates how quickly we can complete an entire READ cycle and then
   be ready to start the next READ cycle.
-* Performance calculationL
+
+### Performance calculation:
+
 * Finding the number of reading per second:
     * So the read rate of the memory is different to the clock rate so don’t get those two things confused. 1333
       Megahertz is not the same as the amount of read transactions that the memory can perform.
