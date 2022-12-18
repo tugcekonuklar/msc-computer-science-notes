@@ -715,9 +715,10 @@ HALT
     * This potential slow relative speed of memory means that a CPU could spend a lot of time simply waiting for DRAM to
       respond to a request for data instead of working on it.
       can be one to three times slower.
-    * DRAM’s come in a number of formats, the most popular of which are small circuit boards known as **SIMM** and **
-      DIMM** modules. These can be slotted into a socket on a motherboard of a computer system, and just as easily
-      removed, making the system easily configurable and upgradeable.
+    * DRAM’s come in a number of formats, the most popular of which are small circuit boards known as **SIMM** and
+      **DIMM** modules.
+        * These can be slotted into a socket on a motherboard of a computer system, and just as easily
+          removed, making the system easily configurable and upgradeable.
 
 ### Non-volatile memories
 
@@ -751,11 +752,11 @@ HALT
     * Can be erased and reprogrammed many times.
     * Data is retained even when no power is present.
     * Erasure and reprogramming can be done in several ways:
-    * Non-volatile memory : EPROM and PROM
-        * EPROM: Erasable Programmable ROM, is erased by UV light, and programmed by electrical signals.
-        * EEROM: Electrically Erasable ROM, erased by an electrical signal, programmed by an electrical signal.
-        * EAROM: Electrically Alterable ROM, is reprogrammable by electrical signals.
-        * Flash Memory: A variation of EEROM, has large capacity, cheap, relatively fast to read and write data.
+    * Non-volatile memory : **EPROM and PROM**
+        * **EPROM**: Erasable Programmable ROM, is erased by UV light, and programmed by electrical signals.
+        * **EEROM**: Electrically Erasable ROM, erased by an electrical signal, programmed by an electrical signal.
+        * **EAROM**: Electrically Alterable ROM, is reprogrammable by electrical signals.
+        * **Flash Memory**: A variation of EEROM, has large capacity, cheap, relatively fast to read and write data.
             * it is removable, non-volatile
 
 ### Questions:
@@ -789,15 +790,15 @@ HALT
   its storage array that we want to access and it can output that piece of information called Data on the bus, we class
   that as READ
 * <img src="./img/26.png" alt="alt text" width="500" height="300">
-* Access time: the time after DRAM compates the address (after COL) and until the end of the READ (which the CPU can
+* **Access time**: the time after DRAM compates the address (after COL) and until the end of the READ (which the CPU can
   then access the data from.)
 * <img src="./img/27.png" alt="alt text" width="500" height="300">
-* READ latency: It is beginning from the ROW until the end of READ.
+* **READ latency**: It is beginning from the ROW until the end of READ.
     * This helps us to understand how fast can read data from memory
-* Recovery cycle: one DRAM finish READD data, depending on initial architecture of DRAM, does not do anything, we caled
+* **Recovery cycle**: one DRAM finish READ data, depending on initial architecture of DRAM, does not do anything, we caled
   recovery cycle.
 * <img src="./img/28.png" alt="alt text" width="500" height="300">
-* Cycle Time: From beginning to the end of the after READ waiting we called Cycle time. It is probably the most
+* **Cycle Time**: From beginning to the end of the after READ waiting we called Cycle time. It is probably the most
   important timing quantity for a memory because it dictates how quickly we can complete an entire READ cycle and then
   be ready to start the next READ cycle.
 * Performance calculationL
