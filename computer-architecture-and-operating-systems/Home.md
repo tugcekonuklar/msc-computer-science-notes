@@ -474,8 +474,8 @@ TBC
   instructions)**
 * <img src="./img/9.png" alt="alt text" width="700" height="400">
 * <img src="./img/10.png" alt="alt text" width="700" height="400">
-* <img src="./img/133.png" alt="alt text" width="500" height="300">
-* <img src="./img/134.png" alt="alt text" width="500" height="300">
+* <img src="./img/133.png" alt="alt text" width="500" height="200">
+* <img src="./img/134.png" alt="alt text" width="500" height="200">
 
 ## Introduction to Pipelining
 
@@ -494,7 +494,7 @@ TBC
       parallel instruction decoding, parallel register renaming, speculative execution, and out-of-order execution.
     * These techniques are typically employed along with complementing design techniques such as pipelining, caching,
       branch prediction, and multi-core in modern microprocessor designs.
-* There is an issue called 'register hazard'. For example when we have ADD R2,R3,R6 and SUB R6,5,R6 and if they are
+* There is an issue called '**register hazard**'. For example when we have ADD R2,R3,R6 and SUB R6,5,R6 and if they are
   pipelined SUB reads an earlier value of R6 before ADD completes and updates R6.
     * More generically, when two instructions depend on each other, this leads to pipeline or data hazard.
     * <img src="./img/11.png" alt="alt text" width="500" height="300">
@@ -583,8 +583,8 @@ HALT
 * Embedded systems may or may not be accessible from outside and their user interaction can be limited.
 * <img src="./img/25.png" alt="alt text" width="500" height="300">
 * there are a number of elements that differ from the typical desktop or laptop computer:
-    * There may be a variety of interfaces that enable the system to measure, manip- ulate, and otherwise interact with
-      the external environment. Embedded sys- tems often interact (sense, manipulate, and communicate) with external
+    * There may be a variety of interfaces that enable the system to measure, manipulate, and otherwise interact with
+      the external environment. Embedded systems often interact (sense, manipulate, and communicate) with external
       world through sensors and actuators and hence are typically reactive systems; a reactive system is in continual
       interaction with the environment and executes at a pace determined by that environment.
     * The human interface may be as simple as a flashing light or as complicated as real-time robotic vision. In many
@@ -605,8 +605,8 @@ HALT
 
 ## Mainframes and supercomputers
 
-* Connecting one main computer via dumb terminals (hey were simply remote interfaces to the 'real' computer system. This
-  was also an early form of networked computing infrastructure.) and allow users to use hos computers are called main
+* Connecting one main computer via dumb terminals (they were simply remote interfaces to the 'real' computer system. This
+  was also an early form of networked computing infrastructure.) and allow users to use host computers are called main
   frames
     * Any user could run their application and perform a task right at their desk. In order to give the impression that
       everyone had equal access, the concept of time-slicing was utilised.
@@ -641,10 +641,10 @@ HALT
   diminishing the remaining 20% at all.
 * And you can see that, no matter how many processors you have, the 0.2
   portion of the equation will always be there, and that means we can never achieve a better
-  speedup than 5, in the best-case possible scenario. And that’s what Amdahl’s original
+  speedup than 5, in the best-case possible scenario. **And that’s what Amdahl’s original
   expression for Amdahl’s Law tells you - maximum speedup is 5, and here we’re approaching
   very closely the maximum and adding more processors at this point will have very little
-  benefit.
+  benefit.**
 
 ## TODO Week 1 :
 
