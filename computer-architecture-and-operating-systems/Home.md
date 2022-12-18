@@ -262,7 +262,7 @@ TBC
   is
   often cooled by a large heat¬sink. a module designed to draw heat away from the processor so that it does not
   overheat.
-* <img src="./img/132.png" alt="alt text" width="500" height="300">
+* <img src="./img/132.png" alt="alt text" width="700" height="500">
 
 ## CPU architecture
 
@@ -605,7 +605,8 @@ HALT
 
 ## Mainframes and supercomputers
 
-* Connecting one main computer via dumb terminals (they were simply remote interfaces to the 'real' computer system. This
+* Connecting one main computer via dumb terminals (they were simply remote interfaces to the 'real' computer system.
+  This
   was also an early form of networked computing infrastructure.) and allow users to use host computers are called main
   frames
     * Any user could run their application and perform a task right at their desk. In order to give the impression that
@@ -689,11 +690,11 @@ HALT
 * A computer memory, on the other hand, is typically a permanent part of the computer system, and can be either volatile
   or non-volatile.
 * However, storage devices are secondary data storage mediums, often capable of being removed from the computer
-  system, and are typically non-volatile.
+  system, and are typically non-volatile, like Hard Disc
 
 ## Volatile and Non-Volatile Memory
 
-* Volatile memory: DRAM and SRAM
+* **Volatile memory: DRAM and SRAM**
     * Static Randomly Access Memory (SRAM) and the Dynamic Random Access Memory (DRAM).
 * Static Randomly Access Memory (SRAM)
     * Uses 6T bit cell
@@ -720,7 +721,7 @@ HALT
 
 ### Non-volatile memories
 
-* Non-Programmable (Read-Only) Memory:
+* **Non-Programmable (Read-Only) Memory:**
     * Permanently manufactured with aparticular data content.
     * Manufactured as an Integrated circuit (1C) with fixed content.
     * Expensive to design, and to update (needs redesign).
@@ -728,7 +729,7 @@ HALT
     * Sometimes referred to as Read-Only Memory (ROM).
     * Data content is never lost.
 
-* One-Time Programmable Memory
+* **One-Time Programmable Memory**
     * Manufactured with an array preset to ablank state.
     * Can then be programmed to aparticular data content.
     * Once data is programmed it can never be erased.
@@ -746,7 +747,7 @@ HALT
     * However, it is very expensive to manufacture aROM from start to finish. The chips may only cost $5 but the design
       cost could be $250,000. To avoid such large up-front costs, we often use PROM instead.
 
-* Programmable Non-Volatile Memory :
+* **Programmable Non-Volatile Memory :**
     * Can be erased and reprogrammed many times.
     * Data is retained even when no power is present.
     * Erasure and reprogramming can be done in several ways:
