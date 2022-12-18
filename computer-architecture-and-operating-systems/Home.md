@@ -806,7 +806,7 @@ HALT
 ### Performance calculation:
 
 * Finding the number of reading per second:
-    * So the read rate of the memory is different to the clock rate so don’t get those two things confused. 1333
+    * So **the read rate of the memory is different to the clock rate so don’t get those two things confused**. 1333
       Megahertz is not the same as the amount of read transactions that the memory can perform.
 * <img src="./img/29.png" alt="alt text" width="500" height="300">
 * If each read is 32 bits, which is four bytes, then we end up with a memory bandwidth of 266 million (which we’ve
@@ -893,11 +893,13 @@ HALT
 * The hardware uses cache memories that hold blocks of the most recently referenced instructions and data items.
 * At the OS level, the principle of locality allows the system to use the main memory as a cache of the most recently
   referenced chunks of the virtual address space.
-* Temporal locality: If at one point a particular memory location is referenced, then it is likely that the same
+* **Temporal locality:**
+* If at one point a particular memory location is referenced, then it is likely that the same
   location will be referenced again in the near future.
     * In this case it is common to make efforts to store a copy of the referenced data in faster memory storage, to
       reduce the latency of subsequent references.
-* Spatial locality: If a particular storage location is referenced at a particular time, then it is likely that nearby
+* **Spatial locality:**
+* If a particular storage location is referenced at a particular time, then it is likely that nearby
   memory locations will be referenced in the near future.
     * In this case it is common to attempt to guess the size and shape of the area around the current reference for
       which it is worthwhile to prepare faster access for subsequent reference.
@@ -921,8 +923,8 @@ HALT
       that the array is stored
 * <img src="./img/43.png" alt="alt text" width="500" height="300">
     * poor spatial locality
-    * because it scans the array column-wise instead of row-wise.
-    * Since C arrays are laid out in memory row-wise, the result is a stride-N reference pattern,
+    * **because it scans the array column-wise instead of row-wise.**
+    * **Since C arrays are laid out in memory row-wise, the result is a stride-N reference pattern,**
 
 * Since program instructions are stored in memory and must be fetched by the CPU, we can also evaluate the locality of a
   program with respect to its instruction fetches
