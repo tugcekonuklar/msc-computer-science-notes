@@ -1591,7 +1591,7 @@ HALT
 
 #### CAN (Controller Area Network) bus
 
-* CAS was originally designed for the automotive industry, to allow many electronic devices distributed around the
+* CAN was originally designed for the automotive industry, to allow many electronic devices distributed around the
   chassis and bodywork of a vehicle to link together via a two-wire interface.
 * The alternative was for every device to have a bundle of wires leading back to the central control module of the
   vehicle, and these ’wiring looms’ as they are referred to, were complex and difficult to maintain.
@@ -1628,10 +1628,12 @@ HALT
       new data
     * Or **Interrupts**, the device signals the CPU by using some special pins to let it know that it's ready.
         * With the interrupts, the CPU doesn't waste any time checking the IO device.
-* CPU driven data transfer : Once a device has gained the attention of the CPU, the CPU will typically then control a
-  data transfer, from the device to an area of memory, or vice-versa
-* Direct memory access (DMA): it allows an IO device to take over control of the system bus (become bus master) and
-  transfer data to the chosen destination without CPU involvement.
+* **CPU driven data transfer :**
+    * Once a device has gained the attention of the CPU, the CPU will typically then control a
+      data transfer, from the device to an area of memory, or vice-versa
+* **Direct memory access (DMA):**
+    * it allows an IO device to take over control of the system bus (become bus master) and
+      transfer data to the chosen destination without CPU involvement.
 * There is a trade-off between having very long DMA transfers, causing other devices to wait a long time to get their
   turn at using the bus (service latency), versus much shorter transfers that allow all devices to get frequent use of
   the bus in turns, but with the penalty of lower data transfer efficiency.
