@@ -1400,10 +1400,11 @@ HALT
       other devices at that time.
 * This is an important observation, because being able to do three things at once means more work done in less time. It
   can also be measured in another way:
-    * For example: Suppose the system bus has a data transfer bandwidth of 200 Megabytes/sec, the auxiliary bus has a
+    * **For example:**
+    * Suppose the system bus has a data transfer bandwidth of 200 Megabytes/sec, the auxiliary bus has a
       data transfer bandwidth of 500 Megabytes/sec, and the dedicated bus has a data transfer bandwidth of 1
       Gigabyte/sec.
-    * we can determine that the system has an **effective transfer bandwidt**h of 1.7 Gigabytes/sec (1000 + 200 + 500 =
+    * we can determine that the system has an **effective transfer bandwidth** of 1.7 Gigabytes/sec (1000 + 200 + 500 =
       1700
       Megabytes/sec.).
     * If we wished to boost performance further, we could add multiple bus bridges to the host bus and have other
@@ -1491,7 +1492,7 @@ HALT
 * How we can improve ?
     * For example: if we transfer **10 data words** in a single transaction, rather than one, then the
       cost is **16 cycles (5 arbitration, 10 data, 1 turnaround)**.
-    * This equates to a data transfer efficiency of around 62% (10/16), and a data transfer rate of over 78
+    * This equates to a **data transfer efficiency** of around 62% (10/16), and a data transfer rate of over 78
       Megabytes/sec (62% x 126 Megabytes/sec).
 * So it would seem that the answer to our problems is to increase data transfer block lengths to large numbers, and
   enjoy data transfer rates close to the maximum possible
@@ -1502,10 +1503,13 @@ HALT
           fairness, and ability to respond quickly to events. it means the bus is locked by one device for longer and
           longer periods. This means that other devices have to wait longer to start their turn at using the bus, and
           this is often not ideal for performance of some services where timing is important.
+
+## **IMPORTANT!!!**
+
 * **Question: Transfer Rate and efficiency Calculation**
     * A bus system has a protocol overhead of 5 cycles, a bus width of 32 bits, and a bus frequency of 200 MHz.
-      a. Calculate the data transfer rate for single transactions
-      b. Calculate the data transfer efficiency with block sizes of 16 bytes.
+        * a. Calculate the data transfer rate for single transactions
+        * b. Calculate the data transfer efficiency with block sizes of 16 bytes.
 * **Answer:**
 * a. For a single transaction, the time required to transfer 4 bytes (32 bits) is 6 clock cycles, (5 overhead, and one
   data).
