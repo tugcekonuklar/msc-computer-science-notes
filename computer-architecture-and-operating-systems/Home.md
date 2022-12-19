@@ -1099,7 +1099,7 @@ HALT
 
 #### Memory Mountain
 
-* The rate that a program reads data from the memory system is called the **read throughpu**t, or sometimes the **read**
+* The rate that a program reads data from the memory system is called the **read throughput**, or sometimes the **read**
   **bandwidth**.
 * If a program reads n bytes over a period of s seconds, then the read throughput over that period is n/s,
   typically expressed in units of megabytes per second (MB/s).
@@ -1114,14 +1114,14 @@ HALT
       two-dimensional function of read throughput versus temporal and spatial locality. This function is called a
       **memory mountain** .
 * the performance of the memory system is not characterized by a single number.
-    * Instead, it is a mountain of temporal
-      and spatial locality whose elevations can vary by over an order of magnitude.
+    * Instead, it is a mountain of temporal and spatial locality whose elevations can vary by over an order of
+      magnitude.
     * Wise programmers try to structure their programs so that they run in the peaks instead of the valleys.
     * The aim is to exploit temporal locality so that heavily used words are fetched from the L1 cache, and to exploit
       spatial locality so that as many words as possible are
       accessed from a single L1 cache line.
 
-# IMPORTANT !!
+# IMPORTANT!!
 
 ## QUIZ - WEEK 2
 
@@ -1732,6 +1732,7 @@ HALT
   handshake times.
 
 # IMPORTANT!!
+
 # Advanced Bus exercises
 
 * A few things to consider before approaching the questions:
