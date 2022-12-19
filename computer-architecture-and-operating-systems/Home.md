@@ -1040,7 +1040,8 @@ HALT
   internally accessing its cache, the external bus is available for any combination of these devices to be able to
   transfer data to each other.
 * That concurrency, that parallelism is another way that on chip cache can boost performance
-* **Operating in parallel.** So now, with the ability to operate the CPU such that it can access both instruction and data
+* **Operating in parallel.** So now, with the ability to operate the CPU such that it can access both instruction and
+  data
   cache simultaneously, we could reasonably argue that average access time is actually half this amount, or 0.68 clock
   cycles .
     * This is evident, because if we can read two values at atime with an average access time of 1.35 clocks, then the
@@ -1119,6 +1120,8 @@ HALT
     * The aim is to exploit temporal locality so that heavily used words are fetched from the L1 cache, and to exploit
       spatial locality so that as many words as possible are
       accessed from a single L1 cache line.
+
+# IMPORTANT !!
 
 ## QUIZ - WEEK 2
 
