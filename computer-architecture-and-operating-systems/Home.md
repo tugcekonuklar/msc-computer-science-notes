@@ -1731,6 +1731,7 @@ HALT
 * Steps 5, 6, 7: Correspond to the time it takes for an I/O device to read the data from the bus. This also takes 3
   handshake times.
 
+# IMPORTANT!!
 # Advanced Bus exercises
 
 * A few things to consider before approaching the questions:
