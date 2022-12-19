@@ -1800,7 +1800,7 @@ HALT
     * and makes **( 1CK + 16CK + 25 ) = 42CK= 168nsec** just to transfer 32 byte data in 1 transaction.
 * 1024 byte requires 1024/32 = 32 transactions to transmit completely
 * and this requires **32*168nsec = 5376nsec**
-* and this requires  **[( 124 * (1/5376.10^-9 ) ) * 1/10^6 ] = 190,5 MB/sec (approximately)**
+* and this requires  **[( 1024 * (1/5376.10^-9 ) ) * 1/10^6 ] = 190,5 MB/sec (approximately)**
 
 ## Question 3:
 
