@@ -1837,8 +1837,9 @@ HALT
 
 ## Disk Performance Concepts
 
+* **IMPORTANT!!**
 * Data Rate Example:
-* Data rate :
+* **Data rate :**
     * **the amount of data transmitted** during a specified time period between two points **/** **the speed at which
       data is transferred** from one device to another or between a peripheral device and the computer
 * <img src="./img/81.png" alt="alt text" width="500" height="300">
@@ -1858,6 +1859,9 @@ HALT
       1024 = 5120 bytes.
     * In general files are almost always slightly larger on the disk unit than they appear to be in real terms because
       of this.
+
+### **EXAMPLE:**
+
 * A disk unit has a rpm of 7200rpm. Calculate how long it will take (worst case) for a sector to rotate into position
   at a read/write head.
     * The rotational speed is 7200 revolutions per minute, or 7200/60 = 120 revolutions per second.
