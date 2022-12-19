@@ -1898,13 +1898,14 @@ HALT
     * **Best case:** No seek + 40 us(micro second) = 40 us. 4 KB / 40 us = 97.7 MB/s
         * For 3KB => 73.24 MB/s
     * **Avg access time** (13.14 + 0.04)/2 = 6.59ms , 0.59 MB/s
+      * 3KB => 73,2 MB/s
     * Performance estimates:
     * <img src="./img/82.png" alt="alt text" width="500" height="300">
     * <img src="./img/83.png" alt="alt text" width="500" height="300">
     * <img src="./img/84.png" alt="alt text" width="500" height="300">
     * <img src="./img/95.png" alt="alt text" width="500" height="300">
 
-* For the same example above assume the worst cases for contiguous vs fragmented files
+* For the same example above assume the worst cases **for contiguous vs fragmented files**
     * Worst case cont = 4KB in 13.15 ms
     * Worst case frag = 4KB in 26.26 ms (11.11 + 2ms + 0.02)x2
 
