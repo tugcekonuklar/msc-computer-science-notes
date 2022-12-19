@@ -931,7 +931,7 @@ HALT
     * Having a sequentially ordered set of instructions in the loop body and repeating the loop multiple times also
       gives good temporal locality as the instruction pipelining gets a high hit ratio.
 
-* Summary:
+* **Summary:**
     * Programs that repeatedly reference the same variables enjoy good temporal locality.
         * For programs with stride-k: reference patterns, the smaller the stride, the
           better the spatial locality.
@@ -1040,7 +1040,7 @@ HALT
   internally accessing its cache, the external bus is available for any combination of these devices to be able to
   transfer data to each other.
 * That concurrency, that parallelism is another way that on chip cache can boost performance
-* Operating in parallel. So now, with the ability to operate the CPU such that it can access both instruction and data
+* **Operating in parallel.** So now, with the ability to operate the CPU such that it can access both instruction and data
   cache simultaneously, we could reasonably argue that average access time is actually half this amount, or 0.68 clock
   cycles .
     * This is evident, because if we can read two values at atime with an average access time of 1.35 clocks, then the
@@ -1051,11 +1051,11 @@ HALT
 
 ### Anatomy of a Real Cache Hierarchy
 
-* And furthermore than on-chip cache, this cache may be split into two parts (a dual cache), these being instruction
-  cache and data cache.
-* A cache that holds instructions only is called an i-cache.
-* A cache that holds program data only is called a d-cache.
-* A cache that holds both instructions and data is known as a unified cache.
+* And furthermore than on-chip cache, this cache may be split into two parts (a dual cache), these being **instruction**
+  **cache** and **data cache**.
+* A cache that holds **instructions** only is called an **i-cache.**
+* A cache that holds program **data only** is called a **d-cache**.
+* A cache that holds **both** instructions and data is known as a **unified cache**.
 * With two separate caches, the processor can read an instruction word and a data word at the same time
 * I-caches are typically read-only, and thus simpler
 * The two caches are often optimized to different access patterns and can have different block sizes, associativities,
@@ -1098,8 +1098,8 @@ HALT
 
 #### Memory Mountain
 
-* The rate that a program reads data from the memory system is called the **read throughpu**t, or sometimes the read
-  bandwidth.
+* The rate that a program reads data from the memory system is called the **read throughpu**t, or sometimes the **read**
+  **bandwidth**.
 * If a program reads n bytes over a period of s seconds, then the read throughput over that period is n/s,
   typically expressed in units of megabytes per second (MB/s).
 * If we were to write a program that issued a sequence of read requests from a tight program loop, then the measured
@@ -1199,16 +1199,16 @@ HALT
 * Memory starts with ROM
     * It is 4K, then will allocate from 0 (000h) -> 4095 (0FFFh) (less than 4096)
 * Then DRAM is 32K occupies the next address in memory just above ROM
-    * 0 F F F is 1 0 0 0 and because that is 32K long if we calculate one thousand in
-      hexadecimal plus 32,000 in hexadecimal we’ll end up with this address here: 8 F F F h.
+    * 0FFF is 1000 and because that is 32K long if we calculate one thousand in
+      hexadecimal plus 32,000 in hexadecimal we’ll end up with this address here: 8FFFh.
 * I/O devices into the memory.
     * IO devices can map into memory addresses,
     * they’re separated by relatively small amounts here and they only occupy a few locations.
     * What does it mean small memory?
         * What we mean is that internally, inside this IO
-          device, let’s suppose this is a USB interface for example, there will be a number of registers,
+          device, let’s suppose this is a USB interface for example, **there will be a number of registers,
           effectively storage locations where values can be placed to configure the device, or perhaps
-          to read values to get information about the status of the device - these are known as registers.
+          to read values to get information about the status of the device** - these are known as **registers**.
         * They will appear like memory locations, but there are only a very few memory locations in a
           typical IO device, so for example in this case I reserved eight locations for IO device 1, F000h
           to F007h, that’s eight locations.
