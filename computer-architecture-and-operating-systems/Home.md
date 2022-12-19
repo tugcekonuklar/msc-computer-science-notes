@@ -1508,12 +1508,12 @@ HALT
 
 * **Question: Transfer Rate and efficiency Calculation**
     * A bus system has a protocol overhead of 5 cycles, a bus width of 32 bits, and a bus frequency of 200 MHz.
-        * a. Calculate the data transfer rate for single transactions
-        * b. Calculate the data transfer efficiency with block sizes of 16 bytes.
+        * a. Calculate the **data transfer rate for single transactions**
+        * b. Calculate the **data transfer efficiency** with block sizes of 16 bytes.
 * **Answer:**
 * a. For a single transaction, the time required to transfer 4 bytes (32 bits) is 6 clock cycles, (5 overhead, and one
   data).
-    * Therefore we can transfer 4/6 = 0.66 bytes per clock cycle.
+    * Therefore, we can transfer 4/6 = 0.66 bytes per clock cycle.
     * At 200 million clocks per second, the data rate is 133 Million bytes per second.
 * b. For a 16 byte transaction, this requires 4 data transfers (4 x 32 bits). So the time required to transfer 16 bytes
   is 5+4 = 9 clock cycles. Or 16/9 bytes per clock = 1.77 bytes per clock cycle.
