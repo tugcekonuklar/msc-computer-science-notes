@@ -3324,7 +3324,7 @@ HALT
   product. Therefore, in a system that has only one HDD of that type, there is a 1% probability that the system will
   fail within 10,000 hours.
 * Resilience via redundancy
-* <img src="./img/120.png" alt="alt text" width="500" height="300">
+* <img src="./img/120.png" alt="alt text" width="750" height="500">
 
 ## UPS (Uninterruptible Power Supply) systems
 
