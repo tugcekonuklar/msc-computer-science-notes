@@ -1454,7 +1454,7 @@ HALT
         * So RD and WR indicate if the slave device is being read from or written to.
 
 ### PCI: a very successful Bus Standard
-
+## IMPORTANT!!
 * Some of the key features of the original PCI bus standard are as follows:
     * 33 MHz Bus Frequency,
     * 32 bit Data Width,
