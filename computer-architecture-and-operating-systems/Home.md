@@ -621,7 +621,7 @@ HALT
 * Ambdal's Law deals with the potential speedup of a program using multiple processors compared to a single processor.
 * Amdahl’s Law predicts the maximum speedup possible in a system and where some proportion of its activity P is
   optimised
-* Amdahl's Law states that if a P percentage of a system is optimised, the maximum possible speedup is 1/(1-P). If P=0,
+* Amdahl's Law states that if a P percentage of a system is optimised, **the maximum possible speedup is 1/(1-P)**. If P=0,
   this gives 1, which means no change in speed. P=0.5 gives 2, so, in the best case, if the improved half diminishes to
   0, this gives us 2 times the initial speed but can't exceed it.
     * the speedup using a parallel processor with N processors that fully exploits the parallel portion of the program
@@ -2621,7 +2621,7 @@ HALT
     * However, when there are multiple tasks communicating with each other, agreeing on pipe names or hard coding
       becomes a problem.
     * <img src="./img/99.png" alt="alt text" width="500" height="300">
-* **Message queues (IPS - inter-process communication):** As pipes allow communication between 2 points, this is
+* **Message queues (IPC - inter-process communication):** As pipes allow communication between 2 points, this is
   limiting when a process wants to receive
   messages from multiple processes. The producer-consumer idea suits such situations better.
     * A message is normally made up of a short header and the payload, where the header determines what kind of message
