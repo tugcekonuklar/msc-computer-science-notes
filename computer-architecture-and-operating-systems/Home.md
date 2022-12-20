@@ -1898,7 +1898,7 @@ HALT
     * **Best case:** No seek + 40 us(micro second) = 40 us. 4 KB / 40 us = 97.7 MB/s
         * For 3KB => 73.24 MB/s
     * **Avg access time** (13.14 + 0.04)/2 = 6.59ms , 0.59 MB/s
-      * 3KB => 73,2 MB/s
+        * 3KB => 73,2 MB/s
     * Performance estimates:
     * <img src="./img/82.png" alt="alt text" width="500" height="300">
     * <img src="./img/83.png" alt="alt text" width="500" height="300">
@@ -1998,7 +1998,8 @@ HALT
       amount of time.
     * If the number of nodes is small, then the latency due to having to wait before starting a transfer is quite low.
       As the node count increases, so does the chances of collisions and the duration of latency.
-* **Network protocol efficiency** is **Payload/(Payload + Protocol Overhead)**. Payload + Protocol Overhead is called the
+* **Network protocol efficiency** is **Payload/(Payload + Protocol Overhead)**. Payload + Protocol Overhead is called
+  the
   **Packet Size**.
 
 # WEEK 4
@@ -2467,20 +2468,20 @@ HALT
     * Each CPU individualy gives the impression of paralellism (kind of pseudo-parallel fashion).
     * Nonetheless, it allows resource utilisation to be much more efficient.
     * The CPU is only doing one thing at a time and therefore that coordination and that access and that sharing of data
-      is much more coherent
-      and much easier to manage
+      is much more coherent and much easier to manage
     * Hyper-threading technology converts a single physical processor into two virtual processors, in turn, you get
       better processor performance since it’s improving the CPU’s efficiency, so it is improving the CPU’s efficiency
-      not thread efficiency. Hyperthreading processes quicker, but the efficiency or inefficiency remains the same.
+      not thread efficiency.
+    * Hyperthreading processes quicker, but the efficiency or inefficiency remains the same.
 * Disadvantages:
     * unipreccessor multithread system, there is a single processor and a single memory, so all of the memory is
       accessible to one processor and that is exactly the ideal situation. There are no blockages there, no
       complications in accessing that data
-    * multiprocessor system, ll of these CPUs are attempting to share information where some of that information is in
+    * multiprocessor system, all of these CPUs are attempting to share information where some of that information is in
       each of the individual CPUs’ memories.
-    * “shared memory” is a way to maje data to accessable for other CPUs
-    * if it’s a dedicated multiprocessor system where all the CPUs can have access to a memory but then you have
-      potential congestion and conflicts in terms of CPUs wanting to access the data simultaneously
+    * **“shared memory”** is a way to make data to accessable for other CPUs
+      * if it’s a dedicated multiprocessor system where all the CPUs can have access to a memory but then you have
+        potential congestion and conflicts in terms of CPUs wanting to access the data simultaneously
     * <img src="./img/136.png" alt="alt text" width="500" height="300">
 * <img src="./img/137.png" alt="alt text" width="500" height="300">
 
