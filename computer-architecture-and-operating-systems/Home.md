@@ -1998,7 +1998,7 @@ HALT
       amount of time.
     * If the number of nodes is small, then the latency due to having to wait before starting a transfer is quite low.
       As the node count increases, so does the chances of collisions and the duration of latency.
-* Network protocol efficiency is **Payload/(Payload + Protocol Overhead)**. Payload + Protocol Overhead is called the
+* **Network protocol efficiency** is **Payload/(Payload + Protocol Overhead)**. Payload + Protocol Overhead is called the
   **Packet Size**.
 
 # WEEK 4
@@ -2021,13 +2021,13 @@ HALT
 * After powers on BIOS chip is present therefore CPU knows what to do initial state .
 * DPU is starting to read the instructions from the BIOS ROM is to check what resources are available in
   the system
-* There are some important steps:
-* First: Memory Check
+* **There are some important steps:**
+* **First: Memory Check**
     * CPU makes Memory check to be sure its existence and enough storage
     * it will typically go through a simple procedure, reading and writing to that memory, repetitively across the
       entire address range in order to detect that the memory is actually functioning properly and how much memory
       is available.
-* Second: read Boot Sector from Hard disk
+* **Second: read Boot Sector from Hard disk**
     * The next stage involves the hard disk unit via an I/O interface
     * the CPU knows that it needs to find a bootable device and one example of that is the hard
       disk. If it's been formatted correctly as a bootable disk unit, the CPU should theoretically be able
@@ -2043,12 +2043,12 @@ HALT
         * That might also tell us, for example, where the operating system files are or what the name of the file is on
           the disk, and then the operating system could potentially be loaded from that point forward
         * <img src="./img/86.png" alt="alt text" width="500" height="300">
-* Third: loading Kernel to Memory
+* **Third: loading Kernel to Memory**
     * After reading boot sector CPU knows which files to upload to memory
     * And it will proceed at this point to load the operating system and in particular
     * it loads the essential part of the operating system into memory called the operating system kernel.
     * This kernel tells the CPU how to utilise all of the remaining devices in the system in a way that is consistent.
-* Forth: IO devices access
+* **Forth: IO devices access**
     * after load the content of operating system files to memory, CPU can now access
       the additional interfaces, it knows how to access things like computers, screens, keyboards and
       any other devices that may be plugged into the system
@@ -2263,7 +2263,7 @@ HALT
 
 ## Tasks and Process
 
-* Processes are programs that run under the control of the operating system
+* **Processes** are programs that run under the control of the operating system
     * When a program begins, the OS allocates it a memory space that is private to that process.
     * It also adds the program to a task-list, to allow it to be given regular intervals of CPU time, time slice, to
       perform its activities.
@@ -2421,10 +2421,10 @@ HALT
 
 ## From scalar to superscalar
 
-* Executing one instruction at a time is called scalar operation and has already been discussed to be limiting.
+* Executing one instruction at a time is called **scalar operation** and has already been discussed to be limiting.
 * In a more advanced model, Instruction Level Parallelism, ILP, can be used where the independent instructions are
   executed in parallel but dependent instructions still have to wait for each other.
-    * The ability to start multiple instructions in parallel is known as the superscalar execution.
+    * The ability to start multiple instructions in parallel is known as the **superscalar execution**.
     * However, ILP has its limitations too. Even with clever algorithms and optimisers, in a short sequence, it's rare
       to execute 4 instructions in parallel. For longer sequences, this usually is down to 2 or 3 instructions per clock
       cycle, IPC - inter-process communication .
@@ -2481,6 +2481,8 @@ HALT
     * “shared memory” is a way to maje data to accessable for other CPUs
     * if it’s a dedicated multiprocessor system where all the CPUs can have access to a memory but then you have
       potential congestion and conflicts in terms of CPUs wanting to access the data simultaneously
+    * <img src="./img/136.png" alt="alt text" width="500" height="300">
+* <img src="./img/137.png" alt="alt text" width="500" height="300">
 
 # How programmers use threads
 
