@@ -319,7 +319,7 @@ TBC
         * And 100 dolar CPU price plus makes this CPU for one year is **131.54 dollars**.
 
 * This calculation is important to predict **cost-effectiveness** of a CPU
-* ### **IMPORTANT !!**
+* ### **IMPORTANT!!**
 * **Another Example :**
     * <img src="./img/131.png" alt="alt text" width="500" height="300">
     * **Most processing per hour?**
