@@ -621,7 +621,8 @@ HALT
 * Ambdal's Law deals with the potential speedup of a program using multiple processors compared to a single processor.
 * Amdahl’s Law predicts the maximum speedup possible in a system and where some proportion of its activity P is
   optimised
-* Amdahl's Law states that if a P percentage of a system is optimised, **the maximum possible speedup is 1/(1-P)**. If P=0,
+* Amdahl's Law states that if a P percentage of a system is optimised, **the maximum possible speedup is 1/(1-P)**. If
+  P=0,
   this gives 1, which means no change in speed. P=0.5 gives 2, so, in the best case, if the improved half diminishes to
   0, this gives us 2 times the initial speed but can't exceed it.
     * the speedup using a parallel processor with N processors that fully exploits the parallel portion of the program
@@ -1454,7 +1455,9 @@ HALT
         * So RD and WR indicate if the slave device is being read from or written to.
 
 ### PCI: a very successful Bus Standard
+
 ## IMPORTANT!!
+
 * Some of the key features of the original PCI bus standard are as follows:
     * 33 MHz Bus Frequency,
     * 32 bit Data Width,
@@ -2480,8 +2483,8 @@ HALT
     * multiprocessor system, all of these CPUs are attempting to share information where some of that information is in
       each of the individual CPUs’ memories.
     * **“shared memory”** is a way to make data to accessable for other CPUs
-      * if it’s a dedicated multiprocessor system where all the CPUs can have access to a memory but then you have
-        potential congestion and conflicts in terms of CPUs wanting to access the data simultaneously
+        * if it’s a dedicated multiprocessor system where all the CPUs can have access to a memory but then you have
+          potential congestion and conflicts in terms of CPUs wanting to access the data simultaneously
     * <img src="./img/136.png" alt="alt text" width="500" height="300">
 * <img src="./img/137.png" alt="alt text" width="500" height="300">
 
@@ -2854,6 +2857,24 @@ HALT
       = 1 Byte, instead of 4.
     * To further optimise things, more frequent letters are assigned single digit codes and less frequent ones use more
       digits.
+    * For example:Suppose instead of bytes, we have letters of the alphabet A to Z. Now consider that with 26 letters,
+      and each letter being assigned a code, it will require two digits to represent each letter, (A being 01, B being
+      02, up to Z being 26). So the word ’EDEN’ could be represented by 8 digits:
+      E (05) D (04) E (05) N (14) = 05,04,05,14
+    * So far, all we have done is assigned an equally sized value to each char- acter, and this offers no benefit. But
+      now suppose that we observe that certain letters occur much more frequently than others in any piece of text, such
+      that E,D,O,S,C etc are very frequent, whilst N,B,X,Z,K etc are much less frequent. In a particular Huffman scheme,
+      the most frequent letters might require only a single digit, less frequent letters require two digits, and the
+      least frequent letters require three, four, perhaps more digits. Consequently we might find that:
+      E might have the code 1,
+      D might have the code 3,
+      N might have the code 109.
+      Now we can represent our word as follows:
+      E (1) D (3) E (1) N (109) = 1,3,1,109
+    * new encoding requires only 6 digits, a saving of 25%.
+    * Compression Ratio :  Using this formula we find that CR = 8/6 = 1.33.
+        * Any compression ratio greater than 1.0 represents a reduction in file size.
+    * <img src="./img/138.png" alt="alt text" width="500" height="300">
 * For automatically compressed filesystems, the factors that need to be taken into consideration are
     * Compressing a file requires CPU effort,
     * CPU effort uses power and time,
