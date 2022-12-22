@@ -1627,8 +1627,8 @@ HALT
   from or
   write to them.
 * Memory-mapped IO devices are serviced in 2 ways
-    * **Polling** Either the CPU actively polls the devices if new information is ready or the device is ready to accept
-      new data
+    * **Poolling** Either the CPU actively polls the devices if new information is ready or the device is ready to
+      accept new data
     * Or **Interrupts**, the device signals the CPU by using some special pins to let it know that it's ready.
         * With the interrupts, the CPU doesn't waste any time checking the IO device.
 * **CPU driven data transfer :**
