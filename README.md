@@ -6,8 +6,8 @@ You can reach also from [Github Page](https://tugcekonuklar.github.io/msc-comput
 
 ## Lessons
 
-* [Algorithm And Data Structure](/algorithm-and-data-structure/Home.md)
-* [Artificial Intelligence and Machine Learnings](/artificial_intelligence_and_machine_learnings/Home.md)
+* [Algorithm And Data Structure (in progress)](/algorithm-and-data-structure/Home.md)
+* [Artificial Intelligence and Machine Learnings (in progress)](/artificial_intelligence_and_machine_learnings/Home.md)
 * [Software Engineering](/software-engineering/Home.md)
 * [Big Data Analytics](/big-data-analytics/Home.md)
 * [Computer And Mobile Networks](/computer-and-mobile-networks/Home.md)
