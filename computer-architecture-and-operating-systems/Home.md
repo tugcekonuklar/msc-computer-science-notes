@@ -1,4 +1,4 @@
-## MSC Algorithm and Data Structure Lesson Notes
+## MSC Computer Architecture And Operating Systems
 
 This module is for MSC Algorithm and Data Structure lesson notes.
 
