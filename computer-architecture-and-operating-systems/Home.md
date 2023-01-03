@@ -319,7 +319,6 @@ TBC
         * And 100 dolar CPU price plus makes this CPU for one year is **131.54 dollars**.
 
 * This calculation is important to predict **cost-effectiveness** of a CPU
-* ### **IMPORTANT!!**
 * **Another Example :**
     * <img src="./img/131.png" alt="alt text" width="500" height="300">
     * **Most processing per hour?**
@@ -1122,8 +1121,6 @@ HALT
       spatial locality so that as many words as possible are
       accessed from a single L1 cache line.
 
-# IMPORTANT!!
-
 ## QUIZ - WEEK 2
 
 * **Question 1:** Calculate the number of addressable locations for a memory device with the following total number of
@@ -1456,8 +1453,6 @@ HALT
 
 ### PCI: a very successful Bus Standard
 
-## IMPORTANT!!
-
 * Some of the key features of the original PCI bus standard are as follows:
     * 33 MHz Bus Frequency,
     * 32 bit Data Width,
@@ -1506,8 +1501,6 @@ HALT
           fairness, and ability to respond quickly to events. it means the bus is locked by one device for longer and
           longer periods. This means that other devices have to wait longer to start their turn at using the bus, and
           this is often not ideal for performance of some services where timing is important.
-
-## **IMPORTANT!!!**
 
 * **Question: Transfer Rate and efficiency Calculation**
     * A bus system has a protocol overhead of 5 cycles, a bus width of 32 bits, and a bus frequency of 200 MHz.
@@ -1734,8 +1727,6 @@ HALT
 * Steps 5, 6, 7: Correspond to the time it takes for an I/O device to read the data from the bus. This also takes 3
   handshake times.
 
-# IMPORTANT!!
-
 # Advanced Bus exercises
 
 * A few things to consider before approaching the questions:
@@ -1840,7 +1831,6 @@ HALT
 
 ## Disk Performance Concepts
 
-* **IMPORTANT!!**
 * Data Rate Example:
 * **Data rate :**
     * **the amount of data transmitted** during a specified time period between two points **/** **the speed at which
