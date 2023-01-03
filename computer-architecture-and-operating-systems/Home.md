@@ -2,7 +2,7 @@
 
 This module is for MSC Algorithm and Data Structure lesson notes.
 
-TBC
+Special thanks to H. Ozgur Cagdas for his great detailed notes.
 
 ## Overview
 
