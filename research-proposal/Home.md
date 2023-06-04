@@ -15,6 +15,63 @@ This module is for MSC RESEARCH PROPOSAL lesson notes.
     * Industry-based
     * Problem solving
 
+## The research process
+
+* identify four common views of the research process: sequential, generalised, circulatory and evolutionary:
+* Sequential:
+    * Steps:
+        1. Identify the broad area of study.
+        2. Select a research topic.
+        3. Decide on an approach.
+        4. Plan how you will perform the research.
+        5. Gather data and information.
+        6. Analyse and interpret these data.
+        7. Present the results and findings.
+    * Greenfield breaks the research process into four steps:
+        * Review the field – i.e., perform a literature survey.
+        * Build a theory – based on your understanding and interpretations of the field.
+        * Test the theory – does it work?
+        * Reflect and integrate – i.e., update your ideas based on your ‘tests’ and contribute your newfound knowledge
+          to others.
+* Generalised: The generalised research process is identical to the sequential process in that a defined sequence of
+  activities is performed one after the other.
+* Circulatory. The circulatory approach recognises that any research is really only part of a continuous cycle of
+  discovery and investigation. Quite often, research will un- cover more questions than it answers and, hence, the
+  research process can begin again by attempting to answer these newfound questions.
+* Evolutionary. The evolutionary concept takes the circulatory interpretation one step further and recognises that
+  research must evolve and change over time, not necessar- ily following a defined circulatory pattern or repeating the
+  same forms of analysis and interpretation that were performed before.
+
+* Orna and Stevens (loc. cit.) identify the search definition as an attempt to answer the following questions:
+    * ‘What am I looking for?’
+    * ‘Why am I looking for it?’
+    * ‘How shall I set about it?’
+    * ‘Where shall I start looking?’
+
+## Intellectual discovery
+
+* When you are looking for questions to answer and answers to those questions, you will often follow a complex process
+  of inductive and deductive reasoning.
+* Inductive reasoning.
+    * You start with your observations of the world and come to general conclusions about it. In other words, you build
+      models and theories based on your interpretation of the world. Clearly, this interpretation will depend on the
+      data and information you can draw from the world, the subject/problem you are studying and, importantly, what you
+      already know and believe.
+    * The knowledge that you can obtain from what you are studying is referred to as epistemology (Cornford and
+      Smithson, 2006: 61). You can either draw general con- clusions from what you observe and from what you are
+      studying and apply them to other things (positivism), or you can only induce knowledge unique to yourself and the
+      particular situation under study (anti-positivism).
+* Deductive reasoning.
+    * You start with your knowledge and understanding of the world and predict likely observations within it, even
+      though you might not have encountered them before.
+      Deductive reasoning is affected by your theory of reality, your own personal understanding of the world and your
+      underlying assumptions about what you are investigating. This is referred to as ontology. Different people might
+      deduce different things as their understanding differs from your own and they see things in different ways.
+* If you are having difficulty solving a problem, two interesting methods of intellectual discovery listed by
+  Greenfield (1996: 5) that might help are:
+    * ‘The method of Pappus: assume the problem is solved and calculate backwards’
+    * ‘The method of Terullus: assume a solution is impossible and try to prove why’
+
 ## Fields of study
 
 * Research can be classified from three different perspectives; its field, its approach and its nature.
@@ -188,6 +245,7 @@ We finish this section with a few tips on undertaking a literature search:
       interested and how these topics link together.
 
 ## Critical Reading
+
 * The main point of critical evaluation is that you **think** about what you are reading.
 * Critical reading involves examining the evidence or arguments presented, identifying what may
   have influenced the evidence or arguments, understanding the limitations of a study, the design,
@@ -288,4 +346,47 @@ We finish this section with a few tips on undertaking a literature search:
       you have more questions?
     * Review again and answer and notes does it make sence
     * Look at your questions later next days and try to recall
+
+## Writing Literature review
+
+* identify the purpose of a literature review as, amongst other things:
+    * to refine your research question and objectives;
+    * to highlight research possibilities that have either been explicitly identified by other authors or have possibly
+      been overlooked in the past;
+    * to avoid repeating the work of others;
+    * to identify research methods and strategies that may be usefully applied in your own research.
+* There are no specific, infallible rules you can apply to write the perfect literature review.
+    * Saunders et al (2007: 61) identify three common ways for presenting literature reviews:
+        * as a single chapter;
+        * as a series of chapters;
+        * subsumed within the report as various issues are tackled.
+* When writing your literature review remember what it is **NOT**:
+    * It is not a report that lists all the papers and books you have read whether they are relevant or not. You must be
+      selective about that to which you refer.
+    * It must not dedicate a page or paragraph to each article in turn merely reporting on their content. Haywood and
+      Wragg (1982: 2) refer to this as ‘the furniture sales cat- alogue, in which everything merits a one-paragraph
+      entry no matter how skilfully it has been conducted’ (see Figure 5.6).
+* Example – An artificial neural network approach to rainfall-runoff modelling
+    * Notice how this introduction/literature review begins by justifying the content of the paper with reference to a
+      WMO report.
+    * It continues by showing how the subject area has evolved over the years.
+    * Literature reviews often employ this kind of approach – focusing in on the topic of concern through a
+      chronological discussion of
+      literature in the field.
+    * This approach generally leads to a natural focus on the topic of concern.
+    * The review then moves on to explain a little bit more about the area of study, setting the scene for the reader,
+      before focussing
+      more precisely and discussing some recent developments in research within the field.
+    * The literature review concludes by highlighting current limitations in the field, once again justifying the
+      relevance and importance of the paper by showing how it aims to fill these gaps.
+* Literature review should cover the following four points:
+    * Arrange relevant literature in the field.
+    * Critically evaluate past and current research in the field.
+    * Identify your project within a wider context.
+    * Justify the existence of your project by identifying a gap in the field and showing how your project will fill
+      that gap (particularly important at research degree level).
+
+# WEEK 3
+
+# Research design
 
