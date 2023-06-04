@@ -364,7 +364,7 @@ We finish this section with a few tips on undertaking a literature search:
     * It is not a report that lists all the papers and books you have read whether they are relevant or not. You must be
       selective about that to which you refer.
     * It must not dedicate a page or paragraph to each article in turn merely reporting on their content. Haywood and
-      Wragg (1982: 2) refer to this as ‘the furniture sales cat- alogue, in which everything merits a one-paragraph
+      Wragg (1982: 2) refer to this as ‘the furniture sales catalogue, in which everything merits a one-paragraph
       entry no matter how skilfully it has been conducted’ (see Figure 5.6).
 * Example – An artificial neural network approach to rainfall-runoff modelling
     * Notice how this introduction/literature review begins by justifying the content of the paper with reference to a
