@@ -390,3 +390,106 @@ We finish this section with a few tips on undertaking a literature search:
 
 # Research design
 
+* Research methods:
+* Experiments:
+    * Characteristics:
+        - Controlled manipulation of variables.
+        - Random assignment of participants to groups.
+        - Cause-and-effect relationships can be established.
+    * Advantages:
+        - High level of control over variables.
+        - Can establish causal relationships.
+        - Replication and generalization of findings are possible.
+    * Disadvantages:
+
+    - Artificial laboratory setting may lack ecological validity.
+        - Ethical concerns with certain experimental manipulations.
+        - Time-consuming and expensive to conduct.
+* Quasi-experiments:
+    * Characteristics:
+        - Similar to experiments but lack random assignment of participants.
+    * Advantages:
+        - Allows studying variables that cannot be randomly assigned.
+        - Can provide insights into real-world contexts.
+        - Less time-consuming and costly compared to experiments.
+    * Disadvantages:
+        - Causal relationships are harder to establish.
+        - Selection bias may affect results.
+        - Limited control over extraneous variables.
+* Correlational studies:
+    * Characteristics:
+        - Examines the relationship between variables without manipulation.
+    * Advantages:
+        - Can identify relationships between variables.
+        - Allows prediction of one variable based on another.
+        - Useful for studying naturally occurring phenomena.
+    * Disadvantages:
+        - Cannot establish causation.
+        - Directionality and third-variable problems.
+        - Difficulty in determining temporal precedence.
+* Surveys, tests, and questionnaires:
+    * Characteristics:
+        - Collects data through self-report measures.
+    * Advantages:
+        - Efficient way to gather large amounts of data.
+        - Can explore attitudes, beliefs, and behaviors.
+        - Allows for standardized comparisons.
+    * Disadvantages:
+        - Response bias and social desirability effects.
+        - Limited depth of understanding compared to qualitative methods.
+        - Reliance on participants' accuracy and honesty.
+* Case studies:
+    * Characteristics:
+        - In-depth investigation of a single individual, group, or phenomenon.
+    * Advantages:
+        - Provides rich and detailed qualitative data.
+        - Allows exploration of complex and unique cases.
+        - Useful for generating hypotheses and theory building.
+    * Disadvantages:
+        - Limited generalizability.
+        - Potential for researcher bias and subjectivity.
+        - Difficult to establish causality and control extraneous variables.
+* Observational research:
+    * Characteristics:
+        - Systematic observation and recording of behaviors in natural settings.
+    * Advantages:
+        - Provides insights into real-life behaviors.
+        - Can study phenomena that cannot be manipulated.
+        - Allows for the examination of social interactions.
+    * Disadvantages:
+        - Observer bias and subjectivity.
+        - Limited control over variables.
+        - Ethical concerns when observing private behaviors.
+* Longitudinal research:
+    * Characteristics:
+        - Study of the same participants over an extended period.
+    * Advantages:
+        - Captures changes and development over time.
+        - Provides insights into stability and individual differences.
+        - Allows examination of cause-and-effect relationships.
+    * Disadvantages:
+        - Time-consuming and resource-intensive.
+        - Attrition and participant dropout.
+        - Potential for practice effects and measurement biases.
+* Archival research:
+    * Characteristics:
+        - Utilizes existing records and data for analysis.
+    * Advantages:
+        - Cost-effective and time-efficient.
+        - Provides historical or large-scale data.
+        - Can study long-term trends and patterns.
+    * Disadvantages:
+        - Limited control over data quality and validity.
+        - Biased or incomplete records.
+        - Potential for confounding variables and limited variables of interest.
+* Qualitative research:
+    * Characteristics:
+        - Focuses on understanding meanings, experiences, and social phenomena.
+    * Advantages:
+        - In-depth exploration of complex social processes.
+        - Captures subjective experiences and perspectives.
+        - Generates rich and detailed data.
+    * Disadvantages:
+        - Limited generalizability.
+        - Potential for researcher bias and subjectivity.
+        - Time-consuming data collection and analysis.
