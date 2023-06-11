@@ -679,3 +679,158 @@ We finish this section with a few tips on undertaking a literature search:
       women.
     * There is no relationship between ancillary support services and family support systems for non- traditional-aged
       college women.
+
+## Preparing a project proposal
+
+### Introduction
+
+* When preparing your proposal, follow these two golden rules:
+    * Follow any guidelines precisely. Most institutions require specific information; for example, project title,
+      project objectives, resource requirements and so forth. Failure to complete these sections may mean your proposal
+      is rejected without even being read, for example, because you failed to get an academic signature or did not
+      complete an essential section properly.
+    * Proofread thoroughly and get someone else to check it. Any errors or omissions will appear sloppy and put your
+      commitment and proposed project in a bad light.
+
+### Implicit content
+
+* In general, your proposal should address five principal areas.
+    * **Introduction to the subject area**. This will provide the reader with an understanding of the field in which
+      your project lies and an idea of where and how your project fits into this field.
+        * This aspect will set your project into an overall context and will show that it is bound within a recognised
+          field – not an idea that you’ve had that makes no sense and has no recognisable foundation.
+    * **Current research in the field.** This will emphasise that your project is not based in a field that is
+      out-of-date
+      and that you are aware of current issues within that field of study. It will also imply that you have done some
+      preliminary research into the topic area and are not approaching your project with little background or
+      motivation.
+    * **Identify a gap.** You should be able to identify some aspect of the field that requires further investigation or
+      study.
+    * **Identify how your work fills the gap.** Having identified a gap in the field, your proposal should show how your
+      project intends to fill this gap, or at least go some way to investigating it further. This will emphasise the
+      contribution your project will make.
+    * **Identify risks and solutions.** It is also useful in a project proposal to highlight any risks your project
+      might face, and ways you envisage dealing with them.
+        * If you do not identify potential risks to your project, your proposal’s assessor will not know whether you
+          have considered the risks.
+
+### Explicit sections
+
+* project proposals should include.
+* If you receive no guidance as to the content of your project proposal, include, at
+  the very least, the first three of the following sections in your document.
+
+#### Title
+
+* This should be clear and concise. Try to avoid using acronyms if possible.
+* Examples of clear and concise titles include:
+    * ‘Evaluation of soft systems methods as analysis tools in small software houses’;
+    * ‘Artificial neural networks for software development cost estimation’;
+    * ‘Development of process models for building graphical software tools’.
+
+#### Aims and objectives
+
+* **Aims** identify at the highest level what it is you hope to achieve with your project – what you intend to achieve
+  overall.
+* **Objectives**, on the other hand, identify specific, measurable achievements that build towards the ultimate aim of
+  your project. They are more precise than aims as they are ‘quantitative and qualitative measures by which completion
+  of the project will be judged’ (Turner, 1993: 108).
+* You will use your aims and objectives to assess your project at the end. For example, did you really achieve all that
+  you set out to do? Because of this, aims and objectives should be clear and unambiguous
+* Example:
+    * Aim:
+        * Evaluate artificial intelligence techniques for modelling weather patterns.
+    * Objectives:
+        * Identify and evaluate existing weather pattern modelling techniques.
+        * Identify artificial intelligence approaches suitable for modelling weather patterns.
+        * Design and develop at least three artificial intelligent systems for modelling weather patterns.
+        * Compare and contrast the developed systems with one another and existing approaches to modelling weather
+          patterns.
+
+#### Expected outcomes/deliverables
+
+* This section of your proposal will identify precisely what you intend to submit at the end of the project.
+* It may well identify a written report that covers particular points and makes certain recommendations.
+* It can describe programs and user documentation and it might include models and algorithms that will be developed to
+  address specific problems. You might also be delivering a functional specification for a piece of software, a
+  prototype, or a test plan.
+
+#### Keywords
+
+* Keywords are used to identify the topic areas your project draws on
+* People use keywords to see at a glance what subjects your project relates to which might not be clear from your
+  project’s title alone.
+
+#### Introduction/background/overview
+
+* This section provides an overview of your project and introduces the background work to it.
+* In this section you might wish to include reasons why you feel you are a suitable candidate for performing the
+  project (why you feel you can do
+  it, what skills are required and how you fulfil these requirements), why the topic interests you specifically, and why
+  you chose the project in the first place.
+* This section might also include an introduction to the industry or organisation being investigated or evaluated.
+  Overall, this section will set the
+  scene for the project.
+
+#### Related research
+
+* This section identifies other work, publications and research related to your topic.
+* It will demonstrate that your project does not exist in an academic vacuum but relates to other research topics and
+  fields of current interest.
+* Related research can also help demonstrate your understanding of your topic area, showing the reader that you are
+  aware of what is currently happening in the field and are conversant with other topics that impinge upon it.
+
+#### Type of project
+
+* You might wish to identify the type of project you are undertaking, for example, research-based, development,
+  evaluation, etc.
+* However, make sure these terms are recognised and provide more detail if appropriate.
+
+#### Research questions and hypotheses
+
+* Your project proposal may also include the research question you intend to investigate and, hopefully, answer to some
+  extent within your project.
+* While research questions on their own are ‘open-ended opportunities to satisfy one’s curiosity’ (Rudestam and Newton,
+  2005: 74), they are often linked closely with one or more hypotheses. A hypothesis is ‘a tentative proposition which
+  is subject to verification through subsequent investigation’
+* Although you do not have to define hypotheses alongside a research question, they do present potential ‘answers’ to
+  the question(s) you have posed and provide definitive statements that will focus your research.
+
+#### Methods
+
+* This section describes the research and project methods you will use in performing your project. This section should
+  not identify methods that you might be investigating as part of your project, but those methods you are actually
+  using.
+* It might include development methods that you are using as part of a systems development (for example, SSADM)
+* Research methods would include those introduced in Chapter 2, such as action research, case study, survey and
+  experiment.
+
+#### Resource requirements
+
+* You might need to identify any resource requirements for your project, such as hard- ware, software and access to
+  particular computers
+* If you have access to particular resources, this fact should be pointed out in this section.
+* Note, if you are relying on an external source (a company, for example) for computer access, hardware, software, case
+  studies and the like, it will be your responsibility to en- sure these are available and to bear any risk if the
+  resources fail.
+
+#### Project plan
+
+* This emphasises that the project is ‘doable’ in the time allowed; it shows that you have some idea of the work
+* involved and you have a clear pathway to follow in order to complete that work. The best way to present a project plan
+  is by using a visual representation such as a **Gantt chart.**
+
+### Reviewing your proposal
+
+* ![Example of Proposal](img/4.png)
+
+* A project proposal should include, at least implicitly: 
+  * background, 
+  * related research, 
+  * identification of a gap, 
+  * how your project fills that gap 
+  * and risks and contingency plans.
+* Project proposals should include, at the very least, the sections 
+  * project title, 
+  * aims and objectives 
+  * and expected outcomes/deliverables.
