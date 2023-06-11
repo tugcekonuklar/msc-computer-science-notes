@@ -493,3 +493,84 @@ We finish this section with a few tips on undertaking a literature search:
         - Limited generalizability.
         - Potential for researcher bias and subjectivity.
         - Time-consuming data collection and analysis.
+
+# Research Questions and Hypothesis
+
+* The first signpost is the purpose statement, which establishes the central intent for the study.
+* The next would be the research questions or hypotheses that narrow the purpose statement to predictions about what
+  will be learned or questions to be answered in the study
+
+## Qualitative Research Questions
+
+* These research questions assume two forms: (a) a central question and (b) associated subquestions.
+* Ask one or two central research questions.
+    * The central question is a broad question that asks for an exploration of the central phenomenon or concept in a
+      study.
+    * ask, “What is the broadest question that I can ask in the study?”
+    * In qualitative research, the intent is to explore the general, complex set of factors surrounding the central
+      phenomenon and present the broad, varied perspectives or meanings that participants hold.
+* Ask no more than five to seven subquestions in addition to your central questions
+* Relate the central question to the specific qualitative strategy of inquiry.
+* Begin the research questions with the words **what** or **how to** convey an open and emerging design.
+    * The word why often implies that the researcher is trying to explain why something occurs, and this suggests to us
+      probable cause-and-effect thinking that we associate with quantitative research and that limits the explanations
+      rather than opening them up for participant views.
+* Focus on a single phenomenon or concept. As a study develops over time, factors will emerge that may influence this
+  single phenomenon, but begin a study with a single focus to explore in great detail. We often ask, “What is the one,
+  single concept that you want to explore?”
+* Use exploratory verbs that convey the language of emerging design. These verbs tell the reader that the study will do
+  the following:
+    * Report (or reflect) the stories (e.g., narrative research)
+    * Describe the essence of the experience (e.g., phenomenology)
+    * Discover or generate (e.g., grounded theory)
+    * Seek to understand (e.g., ethnography)
+    * Explore a process (e.g., case study)
+* Use these more exploratory verbs as nondirectional rather than directional words of quantitative research, such as
+  affect, influence, impact, determine, cause, and relate.
+* Expect the research questions to evolve and change during the study in a manner consistent with the assumptions of an
+  emerging design. Often in qualitative studies, the questions are under continual review and reformulation (as in a
+  grounded theory study)
+* Use open-ended questions without reference to the literature or theory unless otherwise indicated by a qualitative
+  strategy of inquiry.
+* Specify the participants and the research site for the study if the information has not yet been given.
+* Here is a typical script for a qualitative central question:
+    * _________ (How or what?) is the _________ (“story for” for narrative research; “meaning of” the phenomenon for
+      phenomenology; “theory that explains the process of” for grounded theory; “culture-sharing pattern” for
+      ethnography; “issue” in the “case” for case study) of _________ (central phenomenon) for _________ (participants)
+      at _________ (research site).
+        * Example 1:  A Qualitative Central Question From an Ethnography
+            * Study: Mac an Ghaill and Haywood (2015) researched the changing cultural conditions inhabited by a group
+              of
+              British-born, working-class Pakistani and Bangladeshi young men over a 3-year period. They did not
+              specifically
+              construct a research question, but we would suggest it as follows:
+            * Question : What are the core beliefs related to ethnicity, religion, and cultural belonging of the group
+              of
+              British- born, working-class Pakistani and Bangladeshi young men over a 3-year time period, and how do the
+              young
+              men construct and understand their geographically specific experiences of family, schooling, and social
+              life, as
+              well as growing up and interacting within their local community in a rapidly changing Britain?
+            * This question would have begun with “what,” and it would single out the central phenomenon—core
+              beliefs—for the
+              young men. The young men are the participants in the study, and, as an ethnography, the study clearly
+              attempts to
+              examine the cultural beliefs of these young Pakistani and Bangladeshi young men. Further, from the
+              question, we
+              can see that the study is situated in Britain.
+        * Example 2: Qualitative Central Questions From a Case Study
+            * Padula and Miller (1999) conducted a multiple case study that described the experiences of women who went
+              back to school, after a time away, in a psychology doctoral program at a major midwestern research
+              university. The intent was to document the women’s experiences, providing a gendered and feminist
+              perspective for women in the literature. The authors asked three central questions that guided the
+              inquiry:
+            * Questions:
+                * How do women in a psychology doctoral program describe their decision to return to school?
+                * How do women in a psychology doctoral program describe their re-entry experiences?
+                * How does returning to graduate school change these women’s lives?
+            * These three central questions all began with the word how; they included open- ended verbs, such as
+              describe, and they focused on three aspects of the doctoral experience—returning to school, reentering,
+              and changing. They also mentioned the participants as women in a doctoral program at a midwestern research
+              university.
+
+
