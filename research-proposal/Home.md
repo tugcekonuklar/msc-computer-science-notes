@@ -58,7 +58,7 @@ This module is for MSC RESEARCH PROPOSAL lesson notes.
       data and information you can draw from the world, the subject/problem you are studying and, importantly, what you
       already know and believe.
     * The knowledge that you can obtain from what you are studying is referred to as epistemology (Cornford and
-      Smithson, 2006: 61). You can either draw general con- clusions from what you observe and from what you are
+      Smithson, 2006: 61). You can either draw general conclusions from what you observe and from what you are
       studying and apply them to other things (positivism), or you can only induce knowledge unique to yourself and the
       particular situation under study (anti-positivism).
 * Deductive reasoning.
@@ -573,4 +573,109 @@ We finish this section with a few tips on undertaking a literature search:
               and changing. They also mentioned the participants as women in a doctoral program at a midwestern research
               university.
 
+## Quantitative Research Questions and Hypotheses
 
+* Quantitative research questions inquire about the relationships among variables that the investigator seeks to know.
+* They are frequently used in social science research and especially in survey studies.
+* Quantitative hypotheses, on the other hand, are predictions the researcher makes about the expected outcomes of
+  relationships among variables.
+* They are numeric estimates of population values based on data collected from samples.
+* Testing of hypotheses employs statistical procedures in which the investigator draws inferences about the population
+  from a study sample
+* Hypotheses are used often in experiments or intervention trials in which investigators compare groups. Advisers
+  sometimes recommend their use in a formal research project, such as a dissertation or thesis, as a means of stating
+  the direction a study will take
+* Quantitve research question examples:
+    * What is the frequency and variation of scores on ____________(name the variable) for ______________(participants)
+      in the study?
+* Example focused on examining the relationship among variables:
+    * Does _________ (name the theory) explain the relationship between _________ (independent variable) and _________ (
+      dependent variable), controlling for the effects of _________ (mediating variable)?
+* Example a script for a quantitative null hypothesis might be as follows:
+    * There is no significant difference between _________ (the control and experimental groups on the independent
+      variable) on _________ (dependent variable).
+
+* Guidelines for writing good quantitative research questions and hypotheses
+    * The use of variables in research questions or hypotheses is typically limited to three basic approaches.
+        * The researcher may compare groups on an independent variable to see its impact on a dependent variable (this
+          would be an experiment or group comparisons).
+        * Alternatively, the investigator may relate one or more independent variables to one or more dependent
+          variables (this would be a survey that correlates variables).
+        * Third, the researcher may describe responses to the independent, mediating, or dependent variables (this would
+          be a descriptive study). Most quantitative research falls into one or more of these three categories.
+    * The most rigorous form of quantitative research follows from a test of a theory and the
+      specification of research questions or hypotheses that logically follow from the relationship among variables in
+      the theory.
+    * The independent and dependent variables must be measured separately and not measured on the same concept. This
+      procedure reinforces the cause-and- effect logic of quantitative research.
+    * To eliminate redundancy, write only research questions or hypotheses—not both—unless the hypotheses build on the
+      research questions. Choose the form based on tradition, recommendations from an adviser or faculty committee, or
+      whether past research indicates a prediction about outcomes.
+    * If hypotheses are used, there are two forms:
+        * **Null hypotheses:** A null hypothesis represents the traditional approach: It makes a prediction that in the
+          general
+          population, no relationship or no significant difference exists between groups on a variable. The wording is,
+          “There is no difference (or relationship)” between the groups.
+        * alternative hypotheses:
+            * **Directional :**  The investigator makes a prediction about the expected outcome,
+              basing this prediction on prior literature and studies on the topic that suggest a potential outcome.
+                * For example, the researcher may predict that “scores will be higher for Group A than for Group B” on
+                  the
+                  dependent variable or that “Group A will change more than Group B” on the outcome.
+                * These examples illustrate a directional hypothesis because an expected prediction (e.g., higher, more
+                  change) is made
+            * **Nondirectional hypothesis:** a prediction is made, but the exact form of differences (e.g., higher,
+              lower, more, less) is not specified because the researcher does not know what can be predicted from past
+              literature. Thus, the investigator might write, “There is a difference” between the two groups.
+    * Unless the study intentionally employs demographic variables as predictors, use nondemographic variables (i.e.,
+      attitudes or behaviors) as **mediating variables**. These are variables that “stand between” the independent and
+      dependent variables.
+        * Demographic variables are often used as **moderating variables** that affect the influence of the
+          independent variable on the dependent variable. Because quantitative studies attempt to verify theories,
+          demographic variables (e.g., age, income level, educational level) typically enter these studies as moderating
+          variables instead of major independent variables.
+    * Use the same pattern of word order in the questions or hypotheses to enable a reader to easily identify the major
+      variables. This calls for repeating key phrases and positioning the variables with the independent first and
+      concluding with the dependent in left-to-right order
+
+* Example 7.3 A Null Hypothesis:
+    * An investigator might examine three types of reinforcement for children with autism: (a) verbal cues, (b) a
+      reward, and (c) no reinforcement. The investigator collects behavioral measures assessing social interaction of
+      the children with their siblings. A null hypothesis might read as follows:
+    * There is no significant difference between the effects of verbal cues, rewards, and no reinforcement in terms of
+      social interaction for children with autism and their siblings.
+
+* Example 7.4 Directional Hypotheses:
+    * Mascarenhas (1989) studied the differences between types of ownership (state-owned, publicly traded, and private)
+      of firms in the offshore drilling industry. Specifically, the study explored such differences as domestic market
+      dominance, international presence, and customer orientation. The study was a controlled field study using
+      quasi-experimental procedures
+    * Hypothesis 1: Publicly traded firms will have higher growth rates than privately held firms.
+    * Hypothesis 2: Publicly traded enterprises will have a larger international scope than state-owned and privately
+      held firms.
+    * Hypothesis 3: State-owned firms will have a greater share of the domestic market than publicly traded or privately
+      held firms.
+    * Hypothesis 4: Publicly traded firms will have broader product lines than state-owned and privately held firms.
+    * Hypothesis 5: State-owned firms are more likely to have state-owned enterprises as customers overseas.
+    * Hypothesis 6: State-owned firms will have a higher customer-base stability than privately held firms.
+    * Hypothesis 7: In less visible contexts, publicly traded firms will employ more advanced technology than
+      state-owned and privately held firms. (pp. 585–588)
+
+* Example 7.5 Nondirectional and Directional Hypotheses
+    * Sometimes directional hypotheses are created to examine the relationship among variables rather than to compare
+      groups because the researcher has some evidence from past studies of the potential outcome of the study. For
+      example, Moore (2000) studied the meaning of gender identity for religious and secular Jewish and Arab women in
+      Israeli society.
+        * H1(nondirectional): Gender identity of religious and secular Arab and Jewish women are related to different
+          sociopolitical social orders that reflect the different value systems they embrace.
+        * H2(directional): Religious women with salient gender identity are less socio-politically active than secular
+          women with salient gender identities.
+        * H3(directional): The relationships among gender identity, religiosity, and social actions are weaker among
+          Arab women than among Jewish women.
+* Example 7.6 Standard Use of Language in Hypotheses
+    * There is no relationship between utilization of ancillary support services and academic persistence for
+      nontraditional-aged women college students.
+    * There is no relationship between family support systems and academic persistence for nontraditional- aged college
+      women.
+    * There is no relationship between ancillary support services and family support systems for non- traditional-aged
+      college women.
