@@ -824,13 +824,70 @@ We finish this section with a few tips on undertaking a literature search:
 
 * ![Example of Proposal](img/4.png)
 
-* A project proposal should include, at least implicitly: 
-  * background, 
-  * related research, 
-  * identification of a gap, 
-  * how your project fills that gap 
-  * and risks and contingency plans.
-* Project proposals should include, at the very least, the sections 
-  * project title, 
-  * aims and objectives 
-  * and expected outcomes/deliverables.
+* A project proposal should include, at least implicitly:
+    * background,
+    * related research,
+    * identification of a gap,
+    * how your project fills that gap
+    * and risks and contingency plans.
+* Project proposals should include, at the very least, the sections
+    * project title,
+    * aims and objectives
+    * and expected outcomes/deliverables.
+
+# Making choices
+
+## An outline of the Independent Research Project (IRP)
+
+* The IRP lasts for 16 weeks. That 16 week period is divided into 5 phases:
+    * Phase 1: definition
+    * Phase 2: planning
+    * Phase 3: initiation
+    * Phase 4: control
+    * Phase 5: closure
+
+### Making a contribution
+
+* Confirm knowledge
+* Enhance/refine knowledge
+* Challenge knowledge
+* Reject knowledge
+
+## Choosing research methods and  data collection identification
+
+* methods of data collection: quantitative, qualitative and mixed methods.
+* This is where we ask **what sort of data is needed** to answer the research question, and decide **how, where and from
+  whom**
+  this data will be collected
+
+* quantitative methods, qualitative methods and mixed methods.
+* ![RM](img/5.png)
+* quantitative methods :
+    * Experimental : Experiment . Experiments are used in order to analyse cause and effect relationships
+    * Quasi experimental : Experiment
+    * Causal comparative : Experiment
+    * Correlational : statistical analysis. it is analyse the data rather than just describing it. Use it to tell a
+      story that focuses on answering the research question.
+    * Single subject : experimental manipulation and control in order to collect structured data
+    * Meta analysis :  summarising and reviewing previous quantitative research
+    * Survey : . Now a survey is one research method that can be used for both qualitative and quantitative, and it
+      would involve the use of surveys and questionnaires.
+    * Action research :  is where you look to improve a process where you work, for a business or for an environment,
+      and again, this also could be a mixed approach of other methods
+* Qualitative methods:
+    * Content analysis : interviews, focus groups, open-ended surveys, video and documents giving you that rich data
+    * Historical: this is about looking at what's gone before, what's happened, and reviewing potentially content and so
+      on.
+    * Ethnographic : which is a study and observations of people, so we’re looking at observations with an entire
+      culture in their own environment.
+    * Action research
+
+# Planning a project or programme of research
+
+* Gantt charts or Trello.
+    * The timetable is a visual progress and planning tracker and the style is typically decided by
+      the project methodology you select to best fit your project
+* ![Project Process](img/8.png)
+* ![Project Stages](img/9.png)
+* ![Project Aims](img/10.png)
+* Objectives have to be SMART.
