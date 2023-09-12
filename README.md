@@ -16,3 +16,4 @@ You can reach also from [Github Page](https://tugcekonuklar.github.io/msc-comput
 * [Advance Programming ](/advance-programming/Home.md)
 * [Computer Architecture And Operating Systems](/computer-architecture-and-operating-systems/Home.md)
 * [Research Proposal](/research-proposal/Home.md)
+* [Independent Research Proposal](/independent-research/Home.md)
